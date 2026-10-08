@@ -50,7 +50,7 @@ Personal fields and interest choices stay blank; preparation is not submission.
 
 ## Delivered offline preparation / 离线交付
 
-[Version-pinned integration tutorial](../../../../examples/offline/README.md) reuses
+[Version-pinned integration tutorial](../../../examples/offline/README.md) reuses
 structured draft rules with the production engine and preserves unknown coverage.
 Six bilingual project preparation tasks are included in each printable planning
 checklist: pause/postpone, consented local backup care, current/backup original-document
