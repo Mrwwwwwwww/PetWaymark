@@ -130,7 +130,7 @@ class App:
                 title = tr('Unranked research candidates','未排名研究候选') if group=='candidates' else tr('Excluded paths','已排除路径')
                 results += f'<h3>{title} ({len(result[group])})</h3>'
                 for route in result[group]:
-                    results += f'<details><summary>{escape(" → ".join([names[route["segments"][0]["from_node"]]]+[names[s["to_node"]] for s in route["segments"]]))} · <code>{route["status"]}</code><br>{escape(' → '.join(products[leg['product']] for leg in route['segments']))}</summary><p class="codes">{escape(", ".join(route["reason_codes"]))}</p><ol>'
+                    results += f'<details><summary>{escape(" → ".join([names[route["segments"][0]["from_node"]]]+[names[s["to_node"]] for s in route["segments"]]))} · <code>{route["status"]}</code><br>{escape(" → ".join(products[leg["product"]] for leg in route["segments"]))}</summary><p class="codes">{escape(", ".join(route["reason_codes"]))}</p><ol>'
                     for leg in route['segments']:
                         results += f'<li>{escape(names[leg["from_node"]])} → {escape(names[leg["to_node"]])}<br><code>{escape(leg["segment_id"])}</code> · {escape(leg["mode"])} / {escape(leg["product"])}<p>'+tr('Arrival handover: exact location/window need confirmation; escort, custody, recipient and original-document custodian pending arrangement.','到达交接：精确地点／窗口待确认；陪同、保管、接收和原件保管均待安排。')+'</p>'
                         for row in leg['rule_assessment']['explanations']:
