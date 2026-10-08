@@ -22,6 +22,7 @@ python3 -m venv .venv
 .venv/bin/python -m unittest discover -s tests -v
 ```
 
+- [Roadmap / 路线图](ROADMAP.md) · [Changes / 变更](CHANGELOG.md)
 - [Rule and source contract](docs/en/rule-contract.md) · [中文](docs/zh/rule-contract.md)
 - [Draft rule inventory](data/rules/README.md) · [Week 2 source reading](docs/research/week2/README.md)
 - [Planning extensions](docs/decisions/0002-planning-extension-contract.md)
