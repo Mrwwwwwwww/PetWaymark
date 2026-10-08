@@ -1,0 +1,6 @@
+{
+  "synthetic": true,
+  "pet": {"species": "dog", "service_animal": false, "weight_kg": 15, "shoulder_height_cm": 40, "body_length_cm": 52},
+  "journey": {"origin": "CN", "destination": "CN", "purpose": "relocation", "ownership_transfer": false, "accompaniment": "owner", "pets_per_person": 1, "entry_at": "2026-11-10"},
+  "preview": {"journey_id": "synthetic.week4-owner", "plan_revision": 1, "can_drive": true}
+}

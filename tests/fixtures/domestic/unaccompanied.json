@@ -1,0 +1,6 @@
+{
+  "synthetic": true,
+  "pet": {"species": "cat", "service_animal": false, "weight_kg": 4, "shoulder_height_cm": 25, "body_length_cm": 35},
+  "journey": {"origin": "CN", "destination": "CN", "purpose": "relocation", "ownership_transfer": false, "accompaniment": "unaccompanied", "pets_per_person": 1, "entry_at": "2026-11-10"},
+  "preview": {"journey_id": "synthetic.week4-unaccompanied", "plan_revision": 1}
+}
