@@ -1,5 +1,9 @@
 # Rule and source contract 0.1.0
 
+Week 3 now implements the offline kernel and executes all nine boundary cases.
+The Week 2 descriptions below remain historical; the fixture phase label is retained
+for compatibility. See the [offline kernel guide](offline-engine.md).
+
 [中文](../zh/rule-contract.md)
 
 The four [JSON Schemas](../../packages/schema/) use Draft 2020-12: shared definitions,

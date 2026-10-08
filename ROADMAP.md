@@ -20,12 +20,17 @@ candidates and interview preparation. Actual interviews and verified feasible ro
 are zero. Week 2 delivers versioned schemas, four official source reading records,
 ten draft constraints (CN 3, US 4, EU 3), nine synthetic boundary contracts, an offline
 validator, rejection tests and CI. All rules remain drafts; all 15 candidates remain
-unsupported. There is no planner, live inventory, price feed or service connection.
-The boundary expectations are Week 3 engine targets, not executed route evaluations.
+unsupported. Week 3 now adds an offline condition/date/explanation kernel and CLI, executing all
+nine boundary contracts alongside positive, negative, missing and review-gate tests
+(42 total tests). Four official sources were reread; none was promoted to verified.
+Rule eligibility preserves unknown external carrier acceptance. There is no route
+planner, live inventory, price feed or service connection. Boundary assessments are
+executed constraint tests, not evidence of supported feasible routes.
 
 第 1 周骨架、许可、Petra 比较、15 条候选与访谈准备已完成；实际访谈和已验证可行路线均为零。
 第 2 周完成 schema、4 个官方来源查阅记录、10 条草稿（中3／美4／欧3）、9 个合成边界契约、离线校验和 CI。
-所有规则待核、候选仍未覆盖，边界预期留待第 3 周内核执行。
+所有规则待核、候选仍未覆盖。第 3 周完成离线条件／日期／解释内核与 CLI，执行全部9个边界契约，累计42项测试。
+重新查阅4份官方来源，未提升任何规则为正式复核；规则满足仍保留未知承运状态，未交付路线规划或实时接口。
 
 ## Stage A: v0.1 planning tool, weeks 1–12 / A：12 周规划工具
 
@@ -42,7 +47,7 @@ count as supported feasible routes.
 |---|---|
 | 1 | Scaffold, names, reuse decision, corridors and interview preparation; actual research outcomes reported honestly. / 骨架、名称、复用、走廊与访谈准备；如实报告实际结果。 |
 | 2 | Schema/source/license contract, 10 drafts, ≥5 boundary contracts; stable segment, role, capability evidence and external-reference conventions. / 规则来源许可、10草稿、至少5边界契约及四类扩展约定；本周已交付。 |
-| 3 | Offline condition/date/explanation kernel; scope and missing values first; execute boundary fixtures; `eligible` preserves unknown carrier acceptance. / 离线条件日期解释；先分类与缺失，再比较；执行边界案例，规则通过不改变未知运力。 |
+| 3 | Offline condition/date/explanation kernel; scope and missing values first; execute boundary fixtures; `eligible` preserves unknown carrier acceptance. Delivered; public drafts remain unsupported. / 离线条件日期解释；先分类与缺失，再比较；执行边界案例，规则通过不改变未知运力。本周已交付，公开草稿保持未覆盖。 |
 | 4 | Two CN domestic candidates and infeasible example; road/rail/air-ground preview; print handover location/window and pending role. / 中国两条国内候选及反例，道路铁路陆空预览；打印交接地点窗口与待安排角色。 |
 | 5 | CA/NY/TX overlays, distinct actual carrier products, two small-city examples and bilingual web; owner-accompanied vehicles differ from unaccompanied carriers. / 美国目标州、实际承运产品、小城案例及双语网页；同行车与独行运输分开，配送产品不能补活体段。 |
 | 6 | EU common framework, DE/FR/NL overlays, 2026 certificate versions and domestic/cross-member cases; owner-not-moving classification counterexample. / 欧盟共同框架、德法荷、证书版本及跨成员国案例；主人不移动时另分类。 |

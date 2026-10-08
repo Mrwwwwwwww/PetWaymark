@@ -1,5 +1,19 @@
 # Changelog / 变更记录
 
+## Unreleased — Week 3 / 未发布：第 3 周
+
+- Add a deterministic offline Python kernel and CLI: five expression shapes,
+  scope/classification, missing input, review/validity gates and evidence explanations.
+- Execute all nine Week 2 boundaries; add synthetic reviewed positive/negative/missing,
+  month-end/leap-day, owner timing and external acceptance checks (42 tests total).
+- Record civil-date/day-zero counting, calendar months, trusted coverage metadata and
+  explicitly unsupported hourly/timezone windows in a bilingual decision and guides.
+- Reread four official sources; ten public rules remain drafts and all candidate
+  corridors remain unsupported. No verified feasible route or release tag is added.
+
+第3周离线条件内核与CLI落地，9边界执行、累计42测试；双语日期策略与运行说明齐备。
+4官方来源重新查阅，10草稿和候选覆盖状态未变；满足规则包不证明实际运力或订舱。
+
 ## Unreleased — Week 2 / 未发布：第 2 周
 
 - Add Draft 2020-12 rule/source/boundary schemas and bilingual contract documentation.

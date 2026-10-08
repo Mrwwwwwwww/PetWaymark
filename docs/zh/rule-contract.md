@@ -1,5 +1,8 @@
 # 规则与来源契约 0.1.0
 
+第 3 周现已实现离线内核，并执行全部 9 个边界案例；以下第 2 周契约描述作为历史保留。
+fixture 的 `phase=week3_engine_target` 标签保留兼容性，执行测试见[离线内核](offline-engine.md)。
+
 [English](../en/rule-contract.md)
 
 [四份 JSON Schema](../../packages/schema/) 使用 Draft 2020-12：公共定义、规则、来源目录和合成边界案例。

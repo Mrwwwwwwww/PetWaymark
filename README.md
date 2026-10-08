@@ -6,9 +6,9 @@ An open, bilingual planning project for dog and cat journeys that combine ground
 
 PetWaymark is a purely public-benefit open-source project whose primary purpose is to help pet owners. It is free and open, with no affiliation to any commercial brand. Any compliant service provider may connect on equal terms through open interfaces. The project does not operate transport or other commercial services, accept orders or favor any provider. Planned service connections link or redirect users to providers' own channels; compliance, privacy and animal welfare remain requirements.
 
-**Week 2 data contracts — no working planner or verified travel routes yet.** The planned scope is one privately owned dog or cat, with purpose, ownership changes, accompaniment and owner travel dates assessed separately. Service animals need a separate review path.
+**Week 3 offline constraint kernel — no route planner or verified travel routes yet.** The planned scope is one privately owned dog or cat, with purpose, ownership changes, accompaniment and owner travel dates assessed separately. Service animals need a separate review path.
 
-The planned outputs are route alternatives, document timelines, itemized costs, handover checklists and explanations linked to official evidence. Unknown rules must never become permission. Intended result states are `eligible`, `conditional`, `ineligible` and `unsupported`; none confirms a booking or carrier acceptance.
+The planned outputs are route alternatives, document timelines, itemized costs, handover checklists and explanations linked to official evidence. Unknown rules must never become permission. Kernel result states are `eligible`, `conditional`, `ineligible` and `unsupported`; none confirms a booking or carrier acceptance.
 
 ## Start here
 
@@ -19,9 +19,12 @@ python3 -m venv .venv
 .venv/bin/python -m pip install -r requirements-dev.txt
 .venv/bin/python scripts/check_scaffold.py
 .venv/bin/python scripts/validate_data.py
+.venv/bin/python -m packages.cli tests/fixtures/boundaries/boundary.unknown-carrier.json --assessment-at 2026-10-08
 .venv/bin/python -m unittest discover -s tests -v
 ```
 
+- [Offline kernel and CLI](docs/en/offline-engine.md) · [中文](docs/zh/offline-engine.md)
+- [Week 3 official-source reading](docs/research/week3/README.md) · [Date and trust decision](docs/decisions/0003-offline-evaluation.md)
 - [Roadmap / 路线图](ROADMAP.md) · [Changes / 变更](CHANGELOG.md)
 - [Rule and source contract](docs/en/rule-contract.md) · [中文](docs/zh/rule-contract.md)
 - [Draft rule inventory](data/rules/README.md) · [Week 2 source reading](docs/research/week2/README.md)
