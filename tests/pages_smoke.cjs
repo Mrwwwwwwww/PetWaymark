@@ -16,10 +16,12 @@ const path = require('node:path');
    await page.selectOption('#example',{index:i});
    const result = await page.locator('#json').textContent();
    const zh = await page.locator('#checklist').textContent(); assert(zh.length>100);
+   assert.match(zh,/离线应急／改期待办/);
    await page.click('#language');
    assert.match(await page.locator('#limits').textContent(),/zero verified routes/);
    assert.equal(await page.locator('#json').textContent(),result);
    assert((await page.locator('#checklist').textContent()).length>100);
+   assert.match(await page.locator('#checklist').textContent(),/Offline emergency \/ postponement preparation/);
    await page.click('#language');
   }
   assert(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth));

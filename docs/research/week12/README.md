@@ -47,3 +47,16 @@ Pages demo are implemented. Potential reuse is future value, not existing integr
 [Official program](https://developers.openai.com/community/codex-for-oss) checked
 2026-10-09; no published fixed star or maintenance-week threshold was identified.
 Personal fields and interest choices stay blank; preparation is not submission.
+
+## Delivered offline preparation / 离线交付
+
+[Version-pinned integration tutorial](../../../../examples/offline/README.md) reuses
+structured draft rules with the production engine and preserves unknown coverage.
+Six bilingual project preparation tasks are included in each printable planning
+checklist: pause/postpone, consented local backup care, current/backup original-document
+custodians, receiving roles, responsible channels and recalculation after date changes.
+They are planning suggestions, not official rules, rescue or agency services.
+T75/T51/T05 delivered; T41/T84 deferred under the selected offline-example scope.
+
+固定版本离线只读示例展示结构化规则复用；打印清单加入原地照护、原件备选、
+授权接收、责任方核实及改期重算。所有实际责任与接受仍未确认。

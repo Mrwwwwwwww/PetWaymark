@@ -1,4 +1,6 @@
 """Independent US/EU→CN carried-entry research; no inferred reverse approval."""
+from packages.engine.emergency import checklist as emergency_checklist
+
 from calendar import monthrange
 from copy import deepcopy
 from datetime import date
@@ -137,4 +139,4 @@ def checklist(result, *, language='zh-CN'):
     lines.append(result['provider_directory']['selection_policy'][language])
     for row in result['provider_directory']['providers']:lines.append(row['name']+' | '+row['capability_scope'][language]+' | external_confirmation=unknown | '+row['url']+' | '+row['checked_at']+' | '+row['affiliation'][language])
     for row in result['evidence']:lines.append(row['source_id']+' | '+row['status']+' | '+row['url'])
-    return '\n'.join(lines)+'\n'
+    return '\n'.join(lines)+'\n'+emergency_checklist(language)

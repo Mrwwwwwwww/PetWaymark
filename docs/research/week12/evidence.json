@@ -14,6 +14,12 @@
       "ci_url": "https://github.com/Mrwwwwwwww/PetWaymark/actions/runs/37783577245",
       "conclusion": "success",
       "kind": "maintainer-led software/research"
+    },
+    {
+      "commit": "6535d2a60eb43d15daa3ebd9ed6260b6ffae0bdc",
+      "ci_url": "https://github.com/Mrwwwwwwww/PetWaymark/actions/runs/37834684728",
+      "conclusion": "success",
+      "kind": "honest maintenance/application inventory"
     }
   ],
   "synthetic_testing": {
@@ -72,5 +78,15 @@
   "issues": [
     "https://github.com/Mrwwwwwwww/PetWaymark/issues/6",
     "https://github.com/Mrwwwwwwww/PetWaymark/issues/9"
-  ]
+  ],
+  "current_local_python_tests": 203,
+  "deliverables": {
+    "T73": "evidence ledger separates real maintenance, self-use, synthetic tests and zero independent adoption",
+    "T55": "anonymous application fields refreshed; personal/interest fields blank",
+    "T75": "examples/offline/read_only.py pinned by file hashes; no hosted service",
+    "T51": "compare plus production evaluate reuses draft structured rule without upgrading it",
+    "T05": "six bilingual printable preparation tasks in all five planning checklist modes",
+    "T29": "existing regional layout confirmed; no migration",
+    "T41_T84": "deferred: pinned offline example selected"
+  }
 }

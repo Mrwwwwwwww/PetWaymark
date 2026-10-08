@@ -3,6 +3,8 @@
 Model/date diagnostics are separate from document validity and remain unenforced.
 Only trusted repository inventory supplies source evidence and transition dates.
 """
+from packages.engine.emergency import checklist as emergency_checklist
+
 from copy import deepcopy
 
 from packages.engine.evaluate import classify, compare, day, evaluate, get, review_summary
@@ -159,4 +161,4 @@ def checklist(result, *, language='zh-CN'):
         lines.append(f"{r['id']} | {r['scope']} | issued_before={r['issued_before']} | recognition_until={r['recognition_until']} | {r['source_id']} | {r['locator']}")
     for r in inv['exceptions']:
         lines.append(r['id'] + ' | ' + r['summary'][language] + ' | ' + ', '.join(r['pending_checks']))
-    return '\n'.join(lines) + '\n'
+    return '\n'.join(lines) + '\n' + emergency_checklist(language)

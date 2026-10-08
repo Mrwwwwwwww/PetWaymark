@@ -29,6 +29,7 @@ const base = process.env.PETWAYMARK_WEB_URL || 'http://127.0.0.1:8766';
  await page.locator('#print').click();
  assert.equal(await page.locator('.printable').getAttribute('open'),'');
  assert.equal(await page.evaluate(()=>window.didPrint),true);
+ assert.match(await page.locator('.printable').textContent(),/Offline emergency \/ postponement preparation/);
  await page.emulateMedia({media:'print'});
  await page.pdf({path:'/tmp/petwaymark-browser-print.pdf',format:'A4'});
  await page.emulateMedia({media:'screen'});

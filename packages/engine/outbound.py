@@ -1,4 +1,6 @@
 """Independent CN outbound research timelines; never legal or booking approval."""
+from packages.engine.emergency import checklist as emergency_checklist
+
 from copy import deepcopy
 from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
@@ -233,4 +235,4 @@ def checklist(result, *, language='zh-CN'):
     for row in result['entry_point_diagnostics']:lines.append(row['outcome']+' | '+', '.join(row['source_ids']))
     for row in result['document_checklist']:lines.append(row['label'][language]+' | '+row['issuing_role']+' | '+row['carrying_role']+' | '+row['delivery_role']+' | '+row['receiving_role'])
     for row in result['evidence']:lines.append(row['source_id']+' | '+row['url']+' | '+row['status']+' | '+row['locator']+' | '+row['summary'][language])
-    return '\n'.join(lines)+'\n'
+    return '\n'.join(lines)+'\n'+emergency_checklist(language)

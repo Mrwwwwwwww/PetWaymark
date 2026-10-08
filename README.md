@@ -2,6 +2,8 @@
 
 [在线双语演示 / Bilingual demo](https://mrwwwwwwww.github.io/PetWaymark/) · [v0.1.0](https://github.com/Mrwwwwwwww/PetWaymark/releases/tag/v0.1.0) · [发布范围 / Release scope](docs/releases/v0.1.0.md)
 
+[Maintenance / 维护证据](docs/research/week12/README.md) · [Offline reuse / 离线复用](examples/offline/README.md)
+
 [简体中文](README.zh-CN.md)
 
 An open, bilingual planning project for dog and cat journeys that combine ground transport, rail and air travel across China, the United States and the European Union.

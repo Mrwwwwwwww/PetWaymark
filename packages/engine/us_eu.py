@@ -1,4 +1,6 @@
 """Independent US↔EU document research. Draft diagnostics never grant permission."""
+from packages.engine.emergency import checklist as emergency_checklist
+
 from copy import deepcopy
 from datetime import timedelta
 
@@ -324,4 +326,4 @@ def checklist(result, *, language='zh-CN'):
     for row in result['document_checklist']:
         lines.append(row['label'][language] + ' | ' + ' / '.join(row[k] for k in ('carrying_role', 'delivery_role', 'receiving_role')) + ' | custody_confirmed=false')
     for row in result['evidence']: lines.append(row['source_id'] + ' | ' + row['url'] + ' | ' + row['accessed_at'])
-    return '\n'.join(lines) + '\n'
+    return '\n'.join(lines) + '\n' + emergency_checklist(language)

@@ -1,4 +1,6 @@
 """Offline research graph preview. Draft paths are never recommendations or bookings."""
+from packages.engine.emergency import checklist as emergency_checklist
+
 from copy import deepcopy
 import math
 import re
@@ -212,4 +214,4 @@ def checklist(result, graph, *, language='zh-CN'):
                 for e in leg['evidence']:
                     lines.append(f"{e['source_id']} | {e['url']} | {e['locator']} | {e['accessed_at']}")
                     lines.append(e['summary'][language])
-    return '\n'.join(lines) + '\n'
+    return '\n'.join(lines) + '\n' + emergency_checklist(language)
