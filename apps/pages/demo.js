@@ -15,6 +15,7 @@ function render() {
   document.getElementById('version').textContent = `Engine ${data.engine_version} · Data ${data.data_version} · ${data.assessment_at} · SYNTHETIC`;
   document.getElementById('checklist').textContent = current().checklists[lang];
   document.getElementById('json').textContent = JSON.stringify(current().result, null, 2);
+  window.PetWaymarkCorrection({...current().correction_context, language:lang});
 }
 document.getElementById('language').onclick = () => {lang = lang === 'en' ? 'zh-CN' : 'en'; render();};
 select.onchange = render;

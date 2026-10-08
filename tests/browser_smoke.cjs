@@ -196,6 +196,7 @@ const base = process.env.PETWAYMARK_WEB_URL || 'http://127.0.0.1:8766';
  assert.equal((await page.locator('.certificate-margin').innerText()).split(' | ').slice(1).join(' | '), marginBefore.split(' | ').slice(1).join(' | '));
  await page.locator('.printable').evaluate(el=>{el.open=true});
  assert.match(await page.locator('.printable').innerText(), /Buffer is user planning advice/);
+ await require('./correction_browser.cjs')(page);
  assert.deepEqual(errors,[]);assert.deepEqual(remote,[]);
  console.log('PASS: CN/US and EU browser language/input parity, owner-not-moving gate, 27/24-member gaps, JSON download, checklist print/PDF, mobile overflow, CN outbound timelines, appointment conflict, inbound dog/cat conflicts, unknown costs, neutral directory, US/EU independent dog/cat return history and missed final pickup/unknown overnight care, zero external requests.');
  await browser.close();

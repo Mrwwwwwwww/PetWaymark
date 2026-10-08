@@ -9,6 +9,9 @@
   draft review, unknown acceptance, official sources and coverage gaps; byte drift fails.
 - Add bilingual printable emergency/postponement, original-document backup and local
   care preparation to every planning checklist (T05), without rescue/agency promises.
+- Add bilingual user-initiated correction previews on local results and Pages (T71),
+  with allowlisted technical context, editable template text, offline copy and safe
+  long-URL fallback. No private itinerary is prefilled or automatically uploaded.
 - P1 proceeds under the October 9 task authorization; T11/T66 remain unmet.
 
 第12周：维护、自用、合成与独立采用分列，零采用／真人试用；申请只备稿。

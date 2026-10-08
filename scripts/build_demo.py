@@ -7,6 +7,9 @@ import shutil
 import subprocess
 import sys
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from apps.correction import context as correction_context
+
 ROOT = Path(__file__).resolve().parents[1]
 DATA_VERSION = '2026.10.08-draft.2'
 
@@ -35,12 +38,14 @@ def build(output):
             return subprocess.check_output(base + extra, cwd=ROOT, text=True)
         result = json.loads(run([]))
         examples.append({'id': ident, 'result': result,
+                         'correction_context': correction_context(result, 'zh-CN'),
                          'checklists': {lang: run(['--format', 'checklist', '--language', lang]) for lang in ['en', 'zh-CN']}})
     bundle = {'engine_version': '0.1.0', 'data_version': DATA_VERSION, 'synthetic': True,
               'assessment_at': '2026-10-08', 'examples': examples}
     (output / 'examples.js').write_text('window.PETWAYMARK_DEMO = ' + json.dumps(bundle, ensure_ascii=False) + ';\n')
     for path in (ROOT / 'apps/pages').iterdir():
         if path.is_file(): shutil.copyfile(path, output / path.name)
+    shutil.copyfile(ROOT/'apps/shared/correction.js', output/'correction.js')
     print(f'Built {len(examples)} synthetic bilingual examples at {output}')
 
 if __name__ == '__main__':

@@ -60,3 +60,37 @@ T75/T51/T05 delivered; T41/T84 deferred under the selected offline-example scope
 
 固定版本离线只读示例展示结构化规则复用；打印清单加入原地照护、原件备选、
 授权接收、责任方核实及改期重算。所有实际责任与接受仍未确认。
+
+## Correction preview / 纠错预览
+
+Local results and Pages offer an editable public preview containing only rule IDs,
+engine/data versions, reason codes and language. Both existing templates are available;
+no-rule reports work. Copy stays available offline; oversized URLs require manual
+pasting rather than silently truncated context. Users explicitly open GitHub drafts
+and submit there; opening sends the preview text to GitHub, while publication
+requires submission there. Nothing automatically uploads the profile or itinerary.
+
+本地与Pages先展示可编辑的最小技术上下文；没有规则ID也能报告，离线可复制。
+预览提示删除私人资料，并要求官方链接与原文定位；无来源体验仍为待核线索。
+编辑者主动添加的文字也会进入所打开的GitHub草稿，发送前须检查。
+
+Local final validation: 207 Python tests (baseline 200, 7 added), plus the overlapping
+48-case audit and both browser suites. New browser checks cover bilingual preview,
+URL encoding, both templates, no-rule context, copy success/fallback, long text and
+private-field exclusion without external requests. Python suite wall-clock samples
+24.848s (203-test repair gate) and 24.977s (207-test correction gate) measure machine
+validation only; human hours/spend and weekly operational cost remain unmeasured.
+
+A late-added tutorial path in `8238284` failed hosted scaffold validation
+([failed CI](https://github.com/Mrwwwwwwww/PetWaymark/actions/runs/37835236265)).
+The correction is `8d0eefc`; failure is retained in the ledger rather than relabeled
+success. Full local gates passed before repair commit; hosted success is documented
+in the issue progress once actually observed.
+
+#6 remains a maintenance tracking issue while actual human cost and real voluntary
+feedback are unmeasured/absent. Completed T items do not close unmet review gates
+in #3/#4/#5. #7/#8/#11 and optional T41/T84 are deferred.
+
+[Repair CI](https://github.com/Mrwwwwwwww/PetWaymark/actions/runs/37835472419)
+was observed success, including both Python versions, both browser suites and Pages
+deployment. The initial failure is preserved; no history is rewritten.

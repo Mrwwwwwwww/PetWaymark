@@ -1,5 +1,5 @@
 {
-  "recorded_at": "2026-10-09T03:45:39+08:00",
+  "recorded_at": "2026-10-09T03:56:16+08:00",
   "period": "2026-10-08 to 2026-10-09 Asia/Shanghai; planning weeks, not elapsed calendar weeks",
   "baseline_commit": "c6722c20749b5d59825be03e470008132d369c32",
   "maintenance": [
@@ -20,6 +20,19 @@
       "ci_url": "https://github.com/Mrwwwwwwww/PetWaymark/actions/runs/37834684728",
       "conclusion": "success",
       "kind": "honest maintenance/application inventory"
+    },
+    {
+      "commit": "8238284c240b098f084acdfe660109d4aa039cda",
+      "ci_url": "https://github.com/Mrwwwwwwww/PetWaymark/actions/runs/37835236265",
+      "conclusion": "failure",
+      "kind": "offline reuse and emergency checklist; a late-added documentation path failed hosted scaffold validation",
+      "repair_commit": "8d0eefc920c8403821966de90eae8468e673f757"
+    },
+    {
+      "commit": "8d0eefc920c8403821966de90eae8468e673f757",
+      "ci_url": "https://github.com/Mrwwwwwwww/PetWaymark/actions/runs/37835472419",
+      "conclusion": "success",
+      "kind": "link repair after full local 203-test and browser gate"
     }
   ],
   "synthetic_testing": {
@@ -67,7 +80,12 @@
     "extension_budget_hours_per_week": [
       1.5,
       2
-    ]
+    ],
+    "measured_local_validation_seconds": {
+      "203_test_repair_gate": 24.848,
+      "207_test_correction_gate": 24.977
+    },
+    "measurement_limit": "Python suite wall-clock only; excludes setup, build, browser and CI; not human labor or an operational weekly estimate"
   },
   "T29": "Existing data/rules/cn, us, eu retained; no migration",
   "open_gates": [
@@ -79,7 +97,7 @@
     "https://github.com/Mrwwwwwwww/PetWaymark/issues/6",
     "https://github.com/Mrwwwwwwww/PetWaymark/issues/9"
   ],
-  "current_local_python_tests": 203,
+  "current_local_python_tests": 207,
   "deliverables": {
     "T73": "evidence ledger separates real maintenance, self-use, synthetic tests and zero independent adoption",
     "T55": "anonymous application fields refreshed; personal/interest fields blank",
@@ -87,6 +105,7 @@
     "T51": "compare plus production evaluate reuses draft structured rule without upgrading it",
     "T05": "six bilingual printable preparation tasks in all five planning checklist modes",
     "T29": "existing regional layout confirmed; no migration",
-    "T41_T84": "deferred: pinned offline example selected"
+    "T41_T84": "deferred: pinned offline example selected",
+    "T71": "editable technical-only correction preview on local results and Pages; both templates, no-rule case, offline copy and long-URL fallback"
   }
 }

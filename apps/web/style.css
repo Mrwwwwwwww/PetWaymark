@@ -31,3 +31,6 @@ footer { font-size: .9rem; padding: 12px 0; }
  .printable > pre { display: block !important; }
  pre { font-size: 9pt; }
 }
+
+.correction-panel label{display:block;margin:12px 0}.correction-panel textarea{box-sizing:border-box;width:100%;font:inherit;white-space:pre-wrap;overflow-wrap:anywhere}.correction-panel a,.correction-panel button{display:inline-block;margin:12px 12px 0 0}.correction-panel a[aria-disabled=true]{color:#666;cursor:default}
+@media print{#correction{display:none}}

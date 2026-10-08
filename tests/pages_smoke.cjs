@@ -28,6 +28,7 @@ const path = require('node:path');
   const waiting=page.waitForEvent('download');await page.click('#export');const download=await waiting;
   const payload=JSON.parse(fs.readFileSync(await download.path(),'utf8'));assert.equal(payload.synthetic,true);assert.equal(payload.data_version,'2026.10.08-draft.2');
   assert.deepEqual(payload.result,JSON.parse(await page.locator('#json').textContent()));
+  await require('./correction_browser.cjs')(page);
   await page.emulateMedia({media:'print'});assert.equal(await page.locator('#limits').isVisible(),true);
   await page.pdf({path:'/tmp/petwaymark-pages.pdf',format:'A4'});
   assert.deepEqual(errors,[]);assert.deepEqual(remote,[]);
