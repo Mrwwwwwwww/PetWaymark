@@ -190,6 +190,7 @@ def assess(profile, *, assessment_at, inventory=None, eu_inventory=None):
         constraint('documents.delivery-after-endorsement','documents.certificate_endorsed_at','on_or_before',None,'events.document_delivery_at','us.cdc.foreign-high-risk' if dest=='US' else 'eu.law.2026-131-readable','Project dependency: endorsed document before delivery')
     proposed=get(profile,'appointments.certificate_at')
     if proposed is not None:
+        add('appointment.before-departure',bounded_days(proposed,departure,0,36500),['cn.gacc.pet-export-portal'],'Project planning: final document appointment before departure')
         out=bounded_days(proposed,entry,0,10 if dest=='EU' else 30) if dest=='EU' or species=='dog' else 'window_unreviewed'
         add('appointment.certificate-window',out,['eu.law.2026-131-readable'] if dest=='EU' else ['us.cdc.foreign-high-risk'] if species=='dog' else ['us.cdc.animals'],'Proposed final issue/endorsement appointment, not scheduling')
         if dest=='EU' and j.get('titre_branch')=='test_required':add('appointment.sample-wait',bounded_days(get(profile,'events.titre_sample_at'),proposed,90,36500),['eu.ec.non-eu'],'Proposed appointment cannot bypass sample-to-issue wait')

@@ -1,5 +1,22 @@
 # Changelog / 变更记录
 
+## Unreleased — Week 7 / 未发布：第7周
+
+- Add nine new official source records/attempts; recover 2026/131 ELI framework
+  reading without claiming full incorporated-annex or independent legal review.
+- Add independent CN→US/EU dog/cat document timelines, owner/legal classification,
+  issue/endorsement/entry/sample anchors, appointment-window conflicts and
+  pending original-document carrying/delivery roles. Origin cargo procedures unreviewed.
+- Add draft airport filters with source-read ACF products and partial NL designation;
+  listing does not establish hours, capacity, acceptance, custody or release.
+- Shared bilingual CLI/web, redacted download and print run offline. 138 Python
+  tests plus native Chromium cover branches, date/hour/DST boundaries, window
+  conflicts, privacy, bilingual parity and mobile layout. All 15 rules stay draft;
+  zero verified feasible routes, reviewers, interviews, voluntary feedback or adoption.
+
+第7周交付中国出境文件链研究预览与双语网页，新增9来源／尝试及24测试，累计138测试。
+正式复核、已验证路线及真实采用仍为零；现行属地流程、完整附件与独立人工复核未完成。
+
 ## Unreleased — Week 6 / 未发布：第6周
 
 - Add 10 actual source readings/attempts and a 27-member EU inventory: partial

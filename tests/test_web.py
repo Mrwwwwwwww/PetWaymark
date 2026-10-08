@@ -10,7 +10,9 @@ from urllib.request import Request, urlopen
 
 from apps.web.server import App, make_handler
 from packages.engine.routes import preview
-from packages.engine import eu
+from packages.engine import eu, outbound
+from packages.engine.io import ROOT
+from scripts.validate_data import read_json
 from apps.web.server import profile_from_form
 
 
@@ -38,6 +40,48 @@ class WebTests(unittest.TestCase):
         try:
             with urlopen(req) as r:return r.status,r.headers,r.read().decode()
         except HTTPError as e:return e.code,e.headers,e.read().decode()
+
+    def outbound_fields(self,dest='eu',species='dog',**changes):
+        profile=read_json(ROOT/f'tests/fixtures/outbound/cn-{dest}-{species}.json')
+        f=self.fields(corridor='cn.outbound.'+dest,species=species)
+        for group in ('pet','journey','documents','events','appointments'):
+            for key,value in profile.get(group,{}).items():
+                if key in ('origin','destination','pets_per_person'):continue
+                f[key]=str(value).lower() if type(value) is bool else str(value)
+        f.update(changes);return f
+
+    def test_outbound_http_shared_kernel_and_bilingual_print(self):
+        for dest in ('us','eu'):
+            for species in ('dog','cat'):
+                f=self.outbound_fields(dest,species)
+                expected=outbound.assess(profile_from_form(f),assessment_at=f['assessment_at'])
+                expected['corridor_id']=f['corridor']
+                for language in ('en','zh-CN'):
+                    code,_,body=self.post({**f,'language':language});self.assertEqual(code,200)
+                    self.assertEqual(json.loads(body),expected)
+                    code,_,html=self.post({**f,'language':language,'output':'html'})
+                    self.assertEqual(code,200);self.assertIn('class="printable"',html)
+                    self.assertIn('original_document_custody_and_delivery_unconfirmed',html)
+                    self.assertIn('certificate.issue' if dest=='eu' or species=='dog' else 'cn.export_issue',html)
+                    self.assertEqual(self.app.assess({**f,'language':language})[1],outbound.checklist(expected,language=language))
+
+    def test_outbound_appointment_and_entry_conflicts_visible(self):
+        f=self.outbound_fields(certificate_at='2026-10-30',output='html')
+        code,_,html=self.post(f);self.assertEqual(code,200)
+        self.assertIn('appointment.certificate-window.date_window_conflict',html)
+        f=self.outbound_fields('us',entry_airport='EWR')
+        code,_,body=self.post(f);self.assertEqual(code,200)
+        self.assertIn('us_entry_point.not_in_read_list',json.loads(body)['reason_codes'])
+
+    def test_outbound_invalid_dates_and_evidence_overrides_rejected(self):
+        for changes in [dict(certificate_at='2026-02-30'),dict(certificate_issued_at='bad'),dict(reviewed_by='PRIVATE'),dict(custody_confirmed='true'),dict(booking_confirmed='true')]:
+            code,_,html=self.post(self.outbound_fields(**changes));self.assertEqual(code,400)
+            self.assertNotIn('PRIVATE',html)
+
+    def test_outbound_unsafe_owner_classification_stops_diagnostics(self):
+        for change in [dict(owner_moving='false'),dict(accompaniment='unaccompanied'),dict(accompaniment='authorized_person',authorized_person_written='false')]:
+            code,_,body=self.post(self.outbound_fields(**change));self.assertEqual(code,200)
+            r=json.loads(body);self.assertFalse(r['classification_resolved']);self.assertEqual(r['timeline'],[])
 
     def test_bilingual_http_equals_cli_kernel_all_corridors(self):
         for corridor in self.app.corridors:

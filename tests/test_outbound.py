@@ -106,6 +106,8 @@ class OutboundTests(unittest.TestCase):
         p=self.profile()
         for date,expected in [('2026-10-31','date_window_consistent'),('2026-10-30','date_window_conflict'),('2026-11-11','date_window_conflict')]:
             p['appointments']['certificate_at']=date;self.assertEqual(self.outcomes(p)['appointment.certificate-window'],expected)
+        p['appointments']['certificate_at']='2026-11-10'
+        self.assertEqual(self.outcomes(p)['appointment.before-departure'],'date_window_conflict')
         p['events']['titre_sample_at']='2026-08-08';p['appointments']['certificate_at']='2026-11-05'
         self.assertEqual(self.outcomes(p)['appointment.sample-wait'],'date_window_conflict')
         p['appointments']['certificate_at']='bad';self.assertEqual(self.outcomes(p)['appointment.certificate-window'],'invalid')
@@ -140,6 +142,13 @@ class OutboundTests(unittest.TestCase):
         p['events']['tapeworm_timezone']='Asia/Shanghai'
         for stamp,expected in [('2026-11-09T18:00:00+08:00','date_window_consistent'),('2026-11-09T18:00:01+08:00','date_window_conflict'),('2026-11-05T18:00:00+08:00','date_window_consistent'),('2026-11-05T17:59:59+08:00','date_window_conflict')]:
             p['events']['tapeworm_at']=stamp;self.assertEqual(self.outcomes(p)['eu.dog.tapeworm-hours'],expected)
+        p['journey']['entry_time']='2026-11-11T10:00:00+00:00'
+        self.assertEqual(self.outcomes(p)['eu.dog.tapeworm-hours'],'invalid')
+        p['journey'].update(first_entry_member='NL',destination_member='IE')
+        self.assertEqual(self.outcomes(p)['eu.dog.tapeworm-hours'],'missing')
+        p['journey'].update(onward_entry_time='2026-11-10T10:00:00+00:00',onward_entry_timezone='Europe/Dublin')
+        p['events']['tapeworm_at']='2026-11-09T18:00:00+08:00'
+        self.assertEqual(self.outcomes(p)['eu.dog.tapeworm-hours'],'date_window_consistent')
         p['pet']['species']='cat';self.assertNotIn('eu.dog.tapeworm-hours',self.outcomes(p))
 
     def test_dst_fold_offsets_and_gap_rejection(self):

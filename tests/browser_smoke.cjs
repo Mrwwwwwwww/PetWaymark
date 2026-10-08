@@ -37,7 +37,7 @@ const base = process.env.PETWAYMARK_WEB_URL || 'http://127.0.0.1:8766';
  await page.screenshot({path:'/tmp/petwaymark-browser-mobile.png',fullPage:false});
  for (const example of ['eu-owner','eu-boarding']) {
   await page.goto(base+'/?example='+example);
-  await page.locator('form details > summary').click();
+  await page.locator('form details > summary').first().click();
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
   await page.locator('form button[type=submit]').first().click();
   await page.waitForURL('**/assess');
@@ -72,7 +72,37 @@ const base = process.env.PETWAYMARK_WEB_URL || 'http://127.0.0.1:8766';
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
  }
  await page.pdf({path:'/tmp/petwaymark-eu-browser-print.pdf',format:'A4'});
+ for (const direction of ['us','eu']) {
+  await page.goto(base+'/?example=outbound-'+direction);
+  await page.locator('#outbound-inputs > summary').click();
+  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+  // Use native fields to create a real appointment conflict.
+  if (direction==='eu') await page.locator('input[name=certificate_at]').fill('2026-10-30');
+  await page.locator('form button[type=submit]').first().click();
+  await page.waitForURL('**/assess');
+  await page.locator('#result-title').waitFor();
+  const codes=await page.locator('section > p.codes').innerText();
+  if (direction==='eu') assert.match(codes,/appointment.certificate-window.date_window_conflict/);
+  await page.locator('#language').click();
+  await page.waitForFunction(()=>document.documentElement.lang==='en');
+  assert.equal(await page.locator('section > p.codes').innerText(),codes);
+  assert.equal(await page.locator('input[name=certificate_at]').inputValue(),direction==='eu'?'2026-10-30':'2026-11-05');
+  const pending=page.waitForEvent('download');await page.locator('button[name=output]').click();
+  const file=await pending;const result=JSON.parse(fs.readFileSync(await file.path(),'utf8'));
+  assert.equal(result.status,'unsupported');assert.equal(result.booking_confirmed,false);
+  assert.equal(result.classification_resolved,true);
+  assert(result.timeline.some(e=>e.event_id==='certificate.issue'));
+  assert(result.timeline.some(e=>e.event_id==='certificate.endorsement'));
+  assert(result.document_checklist.every(d=>d.custody_confirmed===false));
+  await page.evaluate(()=>{window.print=()=>{window.didPrint=true}});
+  await page.locator('#print').click();assert.equal(await page.evaluate(()=>window.didPrint),true);
+  assert.match(await page.locator('.printable').innerText(),/pending_arrangement/);
+  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+  await page.emulateMedia({media:'print'});
+  await page.pdf({path:'/tmp/petwaymark-outbound-'+direction+'.pdf',format:'A4'});
+  await page.emulateMedia({media:'screen'});
+ }
  assert.deepEqual(errors,[]);assert.deepEqual(remote,[]);
- console.log('PASS: CN/US and EU browser language/input parity, owner-not-moving gate, 27/24-member gaps, JSON download, checklist print/PDF, mobile overflow, zero external requests.');
+ console.log('PASS: CN/US and EU browser language/input parity, owner-not-moving gate, 27/24-member gaps, JSON download, checklist print/PDF, mobile overflow, CN outbound timelines, appointment conflict, zero external requests.');
  await browser.close();
 })().catch(e=>{console.error(e);process.exit(1)});
