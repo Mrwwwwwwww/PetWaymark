@@ -23,6 +23,7 @@ python3 -m venv .venv
 ```
 
 - [规则与来源契约](docs/zh/rule-contract.md) · [English](docs/en/rule-contract.md)
+- [规则草稿清单](data/rules/README.md) · [第 2 周查阅记录](docs/research/week2/README.md)
 - [规划扩展约定](docs/decisions/0002-planning-extension-contract.md)
 - [走廊候选与未覆盖边界](docs/zh/corridors.md)、[机器可读覆盖清单](data/coverage/week1-candidates.json)
 - [Petra 复用决定与字段映射](docs/decisions/0001-petra-reuse.md)

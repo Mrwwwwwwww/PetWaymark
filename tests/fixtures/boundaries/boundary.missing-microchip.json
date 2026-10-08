@@ -1,0 +1,33 @@
+{
+  "schema_version": "0.1.0",
+  "id": "boundary.missing-microchip",
+  "synthetic": true,
+  "description": {
+    "en": "Unknown chip presence is not a negative or a pass.",
+    "zh-CN": "未知芯片不能当作已无芯片或通过。"
+  },
+  "rule_ids": [
+    "cn.gacc.carried.microchip"
+  ],
+  "input": {
+    "species": "cat",
+    "origin": "US",
+    "destination": "CN",
+    "microchip_present": null,
+    "entry_at": "2026-11-01",
+    "accompaniment": "owner"
+  },
+  "expected": {
+    "phase": "week3_engine_target",
+    "status": "unsupported",
+    "reason_codes": [
+      "draft_rule",
+      "microchip_unknown"
+    ],
+    "not_applicable_rule_ids": [],
+    "notes": {
+      "en": "A future verified chip constraint returns confirmation for null; no inferred quarantine exemption.",
+      "zh-CN": "未来已核实芯片约束对null返回待确认，不推导隔离豁免。"
+    }
+  }
+}

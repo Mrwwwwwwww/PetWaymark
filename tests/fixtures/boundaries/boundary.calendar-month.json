@@ -1,0 +1,33 @@
+{
+  "schema_version": "0.1.0",
+  "id": "boundary.calendar-month",
+  "synthetic": true,
+  "description": {
+    "en": "Calendar age is not a fixed 180-day interval.",
+    "zh-CN": "自然月年龄不能替换成180天。"
+  },
+  "rule_ids": [
+    "us.cdc.dog.low-risk.minimum-age"
+  ],
+  "input": {
+    "species": "dog",
+    "origin": "EU",
+    "destination": "US",
+    "birth_date": "2026-03-01",
+    "entry_at": "2026-08-30",
+    "travel_history_branch": "only_low_risk_6_months"
+  },
+  "expected": {
+    "phase": "week3_engine_target",
+    "status": "unsupported",
+    "reason_codes": [
+      "draft_rule",
+      "calendar_age_below_six_months"
+    ],
+    "not_applicable_rule_ids": [],
+    "notes": {
+      "en": "The isolated age comparison fails; a draft rule cannot establish route ineligibility.",
+      "zh-CN": "独立年龄比较应失败；草稿规则不能确立整条路线不可行。"
+    }
+  }
+}

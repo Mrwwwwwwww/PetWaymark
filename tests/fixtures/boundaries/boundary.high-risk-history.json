@@ -1,0 +1,33 @@
+{
+  "schema_version": "0.1.0",
+  "id": "boundary.high-risk-history",
+  "synthetic": true,
+  "description": {
+    "en": "A high-risk visit excludes the low-risk-only branch.",
+    "zh-CN": "高风险旅行史不能进入仅低风险分支。"
+  },
+  "rule_ids": [
+    "us.cdc.dog.low-risk.minimum-age"
+  ],
+  "input": {
+    "species": "dog",
+    "origin": "EU",
+    "destination": "US",
+    "travel_history_branch": "high_risk_in_6_months",
+    "entry_at": "2026-11-01"
+  },
+  "expected": {
+    "phase": "week3_engine_target",
+    "status": "unsupported",
+    "reason_codes": [
+      "high_risk_branch_uncovered"
+    ],
+    "not_applicable_rule_ids": [
+      "us.cdc.dog.low-risk.minimum-age"
+    ],
+    "notes": {
+      "en": "A low-risk departure alone cannot replace six-month history.",
+      "zh-CN": "仅低风险起点不能代替六个月旅行史。"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "schema_version": "0.1.0",
+  "id": "boundary.unknown-carrier",
+  "synthetic": true,
+  "description": {
+    "en": "A listed airport and rule match do not confirm cargo acceptance.",
+    "zh-CN": "机场收录及规则匹配不证明货运收运。"
+  },
+  "rule_ids": [
+    "us.cdc.dog.low-risk.minimum-age"
+  ],
+  "input": {
+    "species": "dog",
+    "origin": "EU",
+    "destination": "US",
+    "birth_date": "2020-01-01",
+    "entry_at": "2026-11-01",
+    "travel_history_branch": "only_low_risk_6_months",
+    "carrier_acceptance": "unknown"
+  },
+  "expected": {
+    "phase": "week3_engine_target",
+    "status": "unsupported",
+    "reason_codes": [
+      "draft_rule",
+      "carrier_acceptance_unknown"
+    ],
+    "not_applicable_rule_ids": [],
+    "notes": {
+      "en": "Even when future verified conditions pass, carrier_acceptance must remain unknown.",
+      "zh-CN": "即使未来已核实条件满足，承运确认仍须保持未知。"
+    }
+  }
+}

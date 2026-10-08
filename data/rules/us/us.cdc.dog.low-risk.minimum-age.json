@@ -1,0 +1,87 @@
+{
+  "schema_version": "0.1.0",
+  "id": "us.cdc.dog.low-risk.minimum-age",
+  "revision": 1,
+  "record_class": "official_guidance",
+  "authority": "US-CDC",
+  "scope": {
+    "origin": "any",
+    "destination": "US",
+    "subdivisions": [],
+    "species": [
+      "dog"
+    ],
+    "transport_modes": [
+      "cabin",
+      "checked_baggage",
+      "manifest_cargo",
+      "road"
+    ],
+    "movement_category": "all_imports",
+    "accompaniment": [
+      "owner",
+      "authorized_person",
+      "unaccompanied"
+    ],
+    "travel_history_branch": "only_low_risk_6_months",
+    "vaccination_branch": "any",
+    "exclusions": {
+      "en": "CDC constraint only; USDA, destination state, territory and actual carrier remain unreviewed.",
+      "zh-CN": "仅 CDC 条件；USDA、目的州、领地及承运政策未复核。"
+    }
+  },
+  "validity": {
+    "effective_from": "2024-08-01",
+    "effective_to": null,
+    "applies_at": "entry_at"
+  },
+  "requirement": {
+    "field": "pet.birth_date",
+    "operator": "calendar_age_at_least",
+    "value": 6,
+    "unit": "month",
+    "anchor": "journey.entry_at"
+  },
+  "on_fail": "block",
+  "on_missing": "needs_confirmation",
+  "exceptions": [],
+  "source_ids": [
+    "us.cdc.low-risk"
+  ],
+  "evidence": [
+    {
+      "source_id": "us.cdc.low-risk",
+      "url": "https://www.cdc.gov/importation/dogs/rabies-free-low-risk-countries.html",
+      "locator": "What else is required for dogs from dog rabies-free or low-risk countries?",
+      "accessed_at": "2026-10-08",
+      "language": "en",
+      "summary": {
+        "en": "Low-risk-history dogs must be at least six months at entry.",
+        "zh-CN": "低风险旅行史犬入境时至少六个月龄。"
+      },
+      "content_sha256": null
+    }
+  ],
+  "review": {
+    "status": "draft",
+    "last_verified_at": null,
+    "review_due_at": null,
+    "reviewed_by": []
+  },
+  "supersedes": [],
+  "message": {
+    "en": "Low-risk-history dogs must be at least six months at entry.",
+    "zh-CN": "低风险旅行史犬入境时至少六个月龄。"
+  },
+  "pending_checks": [
+    {
+      "en": "Confirm present applicability and complete the independent human review before publication.",
+      "zh-CN": "发布前核实当前适用性并完成独立人工复核。"
+    },
+    {
+      "en": "CDC constraint only; USDA, destination state, territory and actual carrier remain unreviewed.",
+      "zh-CN": "仅 CDC 条件；USDA、目的州、领地及承运政策未复核。"
+    }
+  ],
+  "license": "CC-BY-4.0"
+}

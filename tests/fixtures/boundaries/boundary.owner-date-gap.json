@@ -1,0 +1,34 @@
+{
+  "schema_version": "0.1.0",
+  "id": "boundary.owner-date-gap",
+  "synthetic": true,
+  "description": {
+    "en": "An authorized escort does not erase a six-day owner gap.",
+    "zh-CN": "授权陪同不能消除主人日期相差六天。"
+  },
+  "rule_ids": [
+    "eu.ec.rabies.primary-wait"
+  ],
+  "input": {
+    "species": "dog",
+    "origin": "US",
+    "destination": "EU",
+    "accompaniment": "authorized_person",
+    "entry_at": "2026-11-10",
+    "owner_entry_at": "2026-11-04",
+    "purpose": "relocation"
+  },
+  "expected": {
+    "phase": "week3_engine_target",
+    "status": "unsupported",
+    "reason_codes": [
+      "movement_classification_unconfirmed",
+      "draft_rule"
+    ],
+    "not_applicable_rule_ids": [],
+    "notes": {
+      "en": "Classification must stop before ordinary non-commercial evaluation; annex review remains pending.",
+      "zh-CN": "应先停止普通非商业分类；法规附件待核。"
+    }
+  }
+}

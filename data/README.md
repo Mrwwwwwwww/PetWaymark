@@ -2,7 +2,7 @@
 
 Original curated records under this directory use [CC BY 4.0](../LICENSE-DATA). Credit PetWaymark contributors, link the license and identify modifications and the dataset version. Third-party materials retain their own terms; see [notices](../THIRD_PARTY_NOTICES.md).
 
-`coverage/week1-candidates.json` is an original **research plan**, not a route service catalogue or legal rule package. All candidates are `unsupported`, carrier acceptance is unknown, and there are zero verified production rules. Week 2 rule records are governed by the [rule/source contract](../docs/en/rule-contract.md). `sources/catalog.json` is the current rule source registry; Week 1 research and Petra snapshots remain historical leads. A structurally valid record is not legal approval.
+`coverage/week1-candidates.json` is an original **research plan**, not a route service catalogue or legal rule package. All candidates are `unsupported`, carrier acceptance is unknown, and there are zero verified production rules. The ten Week 2 records remain drafts, with no approved human review. Week 2 rule records are governed by the [rule/source contract](../docs/en/rule-contract.md). `sources/catalog.json` is the current rule source registry; Week 1 research and Petra snapshots remain historical leads. A structurally valid record is not legal approval.
 
 `null` means unknown, never “no restriction.” Source access dates are separate from human review and effective dates. Do not store raw personal documents or invent provider, schedule, distance or price data.
 

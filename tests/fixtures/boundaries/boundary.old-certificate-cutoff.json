@@ -1,0 +1,32 @@
+{
+  "schema_version": "0.1.0",
+  "id": "boundary.old-certificate-cutoff",
+  "synthetic": true,
+  "description": {
+    "en": "Old certificate issued on the stated cutoff needs review.",
+    "zh-CN": "旧证书在页面所述截止日签发需复核。"
+  },
+  "rule_ids": [
+    "eu.ec.rabies.primary-wait"
+  ],
+  "input": {
+    "species": "cat",
+    "origin": "US",
+    "destination": "EU",
+    "certificate_model": "EU-577-2013-Annex-IV",
+    "certificate_issued_at": "2026-10-01",
+    "entry_at": "2026-10-08"
+  },
+  "expected": {
+    "phase": "week3_engine_target",
+    "status": "unsupported",
+    "reason_codes": [
+      "certificate_transition_unreviewed"
+    ],
+    "not_applicable_rule_ids": [],
+    "notes": {
+      "en": "Guidance describes issuance before 1 October; do not silently accept on-cutoff issuance.",
+      "zh-CN": "页面说10月1日前签发，不得静默接受截止日当天签发。"
+    }
+  }
+}

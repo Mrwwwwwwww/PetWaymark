@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "id": "cn.gacc.carried.microchip",
+  "revision": 1,
+  "record_class": "law",
+  "authority": "CN-GACC",
+  "scope": {
+    "origin": "any",
+    "destination": "CN",
+    "subdivisions": [],
+    "species": [
+      "dog",
+      "cat"
+    ],
+    "transport_modes": [
+      "cabin",
+      "checked_baggage",
+      "road",
+      "rail"
+    ],
+    "movement_category": "carried_entry",
+    "accompaniment": [
+      "owner",
+      "authorized_person"
+    ],
+    "travel_history_branch": "any",
+    "vaccination_branch": "any",
+    "exclusions": {
+      "en": "Carried entry only; independent cargo, current annex lists, rabies certificate and quarantine branches need separate review.",
+      "zh-CN": "仅携带入境；独立货运、现行附件名单、狂犬病证书及隔离分支另核。"
+    }
+  },
+  "validity": {
+    "effective_from": "2019-05-01",
+    "effective_to": null,
+    "applies_at": "entry_at"
+  },
+  "requirement": {
+    "field": "pet.microchip_present",
+    "operator": "equals",
+    "value": true
+  },
+  "on_fail": "block",
+  "on_missing": "needs_confirmation",
+  "exceptions": [],
+  "source_ids": [
+    "cn.gacc.2019-5"
+  ],
+  "evidence": [
+    {
+      "source_id": "cn.gacc.2019-5",
+      "url": "https://www.mofcom.gov.cn/zcfb/zgdwjjmywg/art/2019/art_71739ec848d14deca4ec330fad835774.html",
+      "locator": "第一条；实施日期2019年5月1日",
+      "accessed_at": "2026-10-08",
+      "language": "zh-CN",
+      "summary": {
+        "en": "Carried pets need a microchip.",
+        "zh-CN": "携带入境宠物需有电子芯片。"
+      },
+      "content_sha256": null
+    }
+  ],
+  "review": {
+    "status": "draft",
+    "last_verified_at": null,
+    "review_due_at": null,
+    "reviewed_by": []
+  },
+  "supersedes": [],
+  "message": {
+    "en": "Carried pets need a microchip.",
+    "zh-CN": "携带入境宠物需有电子芯片。"
+  },
+  "pending_checks": [
+    {
+      "en": "Confirm present applicability and complete the independent human review before publication.",
+      "zh-CN": "发布前核实当前适用性并完成独立人工复核。"
+    },
+    {
+      "en": "Carried entry only; independent cargo, current annex lists, rabies certificate and quarantine branches need separate review.",
+      "zh-CN": "仅携带入境；独立货运、现行附件名单、狂犬病证书及隔离分支另核。"
+    }
+  ],
+  "license": "CC-BY-4.0"
+}

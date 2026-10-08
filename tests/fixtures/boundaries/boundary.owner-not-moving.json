@@ -1,0 +1,33 @@
+{
+  "schema_version": "0.1.0",
+  "id": "boundary.owner-not-moving",
+  "synthetic": true,
+  "description": {
+    "en": "Boarding abroad with no owner movement needs a separate entry classification.",
+    "zh-CN": "主人不移动而跨境寄游须另分类。"
+  },
+  "rule_ids": [
+    "eu.ec.rabies.primary-wait"
+  ],
+  "input": {
+    "species": "cat",
+    "origin": "US",
+    "destination": "EU",
+    "accompaniment": "unaccompanied",
+    "owner_entry_at": null,
+    "entry_at": "2026-11-01",
+    "purpose": "boarding_without_owner_travel"
+  },
+  "expected": {
+    "phase": "week3_engine_target",
+    "status": "unsupported",
+    "reason_codes": [
+      "movement_classification_unconfirmed"
+    ],
+    "not_applicable_rule_ids": [],
+    "notes": {
+      "en": "No ownership transfer alone does not establish ordinary non-commercial travel.",
+      "zh-CN": "仅无所有权变化不能证明普通非商业旅行。"
+    }
+  }
+}

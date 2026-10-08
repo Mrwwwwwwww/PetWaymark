@@ -1,0 +1,35 @@
+{
+  "schema_version": "0.1.0",
+  "id": "boundary.cat-not-dog",
+  "synthetic": true,
+  "description": {
+    "en": "Dog CDC conditions must not be applied to a cat.",
+    "zh-CN": "犬 CDC 条件不得套用于猫。"
+  },
+  "rule_ids": [
+    "us.cdc.dog.low-risk.minimum-age",
+    "us.cdc.cat.arrival-health"
+  ],
+  "input": {
+    "species": "cat",
+    "origin": "CN",
+    "destination": "US",
+    "birth_date": "2026-09-01",
+    "entry_at": "2026-11-01"
+  },
+  "expected": {
+    "phase": "week3_engine_target",
+    "status": "unsupported",
+    "reason_codes": [
+      "species_scope_mismatch",
+      "draft_rule"
+    ],
+    "not_applicable_rule_ids": [
+      "us.cdc.dog.low-risk.minimum-age"
+    ],
+    "notes": {
+      "en": "No dog age or form requirement may be inferred; cat and local rules need review.",
+      "zh-CN": "不得推导犬年龄／表单要求；猫和属地规则另核。"
+    }
+  }
+}

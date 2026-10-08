@@ -1,0 +1,87 @@
+{
+  "schema_version": "0.1.0",
+  "id": "eu.ec.rabies.minimum-vaccination-age",
+  "revision": 1,
+  "record_class": "official_guidance",
+  "authority": "EU-EC",
+  "scope": {
+    "origin": "any_non_eu",
+    "destination": "EU",
+    "subdivisions": [],
+    "species": [
+      "dog",
+      "cat"
+    ],
+    "transport_modes": [
+      "cabin",
+      "checked_baggage",
+      "manifest_cargo",
+      "road"
+    ],
+    "movement_category": "non_commercial_pet",
+    "accompaniment": [
+      "owner",
+      "authorized_person"
+    ],
+    "travel_history_branch": "any",
+    "vaccination_branch": "any",
+    "exclusions": {
+      "en": "Standard non-commercial entry only; tattoo, owner timing, certificate model, country overlays and other exceptions require review.",
+      "zh-CN": "仅普通非商业入境；纹身、主人时间关系、证书版本、成员国叠加和其他例外待核。"
+    }
+  },
+  "validity": {
+    "effective_from": null,
+    "effective_to": null,
+    "applies_at": "vaccination_at"
+  },
+  "requirement": {
+    "field": "pet.birth_date",
+    "operator": "calendar_age_at_least",
+    "value": 12,
+    "unit": "week",
+    "anchor": "events.rabies_vaccination_at"
+  },
+  "on_fail": "block",
+  "on_missing": "needs_confirmation",
+  "exceptions": [],
+  "source_ids": [
+    "eu.ec.non-eu"
+  ],
+  "evidence": [
+    {
+      "source_id": "eu.ec.non-eu",
+      "url": "https://food.ec.europa.eu/animals/live-animal-movements/dogs-cats-and-ferrets/bringing-pet-eu-non-eu-country_en",
+      "locator": "Conditions / Rabies vaccination",
+      "accessed_at": "2026-10-08",
+      "language": "en",
+      "summary": {
+        "en": "Rabies vaccine administration requires at least twelve weeks of age.",
+        "zh-CN": "狂犬病疫苗施打时至少十二周龄。"
+      },
+      "content_sha256": null
+    }
+  ],
+  "review": {
+    "status": "draft",
+    "last_verified_at": null,
+    "review_due_at": null,
+    "reviewed_by": []
+  },
+  "supersedes": [],
+  "message": {
+    "en": "Rabies vaccine administration requires at least twelve weeks of age.",
+    "zh-CN": "狂犬病疫苗施打时至少十二周龄。"
+  },
+  "pending_checks": [
+    {
+      "en": "Confirm present applicability and complete the independent human review before publication.",
+      "zh-CN": "发布前核实当前适用性并完成独立人工复核。"
+    },
+    {
+      "en": "Standard non-commercial entry only; tattoo, owner timing, certificate model, country overlays and other exceptions require review.",
+      "zh-CN": "仅普通非商业入境；纹身、主人时间关系、证书版本、成员国叠加和其他例外待核。"
+    }
+  ],
+  "license": "CC-BY-4.0"
+}

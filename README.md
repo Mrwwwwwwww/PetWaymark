@@ -23,6 +23,7 @@ python3 -m venv .venv
 ```
 
 - [Rule and source contract](docs/en/rule-contract.md) · [中文](docs/zh/rule-contract.md)
+- [Draft rule inventory](data/rules/README.md) · [Week 2 source reading](docs/research/week2/README.md)
 - [Planning extensions](docs/decisions/0002-planning-extension-contract.md)
 - [Candidate corridors and coverage boundaries](docs/zh/corridors.md)
 - [Coverage inventory](data/coverage/week1-candidates.json)

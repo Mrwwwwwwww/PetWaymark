@@ -1,0 +1,87 @@
+{
+  "schema_version": "0.1.0",
+  "id": "eu.ec.rabies.primary-wait",
+  "revision": 1,
+  "record_class": "official_guidance",
+  "authority": "EU-EC",
+  "scope": {
+    "origin": "any_non_eu",
+    "destination": "EU",
+    "subdivisions": [],
+    "species": [
+      "dog",
+      "cat"
+    ],
+    "transport_modes": [
+      "cabin",
+      "checked_baggage",
+      "manifest_cargo",
+      "road"
+    ],
+    "movement_category": "non_commercial_pet",
+    "accompaniment": [
+      "owner",
+      "authorized_person"
+    ],
+    "travel_history_branch": "any",
+    "vaccination_branch": "primary",
+    "exclusions": {
+      "en": "Standard non-commercial entry only; tattoo, owner timing, certificate model, country overlays and other exceptions require review.",
+      "zh-CN": "仅普通非商业入境；纹身、主人时间关系、证书版本、成员国叠加和其他例外待核。"
+    }
+  },
+  "validity": {
+    "effective_from": null,
+    "effective_to": null,
+    "applies_at": "entry_at"
+  },
+  "requirement": {
+    "field": "events.primary_protocol_completed_at",
+    "operator": "elapsed_at_least",
+    "value": 21,
+    "unit": "day",
+    "anchor": "journey.entry_at"
+  },
+  "on_fail": "block",
+  "on_missing": "needs_confirmation",
+  "exceptions": [],
+  "source_ids": [
+    "eu.ec.non-eu"
+  ],
+  "evidence": [
+    {
+      "source_id": "eu.ec.non-eu",
+      "url": "https://food.ec.europa.eu/animals/live-animal-movements/dogs-cats-and-ferrets/bringing-pet-eu-non-eu-country_en",
+      "locator": "Conditions / Rabies vaccination",
+      "accessed_at": "2026-10-08",
+      "language": "en",
+      "summary": {
+        "en": "Primary rabies vaccination has a minimum twenty-one-day validity wait.",
+        "zh-CN": "初次狂犬病接种程序完成后，有效期开始至少需二十一天。"
+      },
+      "content_sha256": null
+    }
+  ],
+  "review": {
+    "status": "draft",
+    "last_verified_at": null,
+    "review_due_at": null,
+    "reviewed_by": []
+  },
+  "supersedes": [],
+  "message": {
+    "en": "Primary rabies vaccination has a minimum twenty-one-day validity wait.",
+    "zh-CN": "初次狂犬病接种程序完成后，有效期开始至少需二十一天。"
+  },
+  "pending_checks": [
+    {
+      "en": "Confirm present applicability and complete the independent human review before publication.",
+      "zh-CN": "发布前核实当前适用性并完成独立人工复核。"
+    },
+    {
+      "en": "Standard non-commercial entry only; tattoo, owner timing, certificate model, country overlays and other exceptions require review.",
+      "zh-CN": "仅普通非商业入境；纹身、主人时间关系、证书版本、成员国叠加和其他例外待核。"
+    }
+  ],
+  "license": "CC-BY-4.0"
+}

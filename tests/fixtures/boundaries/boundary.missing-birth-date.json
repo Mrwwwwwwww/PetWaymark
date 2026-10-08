@@ -1,0 +1,33 @@
+{
+  "schema_version": "0.1.0",
+  "id": "boundary.missing-birth-date",
+  "synthetic": true,
+  "description": {
+    "en": "Missing age input cannot pass.",
+    "zh-CN": "缺少出生日期不能通过。"
+  },
+  "rule_ids": [
+    "us.cdc.dog.low-risk.minimum-age"
+  ],
+  "input": {
+    "species": "dog",
+    "origin": "EU",
+    "destination": "US",
+    "birth_date": null,
+    "entry_at": "2026-11-01",
+    "travel_history_branch": "only_low_risk_6_months"
+  },
+  "expected": {
+    "phase": "week3_engine_target",
+    "status": "unsupported",
+    "reason_codes": [
+      "draft_rule",
+      "missing_birth_date"
+    ],
+    "not_applicable_rule_ids": [],
+    "notes": {
+      "en": "Draft data keeps the whole route unsupported; a verified age constraint would need confirmation.",
+      "zh-CN": "草稿使路线未覆盖；即使年龄规则已核实，缺生日也应待确认。"
+    }
+  }
+}
