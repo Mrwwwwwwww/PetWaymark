@@ -13,7 +13,7 @@
 
 The 8-person minimum retains six directional owners plus two professionals. At 10, add two domestic owners; at 12, add a cat/separate-travel owner and a professional from another region. Keep unfilled directions visible. Multiple journeys by one person do not count as multiple participants. Include dogs and cats, aim for at least four small-town endpoints, two separate-date/authorized-companion experiences and one cancellation/refusal/abandoned trip. Quotas overlap and are not statistically representative.
 
-Use several channels; avoid sampling only Petzod / 宠云际 customers or provider referrals. Record affiliations separately. Do not scrape members, private messages or customer lists. Future recruiters must check community rules and obtain permission where needed. This document does not authorize posts, messages or outreach.
+Use several channels; avoid sampling only one provider's customers or relying solely on provider referrals. Record participants' and recruiters' relationships to providers separately to identify sampling bias. PetWaymark is a public-benefit project with no affiliation to any commercial brand. Do not scrape members, private messages or customer lists. Future recruiters must check community rules and obtain permission where needed. This document does not authorize posts, messages or outreach.
 
 ## 35–40 minute guide
 

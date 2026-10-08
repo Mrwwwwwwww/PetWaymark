@@ -4,6 +4,8 @@
 
 An open, bilingual planning project for dog and cat journeys that combine ground transport, rail and air travel across China, the United States and the European Union.
 
+PetWaymark is a purely public-benefit open-source project whose primary purpose is to help pet owners. It is free and open, with no affiliation to any commercial brand. Any compliant service provider may connect on equal terms through open interfaces. The project does not operate transport or other commercial services, accept orders or favor any provider. Planned service connections link or redirect users to providers' own channels; compliance, privacy and animal welfare remain requirements.
+
 **Week 1 scaffold — no working planner or verified travel routes yet.** The planned scope is one privately owned dog or cat, with purpose, ownership changes, accompaniment and owner travel dates assessed separately. Service animals need a separate review path.
 
 The planned outputs are route alternatives, document timelines, itemized costs, handover checklists and explanations linked to official evidence. Unknown rules must never become permission. Intended result states are `eligible`, `conditional`, `ineligible` and `unsupported`; none confirms a booking or carrier acceptance.
@@ -41,4 +43,4 @@ China↔US, China↔EU and US↔EU remain six separate directions. Initial EU co
 
 Original code and documentation: [Apache-2.0](LICENSE). Original curated data under `data/`: [CC BY 4.0](LICENSE-DATA), with [scope details](data/README.md). Petra research snapshots retain their own CC BY 4.0 terms and attribution in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Linked official texts, trademarks and third-party databases are not relicensed by this project.
 
-The project is intended to work independently of Petzod / 宠云际 ordering services. No external repository, account, package or domain was created during Week 1.
+No external repository, account, package or domain was created during Week 1.
