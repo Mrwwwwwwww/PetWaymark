@@ -1,0 +1,91 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "enum": [
+        "0.1.0"
+      ]
+    },
+    "dataset_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "review_status": {
+      "enum": [
+        "draft"
+      ]
+    },
+    "reviewed_by": {
+      "type": "array",
+      "maxItems": 0
+    },
+    "verified_rule_count": {
+      "enum": [
+        0
+      ]
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "source_id": {
+            "$ref": "common.schema.json#/$defs/id"
+          },
+          "url": {
+            "$ref": "common.schema.json#/$defs/url"
+          },
+          "locator": {
+            "type": "string",
+            "minLength": 1
+          },
+          "accessed_at": {
+            "type": "string",
+            "format": "date"
+          },
+          "status": {
+            "enum": [
+              "read_pending_review",
+              "unavailable"
+            ]
+          },
+          "summary": {
+            "$ref": "common.schema.json#/$defs/text"
+          }
+        },
+        "required": [
+          "source_id",
+          "url",
+          "locator",
+          "accessed_at",
+          "status",
+          "summary"
+        ]
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "pending_checks": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "schema_version",
+    "dataset_version",
+    "review_status",
+    "reviewed_by",
+    "verified_rule_count",
+    "evidence",
+    "pending_checks"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://petwaymark.org/schemas/0.1.0/us-eu.schema.json"
+}

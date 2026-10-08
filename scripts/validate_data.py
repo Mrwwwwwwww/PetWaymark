@@ -170,6 +170,11 @@ def validate_repository(root=ROOT):
         inbound = load(inbound_path, 'cn-inbound.schema.json')
         if inbound:
             errors.extend(validate_inbound(inbound, sources))
+    us_eu_path = root / 'data/coverage/us-eu.json'
+    if us_eu_path.exists():
+        us_eu = load(us_eu_path, 'us-eu.schema.json')
+        if us_eu:
+            errors.extend(validate_us_eu(us_eu, sources))
     directory_path = root / 'data/providers/directory.json'
     if directory_path.exists():
         directory = load(directory_path, 'provider-directory.schema.json')
@@ -184,6 +189,20 @@ def validate_repository(root=ROOT):
                     or row['url'] != source.get('url') or row['checked_at'] != source.get('accessed_at')):
                     errors.append('directory: unresolved or drifted public capability evidence')
     return errors, counts
+
+
+def validate_us_eu(inventory, sources):
+    errors = []
+    rows = inventory['evidence']
+    if len({r['source_id'] for r in rows}) != len(rows):
+        errors.append('us-eu: duplicate evidence ID')
+    for row in rows:
+        source = sources.get(row['source_id'], {})
+        if any(row[key] != source.get(key) for key in ('url', 'accessed_at', 'status')):
+            errors.append('us-eu: evidence differs from source catalog')
+    if inventory['review_status'] != 'draft' or inventory['reviewed_by'] or inventory['verified_rule_count'] != 0:
+        errors.append('us-eu: unrecorded human review promotion forbidden')
+    return errors
 
 
 def validate_inbound(inventory, sources):

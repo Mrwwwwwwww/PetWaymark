@@ -1100,6 +1100,106 @@
           "zh-CN": "现行范围、附件与合格独立复核待完成。"
         }
       ]
+    },
+    {
+      "id": "us.aphis.eu-france",
+      "authority": "US-APHIS",
+      "publisher": "USDA APHIS",
+      "kind": "government",
+      "url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-france",
+      "title": {
+        "en": "US to France / EU certificate guidance",
+        "zh-CN": "美国赴法国／欧盟证书指引"
+      },
+      "language": "en",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "read_pending_review",
+      "license_boundary": {
+        "en": "Links and original summaries only; official text retains its rights.",
+        "zh-CN": "仅链接和原创摘要；官方原文保留权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Independent qualified human review, full annexes and operational requirements pending.",
+          "zh-CN": "独立合格人工复核、完整附件及操作条件待核。"
+        }
+      ]
+    },
+    {
+      "id": "us.aphis.eu-model-2026",
+      "authority": "US-APHIS",
+      "publisher": "USDA APHIS",
+      "kind": "government",
+      "url": "https://www.aphis.usda.gov/sites/default/files/eu-hc-non-commercial-dogs-cats-ferrets-without-treatment.pdf",
+      "title": {
+        "en": "2026 US EU non-commercial certificate",
+        "zh-CN": "2026美国赴欧盟非商业证书"
+      },
+      "language": "en",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "read_pending_review",
+      "license_boundary": {
+        "en": "Links and original summaries only; official text retains its rights.",
+        "zh-CN": "仅链接和原创摘要；官方原文保留权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Independent qualified human review, full annexes and operational requirements pending.",
+          "zh-CN": "独立合格人工复核、完整附件及操作条件待核。"
+        }
+      ]
+    },
+    {
+      "id": "us.aphis.eu-passport",
+      "authority": "US-APHIS",
+      "publisher": "USDA APHIS",
+      "kind": "government",
+      "url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/european-union-eu-pet-passports",
+      "title": {
+        "en": "EU passports and return to EU",
+        "zh-CN": "欧盟护照及返欧"
+      },
+      "language": "en",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "read_pending_review",
+      "license_boundary": {
+        "en": "Links and original summaries only; official text retains its rights.",
+        "zh-CN": "仅链接和原创摘要；官方原文保留权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Independent qualified human review, full annexes and operational requirements pending.",
+          "zh-CN": "独立合格人工复核、完整附件及操作条件待核。"
+        }
+      ]
+    },
+    {
+      "id": "us.cdc.us-vaccinated-return",
+      "authority": "US-CDC",
+      "publisher": "Centers for Disease Control and Prevention",
+      "kind": "government",
+      "url": "https://www.cdc.gov/importation/dogs/us-vaccinated-high-risk-countries.html",
+      "title": {
+        "en": "US-vaccinated high-risk return dogs",
+        "zh-CN": "美国免疫高风险返美犬"
+      },
+      "language": "en",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "read_pending_review",
+      "license_boundary": {
+        "en": "Links and original summaries only; official text retains its rights.",
+        "zh-CN": "仅链接和原创摘要；官方原文保留权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Independent qualified human review, full annexes and operational requirements pending.",
+          "zh-CN": "独立合格人工复核、完整附件及操作条件待核。"
+        }
+      ]
     }
   ]
 }

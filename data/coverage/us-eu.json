@@ -1,0 +1,116 @@
+{
+  "schema_version": "0.1.0",
+  "dataset_version": "0.1.0-week9-us-eu-research",
+  "review_status": "draft",
+  "reviewed_by": [],
+  "verified_rule_count": 0,
+  "evidence": [
+    {
+      "source_id": "us.aphis.eu-france",
+      "url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-france",
+      "accessed_at": "2026-10-08",
+      "status": "read_pending_review",
+      "locator": "Steps 1–3; new certificates notice",
+      "summary": {
+        "en": "New non-commercial model from October 1; issue and endorsement differ; manufacturer immunity may exceed 21 days.",
+        "zh-CN": "10月1日起新非商业范本；签发与背书分开；厂商免疫等待可能超过21日。"
+      }
+    },
+    {
+      "source_id": "us.aphis.eu-model-2026",
+      "url": "https://www.aphis.usda.gov/sites/default/files/eu-hc-non-commercial-dogs-cats-ferrets-without-treatment.pdf",
+      "accessed_at": "2026-10-08",
+      "status": "read_pending_review",
+      "locator": "PDF pages 2–4, II.3 and Notes (b)",
+      "summary": {
+        "en": "Readable 2026 model; endorsement to entry check 10 days, later intra-EU use limited by vaccine expiry; titre exceptions need current lists.",
+        "zh-CN": "可读2026范本；背书至入境检查10日，后续欧盟内使用受免疫到期限制；抗体例外待核现行名单。"
+      }
+    },
+    {
+      "source_id": "us.aphis.eu-passport",
+      "url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/european-union-eu-pet-passports",
+      "accessed_at": "2026-10-08",
+      "status": "read_pending_review",
+      "locator": "Who can enter information; return documents",
+      "summary": {
+        "en": "Return passport depends on valid EU-vet rabies record. US revaccination requires a health certificate; US vets cannot fill EU-authorized sections.",
+        "zh-CN": "返程护照依赖欧盟兽医有效免疫记录；美国再接种需卫生证，美国兽医不得填写欧盟授权栏。"
+      }
+    },
+    {
+      "source_id": "us.cdc.us-vaccinated-return",
+      "url": "https://www.cdc.gov/importation/dogs/us-vaccinated-high-risk-countries.html",
+      "accessed_at": "2026-10-08",
+      "status": "read_pending_review",
+      "locator": "Options; certification; receipt validity",
+      "summary": {
+        "en": "Specific US rabies form must be endorsed before leaving US. Export certificates after July 31 2025 cannot replace it.",
+        "zh-CN": "美国专用免疫表须离美前背书；2025年7月31日后出口证不能替代。"
+      }
+    },
+    {
+      "source_id": "us.cdc.high-risk-list",
+      "url": "https://www.cdc.gov/importation/dogs/high-risk-countries.html",
+      "accessed_at": "2026-10-08",
+      "status": "read_pending_review",
+      "locator": "Overview; country/political unit list",
+      "summary": {
+        "en": "Six-month history matters; mainland China, Ceuta and Melilla are listed. No blanket EU geography exemption is inferred.",
+        "zh-CN": "六个月历史影响分类；中国大陆、休达、梅利利亚列名，不按欧盟地理名称整体豁免。"
+      }
+    },
+    {
+      "source_id": "us.cdc.low-risk",
+      "url": "https://www.cdc.gov/importation/dogs/rabies-free-low-risk-countries.html",
+      "accessed_at": "2026-10-08",
+      "status": "read_pending_review",
+      "locator": "Receipt validity; health, age, chip",
+      "summary": {
+        "en": "Low-risk receipt country must match departure; receipt expiry/history change require reassessment.",
+        "zh-CN": "低风险回执国家须与起运地一致；到期及历史改变需重评。"
+      }
+    },
+    {
+      "source_id": "us.cdc.foreign-high-risk",
+      "url": "https://www.cdc.gov/importation/dogs/foreign-vaccinated-high-risk-countries.html",
+      "accessed_at": "2026-10-08",
+      "status": "read_pending_review",
+      "locator": "Entry requirements",
+      "summary": {
+        "en": "Foreign-vaccinated high-risk dogs need an ACF reservation and separate document chain.",
+        "zh-CN": "境外免疫高风险犬需设施预约及独立文件链。"
+      }
+    },
+    {
+      "source_id": "us.cdc.animals",
+      "url": "https://www.cdc.gov/importation/bringing-an-animal-into-the-us/index.html",
+      "accessed_at": "2026-10-08",
+      "status": "read_pending_review",
+      "locator": "Cats",
+      "summary": {
+        "en": "Cats require healthy arrival and inspection; no CDC dog form, age or chip rule applied. States/carriers remain separate.",
+        "zh-CN": "猫需健康抵达及检查；不套犬CDC表、年龄、芯片要求；州与承运方条件独立。"
+      }
+    },
+    {
+      "source_id": "eu.law.2026-705",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX%3A32026R0705",
+      "accessed_at": "2026-10-08",
+      "status": "read_pending_review",
+      "locator": "Articles 3, 6; Annex III / V: model correspondence pending",
+      "summary": {
+        "en": "Existing Week 6 model transition reading reused; US-specific certificate and endorsement cutover reviewed separately.",
+        "zh-CN": "复用第6周范本过渡查阅；美国专用证书及背书切换另核。"
+      }
+    }
+  ],
+  "pending_checks": [
+    "independent_human_review",
+    "eu_current_annex_lists_and_local_export_procedures",
+    "us_aphis_state_and_emergency_import_overlays",
+    "dated_carrier_capacity_and_entry_facilities",
+    "original_document_custody_and_delivery_unconfirmed",
+    "first_last_legs_and_overnight_care_unconfirmed"
+  ]
+}
