@@ -8,9 +8,9 @@ from urllib.error import HTTPError
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
-from apps.web.server import App, make_handler
+from apps.web.server import App, make_handler, FIELDS
 from packages.engine.routes import preview
-from packages.engine import eu, outbound, inbound
+from packages.engine import eu, outbound, inbound, us_eu
 from packages.engine.io import ROOT
 from scripts.validate_data import read_json
 from apps.web.server import profile_from_form
@@ -82,6 +82,37 @@ class WebTests(unittest.TestCase):
         for change in [dict(owner_moving='false'),dict(accompaniment='unaccompanied'),dict(accompaniment='authorized_person',authorized_person_written='false')]:
             code,_,body=self.post(self.outbound_fields(**change));self.assertEqual(code,200)
             r=json.loads(body);self.assertFalse(r['classification_resolved']);self.assertEqual(r['timeline'],[])
+
+    def us_eu_fields(self,direction='us-eu',species='dog',**changes):
+        profile=read_json(ROOT/f'tests/fixtures/us-eu/{direction}-{species}.json')
+        f=self.fields(corridor='intl.'+direction,species=species)
+        for group in ('pet','journey','documents','events','appointments','responsibility'):
+            for key,value in profile.get(group,{}).items():
+                if key in FIELDS and value is not None:
+                    f[key]=str(value).lower() if type(value) is bool else str(value)
+        f.update(changes);return f
+
+    def test_us_eu_http_kernel_checklist_and_both_languages(self):
+        for direction in ('us-eu','eu-us'):
+            for species in ('dog','cat'):
+                for lang in ('en','zh-CN'):
+                    f=self.us_eu_fields(direction,species,language=lang)
+                    expected=us_eu.assess(profile_from_form(f),assessment_at=f['assessment_at']);expected['corridor_id']=f['corridor']
+                    code,_,body=self.post(f);self.assertEqual(code,200);self.assertEqual(json.loads(body),expected)
+                    code,_,html=self.post({**f,'output':'html'});self.assertEqual(code,200)
+                    self.assertIn('class="printable"',html);self.assertIn('return_leg_requires_independent_reassessment',html)
+                    self.assertEqual(self.app.assess(f)[1],us_eu.checklist(expected,language=lang))
+
+    def test_us_eu_return_history_and_care_conflicts_visible(self):
+        f=self.us_eu_fields('eu-us',last_high_risk_exit_at='2026-05-10',overnight_required='true',overnight_care_available='unknown')
+        code,_,body=self.post(f);self.assertEqual(code,200);r=json.loads(body)
+        self.assertIn('us.six-month-history.history_conflict',r['reason_codes'])
+        self.assertEqual(r['final_handover']['overnight_outcome'],'care_unknown')
+        self.assertFalse(r['final_handover']['custody_confirmed'])
+
+    def test_us_eu_invalid_values_and_evidence_promotion_rejected(self):
+        for changes in [dict(us_form_endorsed_at='bad'),dict(manufacturer_immunity_days='PRIVATE'),dict(overnight_required='yes'),dict(overnight_custodian_role='PRIVATE'),dict(custody_confirmed='true')]:
+            code,_,html=self.post(self.us_eu_fields(**changes));self.assertEqual(code,400);self.assertNotIn('PRIVATE',html)
 
     def test_bilingual_http_equals_cli_kernel_all_corridors(self):
         for corridor in self.app.corridors:

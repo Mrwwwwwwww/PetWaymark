@@ -7,6 +7,8 @@ const base = process.env.PETWAYMARK_WEB_URL || 'http://127.0.0.1:8766';
  const errors=[]; page.on('pageerror',e=>errors.push(String(e)));
  const remote=[]; page.on('request',r=>{if(!r.url().startsWith(base))remote.push(r.url())});
  await page.goto(base+'/?example=owner');
+ const nativeNames=await page.locator('form [name]').evaluateAll(nodes=>nodes.map(n=>n.name));
+ assert.equal(new Set(nativeNames).size,nativeNames.length);
  await page.locator('form button[type=submit]').first().click();
  await page.waitForURL('**/assess');
  await page.locator('#result-title').waitFor();
@@ -137,7 +139,50 @@ const base = process.env.PETWAYMARK_WEB_URL || 'http://127.0.0.1:8766';
    await page.pdf({path:'/tmp/petwaymark-inbound-'+origin+'-'+species+'.pdf',format:'A4'});
   }
  }
+ for(const direction of ['us-eu','eu-us']) {
+  for(const species of ['dog','cat']) {
+   await page.goto(base+'/?example='+direction);
+   await page.locator('select[name=species]').selectOption(species);
+   await page.locator('#handover-inputs').evaluate(el=>{el.open=true});
+   await page.locator('select[name=overnight_required]').selectOption('true');
+   await page.locator('select[name=overnight_care_available]').selectOption('unknown');
+   await page.locator('input[name=arrival_time]').fill('2026-11-10T19:00:00+08:00');
+   await page.locator('input[name=arrival_timezone]').fill('Asia/Shanghai');
+   await page.locator('input[name=pickup_deadline]').fill('2026-11-10T18:00:00+08:00');
+   await page.locator('input[name=pickup_timezone]').fill('Asia/Shanghai');
+   if(direction==='us-eu') {
+    await page.locator('#outbound-inputs').evaluate(el=>{el.open=true});
+    await page.locator('input[name=certificate_endorsed_at]').fill('2026-10-30');
+   } else if(species==='dog') {
+    await page.locator('#us-eu-inputs').evaluate(el=>{el.open=true});
+    await page.locator('input[name=last_high_risk_exit_at]').fill('2026-05-10');
+   }
+   await page.locator('form button[type=submit]').first().click();
+   await page.waitForURL('**/assess');await page.locator('#result-title').waitFor();
+   const before=await page.locator('section > p.codes').innerText();
+   assert.match(before,/final_pickup.window_missed/);assert.match(before,/overnight.care_unknown/);
+   if(direction==='us-eu')assert.match(before,/eu.endorsement-to-check.date_window_conflict/);
+   if(direction==='eu-us' && species==='dog')assert.match(before,/us.six-month-history.history_conflict/);
+   await page.locator('#language').click();await page.waitForFunction(()=>document.documentElement.lang==='en');
+   assert.equal(await page.locator('section > p.codes').innerText(),before);
+   assert.equal(await page.locator('input[name=pickup_deadline]').inputValue(),'2026-11-10T18:00:00+08:00');
+   const pending=page.waitForEvent('download');await page.locator('button[name=output]').click();
+   const file=await pending;const result=JSON.parse(fs.readFileSync(await file.path(),'utf8'));
+   assert.equal(result.status,'unsupported');assert.equal(result.verified_feasible_route_count,0);
+   assert.equal(result.final_handover.pickup_outcome,'window_missed');assert.equal(result.final_handover.overnight_outcome,'care_unknown');
+   assert.equal(result.final_handover.custody_confirmed,false);
+   if(direction==='eu-us' && species==='cat') {
+    assert(result.draft_diagnostics.some(x=>x.diagnostic_id==='us.cat-dog-rules' && x.outcome==='not_applicable'));
+    assert(!result.draft_diagnostics.some(x=>x.diagnostic_id==='us.dog-age'));
+   }
+   await page.evaluate(()=>{window.print=()=>{window.didPrint=true}});
+   await page.locator('#print').click();assert.equal(await page.evaluate(()=>window.didPrint),true);
+   assert.match(await page.locator('.printable').innerText(),/overnight_care.*care_unknown/);
+   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+   await page.pdf({path:'/tmp/petwaymark-week9-'+direction+'-'+species+'.pdf',format:'A4'});
+  }
+ }
  assert.deepEqual(errors,[]);assert.deepEqual(remote,[]);
- console.log('PASS: CN/US and EU browser language/input parity, owner-not-moving gate, 27/24-member gaps, JSON download, checklist print/PDF, mobile overflow, CN outbound timelines, appointment conflict, inbound dog/cat conflicts, unknown costs, neutral directory, zero external requests.');
+ console.log('PASS: CN/US and EU browser language/input parity, owner-not-moving gate, 27/24-member gaps, JSON download, checklist print/PDF, mobile overflow, CN outbound timelines, appointment conflict, inbound dog/cat conflicts, unknown costs, neutral directory, US/EU independent dog/cat return history and missed final pickup/unknown overnight care, zero external requests.');
  await browser.close();
 })().catch(e=>{console.error(e);process.exit(1)});

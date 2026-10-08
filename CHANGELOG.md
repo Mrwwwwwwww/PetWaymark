@@ -1,5 +1,23 @@
 # Changelog / 变更记录
 
+## Unreleased — Week 9 / 未发布：第9周
+
+- Independent US→EU / EU→US dog/cat document and return-history research, shared
+  bilingual CLI/web, explicit manufacturer waits and certificate/return-proof cutovers.
+- Reproducible 48-case production-engine audit across domestic areas and all six
+  international directions; exact JSON results, public status definitions and CI drift gate.
+- Final pickup and overnight-care diagnostics with offset/IANA DST checks; care,
+  original documents and external custody remain unconfirmed. Explicit unsupported
+  transit now stops CN outbound inference; rejected web inputs are not echoed.
+- Four new official sources, five reused readings and four synthetic directional
+  fixtures. All rules remain draft; full current annexes, local exports, independent
+  review and dated carrier/custody evidence pending; verified feasible routes zero.
+
+第9周：独立美欧双向犬猫与返程研究、双语CLI／网页、厂商等待与证书切换；
+48个真实执行的合成回归生成六方向矩阵并入CI；末段超时／过夜照护与DST诊断，
+中国出境显式过境门禁及错误页不回显非法文字。新增4来源、复用5查阅；仍草稿，
+完整附件、属地出口、独立复核及实际运力责任待核，已验证路线0。
+
 ## Unreleased — Week 8 / 未发布：第8周
 
 - Add seven source records/attempts and reread GACC carried-entry scope; cat model

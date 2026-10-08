@@ -13,7 +13,7 @@ from urllib.parse import parse_qs, urlsplit
 
 from packages.engine.io import ROOT, load_repository
 from packages.engine.routes import preview, checklist
-from packages.engine import eu, outbound, inbound
+from packages.engine import eu, outbound, inbound, us_eu
 from packages.engine.planning import load_directory
 from packages.engine.evaluate import day
 from scripts.validate_data import read_json
@@ -57,6 +57,22 @@ FIELDS.update(INBOUND_DATES)
 FIELDS.update(INBOUND_CHOICES)
 FIELDS.update(INBOUND_BOOLS)
 FIELDS.add('titre_iu_ml')
+
+US_EU_EXAMPLES = {'intl.us-eu':dict(origin='US',destination='EU',name={'en':'US → EU (documents/return)','zh-CN':'美国→欧盟（文件／返程）'}),
+                  'intl.eu-us':dict(origin='EU',destination='US',name={'en':'EU → US (documents/return)','zh-CN':'欧盟→美国（文件／返程）'})}
+US_EU_DATES = {'last_high_risk_exit_at':'journey','original_us_exit_at':'journey','onward_entry_at':'journey',
+    'receipt_issued_at':'documents','receipt_expires_at':'documents','us_form_issued_at':'documents',
+    'us_form_endorsed_at':'documents','us_export_issued_at':'documents','passport_issued_at':'documents','rabies_valid_until':'events'}
+US_EU_CHOICES = {'eu_document_route':'documents','passport_model':'documents',
+    'receipt_departure_member':'documents','us_return_document':'documents',
+    'destination_subdivision':'journey','origin_member':'journey','transit':'journey'}
+US_EU_BOOLS = {'history_complete':'journey','passport_eu_vet_rabies':'documents',
+    'revaccinated_in_us':'documents','receipt_present':'documents'}
+HANDOVER_FIELDS = {'arrival_time','arrival_timezone','pickup_deadline','pickup_timezone',
+    'overnight_required','overnight_care_available','overnight_custodian_role'}
+FIELDS.update(US_EU_DATES);FIELDS.update(US_EU_CHOICES);FIELDS.update(US_EU_BOOLS);FIELDS.update(HANDOVER_FIELDS)
+FIELDS.add('manufacturer_immunity_days')
+OUTBOUND_CHOICES['transit'] = 'journey'
 
 EU_EXAMPLES = {'eu.' + a.lower() + '-' + b.lower():
                dict(origin_member=a, destination_member=b,
@@ -108,8 +124,9 @@ def profile_from_form(fields):
                 profile['pet' if name=='identification_method' else 'documents'][name]=fields[name]
         for name in ('microchip_present','tattoo_readable'):
             profile['pet'][name]=boolean(fields.get(name,'unknown'))
-    if corridor in OUTBOUND_EXAMPLES:
-        journey.update(origin='CN',destination=OUTBOUND_EXAMPLES[corridor]['destination'],
+    if corridor in OUTBOUND_EXAMPLES or corridor in US_EU_EXAMPLES:
+        case = US_EU_EXAMPLES.get(corridor, OUTBOUND_EXAMPLES.get(corridor))
+        journey.update(origin=case.get('origin','CN'),destination=case['destination'],
             owner_moving=boolean(fields.get('owner_moving','unknown')),
             authorized_person_written=boolean(fields.get('authorized_person_written','unknown')),
             vaccination_branch=fields.get('vaccination_branch','unknown'))
@@ -140,6 +157,22 @@ def profile_from_form(fields):
             value=float(fields['titre_iu_ml'])
             if not math.isfinite(value) or value<0:raise ValueError('invalid titer')
             profile['documents']['titre_iu_ml']=value
+    if corridor in US_EU_EXAMPLES:
+        for name,group in US_EU_DATES.items():
+            if fields.get(name):
+                day(fields[name]);profile.setdefault(group,{})[name]=fields[name]
+        for name,group in US_EU_CHOICES.items():
+            if fields.get(name) not in (None,'','unknown'): profile.setdefault(group,{})[name]=fields[name]
+        for name,group in US_EU_BOOLS.items():
+            profile.setdefault(group,{})[name]=boolean(fields.get(name,'unknown'))
+        if fields.get('manufacturer_immunity_days'):
+            profile.setdefault('events',{})['manufacturer_immunity_days']=int(fields['manufacturer_immunity_days'])
+        record={}
+        for name in HANDOVER_FIELDS:
+            value=fields.get(name)
+            if name in ('overnight_required','overnight_care_available'):record[name]=boolean(value or 'unknown')
+            elif value not in (None,'','unknown'):record[name]=value
+        profile['handover']=record
     return profile
 
 
@@ -152,6 +185,8 @@ class App:
         self.eu_inventory = eu.load_inventory(root)
         self.outbound_inventory = outbound.load_inventory(root)
         self.inbound_inventory = inbound.load_inventory(root)
+        self.us_eu_inventory = us_eu.load_inventory(root)
+        self.corridors.update({ident:('US_EU',case) for ident,case in US_EU_EXAMPLES.items()})
         self.directory = load_directory(root)
         self.corridors.update({ident:('INBOUND',case) for ident,case in INBOUND_EXAMPLES.items()})
         self.corridors.update({ident:('OUTBOUND',case) for ident,case in OUTBOUND_EXAMPLES.items()})
@@ -165,6 +200,10 @@ class App:
             raise ValueError('unsupported output')
         profile = profile_from_form(fields)
         region, _ = self.corridors[fields['corridor']]
+        if region == 'US_EU':
+            result = us_eu.assess(profile, assessment_at=fields['assessment_at'], inventory=self.us_eu_inventory, eu_inventory=self.eu_inventory)
+            result['corridor_id'] = fields['corridor']
+            return result, us_eu.checklist(result, language=language)
         if region == 'INBOUND':
             result = inbound.assess(profile, assessment_at=fields['assessment_at'], inventory=self.inbound_inventory, directory=self.directory)
             result['corridor_id'] = fields['corridor']
@@ -196,7 +235,7 @@ class App:
             return select(name,tr(en,zh),[('unknown',tr('Unknown','未知')),('true',tr(true_en,true_zh)),('false',tr(false_en,false_zh))])
         corridor_options = []
         for ident, (region, c) in self.corridors.items():
-            if region in ('EU','OUTBOUND','INBOUND'):
+            if region in ('EU','OUTBOUND','INBOUND','US_EU'):
                 corridor_options.append((ident,c['name'][language])); continue
             names = {n['id']: n['name'][language] for n in self.graphs[region]['nodes']}
             corridor_options.append((ident, names[c['origin_node']]+' → '+names[c['destination_node']]))
@@ -246,8 +285,8 @@ class App:
             outbound_controls += select(name,tr(en,zh),[('unknown',tr('Unknown','未知'))]+[(m['member'],m['member']) for m in self.eu_inventory['members']])
         for name,en,zh in [('entry_airport','Arrival airport (listing is not capacity)','抵达机场（列名非运力）'),('receipt_airport','CDC receipt airport','CDC回执机场'),('acf_airport','Reserved ACF airport','预约设施机场')]:
             outbound_controls += select(name,tr(en,zh),[('unknown',tr('Unknown','未知'))]+[(key,key) for key in self.outbound_inventory['us_acf_airports']+['EWR','FRA','CDG','AMS','PVG','PEK','CAN','SHA']])
-        outbound_controls += choices('travel_history_branch','Dog six-month history (CN is high risk)','犬六个月旅行史（中国大陆为高风险）',[('high_risk_in_6_months','High risk in six months','六个月内高风险'),('only_low_risk_6_months','Only low risk (conflicts with CN origin)','仅低风险（与中国大陆起运冲突）')])
-        outbound_controls += choices('rabies_vaccine_origin','Dog vaccine origin','犬疫苗来源',[('foreign','Outside US','美国境外'),('US','US-issued (separate branch uncompiled)','美国签发（独立分支未编译）')])
+        outbound_controls += choices('travel_history_branch','Dog six-month history (self-report; mainland CN high risk)','犬六个月历史（自报；中国大陆高风险）',[('high_risk_in_6_months','High risk in six months','六个月内高风险'),('only_low_risk_6_months','Only low risk during six months','六个月全程仅低风险')])
+        outbound_controls += choices('rabies_vaccine_origin','Dog vaccine origin','犬疫苗来源',[('foreign','Outside US','美国境外'),('US','US vaccine (CN outbound branch uncompiled)','美国免疫（中国出境分支未编译）')])
         outbound_controls += choices('titre_branch','Antibody branch','抗体分支',[('test_required','Test required','需要检测'),('quarantine','US quarantine alternative','美国隔离备选'),('return','EU return exception unreviewed','欧盟返程例外未核'),('listed_origin','EU listed-origin exception unreviewed','欧盟列名来源例外未核')])
         outbound_controls += select('certificate_model',tr('International certificate model','跨境证书范本'),[('unknown',tr('Unknown','未知')),('eu.705.ahc','2026/705 Annex III'),('eu.577.ahc','577/2013 Annex IV'),('us.cn.dog.2026',tr('US→CN dog January 2026 (draft)','美→中犬2026年1月（草稿）')),('us.cn.cat.2026',tr('US→CN cat January 2026 (unread)','美→中猫2026年1月（不可读）'))])
         outbound_controls += choices('issuer_route','EU issue/endorsement route','欧盟签发／背书路径',[('official_vet','Official veterinarian issue','官方兽医签发'),('authorized_then_endorsed','Authorised veterinarian then authority endorsement','授权兽医签发后主管机关背书')])
@@ -270,6 +309,24 @@ class App:
             inbound_controls += tri(name,en,zh)
         inbound_controls += f'<label>{tr("Titer IU/mL (0.5 conflict pending clarification)","抗体IU/mL（0.5冲突待澄清）")}<input type="number" min="0" step="any" name="titre_iu_ml" value="{escape(values.get("titre_iu_ml",""))}"></label>'
         controls += '<details id="inbound-inputs"><summary>'+tr('US/EU → CN inputs','美国／欧盟→中国输入')+'</summary><p>'+tr('Use international controls for issue, endorsement, departure, sample and document roles. Microchip is in evidence inputs. Separate cargo is uncompiled.','签发、背书、出发、采血与原件角色使用跨境输入；芯片在证据输入。独立货运未编译。')+'</p><div class="fields">'+inbound_controls+'</div></details>'
+        us_eu_controls = ''
+        for name,en,zh in [('history_complete','Complete six-month dog location history? (self-report)','犬六个月地点历史完整？（自报）'),('receipt_present','CDC dog receipt available?','犬CDC回执已准备？'),('passport_eu_vet_rabies','Passport vaccine recorded by EU vet?','护照免疫由欧盟兽医记录？'),('revaccinated_in_us','Revaccinated in US since passport record?','护照记录后曾在美国再接种？')]:
+            us_eu_controls += tri(name,en,zh)
+        for name,(en,zh) in {'last_high_risk_exit_at':('Last high-risk exit (does not prove full history)','最后离开高风险地（不证明完整历史）'),'original_us_exit_at':('Original US departure','原始离美日期'),'onward_entry_at':('Onward member arrival date','后续成员国抵达日期'),'receipt_issued_at':('Receipt issue date','回执签发日'),'receipt_expires_at':('Receipt stated expiry','回执记载到期日'),'us_form_issued_at':('Specific US rabies form signature','专用美国免疫表签署日'),'us_form_endorsed_at':('Specific US form endorsement','专用美国表背书日'),'us_export_issued_at':('Legacy US export issue','旧美国出口证签发日')}.items():
+            us_eu_controls += f'<label>{tr(en,zh)}<input type="date" name="{name}" value="{escape(values.get(name,""))}"></label>'
+        us_eu_controls += choices('eu_document_route','EU document route','欧盟文件路径',[('health_certificate','US health certificate','美国卫生证'),('passport_return','Existing EU passport return (needs review)','既有欧盟护照返程（待核）')])
+        us_eu_controls += choices('us_return_document','US high-risk return proof','美国高风险返程证明',[('us_rabies_form','Specific endorsed US rabies form','专用美国免疫背书表'),('legacy_export','Export issued by July 31 2025 (other conditions pending)','2025年7月31日前出口证（其余条件待核）')])
+        us_eu_controls += choices('receipt_departure_member','CDC receipt departure country','CDC回执起运国家',[(m['member'],m['member'],m['member']) for m in self.eu_inventory['members']])
+        us_eu_controls += choices('destination_subdivision','US destination (local gaps remain)','美国目的地（当地缺口仍在）',[(x,x,x) for x in ('US-CA','US-NY','US-TX','US-HI','GU','other')])
+        us_eu_controls += f'<label>{tr("Manufacturer immunity days (minimum 21; do not guess)","厂商免疫等待天数（至少21；勿猜测）")}<input type="number" min="21" step="1" name="manufacturer_immunity_days" value="{escape(values.get("manufacturer_immunity_days",""))}"></label>'
+        controls += '<details id="us-eu-inputs"><summary>'+tr('US ↔ EU and return inputs','美欧双向与返程输入')+'</summary><p>'+tr('Use international date, passport, origin member and transit controls above. Each direction needs new assessment. Anonymous history and reported readiness are not verified evidence.','日期、护照、起运成员国及过境使用其他输入。各方向须重新评估；匿名历史及自报准备不构成核实证据。')+'</p><div class="fields">'+us_eu_controls+'</div></details>'
+        handover_controls=''
+        for name,en,zh in [('arrival_time','Final-leg arrival timestamp with UTC offset','末段抵达时刻（含UTC偏移）'),('arrival_timezone','Arrival IANA timezone','抵达IANA时区'),('pickup_deadline','Final pickup deadline with UTC offset','末段接收截止（含UTC偏移）'),('pickup_timezone','Pickup IANA timezone','接收IANA时区')]:
+            handover_controls += f'<label>{tr(en,zh)}<input name="{name}" value="{escape(values.get(name,""))}" maxlength="64"></label>'
+        handover_controls += tri('overnight_required','Overnight care needed?','需要过夜照护？')
+        handover_controls += tri('overnight_care_available','Overnight care available? (self-report)','过夜照护可用？（自报）')
+        handover_controls += choices('overnight_custodian_role','Proposed overnight custodian role','拟过夜保管角色',[(x,x,x) for x in ('owner','authorized_person','carrier','receiving_carer')])
+        controls += '<details id="handover-inputs"><summary>'+tr('US/EU final pickup and overnight care','美欧末段接收与过夜照护')+'</summary><p>'+tr('Do not enter names or contact details. Missing care/custody remains unknown; missed pickup needs a recovery arrangement.','勿填姓名联系方式；照护和保管缺项保持未知，错过接收须安排异常接管。')+'</p><div class="fields">'+handover_controls+'</div></details>'
         results = ''
         if error:
             results += '<p role="alert">'+escape(tr('Input error: ','输入错误：')+error)+'</p>'
@@ -306,7 +363,7 @@ class App:
                 for exception in inv['exceptions']:
                     results += '<p>'+escape(exception['summary'][language])+'</p>'
                 results += '</details>'
-            if result.get('assessment_scope') in ('cn_outbound_evidence_preview','cn_inbound_evidence_preview'):
+            if result.get('assessment_scope') in ('cn_outbound_evidence_preview','cn_inbound_evidence_preview','us_eu_evidence_preview'):
                 results += '<h3>'+tr('Document timeline — research dates only','文件时间轴 — 仅研究日期')+'</h3><p>'+tr('Issue, endorsement, arrival and checks have separate anchors. Civil-day estimates do not establish hour deadlines. Appointment conflicts appear above.','签发、背书、抵达及检查分开锚定。日级估算不证明小时期限；预约冲突列于上方。')+'</p><ol>'
                 for row in result['timeline']:
                     results += '<li>'+escape(row['label'][language])+' · '+escape(str(row['date']))+'<p>'+escape(str(row['earliest_date'])+' … '+str(row['latest_date']))+'</p></li>'
@@ -319,6 +376,9 @@ class App:
                 results += '</ul><h3>'+tr('Readings and access gaps','查阅及读取缺口')+'</h3>'
                 for row in result['evidence']:
                     results += '<details><summary>'+escape(row['source_id']+' · '+row['status'])+'</summary><p>'+escape(row['summary'][language])+' <a href="'+escape(row['url'],quote=True)+'">'+escape(row['source_id'])+'</a></p></details>'
+            if 'final_handover' in result:
+                h=result['final_handover']
+                results += '<h3>'+tr('Final pickup and overnight care — no confirmed custody','末段接收与过夜照护 — 责任未确认')+'</h3><p id="final-handover">'+escape(h['pickup_outcome']+' | '+h['overnight_outcome']+' | '+h['overnight_custodian_role'])+'</p>'
             if result.get('assessment_scope')=='cn_inbound_evidence_preview':
                 results += '<h3>'+tr('Itemized costs — unknown is not zero','费用分项 — 未知不是零')+'</h3><p>'+tr('No total or price ranking. Confirm amount, currency, includes, excludes, source, quotation date and expiry independently. No quotation is sent.','不计算总价或按价排名；独立确认金额、币种、包含／不含项、来源、报价日及失效。不发送询价。')+'</p><ul>'
                 for row in result['costs']['items']:
@@ -328,7 +388,7 @@ class App:
                     results += '<li><a href="'+escape(row['url'],quote=True)+'">'+escape(row['name'])+'</a><p>'+escape(row['capability_scope'][language])+'</p><p>'+escape(row['public_listing']+' | '+row['capability_status']+' | external_confirmation='+row['external_confirmation']+' | '+row['checked_at'])+'</p><p>'+escape(row['affiliation'][language])+'</p><p class="codes">'+escape(', '.join(row['pending_checks']))+'</p></li>'
                 results += '</ul>'
             region = self.corridors[result['corridor_id']][0]
-            names = {n['id']:n['name'][language] for n in self.graphs[region]['nodes']} if region not in ('EU','OUTBOUND','INBOUND') else {}
+            names = {n['id']:n['name'][language] for n in self.graphs[region]['nodes']} if region not in ('EU','OUTBOUND','INBOUND','US_EU') else {}
             products = {
                 'owner_vehicle': tr('Owner vehicle', '主人车辆'),
                 'unaccompanied_animal_carrier': tr('Unaccompanied animal carrier', '独行活体承运'),
@@ -355,7 +415,7 @@ class App:
                         results += '</li>'
                     results += '</ol></details>'
             results += '<button type="button" id="print">'+tr('Print handover checklist','打印交接清单')+'</button><details class="printable"><summary>'+tr('Complete printable checklist','完整可打印清单')+'</summary><pre>'+escape(printed)+'</pre></details></section>'
-        return f'''<!doctype html><html lang="{language}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PetWaymark · {tr('Journey evidence preview','旅程证据预览')}</title><link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script></head><body><main><header><p>PetWaymark · 宠途路标</p><h1>{tr('Plan with visible unknowns','把未知留在计划里')}</h1><p>{tr('Free, neutral, public-benefit open source. No booking, orders or provider ranking.','公益、免费、中立开源。未订舱、不接单、不排名服务商。')}</p></header><aside>{tr('Research preview. Unknown is not permission. Airports and map distance do not establish animal transport capacity. This anonymous form is processed on this computer without storage; do not enter private identifiers.','研究预览。未知不等于允许，机场和地图距离不能证明活体运力。匿名表单仅在本机处理，不存储；勿输入个人标识。')}</aside><p class="examples">{tr('Synthetic examples:','合成示例：')} <a href="/?language={language}&example=owner">{tr('Owner','主人同行')}</a> · <a href="/?language={language}&example=unaccompanied">{tr('Unaccompanied','宠物独行')}</a> · <a href="/?language={language}&example=eu-owner">{tr('EU cross-member','欧盟跨成员国')}</a> · <a href="/?language={language}&example=eu-boarding">{tr('Owner stays home','主人不移动')}</a> · <a href="/?language={language}&example=outbound-us">{tr('CN → US','中国→美国')}</a> · <a href="/?language={language}&example=outbound-eu">{tr('CN → EU','中国→欧盟')}</a> · <a href="/?language={language}&example=inbound-us">{tr('US → CN','美国→中国')}</a> · <a href="/?language={language}&example=inbound-eu">{tr('EU → CN','欧盟→中国')}</a></p><form action="/assess" method="post"><input type="hidden" name="language" value="{language}"><div class="fields">{controls}</div><div class="actions"><button type="submit">{tr('Assess research candidates','评估研究候选')}</button><button type="submit" name="output" value="json">{tr('Export redacted JSON','导出脱敏JSON')}</button><button type="button" id="language" data-language="{'en' if language=='zh-CN' else 'zh-CN'}">{'English' if language=='zh-CN' else '中文'}</button></div></form>{results}<footer>{tr('Single privately owned dog/cat only. Unsupported states, emergency overlays, transit rules, actual operating carrier and custody remain pending. Commercial names identify source policy scope only.','仅单只自有犬猫。未覆盖州、应急叠加、途经规则、实际承运与保管待核。商业名称仅标识来源政策范围。')}</footer></main></body></html>'''
+        return f'''<!doctype html><html lang="{language}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PetWaymark · {tr('Journey evidence preview','旅程证据预览')}</title><link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script></head><body><main><header><p>PetWaymark · 宠途路标</p><h1>{tr('Plan with visible unknowns','把未知留在计划里')}</h1><p>{tr('Free, neutral, public-benefit open source. No booking, orders or provider ranking.','公益、免费、中立开源。未订舱、不接单、不排名服务商。')}</p></header><aside>{tr('Research preview. Unknown is not permission. Airports and map distance do not establish animal transport capacity. This anonymous form is processed on this computer without storage; do not enter private identifiers.','研究预览。未知不等于允许，机场和地图距离不能证明活体运力。匿名表单仅在本机处理，不存储；勿输入个人标识。')}</aside><p class="examples">{tr('Synthetic examples:','合成示例：')} <a href="/?language={language}&example=owner">{tr('Owner','主人同行')}</a> · <a href="/?language={language}&example=unaccompanied">{tr('Unaccompanied','宠物独行')}</a> · <a href="/?language={language}&example=eu-owner">{tr('EU cross-member','欧盟跨成员国')}</a> · <a href="/?language={language}&example=eu-boarding">{tr('Owner stays home','主人不移动')}</a> · <a href="/?language={language}&example=outbound-us">{tr('CN → US','中国→美国')}</a> · <a href="/?language={language}&example=outbound-eu">{tr('CN → EU','中国→欧盟')}</a> · <a href="/?language={language}&example=inbound-us">{tr('US → CN','美国→中国')}</a> · <a href="/?language={language}&example=inbound-eu">{tr('EU → CN','欧盟→中国')}</a> · <a href="/?language={language}&example=us-eu">{tr('US → EU','美国→欧盟')}</a> · <a href="/?language={language}&example=eu-us">{tr('EU → US','欧盟→美国')}</a></p><form action="/assess" method="post"><input type="hidden" name="language" value="{language}"><div class="fields">{controls}</div><div class="actions"><button type="submit">{tr('Assess research candidates','评估研究候选')}</button><button type="submit" name="output" value="json">{tr('Export redacted JSON','导出脱敏JSON')}</button><button type="button" id="language" data-language="{'en' if language=='zh-CN' else 'zh-CN'}">{'English' if language=='zh-CN' else '中文'}</button></div></form>{results}<footer>{tr('Single privately owned dog/cat only. Unsupported states, emergency overlays, transit rules, actual operating carrier and custody remain pending. Commercial names identify source policy scope only.','仅单只自有犬猫。未覆盖州、应急叠加、途经规则、实际承运与保管待核。商业名称仅标识来源政策范围。')}</footer></main></body></html>'''
 
 
 def make_handler(app):
@@ -420,6 +480,13 @@ def make_handler(app):
                     document_delivery_at='2026-11-06',certificate_at='2026-11-05',document_check_at='2026-11-10',receipt_entry_at='2026-11-10',
                     first_entry_member='NL',destination_member='DE',entry_airport='JFK' if dest=='us' else 'AMS',receipt_airport='JFK',acf_airport='JFK',
                     certificate_model='eu.705.ahc',issuer_route='authorized_then_endorsed')
+            if example in ('us-eu','eu-us'):
+                fixture=read_json(ROOT/f'tests/fixtures/us-eu/{example}-dog.json')
+                fields.update(corridor='intl.'+example,assessment_at='2026-10-08')
+                for group in ('pet','journey','events','documents','appointments','responsibility'):
+                    for name,value in fixture.get(group,{}).items():
+                        if name in FIELDS and value is not None:
+                            fields[name]=str(value).lower() if type(value) is bool else str(value)
             if example in ('inbound-us','inbound-eu'):
                 origin=example.removeprefix('inbound-')
                 fixture=read_json(ROOT/f'tests/fixtures/inbound/{origin}-cn-dog.json')
@@ -449,7 +516,10 @@ def make_handler(app):
                 result, printed = app.assess(fields)
             except (ValueError, KeyError, UnicodeError):
                 # Echo only validated form fields; errors never reveal raw request contents.
-                safe = {k:v for k,v in fields.items() if k in FIELDS}
+                # Rejected inputs may contain identifiers; retain only validated navigation.
+                safe = {}
+                if fields.get('language') in ('en', 'zh-CN'):safe['language']=fields['language']
+                if fields.get('corridor') in app.corridors:safe['corridor']=fields['corridor']
                 self.send(400, app.render(safe, error='Please check selections and YYYY-MM-DD dates.')); return
             if fields.get('output') == 'json':
                 self.send(200, json.dumps(result,ensure_ascii=False,indent=2)+'\n', 'application/json; charset=utf-8', download=True)

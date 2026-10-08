@@ -49,6 +49,7 @@ def assess(profile, *, assessment_at, inventory=None, eu_inventory=None):
     if p.get('species') is not None and not isinstance(p['species'],str):raise ValueError('species must be a string')
     dest,species=j.get('destination'),p.get('species');gaps=[]
     if j.get('origin')!='CN' or dest not in ('US','EU'):gaps.append('cn_outbound_direction_only')
+    if j.get('transit') not in (None, 'none'):gaps.append('transit_uncompiled')
     if species not in ('dog','cat'):gaps.append('species_unsupported')
     if p.get('service_animal') is not False:gaps.append('ordinary_pet_classification_unconfirmed')
     if j.get('purpose') not in ('relocation','holiday') or j.get('ownership_transfer') is not False:gaps.append('movement_classification_unconfirmed')

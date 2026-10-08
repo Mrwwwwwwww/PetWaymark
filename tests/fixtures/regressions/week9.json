@@ -1,0 +1,717 @@
+{
+  "version": "0.1.0-week9",
+  "synthetic": true,
+  "assessment_at": "2026-10-08",
+  "cases": [
+    {
+      "id": "W9-001",
+      "area": "CN→US",
+      "engine": "outbound",
+      "fixture": "tests/fixtures/outbound/cn-us-dog.json",
+      "patch": {},
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true
+      }
+    },
+    {
+      "id": "W9-002",
+      "area": "CN→US",
+      "engine": "outbound",
+      "fixture": "tests/fixtures/outbound/cn-us-cat.json",
+      "patch": {},
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true
+      }
+    },
+    {
+      "id": "W9-003",
+      "area": "CN→US",
+      "engine": "outbound",
+      "fixture": "tests/fixtures/outbound/cn-us-dog.json",
+      "patch": {
+        "pet.service_animal": true
+      },
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": false
+      }
+    },
+    {
+      "id": "W9-004",
+      "area": "CN→EU",
+      "engine": "outbound",
+      "fixture": "tests/fixtures/outbound/cn-eu-dog.json",
+      "patch": {},
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true
+      }
+    },
+    {
+      "id": "W9-005",
+      "area": "CN→EU",
+      "engine": "outbound",
+      "fixture": "tests/fixtures/outbound/cn-eu-cat.json",
+      "patch": {},
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true
+      }
+    },
+    {
+      "id": "W9-006",
+      "area": "CN→EU",
+      "engine": "outbound",
+      "fixture": "tests/fixtures/outbound/cn-eu-dog.json",
+      "patch": {
+        "pet.service_animal": true
+      },
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": false
+      }
+    },
+    {
+      "id": "W9-007",
+      "area": "US→CN",
+      "engine": "inbound",
+      "fixture": "tests/fixtures/inbound/us-cn-dog.json",
+      "patch": {},
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true
+      }
+    },
+    {
+      "id": "W9-008",
+      "area": "US→CN",
+      "engine": "inbound",
+      "fixture": "tests/fixtures/inbound/us-cn-cat.json",
+      "patch": {},
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true
+      }
+    },
+    {
+      "id": "W9-009",
+      "area": "US→CN",
+      "engine": "inbound",
+      "fixture": "tests/fixtures/inbound/us-cn-dog.json",
+      "patch": {
+        "pet.service_animal": true
+      },
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": false
+      }
+    },
+    {
+      "id": "W9-010",
+      "area": "EU→CN",
+      "engine": "inbound",
+      "fixture": "tests/fixtures/inbound/eu-cn-dog.json",
+      "patch": {},
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true
+      }
+    },
+    {
+      "id": "W9-011",
+      "area": "EU→CN",
+      "engine": "inbound",
+      "fixture": "tests/fixtures/inbound/eu-cn-cat.json",
+      "patch": {},
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true
+      }
+    },
+    {
+      "id": "W9-012",
+      "area": "EU→CN",
+      "engine": "inbound",
+      "fixture": "tests/fixtures/inbound/eu-cn-dog.json",
+      "patch": {
+        "pet.service_animal": true
+      },
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": false
+      }
+    },
+    {
+      "id": "W9-013",
+      "area": "US→EU",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/us-eu-dog.json",
+      "patch": {},
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true
+      }
+    },
+    {
+      "id": "W9-014",
+      "area": "US→EU",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/us-eu-cat.json",
+      "patch": {},
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true
+      }
+    },
+    {
+      "id": "W9-015",
+      "area": "US→EU",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/us-eu-dog.json",
+      "patch": {
+        "pet.service_animal": true
+      },
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": false
+      }
+    },
+    {
+      "id": "W9-016",
+      "area": "EU→US",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/eu-us-dog.json",
+      "patch": {},
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true
+      }
+    },
+    {
+      "id": "W9-017",
+      "area": "EU→US",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/eu-us-cat.json",
+      "patch": {},
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true
+      }
+    },
+    {
+      "id": "W9-018",
+      "area": "EU→US",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/eu-us-dog.json",
+      "patch": {
+        "pet.service_animal": true
+      },
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": false
+      }
+    },
+    {
+      "id": "W9-019",
+      "area": "CN east",
+      "engine": "routes",
+      "fixture": "tests/fixtures/domestic/owner.json",
+      "patch": {},
+      "expected": {
+        "status": "unsupported"
+      },
+      "corridor": "dom.cn.east"
+    },
+    {
+      "id": "W9-020",
+      "area": "CN south",
+      "engine": "routes",
+      "fixture": "tests/fixtures/domestic/owner.json",
+      "patch": {},
+      "expected": {
+        "status": "unsupported"
+      },
+      "corridor": "dom.cn.south"
+    },
+    {
+      "id": "W9-021",
+      "area": "US CA→NY",
+      "engine": "routes",
+      "fixture": "tests/fixtures/us-domestic/owner.json",
+      "patch": {},
+      "expected": {
+        "status": "unsupported"
+      },
+      "corridor": "dom.us.ca-ny"
+    },
+    {
+      "id": "W9-022",
+      "area": "US NY→TX",
+      "engine": "routes",
+      "fixture": "tests/fixtures/us-domestic/owner.json",
+      "patch": {},
+      "expected": {
+        "status": "unsupported"
+      },
+      "corridor": "dom.us.ny-tx"
+    },
+    {
+      "id": "W9-023",
+      "area": "US TX→CA",
+      "engine": "routes",
+      "fixture": "tests/fixtures/us-domestic/owner.json",
+      "patch": {},
+      "expected": {
+        "status": "unsupported"
+      },
+      "corridor": "dom.us.tx-ca"
+    },
+    {
+      "id": "W9-024",
+      "area": "EU domestic",
+      "engine": "eu",
+      "fixture": "tests/fixtures/eu/domestic.json",
+      "patch": {},
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true
+      }
+    },
+    {
+      "id": "W9-025",
+      "area": "EU cross-member",
+      "engine": "eu",
+      "fixture": "tests/fixtures/eu/cross-member.json",
+      "patch": {},
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true
+      }
+    },
+    {
+      "id": "W9-026",
+      "area": "US→EU",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/us-eu-dog.json",
+      "patch": {
+        "events.manufacturer_immunity_days": 30,
+        "events.rabies_vaccination_at": "2026-10-15",
+        "events.primary_protocol_completed_at": "2026-10-15"
+      },
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true,
+        "diagnostic": {
+          "id": "eu.manufacturer-wait",
+          "outcome": "fail"
+        }
+      }
+    },
+    {
+      "id": "W9-027",
+      "area": "US→EU",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/us-eu-dog.json",
+      "patch": {
+        "documents.certificate_model": "eu.577.ahc",
+        "documents.certificate_issued_at": "2026-10-01"
+      },
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true,
+        "diagnostic": {
+          "id": "eu.certificate-model",
+          "outcome": "model_issue_cutoff_failed"
+        }
+      }
+    },
+    {
+      "id": "W9-028",
+      "area": "US→EU",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/us-eu-dog.json",
+      "patch": {
+        "documents.certificate_model": "eu.577.ahc",
+        "documents.certificate_issued_at": "2026-09-30",
+        "documents.certificate_endorsed_at": "2026-10-01"
+      },
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true,
+        "diagnostic": {
+          "id": "eu.aphis-old-model-endorsement",
+          "outcome": "fail"
+        }
+      }
+    },
+    {
+      "id": "W9-029",
+      "area": "US→EU",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/us-eu-dog.json",
+      "patch": {
+        "documents.certificate_issued_at": "2026-10-10"
+      },
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true,
+        "diagnostic": {
+          "id": "eu.issue-to-entry",
+          "outcome": "date_window_conflict"
+        }
+      }
+    },
+    {
+      "id": "W9-030",
+      "area": "US→EU",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/us-eu-dog.json",
+      "patch": {
+        "documents.certificate_endorsed_at": "2026-10-30"
+      },
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true,
+        "diagnostic": {
+          "id": "eu.endorsement-to-check",
+          "outcome": "date_window_conflict"
+        }
+      }
+    },
+    {
+      "id": "W9-031",
+      "area": "US→EU",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/us-eu-dog.json",
+      "patch": {
+        "documents.eu_document_route": "passport_return",
+        "documents.passport_model": "eu.705.passport",
+        "documents.passport_issued_at": "2026-05-01",
+        "documents.passport_eu_vet_rabies": true,
+        "documents.revaccinated_in_us": true
+      },
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true,
+        "diagnostic": {
+          "id": "eu.passport-us-revaccination",
+          "outcome": "fail"
+        }
+      }
+    },
+    {
+      "id": "W9-032",
+      "area": "US→EU",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/us-eu-dog.json",
+      "patch": {
+        "journey.transit": "other"
+      },
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": false
+      }
+    },
+    {
+      "id": "W9-033",
+      "area": "EU→US",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/eu-us-dog.json",
+      "patch": {
+        "pet.birth_date": "2026-05-11"
+      },
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true,
+        "diagnostic": {
+          "id": "us.dog-age",
+          "outcome": "fail"
+        }
+      }
+    },
+    {
+      "id": "W9-034",
+      "area": "EU→US",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/eu-us-dog.json",
+      "patch": {
+        "documents.receipt_departure_member": "DE"
+      },
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true,
+        "diagnostic": {
+          "id": "us.receipt-country",
+          "outcome": "country_mismatch"
+        }
+      }
+    },
+    {
+      "id": "W9-035",
+      "area": "EU→US",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/eu-us-dog.json",
+      "patch": {
+        "documents.receipt_expires_at": "2026-11-09"
+      },
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true,
+        "diagnostic": {
+          "id": "us.receipt-not-expired",
+          "outcome": "fail"
+        }
+      }
+    },
+    {
+      "id": "W9-036",
+      "area": "EU→US",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/eu-us-dog.json",
+      "patch": {
+        "journey.last_high_risk_exit_at": "2026-05-10"
+      },
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true,
+        "diagnostic": {
+          "id": "us.six-month-history",
+          "outcome": "history_conflict"
+        }
+      }
+    },
+    {
+      "id": "W9-037",
+      "area": "EU→US",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/eu-us-dog.json",
+      "patch": {
+        "journey.history_complete": null
+      },
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true,
+        "diagnostic": {
+          "id": "us.six-month-history",
+          "outcome": "missing"
+        }
+      }
+    },
+    {
+      "id": "W9-038",
+      "area": "EU→US",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/eu-us-dog.json",
+      "patch": {
+        "journey.travel_history_branch": "high_risk_in_6_months",
+        "journey.rabies_vaccine_origin": "US",
+        "documents.us_return_document": "legacy_export",
+        "documents.us_export_issued_at": "2025-08-01"
+      },
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true,
+        "diagnostic": {
+          "id": "us.legacy-export-cutoff",
+          "outcome": "fail"
+        }
+      }
+    },
+    {
+      "id": "W9-039",
+      "area": "EU→US",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/eu-us-dog.json",
+      "patch": {
+        "journey.travel_history_branch": "high_risk_in_6_months",
+        "journey.rabies_vaccine_origin": "US",
+        "documents.us_return_document": "us_rabies_form",
+        "documents.us_form_issued_at": "2026-08-01",
+        "documents.us_form_endorsed_at": "2026-09-02",
+        "journey.original_us_exit_at": "2026-09-01"
+      },
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true,
+        "diagnostic": {
+          "id": "us.return-form-before-exit",
+          "outcome": "fail"
+        }
+      }
+    },
+    {
+      "id": "W9-040",
+      "area": "EU→US",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/eu-us-dog.json",
+      "patch": {
+        "journey.travel_history_branch": "high_risk_in_6_months",
+        "journey.titre_branch": "test_required",
+        "events.titre_sample_at": "2026-10-14"
+      },
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true,
+        "diagnostic": {
+          "id": "us.foreign-titre-to-entry",
+          "outcome": "fail"
+        }
+      }
+    },
+    {
+      "id": "W9-041",
+      "area": "EU→US",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/eu-us-cat.json",
+      "patch": {},
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true,
+        "diagnostic": {
+          "id": "us.cat-dog-rules",
+          "outcome": "not_applicable"
+        }
+      }
+    },
+    {
+      "id": "W9-042",
+      "area": "CN east",
+      "engine": "routes",
+      "fixture": "tests/fixtures/domestic/owner.json",
+      "patch": {
+        "preview.segments": {
+          "cn.east.drive": {
+            "handover_window_met": false
+          },
+          "cn.east.road-carrier": {
+            "handover_window_met": false
+          },
+          "cn.east.can-egress": {
+            "handover_window_met": false
+          },
+          "cn.east.rail-egress": {
+            "handover_window_met": false
+          }
+        }
+      },
+      "expected": {
+        "status": "ineligible",
+        "reason": "all_paths_excluded"
+      },
+      "corridor": "dom.cn.east"
+    },
+    {
+      "id": "W9-043",
+      "area": "CN east",
+      "engine": "routes",
+      "fixture": "tests/fixtures/domestic/owner.json",
+      "patch": {},
+      "expected": {
+        "status": "unsupported",
+        "pickup_outcome": "window_missed",
+        "overnight_outcome": "care_unknown"
+      },
+      "corridor": "dom.cn.east",
+      "handover": {
+        "arrival_time": "2026-11-10T19:00:00+08:00",
+        "arrival_timezone": "Asia/Shanghai",
+        "pickup_deadline": "2026-11-10T18:00:00+08:00",
+        "pickup_timezone": "Asia/Shanghai",
+        "overnight_required": true,
+        "overnight_care_available": null
+      }
+    },
+    {
+      "id": "W9-044",
+      "area": "US CA→NY",
+      "engine": "routes",
+      "fixture": "tests/fixtures/us-domestic/owner.json",
+      "patch": {},
+      "expected": {
+        "status": "unsupported",
+        "pickup_outcome": "within_reported_window",
+        "overnight_outcome": "care_unknown"
+      },
+      "corridor": "dom.us.ca-ny",
+      "handover": {
+        "arrival_time": "2026-11-10T17:00:00+08:00",
+        "arrival_timezone": "Asia/Shanghai",
+        "pickup_deadline": "2026-11-10T18:00:00+08:00",
+        "pickup_timezone": "Asia/Shanghai",
+        "overnight_required": true,
+        "overnight_care_available": null
+      }
+    },
+    {
+      "id": "W9-045",
+      "area": "EU→US",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/eu-us-dog.json",
+      "patch": {},
+      "expected": {
+        "status": "unsupported",
+        "pickup_outcome": "window_missed",
+        "overnight_outcome": "care_unavailable"
+      },
+      "handover": {
+        "arrival_time": "2026-11-01T01:30:00-05:00",
+        "arrival_timezone": "America/New_York",
+        "pickup_deadline": "2026-11-01T01:30:00-04:00",
+        "pickup_timezone": "America/New_York",
+        "overnight_required": true,
+        "overnight_care_available": false
+      }
+    },
+    {
+      "id": "W9-046",
+      "area": "EU→US",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/eu-us-cat.json",
+      "patch": {},
+      "expected": {
+        "status": "unsupported",
+        "pickup_outcome": "invalid_time",
+        "overnight_outcome": "care_unavailable"
+      },
+      "handover": {
+        "arrival_time": "2026-03-08T02:30:00-05:00",
+        "arrival_timezone": "America/New_York",
+        "pickup_deadline": "2026-03-08T03:00:00-04:00",
+        "pickup_timezone": "America/New_York",
+        "overnight_required": true,
+        "overnight_care_available": false
+      }
+    },
+    {
+      "id": "W9-047",
+      "area": "US→CN",
+      "engine": "inbound",
+      "fixture": "tests/fixtures/inbound/us-cn-dog.json",
+      "patch": {
+        "documents.titre_iu_ml": 0.5
+      },
+      "expected": {
+        "status": "unsupported",
+        "diagnostic": {
+          "id": "cn.titre.threshold",
+          "outcome": "threshold_conflict_pending_clarification"
+        }
+      }
+    },
+    {
+      "id": "W9-048",
+      "area": "CN→EU",
+      "engine": "outbound",
+      "fixture": "tests/fixtures/outbound/cn-eu-dog.json",
+      "patch": {
+        "journey.transit": "HK"
+      },
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": false
+      }
+    }
+  ]
+}

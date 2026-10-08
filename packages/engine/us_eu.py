@@ -69,13 +69,15 @@ def assess(profile, *, assessment_at, inventory=None, eu_inventory=None):
             if delta > (0 if j.get('accompaniment') == 'owner' else 5): gaps.append('owner_date_relationship_conflict')
         except ValueError: gaps.append('owner_date_relationship_unknown')
     if origin == 'EU' and j.get('origin_member') not in members: gaps.append('eu_origin_member_unconfirmed')
-    r = dict(preview_version='0.1.0', dataset_version=inv['dataset_version'], assessment_at=assessment_at,
+    from packages.engine.handover import assess as assess_handover
+    final_handover = assess_handover(profile.get('handover', {}))
+    r = dict(final_handover=final_handover, preview_version='0.1.0', dataset_version=inv['dataset_version'], assessment_at=assessment_at,
              assessment_scope='us_eu_evidence_preview', direction=f'{origin}→{dest}' if not 'us_eu_direction_only' in gaps else 'unsupported',
              branch=('eu_' if dest == 'EU' else 'us_') + str(species), status='unsupported',
              classification_resolved=not gaps, candidates=[], excluded=[], recommendations=[],
              booking_confirmed=False, verified_feasible_route_count=0, timeline=[], draft_diagnostics=[],
              entry_point_diagnostics=[], document_checklist=[], evidence=deepcopy(inv['evidence']))
-    reasons = list(inv['pending_checks']) + gaps + ['return_leg_requires_independent_reassessment']
+    reasons = list(inv['pending_checks']) + final_handover['reason_codes'] + gaps + ['return_leg_requires_independent_reassessment']
     if gaps:
         r['reason_codes'] = sorted(set(reasons)); return r
 
@@ -128,6 +130,11 @@ def assess(profile, *, assessment_at, inventory=None, eu_inventory=None):
                         'events.rabies_vaccination_at', source, 'Primary vaccination; model II.3', unit='week')
             requirement('eu.primary-protocol-order', 'events.rabies_vaccination_at', 'on_or_before', None,
                         'events.primary_protocol_completed_at', source, 'Primary series completion order')
+            try:
+                vaccinated = get(profile, 'events.rabies_vaccination_at')
+                outcome = 'missing' if vaccinated is None else 'pass' if day(entry) <= calendar_shift(vaccinated, 12) else 'fail'
+            except (ValueError, OverflowError): outcome = 'invalid'
+            add('eu.us-primary-one-year', outcome, source, 'Step 1: US primary validity limited to one year; civil estimate only')
             wait = get(profile, 'events.manufacturer_immunity_days')
             if type(wait) is not int or wait < 21:
                 add('eu.manufacturer-wait', 'missing' if wait is None else 'invalid', source, 'Step 1: manufacturer immunity period')
@@ -249,6 +256,8 @@ def assess(profile, *, assessment_at, inventory=None, eu_inventory=None):
                     requirement('us.foreign-vaccine-valid', 'events.rabies_valid_until', 'on_or_after', None,
                                 'journey.entry_at', source, 'No vaccine lapse; full series pending')
                     if j.get('vaccination_branch') == 'primary':
+                        requirement('us.foreign-primary-age', 'pet.birth_date', 'calendar_age_at_least', 12,
+                                    'events.rabies_vaccination_at', source, 'First vaccine minimum age; manufacturer may require older', unit='week')
                         requirement('us.foreign-primary-wait', 'events.rabies_vaccination_at', 'elapsed_at_least', 28,
                                     'journey.entry_at', source, 'First valid vaccine to entry')
                     else: add('us.foreign-vaccine-continuity', 'unreviewed', source, 'Booster continuity needs full records')
@@ -308,6 +317,8 @@ def checklist(result, *, language='zh-CN'):
              '研究预览：未覆盖、未订舱；返程须独立重评。' if language == 'zh-CN' else
              'Research preview: unsupported, no booking; return needs independent reassessment.',
              result['dataset_version'], ', '.join(result['reason_codes'])]
+    lines.append('final_pickup | ' + result['final_handover']['pickup_outcome'])
+    lines.append('overnight_care | ' + result['final_handover']['overnight_outcome'] + ' | custody_confirmed=false')
     for row in result['timeline']: lines.append(row['label'][language] + ' | ' + str(row['date']))
     for row in result['draft_diagnostics']: lines.append(row['diagnostic_id'] + ' | ' + row['outcome'])
     for row in result['document_checklist']:

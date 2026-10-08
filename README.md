@@ -31,6 +31,8 @@ Open `http://127.0.0.1:8766` for the anonymous local web form; Ctrl+C stops it.
 No hosted static site is claimed. CA/TX sources are read pending independent review;
 NY's current official page was unavailable. All fifteen constraints remain drafts. EU framework and DE/FR/NL readings are partial; the other 24 local overlays are unresearched.
 
+- [US ↔ EU documents and return risks](docs/en/us-eu-preview.md) · [中文](docs/zh/us-eu-preview.md)
+- [Executed six-direction audit](data/coverage/week9-matrix.md)
 - [US/EU → CN documents, costs and directory](docs/en/cn-inbound-preview.md) · [中文](docs/zh/cn-inbound-preview.md)
 - [CN outbound timeline preview](docs/en/cn-outbound-preview.md) · [中文](docs/zh/cn-outbound-preview.md)
 - [Week 7 source readings and remaining gaps](docs/research/week7/README.md)
@@ -72,3 +74,5 @@ China↔US, China↔EU and US↔EU remain six separate directions. Initial EU co
 Original code and documentation: [Apache-2.0](LICENSE). Original curated data under `data/`: [CC BY 4.0](LICENSE-DATA), with [scope details](data/README.md). Petra research snapshots retain their own CC BY 4.0 terms and attribution in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Linked official texts, trademarks and third-party databases are not relicensed by this project.
 
 No external repository, account, package or domain was created during Week 1.
+
+Week 9: independent US/EU dog/cat research and 48 executed synthetic regressions; all six international directions remain unsupported, verified feasible routes 0. [Research](docs/research/week9/README.md).

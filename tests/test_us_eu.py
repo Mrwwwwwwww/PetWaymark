@@ -54,6 +54,11 @@ class UsEuTests(unittest.TestCase):
         for value,expected in [(None,'missing'),(True,'invalid'),(20,'invalid')]:
             p['events']['manufacturer_immunity_days']=value;self.assertEqual(self.outcomes(p)['eu.manufacturer-wait'],expected)
 
+    def test_primary_validity_is_one_year_even_if_reported_three_year(self):
+        p=self.profile();p['events'].update(rabies_vaccination_at='2025-06-01',primary_protocol_completed_at='2025-06-01',rabies_valid_until='2028-06-01')
+        self.assertEqual(self.outcomes(p)['eu.us-primary-one-year'],'fail')
+        p['events']['rabies_vaccination_at']='bad';self.assertEqual(self.outcomes(p)['eu.us-primary-one-year'],'invalid')
+
     def test_us_issue_thirty_days_endorsement_ten_check_separate(self):
         p=self.profile();p['documents'].update(certificate_issued_at='2026-10-11',certificate_endorsed_at='2026-10-31')
         self.assertEqual(self.outcomes(p)['eu.issue-to-entry'],'date_window_consistent')

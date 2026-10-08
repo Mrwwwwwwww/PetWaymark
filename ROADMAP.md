@@ -57,6 +57,15 @@ current annex lists and independent human review remain incomplete.
 双语CLI／网页、四合成夹具和累计162测试保留货运／过境／成员国缺口、抗体冲突及原件待确认。
 全部规则草稿、已验证路线0；完整出口流程、现行附件和人工复核未完成。
 
+Week 9 adds independent US/EU dog/cat document and return research, bilingual CLI/web,
+final pickup and overnight diagnostics, and a reproducible 48-case six-direction audit.
+Four new sources bring the catalog to 48; all 15 rules remain draft and every
+international dog/cat baseline unsupported. Conditional and verified-supported
+route counts, actual usage and qualified reviews remain zero.
+
+第9周新增独立美欧犬猫文件及返程研究、双语CLI／网页、末段及过夜诊断、48案例可复跑六方向审计。
+新增4来源累计48；15规则仍草稿，国际方向犬猫基线全部未覆盖；需确认及已验证支持路线、真实采用、合格复核均0。
+
 ## Stage A: v0.1 planning tool, weeks 1–12 / A：12 周规划工具
 
 Initial scope: one privately owned dog/cat, CN/US/EU domestic examples plus six
@@ -78,7 +87,7 @@ count as supported feasible routes.
 | 6 | Research preview delivered: 27-member inventory, partial DE/FR/NL readings, 2026 model/date diagnostics and domestic/cross-member cases; owner-not-moving gate. Full 2026/131/636 access, incorporated annexes and independent review pending. / 已交付27国研究清单、德法荷部分查阅、2026范本日期诊断、国内／跨成员国案例及主人不移动出口；完整法规附件与独立复核待完成。 |
 | 7 | Research preview delivered: independent CN→US/EU dog/cat branches, document dependencies/windows, entry-point diagnostics, appointment conflicts and original-document roles in shared bilingual CLI/web. Current CN local/cargo procedures, full destination packages and two qualified human reviews pending; zero verified feasible routes. / 已交付两方向独立犬猫研究分支、文件依赖窗口、口岸诊断、预约冲突及原件角色，共享双语CLI／网页；现行中国属地货运、完整目的地规则与两位合格人工复核仍待完成，已验证路线零。 |
 | 8 | Independent US/EU→CN chains; itemized unknown costs and neutral directory with listing/capability/external-confirmation distinction. / 反向中国文件链、未知费用及中立名录；分清收录、能力证据、实际外部确认。 |
-| 9 | US↔EU, return-history impacts, audited six-direction matrix and ≥30 executed regressions, including missed pickup and unknown overnight care. / 美欧双向、返程影响、六方向矩阵及至少30执行回归，含错过末段窗口和未知过夜照护。 |
+| 9 | Research delivered: independent US/EU dog/cat documents, return cutovers, reproducible six-direction matrix and 48 executed regressions including final pickup/overnight/DST; all directions unsupported and independent reviews pending. / 已交付独立美欧犬猫文件与返程切换、可复跑六方向矩阵及48执行回归，含末段／过夜／DST；各方向仍未覆盖，独立复核待完成。 |
 | 10 | P0 gates, bilingual demo, redacted/printed export and separately versioned data; publish v0.1 only after acceptance, with explicit no-booking and coverage gaps. / P0、双语演示、脱敏打印与独立数据版本；验收后发布 v0.1，明确未订舱与服务缺口。 |
 | 11 | Prioritize real feedback fixes and integration tutorial; choose optional read-only MCP or a protocol draft within budget. / 真实反馈修复与集成教程；可选只读 MCP 或交接草案择一。 |
 | 12 | Maintenance/freshness/cost/adoption report and A→B decision; inventory accurate support application evidence, with no acceptance promise. / 维护、新鲜度、成本、真实采用与 A→B 决定；如实盘点申请材料，不保证支持获批。 |

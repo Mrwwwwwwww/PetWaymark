@@ -1,0 +1,3249 @@
+{
+  "audit_version": "0.1.0-week9",
+  "assessment_at": "2026-10-08",
+  "synthetic": true,
+  "actual_usage_count": 0,
+  "verified_feasible_route_count": 0,
+  "case_count": 48,
+  "passed_count": 48,
+  "domestic_areas": [
+    "CN east",
+    "CN south",
+    "EU cross-member",
+    "EU domestic",
+    "US CA→NY",
+    "US NY→TX",
+    "US TX→CA"
+  ],
+  "status_definitions": {
+    "unsupported": {
+      "en": "Scope or evidence incomplete; no permission.",
+      "zh-CN": "范围或证据不全，不表示允许。"
+    },
+    "conditional": {
+      "en": "Reviewed rule eligibility with unresolved operations; not a confirmed route.",
+      "zh-CN": "已复核规则满足但操作条件待确认，非确认路线。"
+    },
+    "ineligible": {
+      "en": "Explicit operational contradiction excludes every candidate; draft legal failures alone do not reject.",
+      "zh-CN": "明确操作冲突排除全部候选；草稿法律诊断失败本身不裁定拒绝。"
+    },
+    "verified_supported": {
+      "en": "Reviewed current rules and evidenced dated whole-route capacity/custody. None exists.",
+      "zh-CN": "现行规则已复核且全程日期限定运力与责任有证据；当前无此路线。"
+    }
+  },
+  "status_counts": {
+    "unsupported": 47,
+    "conditional": 0,
+    "ineligible": 1,
+    "verified_supported": 0
+  },
+  "six_direction_matrix": [
+    {
+      "direction": "CN→US",
+      "dataset_version": "2026-10-08.week7-preview",
+      "species": {
+        "dog": {
+          "route_status": "unsupported",
+          "baseline_case": "W9-001"
+        },
+        "cat": {
+          "route_status": "unsupported",
+          "baseline_case": "W9-002"
+        }
+      },
+      "case_ids": [
+        "W9-001",
+        "W9-002",
+        "W9-003"
+      ],
+      "status_counts": {
+        "unsupported": 3,
+        "conditional": 0,
+        "ineligible": 0,
+        "verified_supported": 0
+      },
+      "evidence": [
+        {
+          "source_id": "cn.gacc.pet-export-portal",
+          "url": "https://online.customs.gov.cn/ocportal/publicService/",
+          "locator": "Public service: pet export quarantine",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "summary": {
+            "en": "Portal entry only; local instructions and cargo scope unverified.",
+            "zh-CN": "仅确认携带出境宠物检疫入口；属地流程及独立货运范围待核。"
+          }
+        },
+        {
+          "source_id": "cn.samr.carried-export",
+          "url": "https://www.samr.gov.cn/fgs/zcfg/art/2023/art_b899b25b6faf4c0f83432109d679f17c.html",
+          "locator": "Article 24; historical publication",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "summary": {
+            "en": "Carried export application and documents; current amendments and cargo process pending.",
+            "zh-CN": "携带出境按输入地要求申请检疫及单证；现行修订和独立货运流程待核。"
+          }
+        },
+        {
+          "source_id": "cn.luohu.pet-export",
+          "url": "https://www.szlh.gov.cn/zmhd/wdzsk/content/post_12341907.html",
+          "locator": "2025-08-22: application / on-site procedure",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "summary": {
+            "en": "Luohu only: 3–10 working-day application, agreed inspection, vaccination/chip/lab documents and delegation. No national service-time guarantee.",
+            "zh-CN": "仅罗湖：提前3–10工作日申请、约定查验、芯片免疫检测材料和委托证明；非全国时限保证。"
+          }
+        },
+        {
+          "source_id": "us.cdc.foreign-high-risk",
+          "url": "https://www.cdc.gov/importation/dogs/foreign-vaccinated-high-risk-countries.html",
+          "locator": "Form completion/validity; titer; airport; checklist",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "summary": {
+            "en": "Foreign-vaccinated high-risk dogs: form signed within 30 days, government endorsement, sample waits and ACF reservation; no titer requires quarantine branch.",
+            "zh-CN": "境外接种高风险犬：30日内兽医签署、政府背书、采血等待及设施预约；无有效抗体报告须走隔离分支。"
+          }
+        },
+        {
+          "source_id": "us.cdc.high-risk-list",
+          "url": "https://www.cdc.gov/importation/dogs/high-risk-countries.html",
+          "locator": "Asia: China",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "summary": {
+            "en": "Mainland China is listed; six-month history and vaccination origin require separate classification.",
+            "zh-CN": "中国大陆列入名单；六个月旅行史与疫苗签发来源须分别分类。"
+          }
+        },
+        {
+          "source_id": "us.cdc.acf-list",
+          "url": "https://www.cdc.gov/importation/dogs/approved-care-facilities.html",
+          "locator": "2026-09-01 airport headings and SEA / LAX notes",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "summary": {
+            "en": "Eight airport headings read; SEA cargo only, LAX transfer caveat. Listing does not confirm space, hours or acceptance.",
+            "zh-CN": "查阅8机场标题；SEA仅货运，LAX有转货运提示。列名不证明仓位、营业时间或实际收运。"
+          }
+        },
+        {
+          "source_id": "eu.law.2026-131-readable",
+          "url": "https://eur-lex.europa.eu/eli/reg_del/2026/131/oj",
+          "locator": "Articles 4, 13–20",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "summary": {
+            "en": "Readable framework: identification, exceptions, entry points and issue/endorsement roles; incorporated annexes not fully reviewed.",
+            "zh-CN": "正文可读：标识、例外、口岸及签发背书角色；援引合并附件未完整复核。"
+          }
+        },
+        {
+          "source_id": "eu.ec.entry-points-attempt",
+          "url": "https://food.ec.europa.eu/animals/movement-pets/travellers-points-entry_en",
+          "locator": "404 on direct open and linked page",
+          "accessed_at": "2026-10-08",
+          "status": "unavailable",
+          "summary": {
+            "en": "Index fetch failed; no DE/FR entry point compiled from search snippets.",
+            "zh-CN": "索引读取失败；不依据搜索摘要编译德法口岸。"
+          }
+        },
+        {
+          "source_id": "eu.nvwa.entry-points",
+          "url": "https://ivo.nvwa.nl/docs/digd012024a.pdf",
+          "locator": "Page 1; version 1.0.4, 2024-12-16; Airports",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "summary": {
+            "en": "Amsterdam Schiphol listed for non-commercial pets; commercial inspection centres are separate. Current designation and hours pending.",
+            "zh-CN": "非商业宠物表列Amsterdam Schiphol；商业查验中心另分。现行指定资格及营业时间待核。"
+          }
+        },
+        {
+          "source_id": "eu.ec.non-eu",
+          "url": "https://food.ec.europa.eu/animals/live-animal-movements/dogs-cats-and-ferrets/bringing-pet-eu-non-eu-country_en",
+          "locator": "Rabies; certificate; owner exception",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "summary": {
+            "en": "Primary protocol, 30/90-day sample chain, 10-day checks and owner authorisation; no full legal approval.",
+            "zh-CN": "初次程序、30／90日采血链、十日检查及主人授权；未作完整法律批准。"
+          }
+        },
+        {
+          "source_id": "us.cdc.animals",
+          "url": "https://www.cdc.gov/importation/bringing-an-animal-into-the-us/index.html",
+          "locator": "Cats; Certificates of health",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "summary": {
+            "en": "CDC cat arrival health checks; dog form and ACF chain not applied to cats. State and carrier rules remain separate.",
+            "zh-CN": "CDC猫抵达健康检查；不套犬表格及设施链。州与承运规定另核。"
+          }
+        }
+      ],
+      "pending_checks": [
+        "cn.application-before-inspection.missing",
+        "cn.inspection-before-issue.missing",
+        "cn_current_local_export_and_cargo_procedure_unreviewed",
+        "document_full_content_and_validity_unreviewed",
+        "entry_facility_hours_capacity_and_custody_unverified",
+        "eu_636_lists_and_incorporated_annexes_unreviewed",
+        "original_document_custody_and_delivery_unconfirmed",
+        "titre_result_lab_and_vaccine_continuity_unreviewed",
+        "transport_acceptance_and_transit_unverified",
+        "two_qualified_human_reviews_pending",
+        "us_acf_services_release_and_onward_transfer_unconfirmed",
+        "us_aphis_state_and_carrier_requirements_unreviewed",
+        "us_entry_point.listed_pending_confirmation"
+      ],
+      "verified_feasible_route_count": 0,
+      "independent_review_complete": false
+    },
+    {
+      "direction": "CN→EU",
+      "dataset_version": "2026-10-08.week7-preview",
+      "species": {
+        "dog": {
+          "route_status": "unsupported",
+          "baseline_case": "W9-004"
+        },
+        "cat": {
+          "route_status": "unsupported",
+          "baseline_case": "W9-005"
+        }
+      },
+      "case_ids": [
+        "W9-004",
+        "W9-005",
+        "W9-006",
+        "W9-048"
+      ],
+      "status_counts": {
+        "unsupported": 4,
+        "conditional": 0,
+        "ineligible": 0,
+        "verified_supported": 0
+      },
+      "evidence": [
+        {
+          "source_id": "cn.gacc.pet-export-portal",
+          "url": "https://online.customs.gov.cn/ocportal/publicService/",
+          "locator": "Public service: pet export quarantine",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "summary": {
+            "en": "Portal entry only; local instructions and cargo scope unverified.",
+            "zh-CN": "仅确认携带出境宠物检疫入口；属地流程及独立货运范围待核。"
+          }
+        },
+        {
+          "source_id": "cn.samr.carried-export",
+          "url": "https://www.samr.gov.cn/fgs/zcfg/art/2023/art_b899b25b6faf4c0f83432109d679f17c.html",
+          "locator": "Article 24; historical publication",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "summary": {
+            "en": "Carried export application and documents; current amendments and cargo process pending.",
+            "zh-CN": "携带出境按输入地要求申请检疫及单证；现行修订和独立货运流程待核。"
+          }
+        },
+        {
+          "source_id": "cn.luohu.pet-export",
+          "url": "https://www.szlh.gov.cn/zmhd/wdzsk/content/post_12341907.html",
+          "locator": "2025-08-22: application / on-site procedure",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "summary": {
+            "en": "Luohu only: 3–10 working-day application, agreed inspection, vaccination/chip/lab documents and delegation. No national service-time guarantee.",
+            "zh-CN": "仅罗湖：提前3–10工作日申请、约定查验、芯片免疫检测材料和委托证明；非全国时限保证。"
+          }
+        },
+        {
+          "source_id": "us.cdc.foreign-high-risk",
+          "url": "https://www.cdc.gov/importation/dogs/foreign-vaccinated-high-risk-countries.html",
+          "locator": "Form completion/validity; titer; airport; checklist",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "summary": {
+            "en": "Foreign-vaccinated high-risk dogs: form signed within 30 days, government endorsement, sample waits and ACF reservation; no titer requires quarantine branch.",
+            "zh-CN": "境外接种高风险犬：30日内兽医签署、政府背书、采血等待及设施预约；无有效抗体报告须走隔离分支。"
+          }
+        },
+        {
+          "source_id": "us.cdc.high-risk-list",
+          "url": "https://www.cdc.gov/importation/dogs/high-risk-countries.html",
+          "locator": "Asia: China",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "summary": {
+            "en": "Mainland China is listed; six-month history and vaccination origin require separate classification.",
+            "zh-CN": "中国大陆列入名单；六个月旅行史与疫苗签发来源须分别分类。"
+          }
+        },
+        {
+          "source_id": "us.cdc.acf-list",
+          "url": "https://www.cdc.gov/importation/dogs/approved-care-facilities.html",
+          "locator": "2026-09-01 airport headings and SEA / LAX notes",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "summary": {
+            "en": "Eight airport headings read; SEA cargo only, LAX transfer caveat. Listing does not confirm space, hours or acceptance.",
+            "zh-CN": "查阅8机场标题；SEA仅货运，LAX有转货运提示。列名不证明仓位、营业时间或实际收运。"
+          }
+        },
+        {
+          "source_id": "eu.law.2026-131-readable",
+          "url": "https://eur-lex.europa.eu/eli/reg_del/2026/131/oj",
+          "locator": "Articles 4, 13–20",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "summary": {
+            "en": "Readable framework: identification, exceptions, entry points and issue/endorsement roles; incorporated annexes not fully reviewed.",
+            "zh-CN": "正文可读：标识、例外、口岸及签发背书角色；援引合并附件未完整复核。"
+          }
+        },
+        {
+          "source_id": "eu.ec.entry-points-attempt",
+          "url": "https://food.ec.europa.eu/animals/movement-pets/travellers-points-entry_en",
+          "locator": "404 on direct open and linked page",
+          "accessed_at": "2026-10-08",
+          "status": "unavailable",
+          "summary": {
+            "en": "Index fetch failed; no DE/FR entry point compiled from search snippets.",
+            "zh-CN": "索引读取失败；不依据搜索摘要编译德法口岸。"
+          }
+        },
+        {
+          "source_id": "eu.nvwa.entry-points",
+          "url": "https://ivo.nvwa.nl/docs/digd012024a.pdf",
+          "locator": "Page 1; version 1.0.4, 2024-12-16; Airports",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "summary": {
+            "en": "Amsterdam Schiphol listed for non-commercial pets; commercial inspection centres are separate. Current designation and hours pending.",
+            "zh-CN": "非商业宠物表列Amsterdam Schiphol；商业查验中心另分。现行指定资格及营业时间待核。"
+          }
+        },
+        {
+          "source_id": "eu.ec.non-eu",
+          "url": "https://food.ec.europa.eu/animals/live-animal-movements/dogs-cats-and-ferrets/bringing-pet-eu-non-eu-country_en",
+          "locator": "Rabies; certificate; owner exception",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "summary": {
+            "en": "Primary protocol, 30/90-day sample chain, 10-day checks and owner authorisation; no full legal approval.",
+            "zh-CN": "初次程序、30／90日采血链、十日检查及主人授权；未作完整法律批准。"
+          }
+        },
+        {
+          "source_id": "us.cdc.animals",
+          "url": "https://www.cdc.gov/importation/bringing-an-animal-into-the-us/index.html",
+          "locator": "Cats; Certificates of health",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "summary": {
+            "en": "CDC cat arrival health checks; dog form and ACF chain not applied to cats. State and carrier rules remain separate.",
+            "zh-CN": "CDC猫抵达健康检查；不套犬表格及设施链。州与承运规定另核。"
+          }
+        }
+      ],
+      "pending_checks": [
+        "cn.application-before-inspection.missing",
+        "cn.inspection-before-issue.missing",
+        "cn_current_local_export_and_cargo_procedure_unreviewed",
+        "document_full_content_and_validity_unreviewed",
+        "entry_facility_hours_capacity_and_custody_unverified",
+        "eu_636_lists_and_incorporated_annexes_unreviewed",
+        "eu_entry_point.listed_pending_confirmation",
+        "eu_onward_destination_overlay_unreviewed",
+        "original_document_custody_and_delivery_unconfirmed",
+        "titre_result_lab_and_vaccine_continuity_unreviewed",
+        "transport_acceptance_and_transit_unverified",
+        "two_qualified_human_reviews_pending",
+        "us_aphis_state_and_carrier_requirements_unreviewed"
+      ],
+      "verified_feasible_route_count": 0,
+      "independent_review_complete": false
+    },
+    {
+      "direction": "US→CN",
+      "dataset_version": "2026-10-08.week8-preview",
+      "species": {
+        "dog": {
+          "route_status": "unsupported",
+          "baseline_case": "W9-007"
+        },
+        "cat": {
+          "route_status": "unsupported",
+          "baseline_case": "W9-008"
+        }
+      },
+      "case_ids": [
+        "W9-007",
+        "W9-008",
+        "W9-009",
+        "W9-047"
+      ],
+      "status_counts": {
+        "unsupported": 4,
+        "conditional": 0,
+        "ineligible": 0,
+        "verified_supported": 0
+      },
+      "evidence": [
+        {
+          "source_id": "cn.gacc.2019-5",
+          "url": "https://www.mofcom.gov.cn/zcfb/zgdwjjmywg/art/2019/art_71739ec848d14deca4ec330fad835774.html",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "locator": "2019 No.5 sections 1-3; annexes not republished",
+          "summary": {
+            "en": "Carried dogs/cats only, one per person, official export and rabies documents, chip, arrival inspection; 30-day quarantine branch needs facilities. Current annex lists unverified.",
+            "zh-CN": "仅携带犬猫，每人一只，官方出口检疫和免疫证、芯片、现场检疫；30日隔离分支需设施。现行附件名单未核。"
+          }
+        },
+        {
+          "source_id": "us.aphis.cn-entry",
+          "url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-china",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "locator": "Week 8 research reading / attempt",
+          "summary": {
+            "en": "Dogs/cats export: issue within 14 days of arrival, VEHCS endorsement and printed copy. Titer boundary differs from dog PDF.",
+            "zh-CN": "犬猫出口：到达前14日内签发、VEHCS背书及打印件；抗体边界与犬PDF不同。"
+          }
+        },
+        {
+          "source_id": "us.aphis.cn-dog-model",
+          "url": "https://www.aphis.usda.gov/sites/default/files/china-dog.pdf",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "locator": "Week 8 research reading / attempt",
+          "summary": {
+            "en": "Four-page dog model: two vaccinations, sample on/after second vaccine, one-year sample validity, greater than 0.5. No cat model inference.",
+            "zh-CN": "四页犬范本：两次免疫、第二次后或当日采血、采血一年有效、大于0.5；不推定猫范本。"
+          }
+        },
+        {
+          "source_id": "us.aphis.cn-cat-model",
+          "url": "https://www.aphis.usda.gov/sites/default/files/china-cat.pdf",
+          "accessed_at": "2026-10-08",
+          "status": "unavailable",
+          "locator": "Week 8 research reading / attempt",
+          "summary": {
+            "en": "Cat PDF returned 503; webpage read does not establish full cat model content.",
+            "zh-CN": "猫PDF返回503；网页查阅不证明猫范本已完整核实。"
+          }
+        },
+        {
+          "source_id": "eu.nl.export-legalisation",
+          "url": "https://english.nvwa.nl/topics/animal-health/travelling-to-the-netherlands-with-your-dog-or-cat/legalisation-of-eu-pet-passports-and-other-documents-for-dogs-cats-and-ferrets",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "locator": "Week 8 research reading / attempt",
+          "summary": {
+            "en": "Check binding destination certificate first; otherwise confirm legalisation. Vet completes certificate before legalisation; advance appointment uses working days, no computed guarantee.",
+            "zh-CN": "先查目的地绑定证书，否则确认认证；兽医填签后认证。预约按工作日提前申请，不计算保证时限。"
+          }
+        },
+        {
+          "source_id": "eu.de.berlin-export",
+          "url": "https://www.berlin.de/ba-treptow-koepenick/politik-und-verwaltung/aemter/ordnungsamt/veterinaer-und-lebensmittelaufsicht/artikel.1088792.php",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "locator": "Week 8 research reading / attempt",
+          "summary": {
+            "en": "District guidance: destination rules apply, official certificate application with supporting documents. Not national China export certification.",
+            "zh-CN": "区级指引：遵守目的地规则，提交官方证书申请及材料；非全国赴中国出口证流程。"
+          }
+        },
+        {
+          "source_id": "eu.fr.third-country-export",
+          "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F21374?lang=fr",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "locator": "Week 8 research reading / attempt",
+          "summary": {
+            "en": "Other-country section: passport and health preparation plus destination/transit and DDPP confirmation. Passport alone does not meet CN official export certificate.",
+            "zh-CN": "其他国家段：护照、健康准备及目的地／过境与DDPP确认；护照不替代中国要求的官方出口检疫证。"
+          }
+        },
+        {
+          "source_id": "eu.af.pet-policy",
+          "url": "https://wwws.airfrance.us/information/passagers/voyager-avec-son-animal-chien-chat",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "locator": "Week 8 research reading / attempt",
+          "summary": {
+            "en": "Public dog/cat hold policy; flight availability and conditions can cause refusal. No China flight, capacity or price verified.",
+            "zh-CN": "公开犬猫行李舱政策；航班可用性及条件可能导致拒收；未核中国航段、运力或价格。"
+          }
+        }
+      ],
+      "pending_checks": [
+        "arrival_inspection_and_release_unconfirmed",
+        "carrier_transit_and_last_mile_unconfirmed",
+        "cn_current_designated_origin_lab_and_quarantine_port_lists_unreviewed",
+        "cn_local_dog_registration_requirements_unreviewed",
+        "independent_human_review_pending",
+        "original_document_custody_pending",
+        "reported_lab_acceptance_not_current_official_list_verification",
+        "two_vaccination_records_and_complete_protocol_unreviewed",
+        "us.cn.model.named_model_content_pending_review"
+      ],
+      "verified_feasible_route_count": 0,
+      "independent_review_complete": false
+    },
+    {
+      "direction": "EU→CN",
+      "dataset_version": "2026-10-08.week8-preview",
+      "species": {
+        "dog": {
+          "route_status": "unsupported",
+          "baseline_case": "W9-010"
+        },
+        "cat": {
+          "route_status": "unsupported",
+          "baseline_case": "W9-011"
+        }
+      },
+      "case_ids": [
+        "W9-010",
+        "W9-011",
+        "W9-012"
+      ],
+      "status_counts": {
+        "unsupported": 3,
+        "conditional": 0,
+        "ineligible": 0,
+        "verified_supported": 0
+      },
+      "evidence": [
+        {
+          "source_id": "cn.gacc.2019-5",
+          "url": "https://www.mofcom.gov.cn/zcfb/zgdwjjmywg/art/2019/art_71739ec848d14deca4ec330fad835774.html",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "locator": "2019 No.5 sections 1-3; annexes not republished",
+          "summary": {
+            "en": "Carried dogs/cats only, one per person, official export and rabies documents, chip, arrival inspection; 30-day quarantine branch needs facilities. Current annex lists unverified.",
+            "zh-CN": "仅携带犬猫，每人一只，官方出口检疫和免疫证、芯片、现场检疫；30日隔离分支需设施。现行附件名单未核。"
+          }
+        },
+        {
+          "source_id": "us.aphis.cn-entry",
+          "url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-china",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "locator": "Week 8 research reading / attempt",
+          "summary": {
+            "en": "Dogs/cats export: issue within 14 days of arrival, VEHCS endorsement and printed copy. Titer boundary differs from dog PDF.",
+            "zh-CN": "犬猫出口：到达前14日内签发、VEHCS背书及打印件；抗体边界与犬PDF不同。"
+          }
+        },
+        {
+          "source_id": "us.aphis.cn-dog-model",
+          "url": "https://www.aphis.usda.gov/sites/default/files/china-dog.pdf",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "locator": "Week 8 research reading / attempt",
+          "summary": {
+            "en": "Four-page dog model: two vaccinations, sample on/after second vaccine, one-year sample validity, greater than 0.5. No cat model inference.",
+            "zh-CN": "四页犬范本：两次免疫、第二次后或当日采血、采血一年有效、大于0.5；不推定猫范本。"
+          }
+        },
+        {
+          "source_id": "us.aphis.cn-cat-model",
+          "url": "https://www.aphis.usda.gov/sites/default/files/china-cat.pdf",
+          "accessed_at": "2026-10-08",
+          "status": "unavailable",
+          "locator": "Week 8 research reading / attempt",
+          "summary": {
+            "en": "Cat PDF returned 503; webpage read does not establish full cat model content.",
+            "zh-CN": "猫PDF返回503；网页查阅不证明猫范本已完整核实。"
+          }
+        },
+        {
+          "source_id": "eu.nl.export-legalisation",
+          "url": "https://english.nvwa.nl/topics/animal-health/travelling-to-the-netherlands-with-your-dog-or-cat/legalisation-of-eu-pet-passports-and-other-documents-for-dogs-cats-and-ferrets",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "locator": "Week 8 research reading / attempt",
+          "summary": {
+            "en": "Check binding destination certificate first; otherwise confirm legalisation. Vet completes certificate before legalisation; advance appointment uses working days, no computed guarantee.",
+            "zh-CN": "先查目的地绑定证书，否则确认认证；兽医填签后认证。预约按工作日提前申请，不计算保证时限。"
+          }
+        },
+        {
+          "source_id": "eu.de.berlin-export",
+          "url": "https://www.berlin.de/ba-treptow-koepenick/politik-und-verwaltung/aemter/ordnungsamt/veterinaer-und-lebensmittelaufsicht/artikel.1088792.php",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "locator": "Week 8 research reading / attempt",
+          "summary": {
+            "en": "District guidance: destination rules apply, official certificate application with supporting documents. Not national China export certification.",
+            "zh-CN": "区级指引：遵守目的地规则，提交官方证书申请及材料；非全国赴中国出口证流程。"
+          }
+        },
+        {
+          "source_id": "eu.fr.third-country-export",
+          "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F21374?lang=fr",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "locator": "Week 8 research reading / attempt",
+          "summary": {
+            "en": "Other-country section: passport and health preparation plus destination/transit and DDPP confirmation. Passport alone does not meet CN official export certificate.",
+            "zh-CN": "其他国家段：护照、健康准备及目的地／过境与DDPP确认；护照不替代中国要求的官方出口检疫证。"
+          }
+        },
+        {
+          "source_id": "eu.af.pet-policy",
+          "url": "https://wwws.airfrance.us/information/passagers/voyager-avec-son-animal-chien-chat",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "locator": "Week 8 research reading / attempt",
+          "summary": {
+            "en": "Public dog/cat hold policy; flight availability and conditions can cause refusal. No China flight, capacity or price verified.",
+            "zh-CN": "公开犬猫行李舱政策；航班可用性及条件可能导致拒收；未核中国航段、运力或价格。"
+          }
+        }
+      ],
+      "pending_checks": [
+        "arrival_inspection_and_release_unconfirmed",
+        "carrier_transit_and_last_mile_unconfirmed",
+        "cn_current_designated_origin_lab_and_quarantine_port_lists_unreviewed",
+        "eu.cn.export.member_destination_certificate_and_official_signing_route_unreviewed",
+        "eu_cn_titre_sampling_validity_and_vaccine_protocol_unreviewed",
+        "independent_human_review_pending",
+        "original_document_custody_pending",
+        "reported_lab_acceptance_not_current_official_list_verification"
+      ],
+      "verified_feasible_route_count": 0,
+      "independent_review_complete": false
+    },
+    {
+      "direction": "US→EU",
+      "dataset_version": "0.1.0-week9-us-eu-research",
+      "species": {
+        "dog": {
+          "route_status": "unsupported",
+          "baseline_case": "W9-013"
+        },
+        "cat": {
+          "route_status": "unsupported",
+          "baseline_case": "W9-014"
+        }
+      },
+      "case_ids": [
+        "W9-013",
+        "W9-014",
+        "W9-015",
+        "W9-026",
+        "W9-027",
+        "W9-028",
+        "W9-029",
+        "W9-030",
+        "W9-031",
+        "W9-032"
+      ],
+      "status_counts": {
+        "unsupported": 10,
+        "conditional": 0,
+        "ineligible": 0,
+        "verified_supported": 0
+      },
+      "evidence": [
+        {
+          "source_id": "us.aphis.eu-france",
+          "url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-france",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "locator": "Steps 1–3; new certificates notice",
+          "summary": {
+            "en": "New non-commercial model from October 1; issue and endorsement differ; manufacturer immunity may exceed 21 days.",
+            "zh-CN": "10月1日起新非商业范本；签发与背书分开；厂商免疫等待可能超过21日。"
+          }
+        },
+        {
+          "source_id": "us.aphis.eu-model-2026",
+          "url": "https://www.aphis.usda.gov/sites/default/files/eu-hc-non-commercial-dogs-cats-ferrets-without-treatment.pdf",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "locator": "PDF pages 2–4, II.3 and Notes (b)",
+          "summary": {
+            "en": "Readable 2026 model; endorsement to entry check 10 days, later intra-EU use limited by vaccine expiry; titre exceptions need current lists.",
+            "zh-CN": "可读2026范本；背书至入境检查10日，后续欧盟内使用受免疫到期限制；抗体例外待核现行名单。"
+          }
+        },
+        {
+          "source_id": "us.aphis.eu-passport",
+          "url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/european-union-eu-pet-passports",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "locator": "Who can enter information; return documents",
+          "summary": {
+            "en": "Return passport depends on valid EU-vet rabies record. US revaccination requires a health certificate; US vets cannot fill EU-authorized sections.",
+            "zh-CN": "返程护照依赖欧盟兽医有效免疫记录；美国再接种需卫生证，美国兽医不得填写欧盟授权栏。"
+          }
+        },
+        {
+          "source_id": "us.cdc.us-vaccinated-return",
+          "url": "https://www.cdc.gov/importation/dogs/us-vaccinated-high-risk-countries.html",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "locator": "Options; certification; receipt validity",
+          "summary": {
+            "en": "Specific US rabies form must be endorsed before leaving US. Export certificates after July 31 2025 cannot replace it.",
+            "zh-CN": "美国专用免疫表须离美前背书；2025年7月31日后出口证不能替代。"
+          }
+        },
+        {
+          "source_id": "us.cdc.high-risk-list",
+          "url": "https://www.cdc.gov/importation/dogs/high-risk-countries.html",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "locator": "Overview; country/political unit list",
+          "summary": {
+            "en": "Six-month history matters; mainland China, Ceuta and Melilla are listed. No blanket EU geography exemption is inferred.",
+            "zh-CN": "六个月历史影响分类；中国大陆、休达、梅利利亚列名，不按欧盟地理名称整体豁免。"
+          }
+        },
+        {
+          "source_id": "us.cdc.low-risk",
+          "url": "https://www.cdc.gov/importation/dogs/rabies-free-low-risk-countries.html",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "locator": "Receipt validity; health, age, chip",
+          "summary": {
+            "en": "Low-risk receipt country must match departure; receipt expiry/history change require reassessment.",
+            "zh-CN": "低风险回执国家须与起运地一致；到期及历史改变需重评。"
+          }
+        },
+        {
+          "source_id": "us.cdc.foreign-high-risk",
+          "url": "https://www.cdc.gov/importation/dogs/foreign-vaccinated-high-risk-countries.html",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "locator": "Entry requirements",
+          "summary": {
+            "en": "Foreign-vaccinated high-risk dogs need an ACF reservation and separate document chain.",
+            "zh-CN": "境外免疫高风险犬需设施预约及独立文件链。"
+          }
+        },
+        {
+          "source_id": "us.cdc.animals",
+          "url": "https://www.cdc.gov/importation/bringing-an-animal-into-the-us/index.html",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "locator": "Cats",
+          "summary": {
+            "en": "Cats require healthy arrival and inspection; no CDC dog form, age or chip rule applied. States/carriers remain separate.",
+            "zh-CN": "猫需健康抵达及检查；不套犬CDC表、年龄、芯片要求；州与承运方条件独立。"
+          }
+        },
+        {
+          "source_id": "eu.law.2026-705",
+          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX%3A32026R0705",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "locator": "Articles 3, 6; Annex III / V: model correspondence pending",
+          "summary": {
+            "en": "Existing Week 6 model transition reading reused; US-specific certificate and endorsement cutover reviewed separately.",
+            "zh-CN": "复用第6周范本过渡查阅；美国专用证书及背书切换另核。"
+          }
+        }
+      ],
+      "pending_checks": [
+        "dated_carrier_capacity_and_entry_facilities",
+        "dated_handover_capacity_and_custody_unconfirmed",
+        "eu.titre-branch.current_list_and_history_unreviewed",
+        "eu_current_annex_lists_and_local_export_procedures",
+        "eu_travellers_entry_point_current_designation_unconfirmed",
+        "final_pickup.missing",
+        "first_last_legs_and_overnight_care_unconfirmed",
+        "independent_human_review",
+        "original_document_custody_and_delivery_unconfirmed",
+        "overnight.requirement_unknown",
+        "return_leg_requires_independent_reassessment",
+        "us_aphis_state_and_emergency_import_overlays"
+      ],
+      "verified_feasible_route_count": 0,
+      "independent_review_complete": false
+    },
+    {
+      "direction": "EU→US",
+      "dataset_version": "0.1.0-week9-us-eu-research",
+      "species": {
+        "dog": {
+          "route_status": "unsupported",
+          "baseline_case": "W9-016"
+        },
+        "cat": {
+          "route_status": "unsupported",
+          "baseline_case": "W9-017"
+        }
+      },
+      "case_ids": [
+        "W9-016",
+        "W9-017",
+        "W9-018",
+        "W9-033",
+        "W9-034",
+        "W9-035",
+        "W9-036",
+        "W9-037",
+        "W9-038",
+        "W9-039",
+        "W9-040",
+        "W9-041",
+        "W9-045",
+        "W9-046"
+      ],
+      "status_counts": {
+        "unsupported": 14,
+        "conditional": 0,
+        "ineligible": 0,
+        "verified_supported": 0
+      },
+      "evidence": [
+        {
+          "source_id": "us.aphis.eu-france",
+          "url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-france",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "locator": "Steps 1–3; new certificates notice",
+          "summary": {
+            "en": "New non-commercial model from October 1; issue and endorsement differ; manufacturer immunity may exceed 21 days.",
+            "zh-CN": "10月1日起新非商业范本；签发与背书分开；厂商免疫等待可能超过21日。"
+          }
+        },
+        {
+          "source_id": "us.aphis.eu-model-2026",
+          "url": "https://www.aphis.usda.gov/sites/default/files/eu-hc-non-commercial-dogs-cats-ferrets-without-treatment.pdf",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "locator": "PDF pages 2–4, II.3 and Notes (b)",
+          "summary": {
+            "en": "Readable 2026 model; endorsement to entry check 10 days, later intra-EU use limited by vaccine expiry; titre exceptions need current lists.",
+            "zh-CN": "可读2026范本；背书至入境检查10日，后续欧盟内使用受免疫到期限制；抗体例外待核现行名单。"
+          }
+        },
+        {
+          "source_id": "us.aphis.eu-passport",
+          "url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/european-union-eu-pet-passports",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "locator": "Who can enter information; return documents",
+          "summary": {
+            "en": "Return passport depends on valid EU-vet rabies record. US revaccination requires a health certificate; US vets cannot fill EU-authorized sections.",
+            "zh-CN": "返程护照依赖欧盟兽医有效免疫记录；美国再接种需卫生证，美国兽医不得填写欧盟授权栏。"
+          }
+        },
+        {
+          "source_id": "us.cdc.us-vaccinated-return",
+          "url": "https://www.cdc.gov/importation/dogs/us-vaccinated-high-risk-countries.html",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "locator": "Options; certification; receipt validity",
+          "summary": {
+            "en": "Specific US rabies form must be endorsed before leaving US. Export certificates after July 31 2025 cannot replace it.",
+            "zh-CN": "美国专用免疫表须离美前背书；2025年7月31日后出口证不能替代。"
+          }
+        },
+        {
+          "source_id": "us.cdc.high-risk-list",
+          "url": "https://www.cdc.gov/importation/dogs/high-risk-countries.html",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "locator": "Overview; country/political unit list",
+          "summary": {
+            "en": "Six-month history matters; mainland China, Ceuta and Melilla are listed. No blanket EU geography exemption is inferred.",
+            "zh-CN": "六个月历史影响分类；中国大陆、休达、梅利利亚列名，不按欧盟地理名称整体豁免。"
+          }
+        },
+        {
+          "source_id": "us.cdc.low-risk",
+          "url": "https://www.cdc.gov/importation/dogs/rabies-free-low-risk-countries.html",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "locator": "Receipt validity; health, age, chip",
+          "summary": {
+            "en": "Low-risk receipt country must match departure; receipt expiry/history change require reassessment.",
+            "zh-CN": "低风险回执国家须与起运地一致；到期及历史改变需重评。"
+          }
+        },
+        {
+          "source_id": "us.cdc.foreign-high-risk",
+          "url": "https://www.cdc.gov/importation/dogs/foreign-vaccinated-high-risk-countries.html",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "locator": "Entry requirements",
+          "summary": {
+            "en": "Foreign-vaccinated high-risk dogs need an ACF reservation and separate document chain.",
+            "zh-CN": "境外免疫高风险犬需设施预约及独立文件链。"
+          }
+        },
+        {
+          "source_id": "us.cdc.animals",
+          "url": "https://www.cdc.gov/importation/bringing-an-animal-into-the-us/index.html",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "locator": "Cats",
+          "summary": {
+            "en": "Cats require healthy arrival and inspection; no CDC dog form, age or chip rule applied. States/carriers remain separate.",
+            "zh-CN": "猫需健康抵达及检查；不套犬CDC表、年龄、芯片要求；州与承运方条件独立。"
+          }
+        },
+        {
+          "source_id": "eu.law.2026-705",
+          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX%3A32026R0705",
+          "accessed_at": "2026-10-08",
+          "status": "read_pending_review",
+          "locator": "Articles 3, 6; Annex III / V: model correspondence pending",
+          "summary": {
+            "en": "Existing Week 6 model transition reading reused; US-specific certificate and endorsement cutover reviewed separately.",
+            "zh-CN": "复用第6周范本过渡查阅；美国专用证书及背书切换另核。"
+          }
+        }
+      ],
+      "pending_checks": [
+        "dated_carrier_capacity_and_entry_facilities",
+        "dated_handover_capacity_and_custody_unconfirmed",
+        "eu_current_annex_lists_and_local_export_procedures",
+        "eu_member_export_procedure_unreviewed",
+        "final_pickup.missing",
+        "first_last_legs_and_overnight_care_unconfirmed",
+        "independent_human_review",
+        "original_document_custody_and_delivery_unconfirmed",
+        "overnight.requirement_unknown",
+        "return_leg_requires_independent_reassessment",
+        "us_aphis_state_and_emergency_import_overlays"
+      ],
+      "verified_feasible_route_count": 0,
+      "independent_review_complete": false
+    }
+  ],
+  "cases": [
+    {
+      "id": "W9-001",
+      "area": "CN→US",
+      "engine": "outbound",
+      "fixture": "tests/fixtures/outbound/cn-us-dog.json",
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true
+      },
+      "status": "unsupported",
+      "classification_resolved": true,
+      "diagnostics": {
+        "cn.application-before-inspection": "missing",
+        "cn.inspection-before-issue": "missing",
+        "us.microchip": "pass",
+        "identification.before-vaccine": "pass",
+        "vaccination.minimum-age": "pass",
+        "rabies.primary-wait": "pass",
+        "titre.sample-after-primary": "pass",
+        "titre.wait": "pass",
+        "us.dog.minimum-age": "pass",
+        "us.form.departure-window": "date_window_consistent",
+        "us.form.entry-window": "date_window_consistent",
+        "us.form.endorsement-order": "pass",
+        "us.form.endorsement-before-travel": "pass",
+        "us.receipt_airport": "pass",
+        "us.acf_airport": "pass",
+        "us.receipt.date": "date_window_consistent",
+        "documents.delivery-before-departure": "date_window_consistent",
+        "documents.delivery-after-origin-issue": "pass",
+        "documents.delivery-after-issue": "pass",
+        "documents.delivery-after-endorsement": "pass",
+        "appointment.before-departure": "date_window_consistent",
+        "appointment.certificate-window": "date_window_consistent"
+      },
+      "reason_codes": [
+        "cn.application-before-inspection.missing",
+        "cn.inspection-before-issue.missing",
+        "cn_current_local_export_and_cargo_procedure_unreviewed",
+        "document_full_content_and_validity_unreviewed",
+        "entry_facility_hours_capacity_and_custody_unverified",
+        "eu_636_lists_and_incorporated_annexes_unreviewed",
+        "original_document_custody_and_delivery_unconfirmed",
+        "titre_result_lab_and_vaccine_continuity_unreviewed",
+        "transport_acceptance_and_transit_unverified",
+        "two_qualified_human_reviews_pending",
+        "us_acf_services_release_and_onward_transfer_unconfirmed",
+        "us_aphis_state_and_carrier_requirements_unreviewed",
+        "us_entry_point.listed_pending_confirmation"
+      ],
+      "final_handover": {
+        "status": "needs_confirmation",
+        "pickup_outcome": "missing",
+        "overnight_outcome": "requirement_unknown",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "dated_handover_capacity_and_custody_unconfirmed",
+          "final_pickup.missing",
+          "overnight.requirement_unknown"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-002",
+      "area": "CN→US",
+      "engine": "outbound",
+      "fixture": "tests/fixtures/outbound/cn-us-cat.json",
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true
+      },
+      "status": "unsupported",
+      "classification_resolved": true,
+      "diagnostics": {
+        "cn.application-before-inspection": "missing",
+        "cn.inspection-before-issue": "missing",
+        "us.cat.cdc": "not_applicable",
+        "documents.delivery-before-departure": "date_window_consistent",
+        "documents.delivery-after-origin-issue": "pass",
+        "documents.delivery-after-endorsement": "pass",
+        "appointment.before-departure": "date_window_consistent",
+        "appointment.certificate-window": "window_unreviewed"
+      },
+      "reason_codes": [
+        "appointment.certificate-window.window_unreviewed",
+        "cn.application-before-inspection.missing",
+        "cn.inspection-before-issue.missing",
+        "cn_current_local_export_and_cargo_procedure_unreviewed",
+        "document_full_content_and_validity_unreviewed",
+        "entry_facility_hours_capacity_and_custody_unverified",
+        "eu_636_lists_and_incorporated_annexes_unreviewed",
+        "original_document_custody_and_delivery_unconfirmed",
+        "transport_acceptance_and_transit_unverified",
+        "two_qualified_human_reviews_pending",
+        "us_aphis_state_and_carrier_requirements_unreviewed",
+        "us_cat_arrival_health_inspection_and_state_rules_pending"
+      ],
+      "final_handover": {
+        "status": "needs_confirmation",
+        "pickup_outcome": "missing",
+        "overnight_outcome": "requirement_unknown",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "dated_handover_capacity_and_custody_unconfirmed",
+          "final_pickup.missing",
+          "overnight.requirement_unknown"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-003",
+      "area": "CN→US",
+      "engine": "outbound",
+      "fixture": "tests/fixtures/outbound/cn-us-dog.json",
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": false
+      },
+      "status": "unsupported",
+      "classification_resolved": false,
+      "diagnostics": {},
+      "reason_codes": [
+        "cn_current_local_export_and_cargo_procedure_unreviewed",
+        "entry_facility_hours_capacity_and_custody_unverified",
+        "eu_636_lists_and_incorporated_annexes_unreviewed",
+        "ordinary_pet_classification_unconfirmed",
+        "two_qualified_human_reviews_pending",
+        "us_aphis_state_and_carrier_requirements_unreviewed"
+      ],
+      "final_handover": {
+        "status": "needs_confirmation",
+        "pickup_outcome": "missing",
+        "overnight_outcome": "requirement_unknown",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "dated_handover_capacity_and_custody_unconfirmed",
+          "final_pickup.missing",
+          "overnight.requirement_unknown"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-004",
+      "area": "CN→EU",
+      "engine": "outbound",
+      "fixture": "tests/fixtures/outbound/cn-eu-dog.json",
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true
+      },
+      "status": "unsupported",
+      "classification_resolved": true,
+      "diagnostics": {
+        "cn.application-before-inspection": "missing",
+        "cn.inspection-before-issue": "missing",
+        "eu.identification": "pass",
+        "identification.before-vaccine": "pass",
+        "vaccination.minimum-age": "pass",
+        "rabies.protocol-order": "pass",
+        "rabies.protocol-wait": "pass",
+        "titre.sample-after-primary": "pass",
+        "titre.wait": "pass",
+        "eu.certificate.entry-window": "date_window_consistent",
+        "eu.certificate.check-window": "date_window_consistent",
+        "eu.check-after-entry": "pass",
+        "eu.certificate.endorsement-order": "pass",
+        "eu.certificate.model": "model_date_consistent",
+        "documents.delivery-before-departure": "date_window_consistent",
+        "documents.delivery-after-origin-issue": "pass",
+        "documents.delivery-after-issue": "pass",
+        "documents.delivery-after-endorsement": "pass",
+        "appointment.before-departure": "date_window_consistent",
+        "appointment.certificate-window": "date_window_consistent",
+        "appointment.sample-wait": "date_window_consistent"
+      },
+      "reason_codes": [
+        "cn.application-before-inspection.missing",
+        "cn.inspection-before-issue.missing",
+        "cn_current_local_export_and_cargo_procedure_unreviewed",
+        "document_full_content_and_validity_unreviewed",
+        "entry_facility_hours_capacity_and_custody_unverified",
+        "eu_636_lists_and_incorporated_annexes_unreviewed",
+        "eu_entry_point.listed_pending_confirmation",
+        "eu_onward_destination_overlay_unreviewed",
+        "original_document_custody_and_delivery_unconfirmed",
+        "titre_result_lab_and_vaccine_continuity_unreviewed",
+        "transport_acceptance_and_transit_unverified",
+        "two_qualified_human_reviews_pending",
+        "us_aphis_state_and_carrier_requirements_unreviewed"
+      ],
+      "final_handover": {
+        "status": "needs_confirmation",
+        "pickup_outcome": "missing",
+        "overnight_outcome": "requirement_unknown",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "dated_handover_capacity_and_custody_unconfirmed",
+          "final_pickup.missing",
+          "overnight.requirement_unknown"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-005",
+      "area": "CN→EU",
+      "engine": "outbound",
+      "fixture": "tests/fixtures/outbound/cn-eu-cat.json",
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true
+      },
+      "status": "unsupported",
+      "classification_resolved": true,
+      "diagnostics": {
+        "cn.application-before-inspection": "missing",
+        "cn.inspection-before-issue": "missing",
+        "eu.identification": "pass",
+        "identification.before-vaccine": "pass",
+        "vaccination.minimum-age": "pass",
+        "rabies.protocol-order": "pass",
+        "rabies.protocol-wait": "pass",
+        "titre.sample-after-primary": "pass",
+        "titre.wait": "pass",
+        "eu.certificate.entry-window": "date_window_consistent",
+        "eu.certificate.check-window": "date_window_consistent",
+        "eu.check-after-entry": "pass",
+        "eu.certificate.endorsement-order": "pass",
+        "eu.certificate.model": "model_date_consistent",
+        "documents.delivery-before-departure": "date_window_consistent",
+        "documents.delivery-after-origin-issue": "pass",
+        "documents.delivery-after-issue": "pass",
+        "documents.delivery-after-endorsement": "pass",
+        "appointment.before-departure": "date_window_consistent",
+        "appointment.certificate-window": "date_window_consistent",
+        "appointment.sample-wait": "date_window_consistent"
+      },
+      "reason_codes": [
+        "cn.application-before-inspection.missing",
+        "cn.inspection-before-issue.missing",
+        "cn_current_local_export_and_cargo_procedure_unreviewed",
+        "document_full_content_and_validity_unreviewed",
+        "entry_facility_hours_capacity_and_custody_unverified",
+        "eu_636_lists_and_incorporated_annexes_unreviewed",
+        "eu_entry_point.listed_pending_confirmation",
+        "eu_onward_destination_overlay_unreviewed",
+        "original_document_custody_and_delivery_unconfirmed",
+        "titre_result_lab_and_vaccine_continuity_unreviewed",
+        "transport_acceptance_and_transit_unverified",
+        "two_qualified_human_reviews_pending",
+        "us_aphis_state_and_carrier_requirements_unreviewed"
+      ],
+      "final_handover": {
+        "status": "needs_confirmation",
+        "pickup_outcome": "missing",
+        "overnight_outcome": "requirement_unknown",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "dated_handover_capacity_and_custody_unconfirmed",
+          "final_pickup.missing",
+          "overnight.requirement_unknown"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-006",
+      "area": "CN→EU",
+      "engine": "outbound",
+      "fixture": "tests/fixtures/outbound/cn-eu-dog.json",
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": false
+      },
+      "status": "unsupported",
+      "classification_resolved": false,
+      "diagnostics": {},
+      "reason_codes": [
+        "cn_current_local_export_and_cargo_procedure_unreviewed",
+        "entry_facility_hours_capacity_and_custody_unverified",
+        "eu_636_lists_and_incorporated_annexes_unreviewed",
+        "ordinary_pet_classification_unconfirmed",
+        "two_qualified_human_reviews_pending",
+        "us_aphis_state_and_carrier_requirements_unreviewed"
+      ],
+      "final_handover": {
+        "status": "needs_confirmation",
+        "pickup_outcome": "missing",
+        "overnight_outcome": "requirement_unknown",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "dated_handover_capacity_and_custody_unconfirmed",
+          "final_pickup.missing",
+          "overnight.requirement_unknown"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-007",
+      "area": "US→CN",
+      "engine": "inbound",
+      "fixture": "tests/fixtures/inbound/us-cn-dog.json",
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true
+      },
+      "status": "unsupported",
+      "classification_resolved": true,
+      "diagnostics": {
+        "cn.health-certificate": "pass",
+        "cn.rabies-certificate": "pass",
+        "cn.microchip": "pass",
+        "cn.chip-readability": "pass",
+        "cn.rabies.valid-at-entry": "pass",
+        "us.cn.rabies.record-order": "pass",
+        "us.cn.rabies.before-entry": "pass",
+        "us.cn.sample-after-second": "pass",
+        "us.cn.sample-validity": "date_window_consistent",
+        "cn.titre.threshold": "pass",
+        "cn.lab.acceptance-reported": "pass",
+        "chain.exam-before-issue": "pass",
+        "chain.issue-before-endorsement": "pass",
+        "chain.endorsement-before-delivery": "pass",
+        "chain.delivery-before-departure": "pass",
+        "us.cn.issue-window": "date_window_consistent",
+        "us.cn.vehcs": "pass",
+        "us.cn.identity": "pass",
+        "us.cn.one-per-certificate": "pass",
+        "us.cn.model": "named_model_content_pending_review"
+      },
+      "reason_codes": [
+        "arrival_inspection_and_release_unconfirmed",
+        "carrier_transit_and_last_mile_unconfirmed",
+        "cn_current_designated_origin_lab_and_quarantine_port_lists_unreviewed",
+        "cn_local_dog_registration_requirements_unreviewed",
+        "independent_human_review_pending",
+        "original_document_custody_pending",
+        "reported_lab_acceptance_not_current_official_list_verification",
+        "two_vaccination_records_and_complete_protocol_unreviewed",
+        "us.cn.model.named_model_content_pending_review"
+      ],
+      "final_handover": {
+        "status": "needs_confirmation",
+        "pickup_outcome": "missing",
+        "overnight_outcome": "requirement_unknown",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "dated_handover_capacity_and_custody_unconfirmed",
+          "final_pickup.missing",
+          "overnight.requirement_unknown"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-008",
+      "area": "US→CN",
+      "engine": "inbound",
+      "fixture": "tests/fixtures/inbound/us-cn-cat.json",
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true
+      },
+      "status": "unsupported",
+      "classification_resolved": true,
+      "diagnostics": {
+        "cn.health-certificate": "pass",
+        "cn.rabies-certificate": "pass",
+        "cn.microchip": "pass",
+        "cn.chip-readability": "pass",
+        "cn.rabies.valid-at-entry": "pass",
+        "us.cn.rabies.record-order": "pass",
+        "us.cn.rabies.before-entry": "pass",
+        "us.cn.sample-after-second": "pass",
+        "us.cn.sample-validity": "date_window_consistent",
+        "cn.titre.threshold": "pass",
+        "cn.lab.acceptance-reported": "pass",
+        "chain.exam-before-issue": "pass",
+        "chain.issue-before-endorsement": "pass",
+        "chain.endorsement-before-delivery": "pass",
+        "chain.delivery-before-departure": "pass",
+        "us.cn.issue-window": "date_window_consistent",
+        "us.cn.vehcs": "pass",
+        "us.cn.identity": "pass",
+        "us.cn.one-per-certificate": "pass",
+        "us.cn.model": "named_model_content_pending_review"
+      },
+      "reason_codes": [
+        "arrival_inspection_and_release_unconfirmed",
+        "carrier_transit_and_last_mile_unconfirmed",
+        "cn_current_designated_origin_lab_and_quarantine_port_lists_unreviewed",
+        "independent_human_review_pending",
+        "original_document_custody_pending",
+        "reported_lab_acceptance_not_current_official_list_verification",
+        "two_vaccination_records_and_complete_protocol_unreviewed",
+        "us.cn.model.named_model_content_pending_review"
+      ],
+      "final_handover": {
+        "status": "needs_confirmation",
+        "pickup_outcome": "missing",
+        "overnight_outcome": "requirement_unknown",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "dated_handover_capacity_and_custody_unconfirmed",
+          "final_pickup.missing",
+          "overnight.requirement_unknown"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-009",
+      "area": "US→CN",
+      "engine": "inbound",
+      "fixture": "tests/fixtures/inbound/us-cn-dog.json",
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": false
+      },
+      "status": "unsupported",
+      "classification_resolved": false,
+      "diagnostics": {},
+      "reason_codes": [
+        "arrival_inspection_and_release_unconfirmed",
+        "carrier_transit_and_last_mile_unconfirmed",
+        "cn_current_designated_origin_lab_and_quarantine_port_lists_unreviewed",
+        "independent_human_review_pending",
+        "original_document_custody_pending",
+        "service_animal_separate_review"
+      ],
+      "final_handover": {
+        "status": "needs_confirmation",
+        "pickup_outcome": "missing",
+        "overnight_outcome": "requirement_unknown",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "dated_handover_capacity_and_custody_unconfirmed",
+          "final_pickup.missing",
+          "overnight.requirement_unknown"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-010",
+      "area": "EU→CN",
+      "engine": "inbound",
+      "fixture": "tests/fixtures/inbound/eu-cn-dog.json",
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true
+      },
+      "status": "unsupported",
+      "classification_resolved": true,
+      "diagnostics": {
+        "cn.health-certificate": "pass",
+        "cn.rabies-certificate": "pass",
+        "cn.microchip": "pass",
+        "cn.chip-readability": "pass",
+        "cn.rabies.valid-at-entry": "pass",
+        "cn.titre.threshold": "pass",
+        "cn.lab.acceptance-reported": "pass",
+        "chain.exam-before-issue": "pass",
+        "chain.issue-before-endorsement": "pass",
+        "chain.endorsement-before-delivery": "pass",
+        "chain.delivery-before-departure": "pass",
+        "eu.cn.export": "member_destination_certificate_and_official_signing_route_unreviewed"
+      },
+      "reason_codes": [
+        "arrival_inspection_and_release_unconfirmed",
+        "carrier_transit_and_last_mile_unconfirmed",
+        "cn_current_designated_origin_lab_and_quarantine_port_lists_unreviewed",
+        "eu.cn.export.member_destination_certificate_and_official_signing_route_unreviewed",
+        "eu_cn_titre_sampling_validity_and_vaccine_protocol_unreviewed",
+        "independent_human_review_pending",
+        "original_document_custody_pending",
+        "reported_lab_acceptance_not_current_official_list_verification"
+      ],
+      "final_handover": {
+        "status": "needs_confirmation",
+        "pickup_outcome": "missing",
+        "overnight_outcome": "requirement_unknown",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "dated_handover_capacity_and_custody_unconfirmed",
+          "final_pickup.missing",
+          "overnight.requirement_unknown"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-011",
+      "area": "EU→CN",
+      "engine": "inbound",
+      "fixture": "tests/fixtures/inbound/eu-cn-cat.json",
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true
+      },
+      "status": "unsupported",
+      "classification_resolved": true,
+      "diagnostics": {
+        "cn.health-certificate": "pass",
+        "cn.rabies-certificate": "pass",
+        "cn.microchip": "pass",
+        "cn.chip-readability": "pass",
+        "cn.rabies.valid-at-entry": "pass",
+        "cn.titre.threshold": "pass",
+        "cn.lab.acceptance-reported": "pass",
+        "chain.exam-before-issue": "pass",
+        "chain.issue-before-endorsement": "pass",
+        "chain.endorsement-before-delivery": "pass",
+        "chain.delivery-before-departure": "pass",
+        "eu.cn.export": "member_destination_certificate_and_official_signing_route_unreviewed"
+      },
+      "reason_codes": [
+        "arrival_inspection_and_release_unconfirmed",
+        "carrier_transit_and_last_mile_unconfirmed",
+        "cn_current_designated_origin_lab_and_quarantine_port_lists_unreviewed",
+        "eu.cn.export.member_destination_certificate_and_official_signing_route_unreviewed",
+        "eu_cn_titre_sampling_validity_and_vaccine_protocol_unreviewed",
+        "independent_human_review_pending",
+        "original_document_custody_pending",
+        "reported_lab_acceptance_not_current_official_list_verification"
+      ],
+      "final_handover": {
+        "status": "needs_confirmation",
+        "pickup_outcome": "missing",
+        "overnight_outcome": "requirement_unknown",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "dated_handover_capacity_and_custody_unconfirmed",
+          "final_pickup.missing",
+          "overnight.requirement_unknown"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-012",
+      "area": "EU→CN",
+      "engine": "inbound",
+      "fixture": "tests/fixtures/inbound/eu-cn-dog.json",
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": false
+      },
+      "status": "unsupported",
+      "classification_resolved": false,
+      "diagnostics": {},
+      "reason_codes": [
+        "arrival_inspection_and_release_unconfirmed",
+        "carrier_transit_and_last_mile_unconfirmed",
+        "cn_current_designated_origin_lab_and_quarantine_port_lists_unreviewed",
+        "independent_human_review_pending",
+        "original_document_custody_pending",
+        "service_animal_separate_review"
+      ],
+      "final_handover": {
+        "status": "needs_confirmation",
+        "pickup_outcome": "missing",
+        "overnight_outcome": "requirement_unknown",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "dated_handover_capacity_and_custody_unconfirmed",
+          "final_pickup.missing",
+          "overnight.requirement_unknown"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-013",
+      "area": "US→EU",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/us-eu-dog.json",
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true
+      },
+      "status": "unsupported",
+      "classification_resolved": true,
+      "diagnostics": {
+        "eu.microchip": "pass",
+        "eu.identification-before-vaccine": "pass",
+        "eu.vaccine-valid-at-entry": "pass",
+        "eu.primary-age": "pass",
+        "eu.primary-protocol-order": "pass",
+        "eu.us-primary-one-year": "pass",
+        "eu.manufacturer-wait": "pass",
+        "eu.certificate-model": "model_date_consistent",
+        "eu.issue-to-entry": "date_window_consistent",
+        "eu.endorsement-to-check": "date_window_consistent",
+        "eu.endorsement-to-entry": "date_window_consistent",
+        "eu.issue-before-endorsement": "pass",
+        "eu.check-after-entry": "pass",
+        "eu.endorsement-before-departure": "pass",
+        "eu.delivery-after-endorsement": "date_window_consistent",
+        "eu.delivery-before-departure": "date_window_consistent",
+        "eu.titre-branch": "current_list_and_history_unreviewed"
+      },
+      "reason_codes": [
+        "dated_carrier_capacity_and_entry_facilities",
+        "dated_handover_capacity_and_custody_unconfirmed",
+        "eu.titre-branch.current_list_and_history_unreviewed",
+        "eu_current_annex_lists_and_local_export_procedures",
+        "eu_travellers_entry_point_current_designation_unconfirmed",
+        "final_pickup.missing",
+        "first_last_legs_and_overnight_care_unconfirmed",
+        "independent_human_review",
+        "original_document_custody_and_delivery_unconfirmed",
+        "overnight.requirement_unknown",
+        "return_leg_requires_independent_reassessment",
+        "us_aphis_state_and_emergency_import_overlays"
+      ],
+      "final_handover": {
+        "status": "needs_confirmation",
+        "pickup_outcome": "missing",
+        "overnight_outcome": "requirement_unknown",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "dated_handover_capacity_and_custody_unconfirmed",
+          "final_pickup.missing",
+          "overnight.requirement_unknown"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-014",
+      "area": "US→EU",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/us-eu-cat.json",
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true
+      },
+      "status": "unsupported",
+      "classification_resolved": true,
+      "diagnostics": {
+        "eu.microchip": "pass",
+        "eu.identification-before-vaccine": "pass",
+        "eu.vaccine-valid-at-entry": "pass",
+        "eu.primary-age": "pass",
+        "eu.primary-protocol-order": "pass",
+        "eu.us-primary-one-year": "pass",
+        "eu.manufacturer-wait": "pass",
+        "eu.certificate-model": "model_date_consistent",
+        "eu.issue-to-entry": "date_window_consistent",
+        "eu.endorsement-to-check": "date_window_consistent",
+        "eu.endorsement-to-entry": "date_window_consistent",
+        "eu.issue-before-endorsement": "pass",
+        "eu.check-after-entry": "pass",
+        "eu.endorsement-before-departure": "pass",
+        "eu.delivery-after-endorsement": "date_window_consistent",
+        "eu.delivery-before-departure": "date_window_consistent",
+        "eu.titre-branch": "current_list_and_history_unreviewed"
+      },
+      "reason_codes": [
+        "dated_carrier_capacity_and_entry_facilities",
+        "dated_handover_capacity_and_custody_unconfirmed",
+        "eu.titre-branch.current_list_and_history_unreviewed",
+        "eu_current_annex_lists_and_local_export_procedures",
+        "eu_travellers_entry_point_current_designation_unconfirmed",
+        "final_pickup.missing",
+        "first_last_legs_and_overnight_care_unconfirmed",
+        "independent_human_review",
+        "original_document_custody_and_delivery_unconfirmed",
+        "overnight.requirement_unknown",
+        "return_leg_requires_independent_reassessment",
+        "us_aphis_state_and_emergency_import_overlays"
+      ],
+      "final_handover": {
+        "status": "needs_confirmation",
+        "pickup_outcome": "missing",
+        "overnight_outcome": "requirement_unknown",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "dated_handover_capacity_and_custody_unconfirmed",
+          "final_pickup.missing",
+          "overnight.requirement_unknown"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-015",
+      "area": "US→EU",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/us-eu-dog.json",
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": false
+      },
+      "status": "unsupported",
+      "classification_resolved": false,
+      "diagnostics": {},
+      "reason_codes": [
+        "dated_carrier_capacity_and_entry_facilities",
+        "dated_handover_capacity_and_custody_unconfirmed",
+        "eu_current_annex_lists_and_local_export_procedures",
+        "final_pickup.missing",
+        "first_last_legs_and_overnight_care_unconfirmed",
+        "independent_human_review",
+        "ordinary_pet_classification_unconfirmed",
+        "original_document_custody_and_delivery_unconfirmed",
+        "overnight.requirement_unknown",
+        "return_leg_requires_independent_reassessment",
+        "us_aphis_state_and_emergency_import_overlays"
+      ],
+      "final_handover": {
+        "status": "needs_confirmation",
+        "pickup_outcome": "missing",
+        "overnight_outcome": "requirement_unknown",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "dated_handover_capacity_and_custody_unconfirmed",
+          "final_pickup.missing",
+          "overnight.requirement_unknown"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-016",
+      "area": "EU→US",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/eu-us-dog.json",
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true
+      },
+      "status": "unsupported",
+      "classification_resolved": true,
+      "diagnostics": {
+        "us.dog-age": "pass",
+        "us.dog-chip": "pass",
+        "us.dog-health": "pass",
+        "us.receipt-present": "pass",
+        "us.receipt-country": "pass",
+        "us.receipt-six-months": "date_window_consistent",
+        "us.receipt-not-expired": "pass"
+      },
+      "reason_codes": [
+        "dated_carrier_capacity_and_entry_facilities",
+        "dated_handover_capacity_and_custody_unconfirmed",
+        "eu_current_annex_lists_and_local_export_procedures",
+        "eu_member_export_procedure_unreviewed",
+        "final_pickup.missing",
+        "first_last_legs_and_overnight_care_unconfirmed",
+        "independent_human_review",
+        "original_document_custody_and_delivery_unconfirmed",
+        "overnight.requirement_unknown",
+        "return_leg_requires_independent_reassessment",
+        "us_aphis_state_and_emergency_import_overlays"
+      ],
+      "final_handover": {
+        "status": "needs_confirmation",
+        "pickup_outcome": "missing",
+        "overnight_outcome": "requirement_unknown",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "dated_handover_capacity_and_custody_unconfirmed",
+          "final_pickup.missing",
+          "overnight.requirement_unknown"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-017",
+      "area": "EU→US",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/eu-us-cat.json",
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true
+      },
+      "status": "unsupported",
+      "classification_resolved": true,
+      "diagnostics": {
+        "us.cat-health": "pass",
+        "us.cat-dog-rules": "not_applicable"
+      },
+      "reason_codes": [
+        "dated_carrier_capacity_and_entry_facilities",
+        "dated_handover_capacity_and_custody_unconfirmed",
+        "eu_current_annex_lists_and_local_export_procedures",
+        "eu_member_export_and_us_cat_state_carrier_requirements_pending",
+        "final_pickup.missing",
+        "first_last_legs_and_overnight_care_unconfirmed",
+        "independent_human_review",
+        "original_document_custody_and_delivery_unconfirmed",
+        "overnight.requirement_unknown",
+        "return_leg_requires_independent_reassessment",
+        "us_aphis_state_and_emergency_import_overlays"
+      ],
+      "final_handover": {
+        "status": "needs_confirmation",
+        "pickup_outcome": "missing",
+        "overnight_outcome": "requirement_unknown",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "dated_handover_capacity_and_custody_unconfirmed",
+          "final_pickup.missing",
+          "overnight.requirement_unknown"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-018",
+      "area": "EU→US",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/eu-us-dog.json",
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": false
+      },
+      "status": "unsupported",
+      "classification_resolved": false,
+      "diagnostics": {},
+      "reason_codes": [
+        "dated_carrier_capacity_and_entry_facilities",
+        "dated_handover_capacity_and_custody_unconfirmed",
+        "eu_current_annex_lists_and_local_export_procedures",
+        "final_pickup.missing",
+        "first_last_legs_and_overnight_care_unconfirmed",
+        "independent_human_review",
+        "ordinary_pet_classification_unconfirmed",
+        "original_document_custody_and_delivery_unconfirmed",
+        "overnight.requirement_unknown",
+        "return_leg_requires_independent_reassessment",
+        "us_aphis_state_and_emergency_import_overlays"
+      ],
+      "final_handover": {
+        "status": "needs_confirmation",
+        "pickup_outcome": "missing",
+        "overnight_outcome": "requirement_unknown",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "dated_handover_capacity_and_custody_unconfirmed",
+          "final_pickup.missing",
+          "overnight.requirement_unknown"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-019",
+      "area": "CN east",
+      "engine": "routes",
+      "fixture": "tests/fixtures/domestic/owner.json",
+      "expected": {
+        "status": "unsupported"
+      },
+      "status": "unsupported",
+      "classification_resolved": null,
+      "diagnostics": {},
+      "reason_codes": [
+        "research_candidates_unreviewed"
+      ],
+      "final_handover": {
+        "status": "needs_confirmation",
+        "pickup_outcome": "missing",
+        "overnight_outcome": "requirement_unknown",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "dated_handover_capacity_and_custody_unconfirmed",
+          "final_pickup.missing",
+          "overnight.requirement_unknown"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-020",
+      "area": "CN south",
+      "engine": "routes",
+      "fixture": "tests/fixtures/domestic/owner.json",
+      "expected": {
+        "status": "unsupported"
+      },
+      "status": "unsupported",
+      "classification_resolved": null,
+      "diagnostics": {},
+      "reason_codes": [
+        "research_candidates_unreviewed"
+      ],
+      "final_handover": {
+        "status": "needs_confirmation",
+        "pickup_outcome": "missing",
+        "overnight_outcome": "requirement_unknown",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "dated_handover_capacity_and_custody_unconfirmed",
+          "final_pickup.missing",
+          "overnight.requirement_unknown"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-021",
+      "area": "US CA→NY",
+      "engine": "routes",
+      "fixture": "tests/fixtures/us-domestic/owner.json",
+      "expected": {
+        "status": "unsupported"
+      },
+      "status": "unsupported",
+      "classification_resolved": null,
+      "diagnostics": {},
+      "reason_codes": [
+        "us_state_packages_unreviewed",
+        "research_candidates_unreviewed"
+      ],
+      "final_handover": {
+        "status": "needs_confirmation",
+        "pickup_outcome": "missing",
+        "overnight_outcome": "requirement_unknown",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "dated_handover_capacity_and_custody_unconfirmed",
+          "final_pickup.missing",
+          "overnight.requirement_unknown"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-022",
+      "area": "US NY→TX",
+      "engine": "routes",
+      "fixture": "tests/fixtures/us-domestic/owner.json",
+      "expected": {
+        "status": "unsupported"
+      },
+      "status": "unsupported",
+      "classification_resolved": null,
+      "diagnostics": {},
+      "reason_codes": [
+        "us_state_packages_unreviewed",
+        "research_candidates_unreviewed"
+      ],
+      "final_handover": {
+        "status": "needs_confirmation",
+        "pickup_outcome": "missing",
+        "overnight_outcome": "requirement_unknown",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "dated_handover_capacity_and_custody_unconfirmed",
+          "final_pickup.missing",
+          "overnight.requirement_unknown"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-023",
+      "area": "US TX→CA",
+      "engine": "routes",
+      "fixture": "tests/fixtures/us-domestic/owner.json",
+      "expected": {
+        "status": "unsupported"
+      },
+      "status": "unsupported",
+      "classification_resolved": null,
+      "diagnostics": {},
+      "reason_codes": [
+        "us_state_packages_unreviewed",
+        "research_candidates_unreviewed"
+      ],
+      "final_handover": {
+        "status": "needs_confirmation",
+        "pickup_outcome": "missing",
+        "overnight_outcome": "requirement_unknown",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "dated_handover_capacity_and_custody_unconfirmed",
+          "final_pickup.missing",
+          "overnight.requirement_unknown"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-024",
+      "area": "EU domestic",
+      "engine": "eu",
+      "fixture": "tests/fixtures/eu/domestic.json",
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true
+      },
+      "status": "unsupported",
+      "classification_resolved": true,
+      "diagnostics": {},
+      "reason_codes": [
+        "2019_2035_2020_688_2020_692_consolidated_annexes",
+        "2026_131_independent_review_pending",
+        "2026_636_annex_lists_unavailable",
+        "certificate_full_content_and_validity",
+        "eu_domestic_rules_unreviewed",
+        "eu_member_overlays_unreviewed",
+        "eu_transport_and_custody_unverified",
+        "independent_human_review",
+        "passport_residence_and_issuer",
+        "transit_and_local_emergency_orders"
+      ],
+      "final_handover": {
+        "status": "needs_confirmation",
+        "pickup_outcome": "missing",
+        "overnight_outcome": "requirement_unknown",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "dated_handover_capacity_and_custody_unconfirmed",
+          "final_pickup.missing",
+          "overnight.requirement_unknown"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-025",
+      "area": "EU cross-member",
+      "engine": "eu",
+      "fixture": "tests/fixtures/eu/cross-member.json",
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true
+      },
+      "status": "unsupported",
+      "classification_resolved": true,
+      "diagnostics": {
+        "eu.identification": "pass",
+        "eu.passport.model-date": "model_date_consistent"
+      },
+      "reason_codes": [
+        "2019_2035_2020_688_2020_692_consolidated_annexes",
+        "2026_131_independent_review_pending",
+        "2026_636_annex_lists_unavailable",
+        "carrier_acceptance_unknown",
+        "certificate_full_content_and_validity",
+        "condition_satisfied",
+        "critical_coverage_unreviewed",
+        "draft_rule",
+        "eu_cross_member_package_unreviewed",
+        "eu_member_overlays_unreviewed",
+        "eu_transport_and_custody_unverified",
+        "independent_human_review",
+        "passport_residence_and_issuer",
+        "rule_scope_exclusions_unreviewed",
+        "transit_and_local_emergency_orders"
+      ],
+      "final_handover": {
+        "status": "needs_confirmation",
+        "pickup_outcome": "missing",
+        "overnight_outcome": "requirement_unknown",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "dated_handover_capacity_and_custody_unconfirmed",
+          "final_pickup.missing",
+          "overnight.requirement_unknown"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-026",
+      "area": "US→EU",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/us-eu-dog.json",
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true,
+        "diagnostic": {
+          "id": "eu.manufacturer-wait",
+          "outcome": "fail"
+        }
+      },
+      "status": "unsupported",
+      "classification_resolved": true,
+      "diagnostics": {
+        "eu.microchip": "pass",
+        "eu.identification-before-vaccine": "pass",
+        "eu.vaccine-valid-at-entry": "pass",
+        "eu.primary-age": "pass",
+        "eu.primary-protocol-order": "pass",
+        "eu.us-primary-one-year": "pass",
+        "eu.manufacturer-wait": "fail",
+        "eu.certificate-model": "model_date_consistent",
+        "eu.issue-to-entry": "date_window_consistent",
+        "eu.endorsement-to-check": "date_window_consistent",
+        "eu.endorsement-to-entry": "date_window_consistent",
+        "eu.issue-before-endorsement": "pass",
+        "eu.check-after-entry": "pass",
+        "eu.endorsement-before-departure": "pass",
+        "eu.delivery-after-endorsement": "date_window_consistent",
+        "eu.delivery-before-departure": "date_window_consistent",
+        "eu.titre-branch": "current_list_and_history_unreviewed"
+      },
+      "reason_codes": [
+        "dated_carrier_capacity_and_entry_facilities",
+        "dated_handover_capacity_and_custody_unconfirmed",
+        "eu.manufacturer-wait.fail",
+        "eu.titre-branch.current_list_and_history_unreviewed",
+        "eu_current_annex_lists_and_local_export_procedures",
+        "eu_travellers_entry_point_current_designation_unconfirmed",
+        "final_pickup.missing",
+        "first_last_legs_and_overnight_care_unconfirmed",
+        "independent_human_review",
+        "original_document_custody_and_delivery_unconfirmed",
+        "overnight.requirement_unknown",
+        "return_leg_requires_independent_reassessment",
+        "us_aphis_state_and_emergency_import_overlays"
+      ],
+      "final_handover": {
+        "status": "needs_confirmation",
+        "pickup_outcome": "missing",
+        "overnight_outcome": "requirement_unknown",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "dated_handover_capacity_and_custody_unconfirmed",
+          "final_pickup.missing",
+          "overnight.requirement_unknown"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-027",
+      "area": "US→EU",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/us-eu-dog.json",
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true,
+        "diagnostic": {
+          "id": "eu.certificate-model",
+          "outcome": "model_issue_cutoff_failed"
+        }
+      },
+      "status": "unsupported",
+      "classification_resolved": true,
+      "diagnostics": {
+        "eu.microchip": "pass",
+        "eu.identification-before-vaccine": "pass",
+        "eu.vaccine-valid-at-entry": "pass",
+        "eu.primary-age": "pass",
+        "eu.primary-protocol-order": "pass",
+        "eu.us-primary-one-year": "pass",
+        "eu.manufacturer-wait": "pass",
+        "eu.certificate-model": "model_issue_cutoff_failed",
+        "eu.aphis-old-model-endorsement": "fail",
+        "eu.issue-to-entry": "date_window_conflict",
+        "eu.endorsement-to-check": "date_window_consistent",
+        "eu.endorsement-to-entry": "date_window_consistent",
+        "eu.issue-before-endorsement": "pass",
+        "eu.check-after-entry": "pass",
+        "eu.endorsement-before-departure": "pass",
+        "eu.delivery-after-endorsement": "date_window_consistent",
+        "eu.delivery-before-departure": "date_window_consistent",
+        "eu.titre-branch": "current_list_and_history_unreviewed"
+      },
+      "reason_codes": [
+        "dated_carrier_capacity_and_entry_facilities",
+        "dated_handover_capacity_and_custody_unconfirmed",
+        "eu.aphis-old-model-endorsement.fail",
+        "eu.certificate-model.model_issue_cutoff_failed",
+        "eu.issue-to-entry.date_window_conflict",
+        "eu.titre-branch.current_list_and_history_unreviewed",
+        "eu_current_annex_lists_and_local_export_procedures",
+        "eu_travellers_entry_point_current_designation_unconfirmed",
+        "final_pickup.missing",
+        "first_last_legs_and_overnight_care_unconfirmed",
+        "independent_human_review",
+        "original_document_custody_and_delivery_unconfirmed",
+        "overnight.requirement_unknown",
+        "return_leg_requires_independent_reassessment",
+        "us_aphis_state_and_emergency_import_overlays"
+      ],
+      "final_handover": {
+        "status": "needs_confirmation",
+        "pickup_outcome": "missing",
+        "overnight_outcome": "requirement_unknown",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "dated_handover_capacity_and_custody_unconfirmed",
+          "final_pickup.missing",
+          "overnight.requirement_unknown"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-028",
+      "area": "US→EU",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/us-eu-dog.json",
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true,
+        "diagnostic": {
+          "id": "eu.aphis-old-model-endorsement",
+          "outcome": "fail"
+        }
+      },
+      "status": "unsupported",
+      "classification_resolved": true,
+      "diagnostics": {
+        "eu.microchip": "pass",
+        "eu.identification-before-vaccine": "pass",
+        "eu.vaccine-valid-at-entry": "pass",
+        "eu.primary-age": "pass",
+        "eu.primary-protocol-order": "pass",
+        "eu.us-primary-one-year": "pass",
+        "eu.manufacturer-wait": "pass",
+        "eu.certificate-model": "model_date_consistent",
+        "eu.aphis-old-model-endorsement": "fail",
+        "eu.issue-to-entry": "date_window_conflict",
+        "eu.endorsement-to-check": "date_window_conflict",
+        "eu.endorsement-to-entry": "date_window_conflict",
+        "eu.issue-before-endorsement": "pass",
+        "eu.check-after-entry": "pass",
+        "eu.endorsement-before-departure": "pass",
+        "eu.delivery-after-endorsement": "date_window_consistent",
+        "eu.delivery-before-departure": "date_window_consistent",
+        "eu.titre-branch": "current_list_and_history_unreviewed"
+      },
+      "reason_codes": [
+        "dated_carrier_capacity_and_entry_facilities",
+        "dated_handover_capacity_and_custody_unconfirmed",
+        "eu.aphis-old-model-endorsement.fail",
+        "eu.endorsement-to-check.date_window_conflict",
+        "eu.endorsement-to-entry.date_window_conflict",
+        "eu.issue-to-entry.date_window_conflict",
+        "eu.titre-branch.current_list_and_history_unreviewed",
+        "eu_current_annex_lists_and_local_export_procedures",
+        "eu_travellers_entry_point_current_designation_unconfirmed",
+        "final_pickup.missing",
+        "first_last_legs_and_overnight_care_unconfirmed",
+        "independent_human_review",
+        "original_document_custody_and_delivery_unconfirmed",
+        "overnight.requirement_unknown",
+        "return_leg_requires_independent_reassessment",
+        "us_aphis_state_and_emergency_import_overlays"
+      ],
+      "final_handover": {
+        "status": "needs_confirmation",
+        "pickup_outcome": "missing",
+        "overnight_outcome": "requirement_unknown",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "dated_handover_capacity_and_custody_unconfirmed",
+          "final_pickup.missing",
+          "overnight.requirement_unknown"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-029",
+      "area": "US→EU",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/us-eu-dog.json",
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true,
+        "diagnostic": {
+          "id": "eu.issue-to-entry",
+          "outcome": "date_window_conflict"
+        }
+      },
+      "status": "unsupported",
+      "classification_resolved": true,
+      "diagnostics": {
+        "eu.microchip": "pass",
+        "eu.identification-before-vaccine": "pass",
+        "eu.vaccine-valid-at-entry": "pass",
+        "eu.primary-age": "pass",
+        "eu.primary-protocol-order": "pass",
+        "eu.us-primary-one-year": "pass",
+        "eu.manufacturer-wait": "pass",
+        "eu.certificate-model": "model_date_consistent",
+        "eu.issue-to-entry": "date_window_conflict",
+        "eu.endorsement-to-check": "date_window_consistent",
+        "eu.endorsement-to-entry": "date_window_consistent",
+        "eu.issue-before-endorsement": "pass",
+        "eu.check-after-entry": "pass",
+        "eu.endorsement-before-departure": "pass",
+        "eu.delivery-after-endorsement": "date_window_consistent",
+        "eu.delivery-before-departure": "date_window_consistent",
+        "eu.titre-branch": "current_list_and_history_unreviewed"
+      },
+      "reason_codes": [
+        "dated_carrier_capacity_and_entry_facilities",
+        "dated_handover_capacity_and_custody_unconfirmed",
+        "eu.issue-to-entry.date_window_conflict",
+        "eu.titre-branch.current_list_and_history_unreviewed",
+        "eu_current_annex_lists_and_local_export_procedures",
+        "eu_travellers_entry_point_current_designation_unconfirmed",
+        "final_pickup.missing",
+        "first_last_legs_and_overnight_care_unconfirmed",
+        "independent_human_review",
+        "original_document_custody_and_delivery_unconfirmed",
+        "overnight.requirement_unknown",
+        "return_leg_requires_independent_reassessment",
+        "us_aphis_state_and_emergency_import_overlays"
+      ],
+      "final_handover": {
+        "status": "needs_confirmation",
+        "pickup_outcome": "missing",
+        "overnight_outcome": "requirement_unknown",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "dated_handover_capacity_and_custody_unconfirmed",
+          "final_pickup.missing",
+          "overnight.requirement_unknown"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-030",
+      "area": "US→EU",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/us-eu-dog.json",
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true,
+        "diagnostic": {
+          "id": "eu.endorsement-to-check",
+          "outcome": "date_window_conflict"
+        }
+      },
+      "status": "unsupported",
+      "classification_resolved": true,
+      "diagnostics": {
+        "eu.microchip": "pass",
+        "eu.identification-before-vaccine": "pass",
+        "eu.vaccine-valid-at-entry": "pass",
+        "eu.primary-age": "pass",
+        "eu.primary-protocol-order": "pass",
+        "eu.us-primary-one-year": "pass",
+        "eu.manufacturer-wait": "pass",
+        "eu.certificate-model": "model_date_consistent",
+        "eu.issue-to-entry": "date_window_consistent",
+        "eu.endorsement-to-check": "date_window_conflict",
+        "eu.endorsement-to-entry": "date_window_conflict",
+        "eu.issue-before-endorsement": "fail",
+        "eu.check-after-entry": "pass",
+        "eu.endorsement-before-departure": "pass",
+        "eu.delivery-after-endorsement": "date_window_consistent",
+        "eu.delivery-before-departure": "date_window_consistent",
+        "eu.titre-branch": "current_list_and_history_unreviewed"
+      },
+      "reason_codes": [
+        "dated_carrier_capacity_and_entry_facilities",
+        "dated_handover_capacity_and_custody_unconfirmed",
+        "eu.endorsement-to-check.date_window_conflict",
+        "eu.endorsement-to-entry.date_window_conflict",
+        "eu.issue-before-endorsement.fail",
+        "eu.titre-branch.current_list_and_history_unreviewed",
+        "eu_current_annex_lists_and_local_export_procedures",
+        "eu_travellers_entry_point_current_designation_unconfirmed",
+        "final_pickup.missing",
+        "first_last_legs_and_overnight_care_unconfirmed",
+        "independent_human_review",
+        "original_document_custody_and_delivery_unconfirmed",
+        "overnight.requirement_unknown",
+        "return_leg_requires_independent_reassessment",
+        "us_aphis_state_and_emergency_import_overlays"
+      ],
+      "final_handover": {
+        "status": "needs_confirmation",
+        "pickup_outcome": "missing",
+        "overnight_outcome": "requirement_unknown",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "dated_handover_capacity_and_custody_unconfirmed",
+          "final_pickup.missing",
+          "overnight.requirement_unknown"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-031",
+      "area": "US→EU",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/us-eu-dog.json",
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true,
+        "diagnostic": {
+          "id": "eu.passport-us-revaccination",
+          "outcome": "fail"
+        }
+      },
+      "status": "unsupported",
+      "classification_resolved": true,
+      "diagnostics": {
+        "eu.microchip": "pass",
+        "eu.identification-before-vaccine": "pass",
+        "eu.vaccine-valid-at-entry": "pass",
+        "eu.primary-age": "pass",
+        "eu.primary-protocol-order": "pass",
+        "eu.us-primary-one-year": "pass",
+        "eu.manufacturer-wait": "pass",
+        "eu.passport-vaccine-record": "pass",
+        "eu.passport-us-revaccination": "fail",
+        "eu.passport-model": "model_date_consistent",
+        "eu.titre-branch": "current_list_and_history_unreviewed"
+      },
+      "reason_codes": [
+        "dated_carrier_capacity_and_entry_facilities",
+        "dated_handover_capacity_and_custody_unconfirmed",
+        "eu.passport-us-revaccination.fail",
+        "eu.titre-branch.current_list_and_history_unreviewed",
+        "eu_current_annex_lists_and_local_export_procedures",
+        "eu_passport_return_eligibility_and_titre_history_unreviewed",
+        "eu_travellers_entry_point_current_designation_unconfirmed",
+        "final_pickup.missing",
+        "first_last_legs_and_overnight_care_unconfirmed",
+        "independent_human_review",
+        "original_document_custody_and_delivery_unconfirmed",
+        "overnight.requirement_unknown",
+        "return_leg_requires_independent_reassessment",
+        "us_aphis_state_and_emergency_import_overlays"
+      ],
+      "final_handover": {
+        "status": "needs_confirmation",
+        "pickup_outcome": "missing",
+        "overnight_outcome": "requirement_unknown",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "dated_handover_capacity_and_custody_unconfirmed",
+          "final_pickup.missing",
+          "overnight.requirement_unknown"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-032",
+      "area": "US→EU",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/us-eu-dog.json",
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": false
+      },
+      "status": "unsupported",
+      "classification_resolved": false,
+      "diagnostics": {},
+      "reason_codes": [
+        "dated_carrier_capacity_and_entry_facilities",
+        "dated_handover_capacity_and_custody_unconfirmed",
+        "eu_current_annex_lists_and_local_export_procedures",
+        "final_pickup.missing",
+        "first_last_legs_and_overnight_care_unconfirmed",
+        "independent_human_review",
+        "original_document_custody_and_delivery_unconfirmed",
+        "overnight.requirement_unknown",
+        "return_leg_requires_independent_reassessment",
+        "transit_uncompiled",
+        "us_aphis_state_and_emergency_import_overlays"
+      ],
+      "final_handover": {
+        "status": "needs_confirmation",
+        "pickup_outcome": "missing",
+        "overnight_outcome": "requirement_unknown",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "dated_handover_capacity_and_custody_unconfirmed",
+          "final_pickup.missing",
+          "overnight.requirement_unknown"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-033",
+      "area": "EU→US",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/eu-us-dog.json",
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true,
+        "diagnostic": {
+          "id": "us.dog-age",
+          "outcome": "fail"
+        }
+      },
+      "status": "unsupported",
+      "classification_resolved": true,
+      "diagnostics": {
+        "us.dog-age": "fail",
+        "us.dog-chip": "pass",
+        "us.dog-health": "pass",
+        "us.receipt-present": "pass",
+        "us.receipt-country": "pass",
+        "us.receipt-six-months": "date_window_consistent",
+        "us.receipt-not-expired": "pass"
+      },
+      "reason_codes": [
+        "dated_carrier_capacity_and_entry_facilities",
+        "dated_handover_capacity_and_custody_unconfirmed",
+        "eu_current_annex_lists_and_local_export_procedures",
+        "eu_member_export_procedure_unreviewed",
+        "final_pickup.missing",
+        "first_last_legs_and_overnight_care_unconfirmed",
+        "independent_human_review",
+        "original_document_custody_and_delivery_unconfirmed",
+        "overnight.requirement_unknown",
+        "return_leg_requires_independent_reassessment",
+        "us.dog-age.fail",
+        "us_aphis_state_and_emergency_import_overlays"
+      ],
+      "final_handover": {
+        "status": "needs_confirmation",
+        "pickup_outcome": "missing",
+        "overnight_outcome": "requirement_unknown",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "dated_handover_capacity_and_custody_unconfirmed",
+          "final_pickup.missing",
+          "overnight.requirement_unknown"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-034",
+      "area": "EU→US",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/eu-us-dog.json",
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true,
+        "diagnostic": {
+          "id": "us.receipt-country",
+          "outcome": "country_mismatch"
+        }
+      },
+      "status": "unsupported",
+      "classification_resolved": true,
+      "diagnostics": {
+        "us.dog-age": "pass",
+        "us.dog-chip": "pass",
+        "us.dog-health": "pass",
+        "us.receipt-present": "pass",
+        "us.receipt-country": "country_mismatch",
+        "us.receipt-six-months": "date_window_consistent",
+        "us.receipt-not-expired": "pass"
+      },
+      "reason_codes": [
+        "dated_carrier_capacity_and_entry_facilities",
+        "dated_handover_capacity_and_custody_unconfirmed",
+        "eu_current_annex_lists_and_local_export_procedures",
+        "eu_member_export_procedure_unreviewed",
+        "final_pickup.missing",
+        "first_last_legs_and_overnight_care_unconfirmed",
+        "independent_human_review",
+        "original_document_custody_and_delivery_unconfirmed",
+        "overnight.requirement_unknown",
+        "return_leg_requires_independent_reassessment",
+        "us.receipt-country.country_mismatch",
+        "us_aphis_state_and_emergency_import_overlays"
+      ],
+      "final_handover": {
+        "status": "needs_confirmation",
+        "pickup_outcome": "missing",
+        "overnight_outcome": "requirement_unknown",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "dated_handover_capacity_and_custody_unconfirmed",
+          "final_pickup.missing",
+          "overnight.requirement_unknown"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-035",
+      "area": "EU→US",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/eu-us-dog.json",
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true,
+        "diagnostic": {
+          "id": "us.receipt-not-expired",
+          "outcome": "fail"
+        }
+      },
+      "status": "unsupported",
+      "classification_resolved": true,
+      "diagnostics": {
+        "us.dog-age": "pass",
+        "us.dog-chip": "pass",
+        "us.dog-health": "pass",
+        "us.receipt-present": "pass",
+        "us.receipt-country": "pass",
+        "us.receipt-six-months": "date_window_consistent",
+        "us.receipt-not-expired": "fail"
+      },
+      "reason_codes": [
+        "dated_carrier_capacity_and_entry_facilities",
+        "dated_handover_capacity_and_custody_unconfirmed",
+        "eu_current_annex_lists_and_local_export_procedures",
+        "eu_member_export_procedure_unreviewed",
+        "final_pickup.missing",
+        "first_last_legs_and_overnight_care_unconfirmed",
+        "independent_human_review",
+        "original_document_custody_and_delivery_unconfirmed",
+        "overnight.requirement_unknown",
+        "return_leg_requires_independent_reassessment",
+        "us.receipt-not-expired.fail",
+        "us_aphis_state_and_emergency_import_overlays"
+      ],
+      "final_handover": {
+        "status": "needs_confirmation",
+        "pickup_outcome": "missing",
+        "overnight_outcome": "requirement_unknown",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "dated_handover_capacity_and_custody_unconfirmed",
+          "final_pickup.missing",
+          "overnight.requirement_unknown"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-036",
+      "area": "EU→US",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/eu-us-dog.json",
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true,
+        "diagnostic": {
+          "id": "us.six-month-history",
+          "outcome": "history_conflict"
+        }
+      },
+      "status": "unsupported",
+      "classification_resolved": true,
+      "diagnostics": {
+        "us.six-month-history": "history_conflict"
+      },
+      "reason_codes": [
+        "dated_carrier_capacity_and_entry_facilities",
+        "dated_handover_capacity_and_custody_unconfirmed",
+        "eu_current_annex_lists_and_local_export_procedures",
+        "eu_member_export_procedure_unreviewed",
+        "final_pickup.missing",
+        "first_last_legs_and_overnight_care_unconfirmed",
+        "independent_human_review",
+        "original_document_custody_and_delivery_unconfirmed",
+        "overnight.requirement_unknown",
+        "return_leg_requires_independent_reassessment",
+        "us.six-month-history.history_conflict",
+        "us_aphis_state_and_emergency_import_overlays"
+      ],
+      "final_handover": {
+        "status": "needs_confirmation",
+        "pickup_outcome": "missing",
+        "overnight_outcome": "requirement_unknown",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "dated_handover_capacity_and_custody_unconfirmed",
+          "final_pickup.missing",
+          "overnight.requirement_unknown"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-037",
+      "area": "EU→US",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/eu-us-dog.json",
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true,
+        "diagnostic": {
+          "id": "us.six-month-history",
+          "outcome": "missing"
+        }
+      },
+      "status": "unsupported",
+      "classification_resolved": true,
+      "diagnostics": {
+        "us.six-month-history": "missing"
+      },
+      "reason_codes": [
+        "dated_carrier_capacity_and_entry_facilities",
+        "dated_handover_capacity_and_custody_unconfirmed",
+        "eu_current_annex_lists_and_local_export_procedures",
+        "eu_member_export_procedure_unreviewed",
+        "final_pickup.missing",
+        "first_last_legs_and_overnight_care_unconfirmed",
+        "independent_human_review",
+        "original_document_custody_and_delivery_unconfirmed",
+        "overnight.requirement_unknown",
+        "return_leg_requires_independent_reassessment",
+        "us.six-month-history.missing",
+        "us_aphis_state_and_emergency_import_overlays",
+        "us_dog_history_branch_unresolved"
+      ],
+      "final_handover": {
+        "status": "needs_confirmation",
+        "pickup_outcome": "missing",
+        "overnight_outcome": "requirement_unknown",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "dated_handover_capacity_and_custody_unconfirmed",
+          "final_pickup.missing",
+          "overnight.requirement_unknown"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-038",
+      "area": "EU→US",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/eu-us-dog.json",
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true,
+        "diagnostic": {
+          "id": "us.legacy-export-cutoff",
+          "outcome": "fail"
+        }
+      },
+      "status": "unsupported",
+      "classification_resolved": true,
+      "diagnostics": {
+        "us.dog-age": "pass",
+        "us.dog-chip": "pass",
+        "us.dog-health": "pass",
+        "us.receipt-present": "pass",
+        "us.legacy-export-cutoff": "fail",
+        "us.high-risk-receipt-date": "missing"
+      },
+      "reason_codes": [
+        "dated_carrier_capacity_and_entry_facilities",
+        "dated_handover_capacity_and_custody_unconfirmed",
+        "eu_current_annex_lists_and_local_export_procedures",
+        "eu_member_export_procedure_unreviewed",
+        "final_pickup.missing",
+        "first_last_legs_and_overnight_care_unconfirmed",
+        "independent_human_review",
+        "original_document_custody_and_delivery_unconfirmed",
+        "overnight.requirement_unknown",
+        "return_leg_requires_independent_reassessment",
+        "us.high-risk-receipt-date.missing",
+        "us.legacy-export-cutoff.fail",
+        "us_aphis_state_and_emergency_import_overlays",
+        "us_legacy_export_content_database_and_current_vaccine_unreviewed",
+        "us_return_form_microchip_vaccine_protocol_and_port_match_unreviewed"
+      ],
+      "final_handover": {
+        "status": "needs_confirmation",
+        "pickup_outcome": "missing",
+        "overnight_outcome": "requirement_unknown",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "dated_handover_capacity_and_custody_unconfirmed",
+          "final_pickup.missing",
+          "overnight.requirement_unknown"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-039",
+      "area": "EU→US",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/eu-us-dog.json",
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true,
+        "diagnostic": {
+          "id": "us.return-form-before-exit",
+          "outcome": "fail"
+        }
+      },
+      "status": "unsupported",
+      "classification_resolved": true,
+      "diagnostics": {
+        "us.dog-age": "pass",
+        "us.dog-chip": "pass",
+        "us.dog-health": "pass",
+        "us.receipt-present": "pass",
+        "us.return-form-order": "date_window_consistent",
+        "us.return-form-before-exit": "fail",
+        "us.return-form-vaccine-valid": "pass",
+        "us.high-risk-receipt-date": "missing"
+      },
+      "reason_codes": [
+        "dated_carrier_capacity_and_entry_facilities",
+        "dated_handover_capacity_and_custody_unconfirmed",
+        "eu_current_annex_lists_and_local_export_procedures",
+        "eu_member_export_procedure_unreviewed",
+        "final_pickup.missing",
+        "first_last_legs_and_overnight_care_unconfirmed",
+        "independent_human_review",
+        "original_document_custody_and_delivery_unconfirmed",
+        "overnight.requirement_unknown",
+        "return_leg_requires_independent_reassessment",
+        "us.high-risk-receipt-date.missing",
+        "us.return-form-before-exit.fail",
+        "us_aphis_state_and_emergency_import_overlays",
+        "us_return_form_microchip_vaccine_protocol_and_port_match_unreviewed"
+      ],
+      "final_handover": {
+        "status": "needs_confirmation",
+        "pickup_outcome": "missing",
+        "overnight_outcome": "requirement_unknown",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "dated_handover_capacity_and_custody_unconfirmed",
+          "final_pickup.missing",
+          "overnight.requirement_unknown"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-040",
+      "area": "EU→US",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/eu-us-dog.json",
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true,
+        "diagnostic": {
+          "id": "us.foreign-titre-to-entry",
+          "outcome": "fail"
+        }
+      },
+      "status": "unsupported",
+      "classification_resolved": true,
+      "diagnostics": {
+        "us.dog-age": "pass",
+        "us.dog-chip": "pass",
+        "us.dog-health": "pass",
+        "us.receipt-present": "pass",
+        "us.foreign-high-risk-package": "acf_and_document_chain_unreviewed",
+        "us.foreign-form-window": "date_window_consistent",
+        "us.foreign-form-order": "pass",
+        "us.foreign-endorsement-before-departure": "pass",
+        "us.foreign-chip-before-vaccine": "pass",
+        "us.foreign-vaccine-valid": "pass",
+        "us.foreign-primary-age": "pass",
+        "us.foreign-primary-wait": "pass",
+        "us.foreign-sample-wait": "pass",
+        "us.foreign-titre-to-entry": "fail",
+        "us.high-risk-receipt-date": "missing",
+        "us.receipt_airport": "missing",
+        "us.acf_airport": "missing"
+      },
+      "reason_codes": [
+        "dated_carrier_capacity_and_entry_facilities",
+        "dated_handover_capacity_and_custody_unconfirmed",
+        "eu_current_annex_lists_and_local_export_procedures",
+        "eu_member_export_procedure_unreviewed",
+        "final_pickup.missing",
+        "first_last_legs_and_overnight_care_unconfirmed",
+        "independent_human_review",
+        "original_document_custody_and_delivery_unconfirmed",
+        "overnight.requirement_unknown",
+        "return_leg_requires_independent_reassessment",
+        "us.acf_airport.missing",
+        "us.foreign-high-risk-package.acf_and_document_chain_unreviewed",
+        "us.foreign-titre-to-entry.fail",
+        "us.high-risk-receipt-date.missing",
+        "us.receipt_airport.missing",
+        "us_aphis_state_and_emergency_import_overlays",
+        "us_foreign_high_risk_acf_titre_quarantine_and_airport_pending"
+      ],
+      "final_handover": {
+        "status": "needs_confirmation",
+        "pickup_outcome": "missing",
+        "overnight_outcome": "requirement_unknown",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "dated_handover_capacity_and_custody_unconfirmed",
+          "final_pickup.missing",
+          "overnight.requirement_unknown"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-041",
+      "area": "EU→US",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/eu-us-cat.json",
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": true,
+        "diagnostic": {
+          "id": "us.cat-dog-rules",
+          "outcome": "not_applicable"
+        }
+      },
+      "status": "unsupported",
+      "classification_resolved": true,
+      "diagnostics": {
+        "us.cat-health": "pass",
+        "us.cat-dog-rules": "not_applicable"
+      },
+      "reason_codes": [
+        "dated_carrier_capacity_and_entry_facilities",
+        "dated_handover_capacity_and_custody_unconfirmed",
+        "eu_current_annex_lists_and_local_export_procedures",
+        "eu_member_export_and_us_cat_state_carrier_requirements_pending",
+        "final_pickup.missing",
+        "first_last_legs_and_overnight_care_unconfirmed",
+        "independent_human_review",
+        "original_document_custody_and_delivery_unconfirmed",
+        "overnight.requirement_unknown",
+        "return_leg_requires_independent_reassessment",
+        "us_aphis_state_and_emergency_import_overlays"
+      ],
+      "final_handover": {
+        "status": "needs_confirmation",
+        "pickup_outcome": "missing",
+        "overnight_outcome": "requirement_unknown",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "dated_handover_capacity_and_custody_unconfirmed",
+          "final_pickup.missing",
+          "overnight.requirement_unknown"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-042",
+      "area": "CN east",
+      "engine": "routes",
+      "fixture": "tests/fixtures/domestic/owner.json",
+      "expected": {
+        "status": "ineligible",
+        "reason": "all_paths_excluded"
+      },
+      "status": "ineligible",
+      "classification_resolved": null,
+      "diagnostics": {},
+      "reason_codes": [
+        "all_paths_excluded"
+      ],
+      "final_handover": {
+        "status": "needs_confirmation",
+        "pickup_outcome": "missing",
+        "overnight_outcome": "requirement_unknown",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "dated_handover_capacity_and_custody_unconfirmed",
+          "final_pickup.missing",
+          "overnight.requirement_unknown"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-043",
+      "area": "CN east",
+      "engine": "routes",
+      "fixture": "tests/fixtures/domestic/owner.json",
+      "expected": {
+        "status": "unsupported",
+        "pickup_outcome": "window_missed",
+        "overnight_outcome": "care_unknown"
+      },
+      "status": "unsupported",
+      "classification_resolved": null,
+      "diagnostics": {},
+      "reason_codes": [
+        "research_candidates_unreviewed"
+      ],
+      "final_handover": {
+        "status": "blocked",
+        "pickup_outcome": "window_missed",
+        "overnight_outcome": "care_unknown",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "final_pickup.window_missed",
+          "overnight.care_unknown",
+          "recovery_custody_and_care_arrangement_required"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-044",
+      "area": "US CA→NY",
+      "engine": "routes",
+      "fixture": "tests/fixtures/us-domestic/owner.json",
+      "expected": {
+        "status": "unsupported",
+        "pickup_outcome": "within_reported_window",
+        "overnight_outcome": "care_unknown"
+      },
+      "status": "unsupported",
+      "classification_resolved": null,
+      "diagnostics": {},
+      "reason_codes": [
+        "us_state_packages_unreviewed",
+        "research_candidates_unreviewed"
+      ],
+      "final_handover": {
+        "status": "needs_confirmation",
+        "pickup_outcome": "within_reported_window",
+        "overnight_outcome": "care_unknown",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "dated_handover_capacity_and_custody_unconfirmed",
+          "final_pickup.within_reported_window",
+          "overnight.care_unknown"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-045",
+      "area": "EU→US",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/eu-us-dog.json",
+      "expected": {
+        "status": "unsupported",
+        "pickup_outcome": "window_missed",
+        "overnight_outcome": "care_unavailable"
+      },
+      "status": "unsupported",
+      "classification_resolved": true,
+      "diagnostics": {
+        "us.dog-age": "pass",
+        "us.dog-chip": "pass",
+        "us.dog-health": "pass",
+        "us.receipt-present": "pass",
+        "us.receipt-country": "pass",
+        "us.receipt-six-months": "date_window_consistent",
+        "us.receipt-not-expired": "pass"
+      },
+      "reason_codes": [
+        "dated_carrier_capacity_and_entry_facilities",
+        "dated_handover_capacity_and_custody_unconfirmed",
+        "eu_current_annex_lists_and_local_export_procedures",
+        "eu_member_export_procedure_unreviewed",
+        "final_pickup.missing",
+        "first_last_legs_and_overnight_care_unconfirmed",
+        "independent_human_review",
+        "original_document_custody_and_delivery_unconfirmed",
+        "overnight.requirement_unknown",
+        "return_leg_requires_independent_reassessment",
+        "us_aphis_state_and_emergency_import_overlays"
+      ],
+      "final_handover": {
+        "status": "blocked",
+        "pickup_outcome": "window_missed",
+        "overnight_outcome": "care_unavailable",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "final_pickup.window_missed",
+          "overnight.care_unavailable",
+          "recovery_custody_and_care_arrangement_required"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-046",
+      "area": "EU→US",
+      "engine": "us_eu",
+      "fixture": "tests/fixtures/us-eu/eu-us-cat.json",
+      "expected": {
+        "status": "unsupported",
+        "pickup_outcome": "invalid_time",
+        "overnight_outcome": "care_unavailable"
+      },
+      "status": "unsupported",
+      "classification_resolved": true,
+      "diagnostics": {
+        "us.cat-health": "pass",
+        "us.cat-dog-rules": "not_applicable"
+      },
+      "reason_codes": [
+        "dated_carrier_capacity_and_entry_facilities",
+        "dated_handover_capacity_and_custody_unconfirmed",
+        "eu_current_annex_lists_and_local_export_procedures",
+        "eu_member_export_and_us_cat_state_carrier_requirements_pending",
+        "final_pickup.missing",
+        "first_last_legs_and_overnight_care_unconfirmed",
+        "independent_human_review",
+        "original_document_custody_and_delivery_unconfirmed",
+        "overnight.requirement_unknown",
+        "return_leg_requires_independent_reassessment",
+        "us_aphis_state_and_emergency_import_overlays"
+      ],
+      "final_handover": {
+        "status": "blocked",
+        "pickup_outcome": "invalid_time",
+        "overnight_outcome": "care_unavailable",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "final_pickup.invalid_time",
+          "overnight.care_unavailable",
+          "recovery_custody_and_care_arrangement_required"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-047",
+      "area": "US→CN",
+      "engine": "inbound",
+      "fixture": "tests/fixtures/inbound/us-cn-dog.json",
+      "expected": {
+        "status": "unsupported",
+        "diagnostic": {
+          "id": "cn.titre.threshold",
+          "outcome": "threshold_conflict_pending_clarification"
+        }
+      },
+      "status": "unsupported",
+      "classification_resolved": true,
+      "diagnostics": {
+        "cn.health-certificate": "pass",
+        "cn.rabies-certificate": "pass",
+        "cn.microchip": "pass",
+        "cn.chip-readability": "pass",
+        "cn.rabies.valid-at-entry": "pass",
+        "us.cn.rabies.record-order": "pass",
+        "us.cn.rabies.before-entry": "pass",
+        "us.cn.sample-after-second": "pass",
+        "us.cn.sample-validity": "date_window_consistent",
+        "cn.titre.threshold": "threshold_conflict_pending_clarification",
+        "cn.lab.acceptance-reported": "pass",
+        "chain.exam-before-issue": "pass",
+        "chain.issue-before-endorsement": "pass",
+        "chain.endorsement-before-delivery": "pass",
+        "chain.delivery-before-departure": "pass",
+        "us.cn.issue-window": "date_window_consistent",
+        "us.cn.vehcs": "pass",
+        "us.cn.identity": "pass",
+        "us.cn.one-per-certificate": "pass",
+        "us.cn.model": "named_model_content_pending_review"
+      },
+      "reason_codes": [
+        "arrival_inspection_and_release_unconfirmed",
+        "carrier_transit_and_last_mile_unconfirmed",
+        "cn.titre.threshold.threshold_conflict_pending_clarification",
+        "cn_current_designated_origin_lab_and_quarantine_port_lists_unreviewed",
+        "cn_local_dog_registration_requirements_unreviewed",
+        "independent_human_review_pending",
+        "original_document_custody_pending",
+        "reported_lab_acceptance_not_current_official_list_verification",
+        "two_vaccination_records_and_complete_protocol_unreviewed",
+        "us.cn.model.named_model_content_pending_review"
+      ],
+      "final_handover": {
+        "status": "needs_confirmation",
+        "pickup_outcome": "missing",
+        "overnight_outcome": "requirement_unknown",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "dated_handover_capacity_and_custody_unconfirmed",
+          "final_pickup.missing",
+          "overnight.requirement_unknown"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "W9-048",
+      "area": "CN→EU",
+      "engine": "outbound",
+      "fixture": "tests/fixtures/outbound/cn-eu-dog.json",
+      "expected": {
+        "status": "unsupported",
+        "classification_resolved": false
+      },
+      "status": "unsupported",
+      "classification_resolved": false,
+      "diagnostics": {},
+      "reason_codes": [
+        "cn_current_local_export_and_cargo_procedure_unreviewed",
+        "entry_facility_hours_capacity_and_custody_unverified",
+        "eu_636_lists_and_incorporated_annexes_unreviewed",
+        "transit_uncompiled",
+        "two_qualified_human_reviews_pending",
+        "us_aphis_state_and_carrier_requirements_unreviewed"
+      ],
+      "final_handover": {
+        "status": "needs_confirmation",
+        "pickup_outcome": "missing",
+        "overnight_outcome": "requirement_unknown",
+        "overnight_custodian_role": "pending_arrangement",
+        "custody_confirmed": false,
+        "external_confirmation": "unknown",
+        "reason_codes": [
+          "dated_handover_capacity_and_custody_unconfirmed",
+          "final_pickup.missing",
+          "overnight.requirement_unknown"
+        ]
+      },
+      "passed": true
+    }
+  ]
+}

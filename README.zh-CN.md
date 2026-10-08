@@ -71,3 +71,5 @@ CA／TX来源已读待独立复核，NY现行官方正文本次不可读；15条
 第 1 周未创建外部仓库、账号、软件包或域名。
 
 第8周：[美国／欧盟→中国文件、费用及名录](docs/zh/cn-inbound-preview.md) · [English](docs/en/cn-inbound-preview.md)。所有结果仍为研究草稿、未覆盖，已验证路线0。
+
+第9周：[美欧双向文件与返程](docs/zh/us-eu-preview.md) · [English](docs/en/us-eu-preview.md)；[48执行案例及六方向矩阵](data/coverage/week9-matrix.md)。六方向犬猫基线均未覆盖，已验证可行路线0。
