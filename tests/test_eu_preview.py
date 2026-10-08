@@ -1,5 +1,8 @@
 """Synthetic EU branches; no test input constitutes legal or document approval."""
 from copy import deepcopy
+import json
+import subprocess
+import sys
 import unittest
 
 from packages.engine.io import ROOT, load_repository
@@ -104,7 +107,7 @@ class EUPreviewTests(unittest.TestCase):
             self.assertEqual(document_diagnostic(p,self.inventory,scope='intra_eu')['outcome'],outcome)
 
     def test_titre_wait_uses_issue_not_entry_and_exemptions_never_pass(self):
-        p=self.profile();p['journey'].update(titre_branch='test_required',entry_at='2026-11-01');p['events']['titre_sample_at']='2026-10-01';p['documents']['certificate_issued_at']='2026-12-29'
+        p=self.profile();p['journey'].update(titre_branch='test_required',entry_at='2027-01-01');p['events']['titre_sample_at']='2026-10-01';p['documents']['certificate_issued_at']='2026-12-29'
         self.assertEqual(titre_diagnostics(p)[1]['outcome'],'fail')
         p['documents']['certificate_issued_at']='2026-12-30'
         self.assertEqual(titre_diagnostics(p)[1]['outcome'],'pass')
@@ -138,3 +141,13 @@ class EUPreviewTests(unittest.TestCase):
             self.assertIn('2026_131_full_text_unavailable',output);self.assertIn('local_overlay_uncovered',output)
             self.assertIn('eu.577.ahc',output);self.assertIn('2011',output)
         self.assertEqual(p,before)
+
+    def test_cli_json_and_bilingual_checklist_share_eu_assessment(self):
+        for name in ('domestic','cross-member','owner-not-moving'):
+            args=[sys.executable,'-m','packages.cli',str(ROOT/f'tests/fixtures/eu/{name}.json'),
+                  '--eu-preview','--assessment-at','2026-10-08']
+            completed=subprocess.run(args,cwd=ROOT,capture_output=True,text=True,check=True)
+            self.assertEqual(json.loads(completed.stdout),self.assess(self.profile(name)))
+            for language in ('en','zh-CN'):
+                completed=subprocess.run(args+['--format','checklist','--language',language],cwd=ROOT,capture_output=True,text=True,check=True)
+                self.assertEqual(completed.stdout,checklist(self.assess(self.profile(name)),language=language))

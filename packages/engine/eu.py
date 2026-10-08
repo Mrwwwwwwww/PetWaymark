@@ -92,7 +92,7 @@ def assess(profile, *, assessment_at, rules, inventory):
         raise ValueError('profile groups must be objects')
     p, j = profile.get('pet', {}), profile.get('journey', {})
     reasons, gaps = classify(profile)
-    members = {m['member'] for m in inventory['members']}
+    members = tuple(m['member'] for m in inventory['members'])
     origin, destination = j.get('origin_member'), j.get('destination_member')
     if j.get('origin') != 'EU' or j.get('destination') != 'EU':
         gaps.append('eu_internal_preview_only')
@@ -130,7 +130,7 @@ def assess(profile, *, assessment_at, rules, inventory):
             result['draft_diagnostics'] = [identification_diagnostic(profile),
                                            document_diagnostic(profile, inventory, scope='intra_eu')]
             reasons.append('eu_cross_member_package_unreviewed')
-    result['reason_codes'] = sorted(set(reasons + gaps + ['eu_member_overlays_unreviewed',
+    result['reason_codes'] = sorted(set(reasons + gaps + inventory['framework']['pending_checks'] + ['eu_member_overlays_unreviewed',
                                                         'eu_transport_and_custody_unverified']))
     return result
 

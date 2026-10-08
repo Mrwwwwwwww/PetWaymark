@@ -35,7 +35,44 @@ const base = process.env.PETWAYMARK_WEB_URL || 'http://127.0.0.1:8766';
  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
  await page.evaluate(()=>window.scrollTo(0,0));
  await page.screenshot({path:'/tmp/petwaymark-browser-mobile.png',fullPage:false});
+ for (const example of ['eu-owner','eu-boarding']) {
+  await page.goto(base+'/?example='+example);
+  await page.locator('form details > summary').click();
+  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+  await page.locator('form button[type=submit]').first().click();
+  await page.waitForURL('**/assess');
+  await page.locator('#result-title').waitFor();
+  const euCodes=await page.locator('section > p.codes').innerText();
+  assert.match(await page.locator('section').innerText(),/local_overlay_uncovered/);
+  assert.match(await page.locator('section').innerText(),/2026_131_full_text_unavailable/);
+  await page.locator('#language').click();
+  await page.waitForFunction(()=>document.documentElement.lang==='en');
+  assert.equal(await page.locator('section > p.codes').innerText(),euCodes);
+  assert.equal(await page.locator('select[name=owner_moving]').inputValue(),example==='eu-owner'?'true':'false');
+  assert.equal(await page.locator('input[name=owner_entry_at]').inputValue(),example==='eu-owner'?'2026-11-10':'');
+  const pending=page.waitForEvent('download');
+  await page.locator('button[name=output]').click();
+  const file=await pending;
+  const result=JSON.parse(fs.readFileSync(await file.path(),'utf8'));
+  assert.equal(result.status,'unsupported');assert.equal(result.booking_confirmed,false);
+  assert.equal(result.classification_resolved,example==='eu-owner');
+  assert.equal(result.eu_inventory.members.length,27);
+  assert.equal(result.eu_inventory.members.filter(m=>m.status==='local_overlay_uncovered').length,24);
+  assert.deepEqual(result.candidates,[]);
+  if (example==='eu-boarding') {
+   assert.deepEqual(result.explanations,[]);assert.deepEqual(result.draft_diagnostics,[]);
+   assert(result.reason_codes.includes('owner_not_moving_separate_classification'));
+  } else {
+   assert(result.draft_diagnostics.some(d=>d.outcome==='model_date_consistent'));
+  }
+  await page.evaluate(()=>{window.print=()=>{window.didPrint=true}});
+  await page.locator('#print').click();
+  assert.equal(await page.evaluate(()=>window.didPrint),true);
+  assert.match(await page.locator('.printable').innerText(),/eu.577.ahc/);
+  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+ }
+ await page.pdf({path:'/tmp/petwaymark-eu-browser-print.pdf',format:'A4'});
  assert.deepEqual(errors,[]);assert.deepEqual(remote,[]);
- console.log('PASS: browser language/input parity, JSON download, checklist print/PDF, mobile overflow, zero external requests.');
+ console.log('PASS: CN/US and EU browser language/input parity, owner-not-moving gate, 27/24-member gaps, JSON download, checklist print/PDF, mobile overflow, zero external requests.');
  await browser.close();
 })().catch(e=>{console.error(e);process.exit(1)});

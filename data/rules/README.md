@@ -1,10 +1,10 @@
 # Draft inventory / 草稿清单
 
-All twelve records are `draft`, not usable production permissions. Sources were read
+All fifteen records are `draft`, not usable production permissions. Sources were read
 on 2026-10-08; no human reviewer has approved them. Format and references pass the
 [contract checks](../../docs/en/rule-contract.md). No supported route is added.
 
-十二条均为草稿，2026-10-08 实际查阅，人工复核零；结构通过不表示允许运输，不增加已支持路线。
+十五条均为草稿，2026-10-08 实际查阅，人工复核零；结构通过不表示允许运输，不增加已支持路线。
 
 | Region / 地区 | IDs / 标识 | Scope / 范围 |
 |---|---|---|
@@ -13,6 +13,7 @@ on 2026-10-08; no human reviewer has approved them. Format and references pass t
 | US domestic (1) | `us.ca.domestic.health` | Partial CA health draft; no full state package / CA健康部分草稿，非完整州包 |
 | Carrier (1) | `us.as.cargo.health-certificate` | Source-identified US domestic cargo certificate presence only / 来源标识美国国内货运证书存在检查 |
 | EU (3) | `eu.ec.rabies.minimum-vaccination-age`, `eu.ec.rabies.identification-order`, `eu.ec.rabies.primary-wait` | Standard non-commercial third-country entry / 普通第三国非商业入境 |
+| EU intra-member (3) | `eu.ec.intra.rabies.minimum-vaccination-age`, `eu.ec.intra.rabies.identification-order`, `eu.ec.intra.rabies.primary-wait` | Cross-member only; wholly domestic excluded / 仅跨成员国，排除单一成员国内 |
 
 Each record includes scope exclusions, official source URL, exact heading locator,
 reading date, bilingual original summary and pending checks. See the
@@ -28,3 +29,7 @@ carrier requirements need further rules and independent review.
 [CA/NY/TX inventory](../coverage/us-state-overlays.json) distinguish reading from
 independent review. NY has no extracted executable constraint; TX age/initial-dose
 branches remain inventory-only. / 第5周区分查阅与独立复核；NY未提取执行规则，TX年龄与首针分支仅列清单。
+
+See [Week 6 reading](../../docs/research/week6/README.md) and [EU inventory](../coverage/eu-members.json).
+Model/date and tattoo helpers are unenforced diagnostics, not additional reviewed rules.
+第6周文件范本与纹身辅助诊断不计为新增复核规则；旧三条欧盟第三国草稿仍独立、revision 2。

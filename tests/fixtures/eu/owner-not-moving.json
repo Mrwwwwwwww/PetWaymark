@@ -19,7 +19,8 @@
     "owner_entry_at": null,
     "pets_per_person": 1,
     "transport_mode": "road",
-    "authorized_person_written": true
+    "authorized_person_written": true,
+    "vaccination_branch": "primary"
   },
   "documents": {
     "passport_model": "eu.577.passport",

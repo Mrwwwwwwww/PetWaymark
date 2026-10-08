@@ -10,6 +10,8 @@ from urllib.request import Request, urlopen
 
 from apps.web.server import App, make_handler
 from packages.engine.routes import preview
+from packages.engine import eu
+from apps.web.server import profile_from_form
 
 
 class WebTests(unittest.TestCase):
@@ -101,3 +103,44 @@ class WebTests(unittest.TestCase):
             with urlopen(self.base+path) as r:self.assertEqual(r.status,200)
         for path in ('/data/sources/catalog.json','/../../LICENSE','/?language=fr'):
             with self.assertRaises(HTTPError):urlopen(self.base+path)
+
+    def eu_fields(self, **changes):
+        return self.fields(corridor='eu.de-fr',owner_moving='true',owner_entry_at='2026-11-10',
+                           birth_date='2024-01-01',identification_method='microchip',microchip_present='true',
+                           identification_at='2024-03-01',rabies_vaccination_at='2026-09-01',
+                           primary_protocol_completed_at='2026-09-01',vaccination_branch='primary',
+                           passport_model='eu.577.passport',passport_issued_at='2025-01-01',**changes)
+
+    def test_eu_http_matches_shared_kernel_bilingual_and_print(self):
+        for corridor in ('eu.de-de','eu.fr-fr','eu.nl-nl','eu.de-fr','eu.fr-nl','eu.nl-de','eu.de-ie'):
+            f=self.eu_fields();f['corridor']=corridor
+            code,_,body=self.post(f);self.assertEqual(code,200)
+            r=json.loads(body)
+            expected=eu.assess(profile_from_form(f),assessment_at=f['assessment_at'],rules=self.app.rules,inventory=self.app.eu_inventory)
+            expected['corridor_id']=corridor
+            self.assertEqual(r,expected);self.assertTrue(r['classification_resolved'])
+            self.assertEqual(r['status'],'unsupported');self.assertEqual(len(r['eu_inventory']['members']),27)
+            self.assertEqual(sum(m['status']=='local_overlay_uncovered' for m in r['eu_inventory']['members']),24)
+            code,_,en=self.post({**f,'language':'en'});self.assertEqual(code,200);self.assertEqual(json.loads(en),r)
+            for lang in ('en','zh-CN'):
+                code,_,html=self.post({**f,'output':'html','language':lang});self.assertEqual(code,200)
+                self.assertIn('local_overlay_uncovered',html);self.assertIn('eu.577.ahc',html)
+                self.assertIn('class="printable"',html);self.assertIn('2026_131_full_text_unavailable',html)
+
+    def test_eu_owner_stays_home_stops_before_document_diagnostics(self):
+        f=self.eu_fields();f.update(purpose='boarding',owner_moving='false',owner_entry_at='',accompaniment='authorized_person',authorized_person_written='true')
+        code,_,body=self.post(f);self.assertEqual(code,200);r=json.loads(body)
+        self.assertFalse(r['classification_resolved']);self.assertEqual(r['explanations'],[])
+        self.assertEqual(r['draft_diagnostics'],[]);self.assertEqual(r['candidates'],[])
+        self.assertIn('owner_not_moving_separate_classification',r['reason_codes'])
+
+    def test_eu_invalid_dates_and_input_promotion_rejected(self):
+        for field in ('owner_entry_at','birth_date','passport_issued_at','rabies_vaccination_at'):
+            f=self.eu_fields();f[field]='2026-02-30';self.assertEqual(self.post(f)[0],400)
+        f=self.eu_fields();f['verified_rule_count']='10';self.assertEqual(self.post(f)[0],400)
+
+    def test_eu_get_examples_show_preserved_classification_fields(self):
+        for example in ('eu-owner','eu-boarding'):
+            with urlopen(self.base+'/?example='+example) as response:
+                html=response.read().decode();self.assertIn('value="eu.de-fr" selected',html)
+                self.assertIn('name="owner_moving"',html)

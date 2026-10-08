@@ -18,7 +18,8 @@
     "entry_at": "2026-11-10",
     "owner_entry_at": "2026-11-10",
     "pets_per_person": 1,
-    "transport_mode": "road"
+    "transport_mode": "road",
+    "vaccination_branch": "primary"
   },
   "documents": {
     "passport_model": "eu.577.passport",

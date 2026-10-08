@@ -1,5 +1,24 @@
 # Changelog / 变更记录
 
+## Unreleased — Week 6 / 未发布：第6周
+
+- Add 10 actual source readings/attempts and a 27-member EU inventory: partial
+  DE/FR/NL evidence, 24 explicit local-overlay gaps, no qualified review claimed.
+- Add three separate intra-EU drafts; preserve third-country IDs/scopes at revision 2.
+  Wholly domestic journeys do not execute cross-member rules.
+- Add shared CLI/web evidence diagnostics and bilingual redacted/printable output;
+  owner-not-moving boarding and unknown classification stop ordinary evaluation.
+- Keep document model/date consistency separate from validity, tattoo exceptions
+  pending, and country-list titre exemptions unconfirmed. Source and annex access
+  failures remain visible. No EU transport paths or verified feasible routes.
+- 114 Python tests and native browser cases cover classification, event/document
+  boundaries, bilingual parity, export/print, 27/24-member gaps and mobile layout.
+  All 15 rules remain draft; no release tag, outreach, orders or paid runtime.
+
+第6周新增10来源查阅／尝试、27国清单、3跨成员国草稿与双语CLI／网页证据预览。
+主人不移动先分类退出；国内不套跨成员国要求。114项Python测试及真实浏览器回归。
+15规则均草稿，正式复核与已验证路线零；完整附件、属地与人工复核待完成。
+
 ## Unreleased — Week 5 / 未发布：第5周
 
 - Add CA/NY/TX reading inventory, six source catalog entries (five readable, NY

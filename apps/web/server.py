@@ -13,12 +13,22 @@ from urllib.parse import parse_qs, urlsplit
 
 from packages.engine.io import ROOT, load_repository
 from packages.engine.routes import preview, checklist
+from packages.engine import eu
+from packages.engine.evaluate import day
 from scripts.validate_data import read_json
 
 ASSETS = Path(__file__).parent
 FIELDS = {'language', 'corridor', 'assessment_at', 'entry_at', 'species', 'service_animal',
           'purpose', 'ownership_transfer', 'accompaniment', 'can_drive', 'healthy',
-          'health_certificate_present', 'output'}
+          'health_certificate_present', 'output', 'owner_moving', 'owner_entry_at',
+          'authorized_person_written', 'birth_date', 'rabies_vaccination_at',
+          'primary_protocol_completed_at', 'identification_at', 'identification_method',
+          'microchip_present', 'tattoo_at', 'tattoo_readable', 'passport_model', 'passport_issued_at', 'vaccination_branch'}
+
+EU_EXAMPLES = {'eu.' + a.lower() + '-' + b.lower():
+               dict(origin_member=a, destination_member=b,
+                    name={'en':a+' → '+b+' (EU evidence)', 'zh-CN':a+' → '+b+'（欧盟证据）'})
+               for a,b in [('DE','DE'),('FR','FR'),('NL','NL'),('DE','FR'),('FR','NL'),('NL','DE'),('DE','IE')]}
 
 
 def text(en, zh, language):
@@ -36,18 +46,36 @@ def profile_from_form(fields):
     if set(fields) - FIELDS:
         raise ValueError('unknown form field')
     corridor = fields.get('corridor', '')
-    region = 'US' if corridor.startswith('dom.us.') else 'CN'
+    region = 'EU' if corridor in EU_EXAMPLES else 'US' if corridor.startswith('dom.us.') else 'CN'
     journey = dict(origin=region, destination=region, pets_per_person=1,
                    purpose=fields.get('purpose'), accompaniment=fields.get('accompaniment'),
                    ownership_transfer=boolean(fields.get('ownership_transfer', 'unknown')))
     if fields.get('entry_at'):
         journey['entry_at'] = fields['entry_at']
-    return dict(pet={'species': fields.get('species'),
+    profile = dict(pet={'species': fields.get('species'),
                      'service_animal': boolean(fields.get('service_animal', 'unknown')),
                      'healthy': boolean(fields.get('healthy', 'unknown'))},
                 journey=journey,
                 documents={'health_certificate_present': boolean(fields.get('health_certificate_present', 'unknown'))},
                 preview={'can_drive': boolean(fields.get('can_drive', 'unknown'))})
+    if region == 'EU':
+        case = EU_EXAMPLES[corridor]
+        journey.update(origin_member=case['origin_member'], destination_member=case['destination_member'],
+                       owner_moving=boolean(fields.get('owner_moving','unknown')),
+                       authorized_person_written=boolean(fields.get('authorized_person_written','unknown')),
+                       transport_mode='road', vaccination_branch=fields.get('vaccination_branch','unknown'))
+        for name, group in [('birth_date','pet'),('owner_entry_at','journey'),('passport_issued_at','documents'),
+                            ('rabies_vaccination_at','events'),('primary_protocol_completed_at','events'),
+                            ('identification_at','events'),('tattoo_at','events')]:
+            if fields.get(name):
+                day(fields[name])
+                profile.setdefault(group,{})[name] = fields[name]
+        for name in ('identification_method','passport_model'):
+            if fields.get(name) not in (None,'','unknown'):
+                profile['pet' if name=='identification_method' else 'documents'][name]=fields[name]
+        for name in ('microchip_present','tattoo_readable'):
+            profile['pet'][name]=boolean(fields.get(name,'unknown'))
+    return profile
 
 
 class App:
@@ -56,6 +84,8 @@ class App:
         self.graphs = {region: read_json(root / f'data/corridors/{region.lower()}-preview.json') for region in ('CN', 'US')}
         self.overlays = read_json(root / 'data/coverage/us-state-overlays.json')
         self.corridors = {c['id']: (region, c) for region, g in self.graphs.items() for c in g['corridors']}
+        self.eu_inventory = eu.load_inventory(root)
+        self.corridors.update({ident:('EU',case) for ident,case in EU_EXAMPLES.items()})
 
     def assess(self, fields):
         language = fields.get('language', 'zh-CN')
@@ -65,6 +95,11 @@ class App:
             raise ValueError('unsupported output')
         profile = profile_from_form(fields)
         region, _ = self.corridors[fields['corridor']]
+        if region == 'EU':
+            result = eu.assess(profile, assessment_at=fields['assessment_at'],
+                               rules=self.rules, inventory=self.eu_inventory)
+            result['corridor_id'] = fields['corridor']
+            return result, eu.checklist(result, language=language)
         graph = self.graphs[region]
         result = preview(profile, graph, corridor_id=fields['corridor'],
                          assessment_at=fields['assessment_at'], rules=self.rules,
@@ -83,6 +118,8 @@ class App:
             return select(name,tr(en,zh),[('unknown',tr('Unknown','未知')),('true',tr(true_en,true_zh)),('false',tr(false_en,false_zh))])
         corridor_options = []
         for ident, (region, c) in self.corridors.items():
+            if region == 'EU':
+                corridor_options.append((ident,c['name'][language])); continue
             names = {n['id']: n['name'][language] for n in self.graphs[region]['nodes']}
             corridor_options.append((ident, names[c['origin_node']]+' → '+names[c['destination_node']]))
         controls = select('corridor',tr('Research direction','研究方向'),corridor_options)
@@ -96,6 +133,19 @@ class App:
         controls += tri('can_drive','Owner driving available?','主人能否驾车？')
         controls += tri('healthy','Healthy animal (reported, not a diagnosis)?','报告健康状况（非诊断）？')
         controls += tri('health_certificate_present','Health certificate present?','是否已有健康证？')
+        eu_controls = tri('owner_moving','Owner also travelling? (EU cross-member)','主人是否也移动？（欧盟跨成员国）')
+        eu_controls += tri('authorized_person_written','Written responsible-person authorisation?','是否有责任人员书面授权？')
+        for name,en,zh in [('owner_entry_at','Owner travel date','主人移动日期'),('birth_date','Animal birth date','宠物出生日期'),
+                           ('identification_at','Identification/read date','标识／读取日期'),('rabies_vaccination_at','Rabies vaccination date','狂犬病接种日期'),
+                           ('primary_protocol_completed_at','Primary protocol completion','初次接种程序完成'),('tattoo_at','Tattoo application date','纹身施加日期'),
+                           ('passport_issued_at','Passport issue date','护照签发日期')]:
+            eu_controls += f'<label>{tr(en,zh)}<input type="date" name="{name}" value="{escape(values.get(name,""))}"></label>'
+        eu_controls += select('vaccination_branch',tr('Rabies vaccination branch','狂犬病接种分支'),[('unknown',tr('Unknown','未知')),('primary',tr('Primary protocol','初次程序')),('booster',tr('Booster (continuity unreviewed)','加强针（连续性未核）'))])
+        eu_controls += select('identification_method',tr('Identification method','标识方式'),[('unknown',tr('Unknown','未知')),('microchip',tr('Microchip','芯片')),('tattoo',tr('Tattoo exception','纹身例外'))])
+        eu_controls += tri('microchip_present','Microchip present?','是否有芯片？')
+        eu_controls += tri('tattoo_readable','Tattoo clearly readable?','纹身是否清晰可读？')
+        eu_controls += select('passport_model',tr('Passport model (not a validity check)','护照范本（不校验完整有效性）'),[('unknown',tr('Unknown','未知')),('eu.705.passport','2026/705 Annex I'),('eu.577.passport','577/2013 Annex III')])
+        controls += '<details><summary>'+tr('EU evidence inputs','欧盟证据输入')+'</summary><div class="fields">'+eu_controls+'</div></details>'
         results = ''
         if error:
             results += '<p role="alert">'+escape(tr('Input error: ','输入错误：')+error)+'</p>'
@@ -113,7 +163,27 @@ class App:
                         results += f'<p>{escape(e["summary"][language])} <a href="{escape(e["url"],quote=True)}">{escape(e["source_id"])}</a> · {e["accessed_at"]}</p>'
                     results += '</li>'
                 results += '</ul>'
-            names = {n['id']:n['name'][language] for n in self.graphs[self.corridors[result['corridor_id']][0]]['nodes']}
+            if 'eu_inventory' in result:
+                inv = result['eu_inventory']
+                results += '<h3>'+tr('EU framework and 27-member gaps','欧盟框架与27成员国缺口')+'</h3><p>'+tr('Evidence preview: no operational routes compiled. Cross-member requirements do not establish domestic law.','证据预览：尚无经核实运输路线。跨成员国要求不作为国内法律。')+'</p>'
+                for item in [inv['framework']] + inv['members']:
+                    results += '<details><summary>'+escape(item.get('member','EU')+' · '+item.get('status','read_pending_review'))+'</summary><p class="codes">'+escape(', '.join(item['pending_checks']))+'</p>'
+                    for e in item['evidence']:
+                        results += f'<p><a href="{escape(e["url"],quote=True)}">{escape(e["source_id"])}</a> · {e["accessed_at"]} · {escape(e["summary"][language])}</p>'
+                    results += '</details>'
+                results += '<h3>'+tr('Draft diagnostics — not enforced','草稿诊断 — 不执行')+'</h3>'
+                for row in result['explanations']:
+                    results += '<p>'+escape(row['rule_id']+' | '+row['outcome']+' | '+row['message'][language])+'</p>'
+                for row in result['draft_diagnostics']:
+                    results += '<p><code>'+escape(row['diagnostic_id']+' | '+row['outcome'])+'</code></p>'
+                results += '<details><summary>'+tr('2026 document models and exceptions','2026文件范本与例外')+'</summary>'
+                for model in inv['document_models']:
+                    results += '<p>'+escape(model['id']+' | '+model['scope']+' | issued_before='+str(model['issued_before'])+' | recognition_until='+str(model['recognition_until']))+'</p>'
+                for exception in inv['exceptions']:
+                    results += '<p>'+escape(exception['summary'][language])+'</p>'
+                results += '</details>'
+            region = self.corridors[result['corridor_id']][0]
+            names = {n['id']:n['name'][language] for n in self.graphs[region]['nodes']} if region != 'EU' else {}
             products = {
                 'owner_vehicle': tr('Owner vehicle', '主人车辆'),
                 'unaccompanied_animal_carrier': tr('Unaccompanied animal carrier', '独行活体承运'),
@@ -140,7 +210,7 @@ class App:
                         results += '</li>'
                     results += '</ol></details>'
             results += '<button type="button" id="print">'+tr('Print handover checklist','打印交接清单')+'</button><details class="printable"><summary>'+tr('Complete printable checklist','完整可打印清单')+'</summary><pre>'+escape(printed)+'</pre></details></section>'
-        return f'''<!doctype html><html lang="{language}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PetWaymark · {tr('Domestic research preview','国内研究预览')}</title><link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script></head><body><main><header><p>PetWaymark · 宠途路标</p><h1>{tr('Plan with visible unknowns','把未知留在计划里')}</h1><p>{tr('Free, neutral, public-benefit open source. No booking, orders or provider ranking.','公益、免费、中立开源。未订舱、不接单、不排名服务商。')}</p></header><aside>{tr('Research preview. Unknown is not permission. Airports and map distance do not establish animal transport capacity. This anonymous form is processed on this computer without storage; do not enter private identifiers.','研究预览。未知不等于允许，机场和地图距离不能证明活体运力。匿名表单仅在本机处理，不存储；勿输入个人标识。')}</aside><p class="examples">{tr('Synthetic examples:','合成示例：')} <a href="/?language={language}&example=owner">{tr('Owner','主人同行')}</a> · <a href="/?language={language}&example=unaccompanied">{tr('Unaccompanied','宠物独行')}</a></p><form action="/assess" method="post"><input type="hidden" name="language" value="{language}"><div class="fields">{controls}</div><div class="actions"><button type="submit">{tr('Assess research candidates','评估研究候选')}</button><button type="submit" name="output" value="json">{tr('Export redacted JSON','导出脱敏JSON')}</button><button type="button" id="language" data-language="{'en' if language=='zh-CN' else 'zh-CN'}">{'English' if language=='zh-CN' else '中文'}</button></div></form>{results}<footer>{tr('Single privately owned dog/cat only. Unsupported states, emergency overlays, transit rules, actual operating carrier and custody remain pending. Commercial names identify source policy scope only.','仅单只自有犬猫。未覆盖州、应急叠加、途经规则、实际承运与保管待核。商业名称仅标识来源政策范围。')}</footer></main></body></html>'''
+        return f'''<!doctype html><html lang="{language}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PetWaymark · {tr('Journey evidence preview','旅程证据预览')}</title><link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script></head><body><main><header><p>PetWaymark · 宠途路标</p><h1>{tr('Plan with visible unknowns','把未知留在计划里')}</h1><p>{tr('Free, neutral, public-benefit open source. No booking, orders or provider ranking.','公益、免费、中立开源。未订舱、不接单、不排名服务商。')}</p></header><aside>{tr('Research preview. Unknown is not permission. Airports and map distance do not establish animal transport capacity. This anonymous form is processed on this computer without storage; do not enter private identifiers.','研究预览。未知不等于允许，机场和地图距离不能证明活体运力。匿名表单仅在本机处理，不存储；勿输入个人标识。')}</aside><p class="examples">{tr('Synthetic examples:','合成示例：')} <a href="/?language={language}&example=owner">{tr('Owner','主人同行')}</a> · <a href="/?language={language}&example=unaccompanied">{tr('Unaccompanied','宠物独行')}</a> · <a href="/?language={language}&example=eu-owner">{tr('EU cross-member','欧盟跨成员国')}</a> · <a href="/?language={language}&example=eu-boarding">{tr('Owner stays home','主人不移动')}</a></p><form action="/assess" method="post"><input type="hidden" name="language" value="{language}"><div class="fields">{controls}</div><div class="actions"><button type="submit">{tr('Assess research candidates','评估研究候选')}</button><button type="submit" name="output" value="json">{tr('Export redacted JSON','导出脱敏JSON')}</button><button type="button" id="language" data-language="{'en' if language=='zh-CN' else 'zh-CN'}">{'English' if language=='zh-CN' else '中文'}</button></div></form>{results}<footer>{tr('Single privately owned dog/cat only. Unsupported states, emergency overlays, transit rules, actual operating carrier and custody remain pending. Commercial names identify source policy scope only.','仅单只自有犬猫。未覆盖州、应急叠加、途经规则、实际承运与保管待核。商业名称仅标识来源政策范围。')}</footer></main></body></html>'''
 
 
 def make_handler(app):
@@ -183,11 +253,18 @@ def make_handler(app):
                 self.send(400, 'Unsupported language'); return
             fields = {'language':language}
             example = query.get('example', [''])[0]
-            if example in ('owner','unaccompanied'):
+            if example in ('owner','unaccompanied','eu-owner','eu-boarding'):
                 fields.update(corridor='dom.us.ca-ny', species='dog', service_animal='false',
                               purpose='relocation', ownership_transfer='false', accompaniment=example,
                               can_drive='true', healthy='true', health_certificate_present='true',
                               assessment_at='2026-10-08', entry_at='2026-11-10')
+                if example.startswith('eu-'):
+                    fields.update(corridor='eu.de-fr',accompaniment='owner',owner_moving='true',owner_entry_at='2026-11-10',
+                                  vaccination_branch='primary',birth_date='2024-01-01',identification_method='microchip',microchip_present='true',
+                                  identification_at='2024-03-01',rabies_vaccination_at='2026-09-01',primary_protocol_completed_at='2026-09-01',
+                                  passport_model='eu.577.passport',passport_issued_at='2025-01-01')
+                if example=='eu-boarding':
+                    fields.update(purpose='boarding',accompaniment='authorized_person',owner_moving='false',owner_entry_at='',authorized_person_written='true')
             self.send(200, app.render(fields))
 
         def do_POST(self):
@@ -202,7 +279,7 @@ def make_handler(app):
                     raise ValueError('form length out of range')
                 if self.headers.get('Content-Type','').split(';')[0] != 'application/x-www-form-urlencoded':
                     raise ValueError('expected form data')
-                parsed = parse_qs(self.rfile.read(length).decode('utf-8'), keep_blank_values=True, max_num_fields=20)
+                parsed = parse_qs(self.rfile.read(length).decode('utf-8'), keep_blank_values=True, max_num_fields=len(FIELDS))
                 if any(len(v)!=1 for v in parsed.values()):
                     raise ValueError('duplicate form field')
                 fields = {k:v[0] for k,v in parsed.items()}
