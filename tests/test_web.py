@@ -65,6 +65,32 @@ class WebTests(unittest.TestCase):
                     self.assertIn('certificate.issue' if dest=='eu' or species=='dog' else 'cn.export_issue',html)
                     self.assertEqual(self.app.assess({**f,'language':language})[1],outbound.checklist(expected,language=language))
 
+    def test_review_dates_visible_on_bilingual_result_and_print(self):
+        for lang in ('en', 'zh-CN'):
+            code, _, html = self.post(self.fields(output='html', language=lang))
+            self.assertEqual(code, 200)
+            self.assertIn('review_status=draft', html)
+            self.assertIn('last_verified_at=None', html)
+            self.assertIn('review_due_at=None', html)
+            self.assertIn('draft_rule', html)
+
+    def test_buffer_margin_http_bilingual_and_invalid_input(self):
+        f = self.outbound_fields(planning_buffer_days='2', certificate_issued_at='2026-11-01', issuer_route='official_vet')
+        code, _, body = self.post(f)
+        self.assertEqual(code, 200)
+        row = json.loads(body)['certificate_margins'][0]
+        self.assertEqual(row['planning_margin_days'], -1)
+        self.assertEqual(row['deadline'], '2026-11-11')
+        for lang in ('en', 'zh-CN'):
+            code, _, html = self.post({**f, 'output': 'html', 'language': lang})
+            self.assertEqual(code, 200)
+            self.assertIn('planning_margin_days=-1', html)
+            self.assertIn('buffer_shortfall', html)
+        for invalid in ('-1', '1.5', '366', 'SECRET'):
+            code, _, html = self.post({**f, 'planning_buffer_days': invalid})
+            self.assertEqual(code, 400)
+            self.assertNotIn('SECRET', html)
+
     def test_outbound_appointment_and_entry_conflicts_visible(self):
         f=self.outbound_fields(certificate_at='2026-10-30',output='html')
         code,_,html=self.post(f);self.assertEqual(code,200)

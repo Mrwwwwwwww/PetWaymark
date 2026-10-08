@@ -15,7 +15,7 @@ from packages.engine.io import ROOT, load_repository
 from packages.engine.routes import preview, checklist
 from packages.engine import eu, outbound, inbound, us_eu
 from packages.engine.planning import load_directory
-from packages.engine.evaluate import day
+from packages.engine.evaluate import day, review_summary
 from scripts.validate_data import read_json
 
 ASSETS = Path(__file__).parent
@@ -72,6 +72,7 @@ HANDOVER_FIELDS = {'arrival_time','arrival_timezone','pickup_deadline','pickup_t
     'overnight_required','overnight_care_available','overnight_custodian_role'}
 FIELDS.update(US_EU_DATES);FIELDS.update(US_EU_CHOICES);FIELDS.update(US_EU_BOOLS);FIELDS.update(HANDOVER_FIELDS)
 FIELDS.add('manufacturer_immunity_days')
+FIELDS.add('planning_buffer_days')
 OUTBOUND_CHOICES['transit'] = 'journey'
 
 EU_EXAMPLES = {'eu.' + a.lower() + '-' + b.lower():
@@ -125,6 +126,11 @@ def profile_from_form(fields):
         for name in ('microchip_present','tattoo_readable'):
             profile['pet'][name]=boolean(fields.get(name,'unknown'))
     if corridor in OUTBOUND_EXAMPLES or corridor in US_EU_EXAMPLES:
+        if corridor in OUTBOUND_EXAMPLES and fields.get('planning_buffer_days'):
+            value = fields['planning_buffer_days']
+            if not value.isascii() or not value.isdigit() or not 0 <= int(value) <= 365:
+                raise ValueError('invalid planning buffer')
+            profile['planning'] = {'buffer_days': int(value)}
         case = US_EU_EXAMPLES.get(corridor, OUTBOUND_EXAMPLES.get(corridor))
         journey.update(origin=case.get('origin','CN'),destination=case['destination'],
             owner_moving=boolean(fields.get('owner_moving','unknown')),
@@ -264,6 +270,7 @@ class App:
         eu_controls += select('passport_model',tr('Passport model (not a validity check)','护照范本（不校验完整有效性）'),[('unknown',tr('Unknown','未知')),('eu.705.passport','2026/705 Annex I'),('eu.577.passport','577/2013 Annex III')])
         controls += '<details><summary>'+tr('EU evidence inputs','欧盟证据输入')+'</summary><div class="fields">'+eu_controls+'</div></details>'
         outbound_controls = ''
+        outbound_controls += f'<label>{tr("Planning buffer days (advice only; 0 means none)","规划缓冲天数（仅建议；0为无缓冲）")}<input type="number" name="planning_buffer_days" min="0" max="365" step="1" value="{escape(values.get("planning_buffer_days",""))}"></label>'
         date_labels = {
             'departure_at':('Departure date','出发日期'),
             'certificate_issued_at':('Veterinarian signature/issue date','兽医签署／签发日期'),
@@ -335,6 +342,8 @@ class App:
             results += f'<section aria-labelledby="result-title"><h2 id="result-title">{status}</h2><p><code>{result["status"]}</code> · {escape(result["dataset_version"])}</p>'
             results += '<p>'+tr('No booking or order. Zero verified feasible routes. Duration, distance, cost, acceptance and responsible entities need confirmation.','未订舱／未接单，已验证可行路线为零。时间、里程、费用、收运和责任主体待确认。')+'</p>'
             results += '<h3>'+tr('Reasons and coverage gaps','原因与覆盖缺口')+'</h3><p class="codes">'+escape(', '.join(result['reason_codes']))+'</p>'
+            for row in result.get('certificate_margins', []):
+                results += '<p class="certificate-margin">'+escape(tr('Certificate margin (draft civil-day estimate): ','证件余量（草稿日级估算）：')+row['outcome']+' | deadline='+str(row['deadline'])+' | remaining_days='+str(row['remaining_days'])+' | planning_buffer_days='+str(row['planning_buffer_days'])+' | planning_margin_days='+str(row['planning_margin_days']))+'</p><p>'+tr('Planning advice only; buffer never extends official validity. Recalculate and recheck documents/appointments after delays.','仅规划建议；缓冲不延长官方有效期。延误须重算、重核原件及预约。')+'</p>'
             if 'state_overlays' in result:
                 results += '<h3>'+tr('CA / NY / TX evidence inventory','CA／NY／TX证据清单')+'</h3><ul>'
                 for state in result['state_overlays']:
@@ -355,6 +364,7 @@ class App:
                 results += '<h3>'+tr('Draft diagnostics — not enforced','草稿诊断 — 不执行')+'</h3>'
                 for row in result['explanations']:
                     results += '<p>'+escape(row['rule_id']+' | '+row['outcome']+' | '+row['message'][language])+'</p>'
+                    results += '<p class="review-dates">'+escape(review_summary(row))+'</p>'
                 for row in result['draft_diagnostics']:
                     results += '<p><code>'+escape(row['diagnostic_id']+' | '+row['outcome'])+'</code></p>'
                 results += '<details><summary>'+tr('2026 document models and exceptions','2026文件范本与例外')+'</summary>'
@@ -410,6 +420,7 @@ class App:
                         results += f'<li>{escape(names[leg["from_node"]])} → {escape(names[leg["to_node"]])}<br><code>{escape(leg["segment_id"])}</code> · {escape(leg["mode"])} / {escape(leg["product"])}<p>'+tr('Arrival handover: exact location/window need confirmation; escort, custody, recipient and original-document custodian pending arrangement.','到达交接：精确地点／窗口待确认；陪同、保管、接收和原件保管均待安排。')+'</p>'
                         for row in leg['rule_assessment']['explanations']:
                             results += f'<p>{escape(row["message"][language])} · <code>{row["outcome"]}</code> · '+tr('Draft; not enforced','草稿；非执行规则')+'</p>'
+                            results += '<p class="review-dates">'+escape(review_summary(row))+'</p>'
                         for e in leg['evidence']:
                             results += f'<p><a href="{escape(e["url"],quote=True)}">{escape(e["source_id"])}</a> · {e["accessed_at"]} · {escape(e["summary"][language])}</p>'
                         results += '</li>'

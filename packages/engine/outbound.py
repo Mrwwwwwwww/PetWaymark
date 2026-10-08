@@ -5,6 +5,7 @@ from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 from packages.engine.evaluate import compare, day, get
 from packages.engine.eu import document_diagnostic, identification_diagnostic, load_inventory as load_eu
 from packages.engine.io import ROOT
+from packages.engine.windows import certificate_margin
 from scripts.validate_data import read_json
 
 
@@ -37,8 +38,10 @@ def bounded_days(start,end,minimum,maximum):
 def assess(profile, *, assessment_at, inventory=None, eu_inventory=None):
     day(assessment_at)
     if not isinstance(profile,dict) or any(not isinstance(profile.get(k,{}),dict)
-            for k in ('pet','journey','events','documents','appointments','responsibility')):
+            for k in ('pet','journey','events','documents','appointments','responsibility','planning')):
         raise ValueError('profile groups must be objects')
+    buffer_days = profile.get('planning', {}).get('buffer_days', 0)
+    certificate_margin(None, None, 10, buffer_days=buffer_days)  # validate even on unresolved branches
     inv=inventory if inventory is not None else load_inventory()
     eu_inv=eu_inventory if eu_inventory is not None else load_eu()
     p,j=profile.get('pet',{}),profile.get('journey',{})
@@ -77,7 +80,7 @@ def assess(profile, *, assessment_at, inventory=None, eu_inventory=None):
     result=dict(preview_version='0.1.0',dataset_version=inv['dataset_version'],assessment_at=assessment_at,
         assessment_scope='cn_outbound_evidence_preview',direction='CN→'+dest if dest in ('US','EU') else 'unsupported',branch=branch,
         status='unsupported',classification_resolved=not gaps,candidates=[],excluded=[],recommendations=[],booking_confirmed=False,
-        verified_feasible_route_count=0,timeline=[],draft_diagnostics=[],entry_point_diagnostics=[],document_checklist=[],evidence=deepcopy(inv['evidence']))
+        verified_feasible_route_count=0,timeline=[],draft_diagnostics=[],entry_point_diagnostics=[],document_checklist=[],certificate_margins=[],evidence=deepcopy(inv['evidence']))
     reasons=list(inv['pending_checks'])+gaps
     if gaps:result['reason_codes']=sorted(set(reasons));return result
     def add(ident,outcome,sources,locator):
@@ -87,6 +90,16 @@ def assess(profile, *, assessment_at, inventory=None, eu_inventory=None):
         req=dict(field=field,operator=op,value=value,anchor=anchor)
         if unit:req['unit']=unit
         add(ident,compare(req,profile)['outcome'],[source],locator)
+    def margin(ident, anchor, check, maximum, source, locator):
+        row = certificate_margin(get(profile, anchor) if anchor else None,
+                                 get(profile, check), maximum, buffer_days=buffer_days)
+        row.update(diagnostic_id=ident, anchor_field=anchor, check_field=check,
+                   source_ids=[source], locator=locator, review_status='draft')
+        if anchor is None:
+            row['outcome'] = 'issuer_route_unconfirmed'
+        result['certificate_margins'].append(row)
+        if row['outcome'] != 'within_research_window':
+            reasons.append(ident + '.' + row['outcome'])
     def event(ident,field,en,zh,depends=(),earliest=None,latest=None,source=None):
         value=get(profile,field)
         if value is not None:
@@ -136,6 +149,8 @@ def assess(profile, *, assessment_at, inventory=None, eu_inventory=None):
         event('certificate.issue','documents.certificate_issued_at','Veterinarian signs foreign vaccine form','兽医签署境外免疫表',['rabies.vaccine'],earliest=shift(departure,-30),latest=departure,source=source)
         add('us.form.departure-window',bounded_days(get(profile,'documents.certificate_issued_at'),departure,0,30),[source],'Completion before travel')
         add('us.form.entry-window',bounded_days(get(profile,'documents.certificate_issued_at'),entry,0,30),[source],'30-day single-entry validity after veterinarian signature')
+        margin('us.form.margin', 'documents.certificate_issued_at', 'journey.entry_at', 30,
+               source, 'How long is the form valid for? Signature, not endorsement; single entry')
         event('certificate.endorsement','documents.certificate_endorsed_at','Official government veterinarian endorsement','政府官方兽医背书',['certificate.issue'],latest=departure,source=source)
         constraint('us.form.endorsement-order','documents.certificate_issued_at','on_or_before',None,'documents.certificate_endorsed_at',source,'Signature before endorsement')
         constraint('us.form.endorsement-before-travel','documents.certificate_endorsed_at','on_or_before',None,'journey.departure_at',source,'Endorse before use')
@@ -161,6 +176,8 @@ def assess(profile, *, assessment_at, inventory=None, eu_inventory=None):
         event('certificate.endorsement','documents.certificate_endorsed_at','Authority endorsement if authorised issuer','授权签发时由主管机关背书',['certificate.issue'],earliest=shift(entry,-10) if route=='authorized_then_endorsed' else None,latest=entry,source=source)
         add('eu.certificate.entry-window',bounded_days(get(profile,anchor),entry,0,10) if anchor else 'issuer_route_unconfirmed',[source],'Article 19(b): official issue OR authorised issue subsequently endorsed → entry')
         add('eu.certificate.check-window',bounded_days(get(profile,anchor),get(profile,'appointments.document_check_at'),0,10) if anchor else 'issuer_route_unconfirmed',['eu.ec.non-eu'],'Documentary/identity checks; sea extension not implemented')
+        margin('eu.certificate.margin', anchor, 'appointments.document_check_at', 10,
+               source, 'Article 19(b); actual documentary/identity check; issuer route; sea extension uncompiled')
         constraint('eu.check-after-entry','journey.entry_at','on_or_before',None,'appointments.document_check_at','eu.ec.non-eu','Entry then documentary checks')
         if anchor=='documents.certificate_endorsed_at':constraint('eu.certificate.endorsement-order','documents.certificate_issued_at','on_or_before',None,anchor,source,'Article 19(a)')
         add('eu.certificate.model',document_diagnostic(profile,eu_inv,scope='third_country_entry')['outcome'],['eu.law.2026-705'],'Model issue and recognition transitions only')
@@ -209,6 +226,9 @@ def checklist(result, *, language='zh-CN'):
         result['direction']+' | '+result['branch']+' | '+result['status']+' | '+result['dataset_version'],', '.join(result['reason_codes']),
         '日期诊断不证明文件有效；日级估算不是小时窗口，角色自报不证明原件已交付。' if language=='zh-CN' else 'Dates do not prove validity; civil-day estimates are not hour windows; reported roles do not prove delivery.']
     for row in result['timeline']:lines.append(row['event_id']+' | '+row['label'][language]+' | '+str(row['date'])+' | '+str(row['earliest_date'])+' … '+str(row['latest_date'])+' | '+', '.join(row['depends_on']))
+    for row in result.get('certificate_margins', []):
+        lines.append(('证件余量（草稿日级估算）：' if language=='zh-CN' else 'Certificate margin (draft civil-day estimate): ')+row['diagnostic_id']+' | '+row['outcome']+' | deadline='+str(row['deadline'])+' | remaining_days='+str(row['remaining_days'])+' | planning_buffer_days='+str(row['planning_buffer_days'])+' | planning_margin_days='+str(row['planning_margin_days'])+' | '+row['locator'])
+    lines.append('缓冲仅为用户规划建议，不延长官方有效期；到达／检查改期须重算、重核原件及预约。' if language=='zh-CN' else 'Buffer is user planning advice, never an extension of validity; changed arrival/check dates require recalculation and rechecking documents/appointments.')
     for row in result['draft_diagnostics']:lines.append(row['diagnostic_id']+' | '+row['outcome']+' | '+', '.join(row['source_ids'])+' | '+row['locator'])
     for row in result['entry_point_diagnostics']:lines.append(row['outcome']+' | '+', '.join(row['source_ids']))
     for row in result['document_checklist']:lines.append(row['label'][language]+' | '+row['issuing_role']+' | '+row['carrying_role']+' | '+row['delivery_role']+' | '+row['receiving_role'])

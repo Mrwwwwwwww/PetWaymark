@@ -195,6 +195,20 @@ class EngineTests(unittest.TestCase):
         self.assertEqual(self.assess(rules=[r], coverage_gaps=[], resolved_scope_rule_ids=[])['status'], 'unsupported')
         self.assertEqual(self.assess()['status'], 'unsupported')
 
+    def test_freshness_visible_and_travel_date_rechecked(self):
+        r = synthetic(self.age)
+        r['review']['review_due_at'] = '2026-11-02'
+        result = self.assess(rules=[r], coverage_gaps=[])
+        self.assertEqual(result['status'], 'eligible')
+        row = result['explanations'][0]
+        self.assertEqual(row['review']['last_verified_at'], AS_OF)
+        self.assertEqual(row['review']['review_due_at'], '2026-11-02')
+        p = profile(); p['journey']['entry_at'] = '2026-11-02'
+        result = self.assess(p, [r], coverage_gaps=[])
+        self.assertEqual(result['status'], 'unsupported')
+        self.assertIn('review_expires_before_travel', result['reason_codes'])
+        self.assertFalse(result['explanations'][0]['enforceable'])
+
     def test_synthetic_records_follow_schema(self):
         from scripts.validate_data import validators
         checker = validators(ROOT)['rule.schema.json']

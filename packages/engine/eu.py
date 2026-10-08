@@ -5,7 +5,7 @@ Only trusted repository inventory supplies source evidence and transition dates.
 """
 from copy import deepcopy
 
-from packages.engine.evaluate import classify, compare, day, evaluate, get
+from packages.engine.evaluate import classify, compare, day, evaluate, get, review_summary
 from packages.engine.io import ROOT
 from scripts.validate_data import read_json
 
@@ -152,6 +152,7 @@ def checklist(result, *, language='zh-CN'):
             lines.append(f"{e['source_id']} | {e['url']} | {e['accessed_at']} | {e['summary'][language]}")
     for r in result['explanations']:
         lines.append(r['rule_id'] + ' | ' + r['outcome'] + ' | ' + r['message'][language])
+        lines.append(review_summary(r))
     for r in result['draft_diagnostics']:
         lines.append(r['diagnostic_id'] + ' | ' + r['outcome'] + ' | ' + ', '.join(r['source_ids']))
     for r in inv['document_models']:

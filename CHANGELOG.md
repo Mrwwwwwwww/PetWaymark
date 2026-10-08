@@ -1,5 +1,22 @@
 # Changelog / 变更记录
 
+## Unreleased — Week 11 / 未发布：第11周
+
+- Deepen two existing CN small-city research chains across 18 graph segments,
+  with official rail/product locators, jurisdiction and ground qualification gaps.
+  Both remain unsupported; source conflicts and unknown dated acceptance are explicit.
+- Add draft certificate check-window margins and user planning buffers to CN outbound
+  JSON, bilingual local results and print; buffers never extend official validity.
+- Expose existing rule verification/due dates, reject blank locators and duplicate
+  rule evidence, and regress due-at-travel gates with explicitly synthetic reviews.
+- Curated draft data package `2026.10.08-draft.2`; engine `0.1.0`; no new tag.
+  All 15 rules remain draft; two actual qualified independent reviews are missing.
+  T11/T66 full acceptance and issues #3/#4/#5 remain open; P1 waits for P0 clearance.
+
+第11周：两条中国小城18段深化，铁路产品／站对及地面资质缺口保留；
+新增实际查验窗口余量与用户缓冲，缓冲不延长有效期；公开既有复核／到期字段，
+拒绝空定位与重复凭证。15规则仍草稿，可行路线0；缺真实人工复核，不提前宣称P0完成。
+
 ## Unreleased — Week 9 / 未发布：第9周
 
 - Independent US→EU / EU→US dog/cat document and return-history research, shared

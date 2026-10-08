@@ -84,7 +84,11 @@ def validate_repository(root=ROOT):
         evidence_ids = {e["source_id"] for e in rule["evidence"]}
         if ids != evidence_ids:
             fail("each source must have evidence and each evidence must be declared")
+        if len(evidence_ids) != len(rule['evidence']):
+            fail('duplicate rule evidence')
         for evidence in rule["evidence"]:
+            if not evidence['locator'].strip() or any(not text.strip() for text in evidence['summary'].values()):
+                fail('official evidence requires a substantive locator and summary')
             source = sources.get(evidence["source_id"])
             if source and (evidence["url"] != source["url"] or
                            evidence["accessed_at"] != source["accessed_at"] or

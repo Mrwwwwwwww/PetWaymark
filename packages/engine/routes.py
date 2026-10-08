@@ -3,7 +3,7 @@ from copy import deepcopy
 import math
 import re
 
-from packages.engine.evaluate import classify, day, evaluate, get
+from packages.engine.evaluate import classify, day, evaluate, get, review_summary
 from packages.engine.io import ROOT, load_repository
 from scripts.validate_data import read_json
 
@@ -206,6 +206,7 @@ def checklist(result, graph, *, language='zh-CN'):
                 lines.append(f"{'原因／缺口' if zh else 'Reasons / gaps'}: " + ', '.join(leg['reason_codes'] + leg['rule_assessment']['reason_codes']))
                 for rule in leg['rule_assessment']['explanations']:
                     lines.append(f"{rule['rule_id']} | {rule['outcome']} | " + rule['message'][language])
+                    lines.append(review_summary(rule))
                 for d in leg['draft_diagnostics']:
                     lines.append(f"{'草稿诊断（非执行规则）' if zh else 'Draft diagnostic (not enforced)'}: {d['field']} <= {d['maximum']} | {d['outcome']} | {d['source_id']}")
                 for e in leg['evidence']:

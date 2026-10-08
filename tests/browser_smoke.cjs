@@ -182,6 +182,19 @@ const base = process.env.PETWAYMARK_WEB_URL || 'http://127.0.0.1:8766';
    await page.pdf({path:'/tmp/petwaymark-week9-'+direction+'-'+species+'.pdf',format:'A4'});
   }
  }
+ await page.goto(base+'/?example=outbound-eu');
+ await page.locator('#outbound-inputs').evaluate(el=>{el.open=true});
+ await page.locator('input[name=planning_buffer_days]').fill('2');
+ await page.locator('form button[type=submit]').first().click();
+ await page.locator('.certificate-margin').waitFor();
+ const marginBefore = await page.locator('.certificate-margin').innerText();
+ assert.match(marginBefore, /planning_buffer_days=2/);
+ await page.locator('#language').click();
+ await page.waitForFunction(()=>document.documentElement.lang==='en');
+ assert.equal(await page.locator('input[name=planning_buffer_days]').inputValue(),'2');
+ assert.equal((await page.locator('.certificate-margin').innerText()).split(' | ').slice(1).join(' | '), marginBefore.split(' | ').slice(1).join(' | '));
+ await page.locator('.printable').evaluate(el=>{el.open=true});
+ assert.match(await page.locator('.printable').innerText(), /Buffer is user planning advice/);
  assert.deepEqual(errors,[]);assert.deepEqual(remote,[]);
  console.log('PASS: CN/US and EU browser language/input parity, owner-not-moving gate, 27/24-member gaps, JSON download, checklist print/PDF, mobile overflow, CN outbound timelines, appointment conflict, inbound dog/cat conflicts, unknown costs, neutral directory, US/EU independent dog/cat return history and missed final pickup/unknown overnight care, zero external requests.');
  await browser.close();

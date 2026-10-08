@@ -191,6 +191,15 @@ def diagnostic(requirement, result):
     return 'condition_satisfied'
 
 
+def review_summary(row):
+    """Public review dates only; null means no recorded verification/deadline."""
+    review = row['review']
+    return ('review_status=' + review['status'] +
+            ' | last_verified_at=' + str(review['last_verified_at']) +
+            ' | review_due_at=' + str(review['review_due_at']) +
+            ' | ' + ', '.join(row['reason_codes']))
+
+
 def evaluate(profile, rules, *, assessment_at, coverage_gaps=None, resolved_scope_rule_ids=()):
     """Assess a validated package. coverage_gaps is trusted maintainer metadata.
 
@@ -210,7 +219,8 @@ def evaluate(profile, rules, *, assessment_at, coverage_gaps=None, resolved_scop
         mismatch, missing_scope = scope_check(rule, profile)
         row = {'rule_id': rule['id'], 'revision': rule['revision'],
                'message': rule['message'], 'evidence': rule['evidence'],
-               'source_ids': rule['source_ids'], 'scope_missing': missing_scope}
+               'source_ids': rule['source_ids'], 'scope_missing': missing_scope,
+               'review': rule['review'], 'validity': rule['validity']}
         if mismatch:
             excluded.append(rule['id'])
             reasons += mismatch

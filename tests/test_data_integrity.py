@@ -137,5 +137,13 @@ class DataIntegrityTests(unittest.TestCase):
         self.rejected("Additional properties")
 
 
+    def test_whitespace_locator_and_duplicate_evidence_rejected(self):
+        self.rule['evidence'][0]['locator'] = '   '
+        self.save(); self.rejected('substantive locator')
+        self.rule['evidence'][0]['locator'] = 'Official heading'
+        self.rule['evidence'].append(deepcopy(self.rule['evidence'][0]))
+        self.rule['evidence'][1]['locator'] = 'Another heading'
+        self.save(); self.rejected('duplicate rule evidence')
+
 if __name__ == "__main__":
     unittest.main()
