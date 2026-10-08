@@ -1,0 +1,32 @@
+{
+  "pet": {
+    "species": "dog",
+    "service_animal": false,
+    "birth_date": "2024-01-01",
+    "identification_method": "microchip",
+    "microchip_present": true
+  },
+  "journey": {
+    "origin": "EU",
+    "destination": "EU",
+    "origin_member": "DE",
+    "destination_member": "DE",
+    "purpose": "relocation",
+    "ownership_transfer": false,
+    "accompaniment": "owner",
+    "owner_moving": true,
+    "entry_at": "2026-11-10",
+    "owner_entry_at": "2026-11-10",
+    "pets_per_person": 1,
+    "transport_mode": "road"
+  },
+  "documents": {
+    "passport_model": "eu.577.passport",
+    "passport_issued_at": "2025-01-01"
+  },
+  "events": {
+    "identification_at": "2024-03-01",
+    "rabies_vaccination_at": "2026-09-01",
+    "primary_protocol_completed_at": "2026-09-01"
+  }
+}

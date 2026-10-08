@@ -450,6 +450,256 @@
           "zh-CN": "独立复核、现行有效性、例外及日期限定收运待核。"
         }
       ]
+    },
+    {
+      "id": "eu.law.2026-131",
+      "authority": "EU-EC",
+      "publisher": "European Commission",
+      "kind": "government",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32026R0131",
+      "title": {
+        "en": "2026/131 framework",
+        "zh-CN": "2026/131共同框架"
+      },
+      "language": "en",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "unavailable",
+      "license_boundary": {
+        "en": "Link and original project summary only; official text retains its own rights.",
+        "zh-CN": "仅提供链接和项目原创整理；官方原文保留自身权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Full current provisions, annexes, exceptions and two qualified human reviews remain pending.",
+          "zh-CN": "完整现行条款、附件、例外及两位合格人工复核待完成。"
+        }
+      ]
+    },
+    {
+      "id": "eu.law.2026-636",
+      "authority": "EU-EC",
+      "publisher": "European Commission",
+      "kind": "government",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX%3A32026R0636",
+      "title": {
+        "en": "2026/636 country lists",
+        "zh-CN": "2026/636第三国清单"
+      },
+      "language": "en",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "unavailable",
+      "license_boundary": {
+        "en": "Link and original project summary only; official text retains its own rights.",
+        "zh-CN": "仅提供链接和项目原创整理；官方原文保留自身权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Full current provisions, annexes, exceptions and two qualified human reviews remain pending.",
+          "zh-CN": "完整现行条款、附件、例外及两位合格人工复核待完成。"
+        }
+      ]
+    },
+    {
+      "id": "eu.law.2026-705",
+      "authority": "EU-EC",
+      "publisher": "European Commission",
+      "kind": "government",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX%3A32026R0705",
+      "title": {
+        "en": "2026/705 document models",
+        "zh-CN": "2026/705文件范本"
+      },
+      "language": "en",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "read_pending_review",
+      "license_boundary": {
+        "en": "Link and original project summary only; official text retains its own rights.",
+        "zh-CN": "仅提供链接和项目原创整理；官方原文保留自身权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Full current provisions, annexes, exceptions and two qualified human reviews remain pending.",
+          "zh-CN": "完整现行条款、附件、例外及两位合格人工复核待完成。"
+        }
+      ]
+    },
+    {
+      "id": "eu.ec.intra-eu",
+      "authority": "EU-EC",
+      "publisher": "European Commission",
+      "kind": "government",
+      "url": "https://food.ec.europa.eu/animals/live-animal-movements/dogs-cats-and-ferrets/travelling-pet-within-eu_en",
+      "title": {
+        "en": "Travel within the EU",
+        "zh-CN": "欧盟内跨成员国旅行"
+      },
+      "language": "en",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "read_pending_review",
+      "license_boundary": {
+        "en": "Link and original project summary only; official text retains its own rights.",
+        "zh-CN": "仅提供链接和项目原创整理；官方原文保留自身权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Full current provisions, annexes, exceptions and two qualified human reviews remain pending.",
+          "zh-CN": "完整现行条款、附件、例外及两位合格人工复核待完成。"
+        }
+      ]
+    },
+    {
+      "id": "eu.ec.young-animals",
+      "authority": "EU-EC",
+      "publisher": "European Commission",
+      "kind": "government",
+      "url": "https://food.ec.europa.eu/animals/live-animal-movements/dogs-cats-and-ferrets/young-animals_en",
+      "title": {
+        "en": "Young animal derogations",
+        "zh-CN": "幼龄宠物例外表"
+      },
+      "language": "en",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "read_pending_review",
+      "license_boundary": {
+        "en": "Link and original project summary only; official text retains its own rights.",
+        "zh-CN": "仅提供链接和项目原创整理；官方原文保留自身权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Full current provisions, annexes, exceptions and two qualified human reviews remain pending.",
+          "zh-CN": "完整现行条款、附件、例外及两位合格人工复核待完成。"
+        }
+      ]
+    },
+    {
+      "id": "eu.ec.faqs",
+      "authority": "EU-EC",
+      "publisher": "European Commission",
+      "kind": "government",
+      "url": "https://food.ec.europa.eu/animals/live-animal-movements/dogs-cats-and-ferrets/faqs_en",
+      "title": {
+        "en": "Pet movement FAQs",
+        "zh-CN": "宠物移动问答"
+      },
+      "language": "en",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "read_pending_review",
+      "license_boundary": {
+        "en": "Link and original project summary only; official text retains its own rights.",
+        "zh-CN": "仅提供链接和项目原创整理；官方原文保留自身权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Full current provisions, annexes, exceptions and two qualified human reviews remain pending.",
+          "zh-CN": "完整现行条款、附件、例外及两位合格人工复核待完成。"
+        }
+      ]
+    },
+    {
+      "id": "eu.de.dangerous-dogs",
+      "authority": "DE-FEDERAL",
+      "publisher": "German Federal Government",
+      "kind": "government",
+      "url": "https://www.gesetze-im-internet.de/hundverbreinfg/__2.html",
+      "title": {
+        "en": "German dog introduction law §2",
+        "zh-CN": "德国犬引入法第2条"
+      },
+      "language": "de",
+      "accessed_at": "2026-10-08",
+      "access_method": "http_read",
+      "status": "read_pending_review",
+      "license_boundary": {
+        "en": "Link and original project summary only; official text retains its own rights.",
+        "zh-CN": "仅提供链接和项目原创整理；官方原文保留自身权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Full current provisions, annexes, exceptions and two qualified human reviews remain pending.",
+          "zh-CN": "完整现行条款、附件、例外及两位合格人工复核待完成。"
+        }
+      ]
+    },
+    {
+      "id": "eu.de.entry-guidance",
+      "authority": "DE-FEDERAL",
+      "publisher": "German Federal Government",
+      "kind": "government",
+      "url": "https://www.bmel.de/EN/topics/animals/pets-and-zoo-animals/pets-entry-regulation.html",
+      "title": {
+        "en": "German pet entry guidance",
+        "zh-CN": "德国宠物入境指引"
+      },
+      "language": "en",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "unavailable",
+      "license_boundary": {
+        "en": "Link and original project summary only; official text retains its own rights.",
+        "zh-CN": "仅提供链接和项目原创整理；官方原文保留自身权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Full current provisions, annexes, exceptions and two qualified human reviews remain pending.",
+          "zh-CN": "完整现行条款、附件、例外及两位合格人工复核待完成。"
+        }
+      ]
+    },
+    {
+      "id": "eu.fr.entry-guidance",
+      "authority": "FR-DILA",
+      "publisher": "Service Public / DILA",
+      "kind": "government",
+      "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F35788",
+      "title": {
+        "en": "Bringing a dog or cat to France",
+        "zh-CN": "犬猫引入法国"
+      },
+      "language": "fr",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "read_pending_review",
+      "license_boundary": {
+        "en": "Link and original project summary only; official text retains its own rights.",
+        "zh-CN": "仅提供链接和项目原创整理；官方原文保留自身权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Full current provisions, annexes, exceptions and two qualified human reviews remain pending.",
+          "zh-CN": "完整现行条款、附件、例外及两位合格人工复核待完成。"
+        }
+      ]
+    },
+    {
+      "id": "eu.nl.intra-entry",
+      "authority": "NL-NVWA",
+      "publisher": "NVWA",
+      "kind": "government",
+      "url": "https://english.nvwa.nl/topics/animal-health/travelling-to-the-netherlands-with-your-dog-or-cat/travelling-from-eu-countries-to-the-netherlands-with-your-cat-or-dog",
+      "title": {
+        "en": "EU dog and cat entry into the Netherlands",
+        "zh-CN": "欧盟犬猫进入荷兰"
+      },
+      "language": "en",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "read_pending_review",
+      "license_boundary": {
+        "en": "Link and original project summary only; official text retains its own rights.",
+        "zh-CN": "仅提供链接和项目原创整理；官方原文保留自身权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Full current provisions, annexes, exceptions and two qualified human reviews remain pending.",
+          "zh-CN": "完整现行条款、附件、例外及两位合格人工复核待完成。"
+        }
+      ]
     }
   ]
 }

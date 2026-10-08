@@ -265,7 +265,8 @@
             "carried_entry",
             "non_commercial_pet",
             "all_imports",
-            "domestic_pet"
+            "domestic_pet",
+            "intra_eu_pet"
           ]
         },
         "accompaniment": {
@@ -331,7 +332,9 @@
         "language": {
           "enum": [
             "en",
-            "zh-CN"
+            "zh-CN",
+            "de",
+            "fr"
           ]
         },
         "summary": {

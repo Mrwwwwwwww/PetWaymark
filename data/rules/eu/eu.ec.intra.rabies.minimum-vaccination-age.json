@@ -1,0 +1,100 @@
+{
+  "schema_version": "0.1.0",
+  "id": "eu.ec.intra.rabies.minimum-vaccination-age",
+  "revision": 1,
+  "record_class": "official_guidance",
+  "authority": "EU-EC",
+  "scope": {
+    "origin": "EU",
+    "destination": "EU",
+    "subdivisions": [],
+    "species": [
+      "dog",
+      "cat"
+    ],
+    "transport_modes": [
+      "road",
+      "rail",
+      "cabin",
+      "checked_baggage",
+      "manifest_cargo"
+    ],
+    "movement_category": "intra_eu_pet",
+    "accompaniment": [
+      "owner",
+      "authorized_person"
+    ],
+    "travel_history_branch": "any",
+    "vaccination_branch": "any",
+    "exclusions": {
+      "en": "Cross-member only; domestic, young-animal, booster, tattoo and destination exceptions remain separately unreviewed.",
+      "zh-CN": "仅跨成员国；国内、幼龄、加强针、纹身及目的地例外另待复核。"
+    }
+  },
+  "validity": {
+    "effective_from": "2026-04-22",
+    "effective_to": null,
+    "applies_at": "vaccination_at"
+  },
+  "requirement": {
+    "field": "pet.birth_date",
+    "operator": "calendar_age_at_least",
+    "value": 12,
+    "unit": "week",
+    "anchor": "events.rabies_vaccination_at"
+  },
+  "on_fail": "block",
+  "on_missing": "needs_confirmation",
+  "exceptions": [
+    {
+      "id": "eu.intra.young-animal-review",
+      "source_ids": [
+        "eu.ec.intra-eu"
+      ],
+      "disposition": "needs_confirmation",
+      "scope_note": {
+        "en": "Destination permission and declarations are needed for a young-animal exception.",
+        "zh-CN": "幼龄例外须目的国许可和声明。"
+      }
+    }
+  ],
+  "source_ids": [
+    "eu.ec.intra-eu"
+  ],
+  "evidence": [
+    {
+      "source_id": "eu.ec.intra-eu",
+      "url": "https://food.ec.europa.eu/animals/live-animal-movements/dogs-cats-and-ferrets/travelling-pet-within-eu_en",
+      "locator": "Conditions / Rabies vaccination; Exceptions",
+      "accessed_at": "2026-10-08",
+      "language": "en",
+      "summary": {
+        "en": "Cross-member identification, rabies, passport and accompaniment conditions; this page does not govern travel entirely inside one member.",
+        "zh-CN": "跨成员国标识、狂犬、护照和陪同条件；此页不作为单一成员国内移动规则。"
+      },
+      "content_sha256": null
+    }
+  ],
+  "review": {
+    "status": "draft",
+    "last_verified_at": null,
+    "review_due_at": null,
+    "reviewed_by": []
+  },
+  "supersedes": [],
+  "message": {
+    "en": "Rabies vaccine administration requires at least twelve weeks of age.",
+    "zh-CN": "狂犬病疫苗施打时至少十二周龄。"
+  },
+  "pending_checks": [
+    {
+      "en": "Cross-member only; domestic, young-animal, booster, tattoo and destination exceptions remain separately unreviewed.",
+      "zh-CN": "仅跨成员国；国内、幼龄、加强针、纹身及目的地例外另待复核。"
+    },
+    {
+      "en": "2026/131 and incorporated annexes unavailable/unreviewed; no enforcement.",
+      "zh-CN": "2026/131及援引附件不可读或未复核；不执行。"
+    }
+  ],
+  "license": "CC-BY-4.0"
+}

@@ -1,0 +1,610 @@
+{
+  "schema_version": "0.1.0",
+  "dataset_version": "2026-10-08.week6-preview",
+  "verified_rule_count": 0,
+  "framework": {
+    "source_ids": [
+      "eu.law.2026-131",
+      "eu.law.2026-636",
+      "eu.law.2026-705",
+      "eu.ec.intra-eu",
+      "eu.ec.young-animals",
+      "eu.ec.faqs"
+    ],
+    "evidence": [
+      {
+        "source_id": "eu.ec.intra-eu",
+        "url": "https://food.ec.europa.eu/animals/live-animal-movements/dogs-cats-and-ferrets/travelling-pet-within-eu_en",
+        "locator": "Conditions; Exceptions",
+        "accessed_at": "2026-10-08",
+        "language": "en",
+        "summary": {
+          "en": "Cross-member identification, rabies, passport and accompaniment conditions; this page does not govern travel entirely inside one member.",
+          "zh-CN": "跨成员国标识、狂犬、护照和陪同条件；此页不作为单一成员国内移动规则。"
+        },
+        "content_sha256": null
+      },
+      {
+        "source_id": "eu.ec.young-animals",
+        "url": "https://food.ec.europa.eu/animals/live-animal-movements/dogs-cats-and-ferrets/young-animals_en",
+        "locator": "Article 9 table: Germany / France / Netherlands",
+        "accessed_at": "2026-10-08",
+        "language": "en",
+        "summary": {
+          "en": "DE, FR and NL do not accept the listed young-animal derogation.",
+          "zh-CN": "德法荷均不接受表列幼龄例外。"
+        },
+        "content_sha256": null
+      },
+      {
+        "source_id": "eu.law.2026-705",
+        "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX%3A32026R0705",
+        "locator": "Articles 1–6, 8; Annex I; Annex III pp.36–40; Annex V",
+        "accessed_at": "2026-10-08",
+        "language": "en",
+        "summary": {
+          "en": "2026 document model and transition reading; Annex III uses a sample-to-issue wait.",
+          "zh-CN": "2026文件范本与过渡查阅；附件III以采血至签发计算等待期。"
+        },
+        "content_sha256": null
+      },
+      {
+        "source_id": "eu.ec.faqs",
+        "url": "https://food.ec.europa.eu/animals/live-animal-movements/dogs-cats-and-ferrets/faqs_en",
+        "locator": "Non-commercial movement; owner in hospital example",
+        "accessed_at": "2026-10-08",
+        "language": "en",
+        "summary": {
+          "en": "Owner movement and written responsibility are required for the ordinary cross-member process.",
+          "zh-CN": "普通跨成员国流程须核主人移动与书面责任。"
+        },
+        "content_sha256": null
+      }
+    ],
+    "pending_checks": [
+      "2026_131_full_text_unavailable",
+      "2026_636_annex_lists_unavailable",
+      "2019_2035_2020_688_2020_692_consolidated_annexes",
+      "independent_human_review",
+      "certificate_full_content_and_validity",
+      "passport_residence_and_issuer",
+      "transit_and_local_emergency_orders"
+    ]
+  },
+  "members": [
+    {
+      "member": "AT",
+      "status": "local_overlay_uncovered",
+      "source_ids": [],
+      "evidence": [],
+      "rule_ids": [],
+      "pending_checks": [
+        "independent_human_review",
+        "domestic_and_local_requirements",
+        "transit_and_emergency_orders",
+        "carrier_and_custody",
+        "member_specific_overlay_unresearched"
+      ]
+    },
+    {
+      "member": "BE",
+      "status": "local_overlay_uncovered",
+      "source_ids": [],
+      "evidence": [],
+      "rule_ids": [],
+      "pending_checks": [
+        "independent_human_review",
+        "domestic_and_local_requirements",
+        "transit_and_emergency_orders",
+        "carrier_and_custody",
+        "member_specific_overlay_unresearched"
+      ]
+    },
+    {
+      "member": "BG",
+      "status": "local_overlay_uncovered",
+      "source_ids": [],
+      "evidence": [],
+      "rule_ids": [],
+      "pending_checks": [
+        "independent_human_review",
+        "domestic_and_local_requirements",
+        "transit_and_emergency_orders",
+        "carrier_and_custody",
+        "member_specific_overlay_unresearched"
+      ]
+    },
+    {
+      "member": "CY",
+      "status": "local_overlay_uncovered",
+      "source_ids": [],
+      "evidence": [],
+      "rule_ids": [],
+      "pending_checks": [
+        "independent_human_review",
+        "domestic_and_local_requirements",
+        "transit_and_emergency_orders",
+        "carrier_and_custody",
+        "member_specific_overlay_unresearched"
+      ]
+    },
+    {
+      "member": "CZ",
+      "status": "local_overlay_uncovered",
+      "source_ids": [],
+      "evidence": [],
+      "rule_ids": [],
+      "pending_checks": [
+        "independent_human_review",
+        "domestic_and_local_requirements",
+        "transit_and_emergency_orders",
+        "carrier_and_custody",
+        "member_specific_overlay_unresearched"
+      ]
+    },
+    {
+      "member": "DE",
+      "status": "partial_read_pending_review",
+      "source_ids": [
+        "eu.ec.young-animals",
+        "eu.de.dangerous-dogs",
+        "eu.de.entry-guidance"
+      ],
+      "evidence": [
+        {
+          "source_id": "eu.ec.young-animals",
+          "url": "https://food.ec.europa.eu/animals/live-animal-movements/dogs-cats-and-ferrets/young-animals_en",
+          "locator": "Article 9 table: Germany / France / Netherlands",
+          "accessed_at": "2026-10-08",
+          "language": "en",
+          "summary": {
+            "en": "DE, FR and NL do not accept the listed young-animal derogation.",
+            "zh-CN": "德法荷均不接受表列幼龄例外。"
+          },
+          "content_sha256": null
+        },
+        {
+          "source_id": "eu.de.dangerous-dogs",
+          "url": "https://www.gesetze-im-internet.de/hundverbreinfg/__2.html",
+          "locator": "§2(1)–(2)",
+          "accessed_at": "2026-10-08",
+          "language": "de",
+          "summary": {
+            "en": "Federal breed/crossbreed restrictions apply to introduction; state rules and authorised exceptions need separate review.",
+            "zh-CN": "引入有联邦品种及混种限制；州规则及获准例外须另核。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "rule_ids": [],
+      "pending_checks": [
+        "independent_human_review",
+        "domestic_and_local_requirements",
+        "transit_and_emergency_orders",
+        "carrier_and_custody",
+        "breed_and_state_exceptions",
+        "entry_guidance_403"
+      ]
+    },
+    {
+      "member": "DK",
+      "status": "local_overlay_uncovered",
+      "source_ids": [],
+      "evidence": [],
+      "rule_ids": [],
+      "pending_checks": [
+        "independent_human_review",
+        "domestic_and_local_requirements",
+        "transit_and_emergency_orders",
+        "carrier_and_custody",
+        "member_specific_overlay_unresearched"
+      ]
+    },
+    {
+      "member": "EE",
+      "status": "local_overlay_uncovered",
+      "source_ids": [],
+      "evidence": [],
+      "rule_ids": [],
+      "pending_checks": [
+        "independent_human_review",
+        "domestic_and_local_requirements",
+        "transit_and_emergency_orders",
+        "carrier_and_custody",
+        "member_specific_overlay_unresearched"
+      ]
+    },
+    {
+      "member": "ES",
+      "status": "local_overlay_uncovered",
+      "source_ids": [],
+      "evidence": [],
+      "rule_ids": [],
+      "pending_checks": [
+        "independent_human_review",
+        "domestic_and_local_requirements",
+        "transit_and_emergency_orders",
+        "carrier_and_custody",
+        "member_specific_overlay_unresearched"
+      ]
+    },
+    {
+      "member": "FI",
+      "status": "local_overlay_uncovered",
+      "source_ids": [],
+      "evidence": [],
+      "rule_ids": [],
+      "pending_checks": [
+        "independent_human_review",
+        "domestic_and_local_requirements",
+        "transit_and_emergency_orders",
+        "carrier_and_custody",
+        "member_specific_overlay_unresearched"
+      ]
+    },
+    {
+      "member": "FR",
+      "status": "partial_read_pending_review",
+      "source_ids": [
+        "eu.ec.young-animals",
+        "eu.fr.entry-guidance"
+      ],
+      "evidence": [
+        {
+          "source_id": "eu.ec.young-animals",
+          "url": "https://food.ec.europa.eu/animals/live-animal-movements/dogs-cats-and-ferrets/young-animals_en",
+          "locator": "Article 9 table: Germany / France / Netherlands",
+          "accessed_at": "2026-10-08",
+          "language": "en",
+          "summary": {
+            "en": "DE, FR and NL do not accept the listed young-animal derogation.",
+            "zh-CN": "德法荷均不接受表列幼龄例外。"
+          },
+          "content_sha256": null
+        },
+        {
+          "source_id": "eu.fr.entry-guidance",
+          "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F35788",
+          "locator": "EU-origin section; category dogs; I-CAD",
+          "accessed_at": "2026-10-08",
+          "language": "fr",
+          "summary": {
+            "en": "EU-origin age/documents, category-1 prohibition including transit, category-2 duties and registration need scoped review.",
+            "zh-CN": "欧盟来源年龄文件、一类犬含途经禁令、二类犬责任及登记须按范围复核。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "rule_ids": [],
+      "pending_checks": [
+        "independent_human_review",
+        "domestic_and_local_requirements",
+        "transit_and_emergency_orders",
+        "carrier_and_custody",
+        "category_dogs_and_registration_scope",
+        "clinical_exam_scope"
+      ]
+    },
+    {
+      "member": "GR",
+      "status": "local_overlay_uncovered",
+      "source_ids": [],
+      "evidence": [],
+      "rule_ids": [],
+      "pending_checks": [
+        "independent_human_review",
+        "domestic_and_local_requirements",
+        "transit_and_emergency_orders",
+        "carrier_and_custody",
+        "member_specific_overlay_unresearched"
+      ]
+    },
+    {
+      "member": "HR",
+      "status": "local_overlay_uncovered",
+      "source_ids": [],
+      "evidence": [],
+      "rule_ids": [],
+      "pending_checks": [
+        "independent_human_review",
+        "domestic_and_local_requirements",
+        "transit_and_emergency_orders",
+        "carrier_and_custody",
+        "member_specific_overlay_unresearched"
+      ]
+    },
+    {
+      "member": "HU",
+      "status": "local_overlay_uncovered",
+      "source_ids": [],
+      "evidence": [],
+      "rule_ids": [],
+      "pending_checks": [
+        "independent_human_review",
+        "domestic_and_local_requirements",
+        "transit_and_emergency_orders",
+        "carrier_and_custody",
+        "member_specific_overlay_unresearched"
+      ]
+    },
+    {
+      "member": "IE",
+      "status": "local_overlay_uncovered",
+      "source_ids": [],
+      "evidence": [],
+      "rule_ids": [],
+      "pending_checks": [
+        "independent_human_review",
+        "domestic_and_local_requirements",
+        "transit_and_emergency_orders",
+        "carrier_and_custody",
+        "member_specific_overlay_unresearched"
+      ]
+    },
+    {
+      "member": "IT",
+      "status": "local_overlay_uncovered",
+      "source_ids": [],
+      "evidence": [],
+      "rule_ids": [],
+      "pending_checks": [
+        "independent_human_review",
+        "domestic_and_local_requirements",
+        "transit_and_emergency_orders",
+        "carrier_and_custody",
+        "member_specific_overlay_unresearched"
+      ]
+    },
+    {
+      "member": "LT",
+      "status": "local_overlay_uncovered",
+      "source_ids": [],
+      "evidence": [],
+      "rule_ids": [],
+      "pending_checks": [
+        "independent_human_review",
+        "domestic_and_local_requirements",
+        "transit_and_emergency_orders",
+        "carrier_and_custody",
+        "member_specific_overlay_unresearched"
+      ]
+    },
+    {
+      "member": "LU",
+      "status": "local_overlay_uncovered",
+      "source_ids": [],
+      "evidence": [],
+      "rule_ids": [],
+      "pending_checks": [
+        "independent_human_review",
+        "domestic_and_local_requirements",
+        "transit_and_emergency_orders",
+        "carrier_and_custody",
+        "member_specific_overlay_unresearched"
+      ]
+    },
+    {
+      "member": "LV",
+      "status": "local_overlay_uncovered",
+      "source_ids": [],
+      "evidence": [],
+      "rule_ids": [],
+      "pending_checks": [
+        "independent_human_review",
+        "domestic_and_local_requirements",
+        "transit_and_emergency_orders",
+        "carrier_and_custody",
+        "member_specific_overlay_unresearched"
+      ]
+    },
+    {
+      "member": "MT",
+      "status": "local_overlay_uncovered",
+      "source_ids": [],
+      "evidence": [],
+      "rule_ids": [],
+      "pending_checks": [
+        "independent_human_review",
+        "domestic_and_local_requirements",
+        "transit_and_emergency_orders",
+        "carrier_and_custody",
+        "member_specific_overlay_unresearched"
+      ]
+    },
+    {
+      "member": "NL",
+      "status": "partial_read_pending_review",
+      "source_ids": [
+        "eu.ec.young-animals",
+        "eu.nl.intra-entry"
+      ],
+      "evidence": [
+        {
+          "source_id": "eu.ec.young-animals",
+          "url": "https://food.ec.europa.eu/animals/live-animal-movements/dogs-cats-and-ferrets/young-animals_en",
+          "locator": "Article 9 table: Germany / France / Netherlands",
+          "accessed_at": "2026-10-08",
+          "language": "en",
+          "summary": {
+            "en": "DE, FR and NL do not accept the listed young-animal derogation.",
+            "zh-CN": "德法荷均不接受表列幼龄例外。"
+          },
+          "content_sha256": null
+        },
+        {
+          "source_id": "eu.nl.intra-entry",
+          "url": "https://english.nvwa.nl/topics/animal-health/travelling-to-the-netherlands-with-your-dog-or-cat/travelling-from-eu-countries-to-the-netherlands-with-your-cat-or-dog",
+          "locator": "ID / Pet Passport / Valid rabies vaccination",
+          "accessed_at": "2026-10-08",
+          "language": "en",
+          "summary": {
+            "en": "EU-origin identification, passport, primary-dose timing and uninterrupted boosters; under-15-week entry is not accepted.",
+            "zh-CN": "欧盟来源标识、护照、首针时限及连续加强针；不接受不足15周入境。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "rule_ids": [],
+      "pending_checks": [
+        "independent_human_review",
+        "domestic_and_local_requirements",
+        "transit_and_emergency_orders",
+        "carrier_and_custody",
+        "residence_registration_scope"
+      ]
+    },
+    {
+      "member": "PL",
+      "status": "local_overlay_uncovered",
+      "source_ids": [],
+      "evidence": [],
+      "rule_ids": [],
+      "pending_checks": [
+        "independent_human_review",
+        "domestic_and_local_requirements",
+        "transit_and_emergency_orders",
+        "carrier_and_custody",
+        "member_specific_overlay_unresearched"
+      ]
+    },
+    {
+      "member": "PT",
+      "status": "local_overlay_uncovered",
+      "source_ids": [],
+      "evidence": [],
+      "rule_ids": [],
+      "pending_checks": [
+        "independent_human_review",
+        "domestic_and_local_requirements",
+        "transit_and_emergency_orders",
+        "carrier_and_custody",
+        "member_specific_overlay_unresearched"
+      ]
+    },
+    {
+      "member": "RO",
+      "status": "local_overlay_uncovered",
+      "source_ids": [],
+      "evidence": [],
+      "rule_ids": [],
+      "pending_checks": [
+        "independent_human_review",
+        "domestic_and_local_requirements",
+        "transit_and_emergency_orders",
+        "carrier_and_custody",
+        "member_specific_overlay_unresearched"
+      ]
+    },
+    {
+      "member": "SE",
+      "status": "local_overlay_uncovered",
+      "source_ids": [],
+      "evidence": [],
+      "rule_ids": [],
+      "pending_checks": [
+        "independent_human_review",
+        "domestic_and_local_requirements",
+        "transit_and_emergency_orders",
+        "carrier_and_custody",
+        "member_specific_overlay_unresearched"
+      ]
+    },
+    {
+      "member": "SI",
+      "status": "local_overlay_uncovered",
+      "source_ids": [],
+      "evidence": [],
+      "rule_ids": [],
+      "pending_checks": [
+        "independent_human_review",
+        "domestic_and_local_requirements",
+        "transit_and_emergency_orders",
+        "carrier_and_custody",
+        "member_specific_overlay_unresearched"
+      ]
+    },
+    {
+      "member": "SK",
+      "status": "local_overlay_uncovered",
+      "source_ids": [],
+      "evidence": [],
+      "rule_ids": [],
+      "pending_checks": [
+        "independent_human_review",
+        "domestic_and_local_requirements",
+        "transit_and_emergency_orders",
+        "carrier_and_custody",
+        "member_specific_overlay_unresearched"
+      ]
+    }
+  ],
+  "document_models": [
+    {
+      "id": "eu.705.passport",
+      "source_id": "eu.law.2026-705",
+      "locator": "Article 1; Annex I",
+      "scope": "intra_eu",
+      "issued_before": null,
+      "recognition_until": null
+    },
+    {
+      "id": "eu.577.passport",
+      "source_id": "eu.law.2026-705",
+      "locator": "Article 6(1)",
+      "scope": "intra_eu",
+      "issued_before": "2028-01-01",
+      "recognition_until": null
+    },
+    {
+      "id": "eu.705.ahc",
+      "source_id": "eu.law.2026-705",
+      "locator": "Article 3; Annex III",
+      "scope": "third_country_entry",
+      "issued_before": null,
+      "recognition_until": null
+    },
+    {
+      "id": "eu.577.ahc",
+      "source_id": "eu.law.2026-705",
+      "locator": "Article 6(3)",
+      "scope": "third_country_entry",
+      "issued_before": "2026-10-01",
+      "recognition_until": "2027-03-31"
+    }
+  ],
+  "exceptions": [
+    {
+      "id": "eu.tattoo",
+      "source_ids": [
+        "eu.ec.intra-eu"
+      ],
+      "summary": {
+        "en": "Readable tattoo applied before 3 July 2011; vaccination order still needs review.",
+        "zh-CN": "2011年7月3日前施加的清晰纹身；免疫先后仍须核实。"
+      },
+      "pending_checks": [
+        "readability_and_application_date",
+        "vaccination_order"
+      ]
+    },
+    {
+      "id": "eu.titre-exceptions",
+      "source_ids": [
+        "eu.ec.non-eu",
+        "eu.law.2026-705",
+        "eu.law.2026-636"
+      ],
+      "summary": {
+        "en": "Listed origins, documented return, secured transit and uninterrupted boosters are separate titre branches. Unread lists cannot exempt CN/US.",
+        "zh-CN": "列名来源、已记录返程、封闭途经及连续加强针分别分类；不可读清单不能豁免中美。"
+      },
+      "pending_checks": [
+        "current_annex_lists",
+        "return_predeparture_evidence",
+        "transit_declaration",
+        "approved_laboratory",
+        "sample_to_issue_90_days"
+      ]
+    }
+  ]
+}

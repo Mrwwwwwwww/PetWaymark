@@ -40,7 +40,9 @@
           "language": {
             "enum": [
               "en",
-              "zh-CN"
+              "zh-CN",
+              "de",
+              "fr"
             ]
           },
           "accessed_at": {
@@ -49,7 +51,8 @@
           },
           "access_method": {
             "enum": [
-              "browser_read"
+              "browser_read",
+              "http_read"
             ]
           },
           "status": {

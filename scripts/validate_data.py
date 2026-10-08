@@ -155,7 +155,46 @@ def validate_repository(root=ROOT):
         overlay = load(overlay_path, "state-overlays.schema.json")
         if overlay:
             errors.extend(validate_overlays(overlay, sources, rules))
+    eu_path = root / 'data/coverage/eu-members.json'
+    if eu_path.exists():
+        eu = load(eu_path, 'eu-members.schema.json')
+        if eu:
+            errors.extend(validate_eu_inventory(eu, sources, rules))
     return errors, counts
+
+
+def validate_eu_inventory(inventory, sources, rules):
+    errors = []
+    members = inventory['members']
+    if len({m['member'] for m in members}) != 27:
+        errors.append('eu inventory: duplicate/missing member')
+    for row in [inventory['framework']] + members:
+        ids = set(row['source_ids'])
+        readable = {i for i in ids if sources.get(i, {}).get('status') == 'read_pending_review'}
+        if not ids <= sources.keys() or readable != {e['source_id'] for e in row['evidence']}:
+            errors.append('eu inventory: unavailable or unresolved reading evidence')
+        if len(row['evidence']) != len(readable):
+            errors.append('eu inventory: duplicate evidence')
+        for e in row['evidence']:
+            if any(e[k] != sources.get(e['source_id'], {}).get(k) for k in ('url', 'accessed_at', 'language')):
+                errors.append('eu inventory: evidence differs from catalog')
+        if 'member' in row:
+            target = row['member'] in ('DE', 'FR', 'NL')
+            if target != (row['status'] == 'partial_read_pending_review'):
+                errors.append('eu inventory: target status mismatch')
+            if not target and (ids or row['evidence'] or row['rule_ids']):
+                errors.append('eu inventory: unresearched member claims local coverage')
+            for rid in row['rule_ids']:
+                if rid not in rules or rules[rid]['review']['status'] != 'draft':
+                    errors.append('eu inventory: unresolved or promoted rule')
+    for key in ('document_models', 'exceptions'):
+        if len({r['id'] for r in inventory[key]}) != len(inventory[key]):
+            errors.append('eu inventory: duplicate ' + key)
+        for row in inventory[key]:
+            ids = row.get('source_ids', [row.get('source_id')])
+            if not set(ids) <= sources.keys():
+                errors.append('eu inventory: unresolved document/exception source')
+    return errors
 
 
 def validate_graph(graph, sources):

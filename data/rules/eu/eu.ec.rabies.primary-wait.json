@@ -1,7 +1,7 @@
 {
   "schema_version": "0.1.0",
   "id": "eu.ec.rabies.primary-wait",
-  "revision": 1,
+  "revision": 2,
   "record_class": "official_guidance",
   "authority": "EU-EC",
   "scope": {
@@ -81,6 +81,10 @@
     {
       "en": "Standard non-commercial entry only; tattoo, owner timing, certificate model, country overlays and other exceptions require review.",
       "zh-CN": "仅普通非商业入境；纹身、主人时间关系、证书版本、成员国叠加和其他例外待核。"
+    },
+    {
+      "en": "2026 update: do not reuse this third-country draft for intra-EU or domestic travel; see the Week 6 inventory.",
+      "zh-CN": "2026更新：本第三国草稿不用于欧盟跨成员国或国内；见第6周清单。"
     }
   ],
   "license": "CC-BY-4.0"

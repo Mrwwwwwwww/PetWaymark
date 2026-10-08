@@ -1,11 +1,11 @@
 {
   "schema_version": "0.1.0",
-  "id": "eu.ec.rabies.identification-order",
-  "revision": 2,
+  "id": "eu.ec.intra.rabies.identification-order",
+  "revision": 1,
   "record_class": "official_guidance",
   "authority": "EU-EC",
   "scope": {
-    "origin": "any_non_eu",
+    "origin": "EU",
     "destination": "EU",
     "subdivisions": [],
     "species": [
@@ -13,12 +13,13 @@
       "cat"
     ],
     "transport_modes": [
+      "road",
+      "rail",
       "cabin",
       "checked_baggage",
-      "manifest_cargo",
-      "road"
+      "manifest_cargo"
     ],
-    "movement_category": "non_commercial_pet",
+    "movement_category": "intra_eu_pet",
     "accompaniment": [
       "owner",
       "authorized_person"
@@ -26,12 +27,12 @@
     "travel_history_branch": "any",
     "vaccination_branch": "any",
     "exclusions": {
-      "en": "Standard non-commercial entry only; tattoo, owner timing, certificate model, country overlays and other exceptions require review.",
-      "zh-CN": "仅普通非商业入境；纹身、主人时间关系、证书版本、成员国叠加和其他例外待核。"
+      "en": "Cross-member only; domestic, young-animal, booster, tattoo and destination exceptions remain separately unreviewed.",
+      "zh-CN": "仅跨成员国；国内、幼龄、加强针、纹身及目的地例外另待复核。"
     }
   },
   "validity": {
-    "effective_from": null,
+    "effective_from": "2026-04-22",
     "effective_to": null,
     "applies_at": "entry_at"
   },
@@ -50,24 +51,24 @@
         "zh-CN": "2011年7月3日前施加且清晰可读纹身，需另核身份识别分支。"
       },
       "source_ids": [
-        "eu.ec.non-eu"
+        "eu.ec.intra-eu"
       ],
       "disposition": "needs_confirmation"
     }
   ],
   "source_ids": [
-    "eu.ec.non-eu"
+    "eu.ec.intra-eu"
   ],
   "evidence": [
     {
-      "source_id": "eu.ec.non-eu",
-      "url": "https://food.ec.europa.eu/animals/live-animal-movements/dogs-cats-and-ferrets/bringing-pet-eu-non-eu-country_en",
-      "locator": "Conditions / Rabies vaccination",
+      "source_id": "eu.ec.intra-eu",
+      "url": "https://food.ec.europa.eu/animals/live-animal-movements/dogs-cats-and-ferrets/travelling-pet-within-eu_en",
+      "locator": "Conditions / Rabies vaccination; Exceptions",
       "accessed_at": "2026-10-08",
       "language": "en",
       "summary": {
-        "en": "Microchip identification or reading must not follow rabies vaccination.",
-        "zh-CN": "芯片识别或读取日期不得晚于狂犬病接种日期。"
+        "en": "Cross-member identification, rabies, passport and accompaniment conditions; this page does not govern travel entirely inside one member.",
+        "zh-CN": "跨成员国标识、狂犬、护照和陪同条件；此页不作为单一成员国内移动规则。"
       },
       "content_sha256": null
     }
@@ -85,16 +86,12 @@
   },
   "pending_checks": [
     {
-      "en": "Confirm present applicability and complete the independent human review before publication.",
-      "zh-CN": "发布前核实当前适用性并完成独立人工复核。"
+      "en": "Cross-member only; domestic, young-animal, booster, tattoo and destination exceptions remain separately unreviewed.",
+      "zh-CN": "仅跨成员国；国内、幼龄、加强针、纹身及目的地例外另待复核。"
     },
     {
-      "en": "Standard non-commercial entry only; tattoo, owner timing, certificate model, country overlays and other exceptions require review.",
-      "zh-CN": "仅普通非商业入境；纹身、主人时间关系、证书版本、成员国叠加和其他例外待核。"
-    },
-    {
-      "en": "2026 update: do not reuse this third-country draft for intra-EU or domestic travel; see the Week 6 inventory.",
-      "zh-CN": "2026更新：本第三国草稿不用于欧盟跨成员国或国内；见第6周清单。"
+      "en": "2026/131 and incorporated annexes unavailable/unreviewed; no enforcement.",
+      "zh-CN": "2026/131及援引附件不可读或未复核；不执行。"
     }
   ],
   "license": "CC-BY-4.0"

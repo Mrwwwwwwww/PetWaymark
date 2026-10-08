@@ -88,7 +88,12 @@ def classify(profile):
             gaps.append('high_risk_branch_uncovered')
         elif history != 'only_low_risk_6_months':
             gaps.append('travel_history_unconfirmed')
-    if j.get('destination') == 'EU':
+    eu_domestic = (j.get('origin') == j.get('destination') == 'EU' and
+                   j.get('origin_member') is not None and
+                   j.get('origin_member') == j.get('destination_member'))
+    if j.get('destination') == 'EU' and not eu_domestic:
+        if j.get('owner_moving') is False:
+            gaps.append('owner_not_moving_separate_classification')
         if j.get('accompaniment') == 'unaccompanied':
             gaps.append('movement_classification_unconfirmed')
         if j.get('accompaniment') in ('owner', 'authorized_person'):
@@ -109,6 +114,12 @@ def scope_check(rule, profile):
     """Known mismatch wins over unknown fields; a mismatch never runs comparisons."""
     s, p, j = rule['scope'], profile.get('pet', {}), profile.get('journey', {})
     mismatches, missing = [], []
+    if s['movement_category'] == 'intra_eu_pet':
+        origin, destination = j.get('origin_member'), j.get('destination_member')
+        if origin is None or destination is None:
+            missing.append('eu_member_classification')
+        elif origin == destination:
+            mismatches.append('cross_member_scope_mismatch')
     if (s['movement_category'] in ('all_imports', 'carried_entry') and
             j.get('origin') is not None and j.get('origin') == j.get('destination')):
         mismatches.append('international_entry_scope_mismatch')
