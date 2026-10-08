@@ -9,7 +9,7 @@ from pathlib import Path
 import tarfile
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = '2026.10.08-draft.1'
+VERSION = '2026.10.08-draft.2'
 
 def manifest():
     files = sorted(p for p in (ROOT / 'data').rglob('*') if p.is_file() and p.name != 'VERSION.json')

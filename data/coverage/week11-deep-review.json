@@ -1,0 +1,1202 @@
+{
+  "schema_version": "0.1.0",
+  "dataset_version": "2026.10.08-draft.2",
+  "checked_at": "2026-10-08",
+  "verified_feasible_routes": 0,
+  "corridors": [
+    {
+      "corridor_id": "dom.cn.east",
+      "research_candidate_id": "DOM-CN-EAST",
+      "checked_at": "2026-10-08",
+      "status": "unsupported",
+      "review_status": "draft",
+      "reviewed_by": [],
+      "conclusion": {
+        "en": "Completed desk-research chain with evidence gaps; no whole-route feasibility established.",
+        "zh-CN": "完成逐段案头研究链，结论为证据缺口；未证明全程可行。"
+      },
+      "segments": [
+        {
+          "segment_id": "cn.east.drive",
+          "from_node": "cn.huzhou",
+          "to_node": "cn.qingyuan",
+          "origin_jurisdiction": "CN-ZJ",
+          "destination_jurisdiction": "CN-GD",
+          "transit_jurisdictions": null,
+          "product": "owner_vehicle",
+          "species": [
+            "dog",
+            "cat"
+          ],
+          "travel_date": null,
+          "status": "unsupported",
+          "dated_acceptance": "unknown",
+          "receiving_window": null,
+          "facility_location": null,
+          "custodian": null,
+          "document_custodian": null,
+          "price": null,
+          "evidence": [
+            {
+              "source_id": "cn.road.east-network",
+              "url": "https://mct.gov.cn/wlbphone/wlbydd/ggfw/cxts/202604/t20260422_965538.html",
+              "locator": "2026-04-22 weather bulletin; G25/G50/G60 corridors",
+              "accessed_at": "2026-10-08",
+              "language": "zh-CN",
+              "summary": {
+                "en": "Named existing road corridors support geographic research only; the old weather forecast is not current travel or animal permission evidence.",
+                "zh-CN": "列明既有道路支持地理研究；历史天气预报不能作现行路况或运宠许可。"
+              },
+              "content_sha256": null
+            },
+            {
+              "source_id": "cn.road.south-network",
+              "url": "https://www.gdqy.gov.cn/gdqy/zxzx/bmdt/content/post_1663002.html",
+              "locator": "Transport director interview; existing road connections and planned expansion",
+              "accessed_at": "2026-10-08",
+              "language": "zh-CN",
+              "summary": {
+                "en": "Existing connections with Guangzhou are distinguished from planned expansion; full door-to-door roads, times and restrictions remain unchecked.",
+                "zh-CN": "区分既有广清连接与扩建规划；完整门到门路径、时间及限制待核。"
+              },
+              "content_sha256": null
+            },
+            {
+              "source_id": "cn.moa.quarantine-2022",
+              "url": "https://xmsyj.moa.gov.cn/gzdt/202209/t20220909_6408945.htm",
+              "locator": "Articles 12 and 46; species/local procedure not compiled",
+              "accessed_at": "2026-10-08",
+              "language": "zh-CN",
+              "summary": {
+                "en": "Transport documentation, destination and arrival time need local species-specific review; intermediate provinces and designated passages unknown.",
+                "zh-CN": "运输证件、目的地与运达时间需逐物种属地复核；途经省份及指定通道未知。"
+              },
+              "content_sha256": null
+            }
+          ],
+          "pending_checks": [
+            "current_product_station_or_airport_pair",
+            "travel_date_and_capacity",
+            "exact_handover_facility_and_hours",
+            "named_custody_and_original_documents",
+            "origin_destination_transit_local_rules",
+            "independent_human_review"
+          ]
+        },
+        {
+          "segment_id": "cn.east.road-carrier",
+          "from_node": "cn.huzhou",
+          "to_node": "cn.qingyuan",
+          "origin_jurisdiction": "CN-ZJ",
+          "destination_jurisdiction": "CN-GD",
+          "transit_jurisdictions": null,
+          "product": "unaccompanied_animal_carrier",
+          "species": [
+            "dog",
+            "cat"
+          ],
+          "travel_date": null,
+          "status": "unsupported",
+          "dated_acceptance": "unknown",
+          "receiving_window": null,
+          "facility_location": null,
+          "custodian": null,
+          "document_custodian": null,
+          "price": null,
+          "evidence": [
+            {
+              "source_id": "cn.road.east-network",
+              "url": "https://mct.gov.cn/wlbphone/wlbydd/ggfw/cxts/202604/t20260422_965538.html",
+              "locator": "2026-04-22 weather bulletin; G25/G50/G60 corridors",
+              "accessed_at": "2026-10-08",
+              "language": "zh-CN",
+              "summary": {
+                "en": "Named existing road corridors support geographic research only; the old weather forecast is not current travel or animal permission evidence.",
+                "zh-CN": "列明既有道路支持地理研究；历史天气预报不能作现行路况或运宠许可。"
+              },
+              "content_sha256": null
+            },
+            {
+              "source_id": "cn.road.south-network",
+              "url": "https://www.gdqy.gov.cn/gdqy/zxzx/bmdt/content/post_1663002.html",
+              "locator": "Transport director interview; existing road connections and planned expansion",
+              "accessed_at": "2026-10-08",
+              "language": "zh-CN",
+              "summary": {
+                "en": "Existing connections with Guangzhou are distinguished from planned expansion; full door-to-door roads, times and restrictions remain unchecked.",
+                "zh-CN": "区分既有广清连接与扩建规划；完整门到门路径、时间及限制待核。"
+              },
+              "content_sha256": null
+            },
+            {
+              "source_id": "cn.moa.quarantine-2022",
+              "url": "https://xmsyj.moa.gov.cn/gzdt/202209/t20220909_6408945.htm",
+              "locator": "Articles 12 and 46; species/local procedure not compiled",
+              "accessed_at": "2026-10-08",
+              "language": "zh-CN",
+              "summary": {
+                "en": "Transport documentation, destination and arrival time need local species-specific review; intermediate provinces and designated passages unknown.",
+                "zh-CN": "运输证件、目的地与运达时间需逐物种属地复核；途经省份及指定通道未知。"
+              },
+              "content_sha256": null
+            }
+          ],
+          "pending_checks": [
+            "current_product_station_or_airport_pair",
+            "travel_date_and_capacity",
+            "exact_handover_facility_and_hours",
+            "named_custody_and_original_documents",
+            "origin_destination_transit_local_rules",
+            "independent_human_review"
+          ]
+        },
+        {
+          "segment_id": "cn.east.pvg-access",
+          "from_node": "cn.huzhou",
+          "to_node": "cn.pvg",
+          "origin_jurisdiction": "CN-ZJ",
+          "destination_jurisdiction": "CN-SH",
+          "transit_jurisdictions": null,
+          "product": "ground_transfer",
+          "species": [
+            "dog",
+            "cat"
+          ],
+          "travel_date": null,
+          "status": "unsupported",
+          "dated_acceptance": "unknown",
+          "receiving_window": null,
+          "facility_location": null,
+          "custodian": null,
+          "document_custodian": null,
+          "price": null,
+          "evidence": [
+            {
+              "source_id": "cn.road.east-network",
+              "url": "https://mct.gov.cn/wlbphone/wlbydd/ggfw/cxts/202604/t20260422_965538.html",
+              "locator": "2026-04-22 weather bulletin; G25/G50/G60 corridors",
+              "accessed_at": "2026-10-08",
+              "language": "zh-CN",
+              "summary": {
+                "en": "Named existing road corridors support geographic research only; the old weather forecast is not current travel or animal permission evidence.",
+                "zh-CN": "列明既有道路支持地理研究；历史天气预报不能作现行路况或运宠许可。"
+              },
+              "content_sha256": null
+            },
+            {
+              "source_id": "cn.moa.quarantine-2022",
+              "url": "https://xmsyj.moa.gov.cn/gzdt/202209/t20220909_6408945.htm",
+              "locator": "Articles 12 and 46; species/local procedure not compiled",
+              "accessed_at": "2026-10-08",
+              "language": "zh-CN",
+              "summary": {
+                "en": "Transport documentation, destination and arrival time need local species-specific review; intermediate provinces and designated passages unknown.",
+                "zh-CN": "运输证件、目的地与运达时间需逐物种属地复核；途经省份及指定通道未知。"
+              },
+              "content_sha256": null
+            }
+          ],
+          "pending_checks": [
+            "current_product_station_or_airport_pair",
+            "travel_date_and_capacity",
+            "exact_handover_facility_and_hours",
+            "named_custody_and_original_documents",
+            "origin_destination_transit_local_rules",
+            "independent_human_review"
+          ]
+        },
+        {
+          "segment_id": "cn.east.can-egress",
+          "from_node": "cn.can",
+          "to_node": "cn.qingyuan",
+          "origin_jurisdiction": "CN-GD",
+          "destination_jurisdiction": "CN-GD",
+          "transit_jurisdictions": null,
+          "product": "ground_transfer",
+          "species": [
+            "dog",
+            "cat"
+          ],
+          "travel_date": null,
+          "status": "unsupported",
+          "dated_acceptance": "unknown",
+          "receiving_window": null,
+          "facility_location": null,
+          "custodian": null,
+          "document_custodian": null,
+          "price": null,
+          "evidence": [
+            {
+              "source_id": "cn.road.south-network",
+              "url": "https://www.gdqy.gov.cn/gdqy/zxzx/bmdt/content/post_1663002.html",
+              "locator": "Transport director interview; existing road connections and planned expansion",
+              "accessed_at": "2026-10-08",
+              "language": "zh-CN",
+              "summary": {
+                "en": "Existing connections with Guangzhou are distinguished from planned expansion; full door-to-door roads, times and restrictions remain unchecked.",
+                "zh-CN": "区分既有广清连接与扩建规划；完整门到门路径、时间及限制待核。"
+              },
+              "content_sha256": null
+            },
+            {
+              "source_id": "cn.moa.quarantine-2022",
+              "url": "https://xmsyj.moa.gov.cn/gzdt/202209/t20220909_6408945.htm",
+              "locator": "Articles 12 and 46; species/local procedure not compiled",
+              "accessed_at": "2026-10-08",
+              "language": "zh-CN",
+              "summary": {
+                "en": "Transport documentation, destination and arrival time need local species-specific review; intermediate provinces and designated passages unknown.",
+                "zh-CN": "运输证件、目的地与运达时间需逐物种属地复核；途经省份及指定通道未知。"
+              },
+              "content_sha256": null
+            }
+          ],
+          "pending_checks": [
+            "current_product_station_or_airport_pair",
+            "travel_date_and_capacity",
+            "exact_handover_facility_and_hours",
+            "named_custody_and_original_documents",
+            "origin_destination_transit_local_rules",
+            "independent_human_review"
+          ]
+        },
+        {
+          "segment_id": "cn.east.rail-access",
+          "from_node": "cn.huzhou",
+          "to_node": "cn.shanghai-hongqiao",
+          "origin_jurisdiction": "CN-ZJ",
+          "destination_jurisdiction": "CN-SH",
+          "transit_jurisdictions": null,
+          "product": "ground_transfer",
+          "species": [
+            "dog",
+            "cat"
+          ],
+          "travel_date": null,
+          "status": "unsupported",
+          "dated_acceptance": "unknown",
+          "receiving_window": null,
+          "facility_location": null,
+          "custodian": null,
+          "document_custodian": null,
+          "price": null,
+          "evidence": [
+            {
+              "source_id": "cn.road.east-network",
+              "url": "https://mct.gov.cn/wlbphone/wlbydd/ggfw/cxts/202604/t20260422_965538.html",
+              "locator": "2026-04-22 weather bulletin; G25/G50/G60 corridors",
+              "accessed_at": "2026-10-08",
+              "language": "zh-CN",
+              "summary": {
+                "en": "Named existing road corridors support geographic research only; the old weather forecast is not current travel or animal permission evidence.",
+                "zh-CN": "列明既有道路支持地理研究；历史天气预报不能作现行路况或运宠许可。"
+              },
+              "content_sha256": null
+            },
+            {
+              "source_id": "cn.moa.quarantine-2022",
+              "url": "https://xmsyj.moa.gov.cn/gzdt/202209/t20220909_6408945.htm",
+              "locator": "Articles 12 and 46; species/local procedure not compiled",
+              "accessed_at": "2026-10-08",
+              "language": "zh-CN",
+              "summary": {
+                "en": "Transport documentation, destination and arrival time need local species-specific review; intermediate provinces and designated passages unknown.",
+                "zh-CN": "运输证件、目的地与运达时间需逐物种属地复核；途经省份及指定通道未知。"
+              },
+              "content_sha256": null
+            }
+          ],
+          "pending_checks": [
+            "current_product_station_or_airport_pair",
+            "travel_date_and_capacity",
+            "exact_handover_facility_and_hours",
+            "named_custody_and_original_documents",
+            "origin_destination_transit_local_rules",
+            "independent_human_review"
+          ]
+        },
+        {
+          "segment_id": "cn.east.rail-egress",
+          "from_node": "cn.guangzhou-south",
+          "to_node": "cn.qingyuan",
+          "origin_jurisdiction": "CN-GD",
+          "destination_jurisdiction": "CN-GD",
+          "transit_jurisdictions": null,
+          "product": "ground_transfer",
+          "species": [
+            "dog",
+            "cat"
+          ],
+          "travel_date": null,
+          "status": "unsupported",
+          "dated_acceptance": "unknown",
+          "receiving_window": null,
+          "facility_location": null,
+          "custodian": null,
+          "document_custodian": null,
+          "price": null,
+          "evidence": [
+            {
+              "source_id": "cn.road.south-network",
+              "url": "https://www.gdqy.gov.cn/gdqy/zxzx/bmdt/content/post_1663002.html",
+              "locator": "Transport director interview; existing road connections and planned expansion",
+              "accessed_at": "2026-10-08",
+              "language": "zh-CN",
+              "summary": {
+                "en": "Existing connections with Guangzhou are distinguished from planned expansion; full door-to-door roads, times and restrictions remain unchecked.",
+                "zh-CN": "区分既有广清连接与扩建规划；完整门到门路径、时间及限制待核。"
+              },
+              "content_sha256": null
+            },
+            {
+              "source_id": "cn.moa.quarantine-2022",
+              "url": "https://xmsyj.moa.gov.cn/gzdt/202209/t20220909_6408945.htm",
+              "locator": "Articles 12 and 46; species/local procedure not compiled",
+              "accessed_at": "2026-10-08",
+              "language": "zh-CN",
+              "summary": {
+                "en": "Transport documentation, destination and arrival time need local species-specific review; intermediate provinces and designated passages unknown.",
+                "zh-CN": "运输证件、目的地与运达时间需逐物种属地复核；途经省份及指定通道未知。"
+              },
+              "content_sha256": null
+            }
+          ],
+          "pending_checks": [
+            "current_product_station_or_airport_pair",
+            "travel_date_and_capacity",
+            "exact_handover_facility_and_hours",
+            "named_custody_and_original_documents",
+            "origin_destination_transit_local_rules",
+            "independent_human_review"
+          ]
+        },
+        {
+          "segment_id": "cn.east.air",
+          "from_node": "cn.pvg",
+          "to_node": "cn.can",
+          "origin_jurisdiction": "CN-SH",
+          "destination_jurisdiction": "CN-GD",
+          "transit_jurisdictions": null,
+          "product": "mu_passenger_pet_baggage",
+          "species": [
+            "dog",
+            "cat"
+          ],
+          "travel_date": null,
+          "status": "unsupported",
+          "dated_acceptance": "unknown",
+          "receiving_window": null,
+          "facility_location": null,
+          "custodian": null,
+          "document_custodian": null,
+          "price": null,
+          "evidence": [
+            {
+              "source_id": "cn.air.mu-pet",
+              "url": "https://global.ceair.com/global/static/Announcement/TravelTips/SpecialPassengerServiceNotice/LittleAnimal/",
+              "locator": "II.1–3; VIII.2(e); IX.1–4",
+              "accessed_at": "2026-10-08",
+              "language": "zh-CN",
+              "summary": {
+                "en": "MU/FM actual direct passenger baggage: flat-faced cats/dogs not accepted. Forecast extrema at inclusive −12/30 C boundaries are caution text, not automatic prohibition. Airport/aircraft/date approval pending; cargo/cabin not inferred.",
+                "zh-CN": "东上航实际直达旅客行李产品拒收扁鼻犬猫；预报温度含−12/30℃边界为谨慎提示，非自动禁令。机场、机型、日期接受待核，不外推货运／客舱。"
+              },
+              "content_sha256": null
+            }
+          ],
+          "pending_checks": [
+            "current_product_station_or_airport_pair",
+            "travel_date_and_capacity",
+            "exact_handover_facility_and_hours",
+            "named_custody_and_original_documents",
+            "origin_destination_transit_local_rules",
+            "independent_human_review"
+          ]
+        },
+        {
+          "segment_id": "cn.east.rail-owner-accompanied",
+          "from_node": "cn.shanghai-hongqiao",
+          "to_node": "cn.guangzhou-south",
+          "origin_jurisdiction": "CN-SH",
+          "destination_jurisdiction": "CN-GD",
+          "transit_jurisdictions": null,
+          "product": "rail_owner_accompanied",
+          "species": [
+            "dog",
+            "cat"
+          ],
+          "travel_date": null,
+          "status": "unsupported",
+          "dated_acceptance": "unknown",
+          "receiving_window": null,
+          "facility_location": null,
+          "custodian": null,
+          "document_custodian": null,
+          "price": null,
+          "evidence": [
+            {
+              "source_id": "cn.rail.pet-2026",
+              "url": "https://www.rails.cn/html/news/2/2026/20260410_68532.html",
+              "locator": "2026-04-08 launch; product conditions and appointment paragraph",
+              "accessed_at": "2026-10-08",
+              "language": "zh-CN",
+              "summary": {
+                "en": "Two separated-transport products for healthy domestic dogs/cats: accompanied booking cutoff differs from unaccompanied 2–5 days. Dimensions and quarantine certificate required; no dated station-pair capacity shown.",
+                "zh-CN": "双产品均为人宠分离运输；同行预约分12时截止，独行提前2—5天。犬猫健康、体尺、检疫证明要求不等于日期限定站对运力。"
+              },
+              "content_sha256": null
+            },
+            {
+              "source_id": "cn.rail.shanghai-2026",
+              "url": "https://www.shanghai.gov.cn/nw17239/20260410/a104c2fd73064ff9a9c370ed07015a43.html",
+              "locator": "Hard requirements versus national product paragraph; G1301 listing",
+              "accessed_at": "2026-10-08",
+              "language": "zh-CN",
+              "summary": {
+                "en": "G1301 Shanghai Hongqiao→Guangzhou South is a historical lead. Local box/certificate description differs from national supplied-box description; operator resolution required.",
+                "zh-CN": "G1301上海虹桥→广州南仅历史线索；当地箱具／证件描述与全国提供运输箱描述有差异，需实际运营方澄清。"
+              },
+              "content_sha256": null
+            }
+          ],
+          "pending_checks": [
+            "current_product_station_or_airport_pair",
+            "travel_date_and_capacity",
+            "exact_handover_facility_and_hours",
+            "named_custody_and_original_documents",
+            "origin_destination_transit_local_rules",
+            "independent_human_review"
+          ]
+        },
+        {
+          "segment_id": "cn.east.rail-unaccompanied",
+          "from_node": "cn.shanghai-hongqiao",
+          "to_node": "cn.guangzhou-south",
+          "origin_jurisdiction": "CN-SH",
+          "destination_jurisdiction": "CN-GD",
+          "transit_jurisdictions": null,
+          "product": "rail_unaccompanied",
+          "species": [
+            "dog",
+            "cat"
+          ],
+          "travel_date": null,
+          "status": "unsupported",
+          "dated_acceptance": "unknown",
+          "receiving_window": null,
+          "facility_location": null,
+          "custodian": null,
+          "document_custodian": null,
+          "price": null,
+          "evidence": [
+            {
+              "source_id": "cn.rail.pet-2026",
+              "url": "https://www.rails.cn/html/news/2/2026/20260410_68532.html",
+              "locator": "2026-04-08 launch; product conditions and appointment paragraph",
+              "accessed_at": "2026-10-08",
+              "language": "zh-CN",
+              "summary": {
+                "en": "Two separated-transport products for healthy domestic dogs/cats: accompanied booking cutoff differs from unaccompanied 2–5 days. Dimensions and quarantine certificate required; no dated station-pair capacity shown.",
+                "zh-CN": "双产品均为人宠分离运输；同行预约分12时截止，独行提前2—5天。犬猫健康、体尺、检疫证明要求不等于日期限定站对运力。"
+              },
+              "content_sha256": null
+            },
+            {
+              "source_id": "cn.rail.shanghai-2026",
+              "url": "https://www.shanghai.gov.cn/nw17239/20260410/a104c2fd73064ff9a9c370ed07015a43.html",
+              "locator": "Hard requirements versus national product paragraph; G1301 listing",
+              "accessed_at": "2026-10-08",
+              "language": "zh-CN",
+              "summary": {
+                "en": "G1301 Shanghai Hongqiao→Guangzhou South is a historical lead. Local box/certificate description differs from national supplied-box description; operator resolution required.",
+                "zh-CN": "G1301上海虹桥→广州南仅历史线索；当地箱具／证件描述与全国提供运输箱描述有差异，需实际运营方澄清。"
+              },
+              "content_sha256": null
+            }
+          ],
+          "pending_checks": [
+            "current_product_station_or_airport_pair",
+            "travel_date_and_capacity",
+            "exact_handover_facility_and_hours",
+            "named_custody_and_original_documents",
+            "origin_destination_transit_local_rules",
+            "independent_human_review"
+          ]
+        }
+      ]
+    },
+    {
+      "corridor_id": "dom.cn.south",
+      "research_candidate_id": "DOM-CN-SOUTH",
+      "checked_at": "2026-10-08",
+      "status": "unsupported",
+      "review_status": "draft",
+      "reviewed_by": [],
+      "conclusion": {
+        "en": "Completed desk-research chain with evidence gaps; no whole-route feasibility established.",
+        "zh-CN": "完成逐段案头研究链，结论为证据缺口；未证明全程可行。"
+      },
+      "segments": [
+        {
+          "segment_id": "cn.south.drive",
+          "from_node": "cn.qingyuan",
+          "to_node": "cn.langfang",
+          "origin_jurisdiction": "CN-GD",
+          "destination_jurisdiction": "CN-HE",
+          "transit_jurisdictions": null,
+          "product": "owner_vehicle",
+          "species": [
+            "dog",
+            "cat"
+          ],
+          "travel_date": null,
+          "status": "unsupported",
+          "dated_acceptance": "unknown",
+          "receiving_window": null,
+          "facility_location": null,
+          "custodian": null,
+          "document_custodian": null,
+          "price": null,
+          "evidence": [
+            {
+              "source_id": "cn.road.south-network",
+              "url": "https://www.gdqy.gov.cn/gdqy/zxzx/bmdt/content/post_1663002.html",
+              "locator": "Transport director interview; existing road connections and planned expansion",
+              "accessed_at": "2026-10-08",
+              "language": "zh-CN",
+              "summary": {
+                "en": "Existing connections with Guangzhou are distinguished from planned expansion; full door-to-door roads, times and restrictions remain unchecked.",
+                "zh-CN": "区分既有广清连接与扩建规划；完整门到门路径、时间及限制待核。"
+              },
+              "content_sha256": null
+            },
+            {
+              "source_id": "cn.moa.quarantine-2022",
+              "url": "https://xmsyj.moa.gov.cn/gzdt/202209/t20220909_6408945.htm",
+              "locator": "Articles 12 and 46; species/local procedure not compiled",
+              "accessed_at": "2026-10-08",
+              "language": "zh-CN",
+              "summary": {
+                "en": "Transport documentation, destination and arrival time need local species-specific review; intermediate provinces and designated passages unknown.",
+                "zh-CN": "运输证件、目的地与运达时间需逐物种属地复核；途经省份及指定通道未知。"
+              },
+              "content_sha256": null
+            }
+          ],
+          "pending_checks": [
+            "current_product_station_or_airport_pair",
+            "travel_date_and_capacity",
+            "exact_handover_facility_and_hours",
+            "named_custody_and_original_documents",
+            "origin_destination_transit_local_rules",
+            "independent_human_review"
+          ]
+        },
+        {
+          "segment_id": "cn.south.road-carrier",
+          "from_node": "cn.qingyuan",
+          "to_node": "cn.langfang",
+          "origin_jurisdiction": "CN-GD",
+          "destination_jurisdiction": "CN-HE",
+          "transit_jurisdictions": null,
+          "product": "unaccompanied_animal_carrier",
+          "species": [
+            "dog",
+            "cat"
+          ],
+          "travel_date": null,
+          "status": "unsupported",
+          "dated_acceptance": "unknown",
+          "receiving_window": null,
+          "facility_location": null,
+          "custodian": null,
+          "document_custodian": null,
+          "price": null,
+          "evidence": [
+            {
+              "source_id": "cn.road.south-network",
+              "url": "https://www.gdqy.gov.cn/gdqy/zxzx/bmdt/content/post_1663002.html",
+              "locator": "Transport director interview; existing road connections and planned expansion",
+              "accessed_at": "2026-10-08",
+              "language": "zh-CN",
+              "summary": {
+                "en": "Existing connections with Guangzhou are distinguished from planned expansion; full door-to-door roads, times and restrictions remain unchecked.",
+                "zh-CN": "区分既有广清连接与扩建规划；完整门到门路径、时间及限制待核。"
+              },
+              "content_sha256": null
+            },
+            {
+              "source_id": "cn.moa.quarantine-2022",
+              "url": "https://xmsyj.moa.gov.cn/gzdt/202209/t20220909_6408945.htm",
+              "locator": "Articles 12 and 46; species/local procedure not compiled",
+              "accessed_at": "2026-10-08",
+              "language": "zh-CN",
+              "summary": {
+                "en": "Transport documentation, destination and arrival time need local species-specific review; intermediate provinces and designated passages unknown.",
+                "zh-CN": "运输证件、目的地与运达时间需逐物种属地复核；途经省份及指定通道未知。"
+              },
+              "content_sha256": null
+            }
+          ],
+          "pending_checks": [
+            "current_product_station_or_airport_pair",
+            "travel_date_and_capacity",
+            "exact_handover_facility_and_hours",
+            "named_custody_and_original_documents",
+            "origin_destination_transit_local_rules",
+            "independent_human_review"
+          ]
+        },
+        {
+          "segment_id": "cn.south.can-access",
+          "from_node": "cn.qingyuan",
+          "to_node": "cn.can",
+          "origin_jurisdiction": "CN-GD",
+          "destination_jurisdiction": "CN-GD",
+          "transit_jurisdictions": null,
+          "product": "ground_transfer",
+          "species": [
+            "dog",
+            "cat"
+          ],
+          "travel_date": null,
+          "status": "unsupported",
+          "dated_acceptance": "unknown",
+          "receiving_window": null,
+          "facility_location": null,
+          "custodian": null,
+          "document_custodian": null,
+          "price": null,
+          "evidence": [
+            {
+              "source_id": "cn.road.south-network",
+              "url": "https://www.gdqy.gov.cn/gdqy/zxzx/bmdt/content/post_1663002.html",
+              "locator": "Transport director interview; existing road connections and planned expansion",
+              "accessed_at": "2026-10-08",
+              "language": "zh-CN",
+              "summary": {
+                "en": "Existing connections with Guangzhou are distinguished from planned expansion; full door-to-door roads, times and restrictions remain unchecked.",
+                "zh-CN": "区分既有广清连接与扩建规划；完整门到门路径、时间及限制待核。"
+              },
+              "content_sha256": null
+            },
+            {
+              "source_id": "cn.moa.quarantine-2022",
+              "url": "https://xmsyj.moa.gov.cn/gzdt/202209/t20220909_6408945.htm",
+              "locator": "Articles 12 and 46; species/local procedure not compiled",
+              "accessed_at": "2026-10-08",
+              "language": "zh-CN",
+              "summary": {
+                "en": "Transport documentation, destination and arrival time need local species-specific review; intermediate provinces and designated passages unknown.",
+                "zh-CN": "运输证件、目的地与运达时间需逐物种属地复核；途经省份及指定通道未知。"
+              },
+              "content_sha256": null
+            }
+          ],
+          "pending_checks": [
+            "current_product_station_or_airport_pair",
+            "travel_date_and_capacity",
+            "exact_handover_facility_and_hours",
+            "named_custody_and_original_documents",
+            "origin_destination_transit_local_rules",
+            "independent_human_review"
+          ]
+        },
+        {
+          "segment_id": "cn.south.pek-egress",
+          "from_node": "cn.pek",
+          "to_node": "cn.langfang",
+          "origin_jurisdiction": "CN-BJ",
+          "destination_jurisdiction": "CN-HE",
+          "transit_jurisdictions": null,
+          "product": "ground_transfer",
+          "species": [
+            "dog",
+            "cat"
+          ],
+          "travel_date": null,
+          "status": "unsupported",
+          "dated_acceptance": "unknown",
+          "receiving_window": null,
+          "facility_location": null,
+          "custodian": null,
+          "document_custodian": null,
+          "price": null,
+          "evidence": [
+            {
+              "source_id": "cn.road.south-network",
+              "url": "https://www.gdqy.gov.cn/gdqy/zxzx/bmdt/content/post_1663002.html",
+              "locator": "Transport director interview; existing road connections and planned expansion",
+              "accessed_at": "2026-10-08",
+              "language": "zh-CN",
+              "summary": {
+                "en": "Existing connections with Guangzhou are distinguished from planned expansion; full door-to-door roads, times and restrictions remain unchecked.",
+                "zh-CN": "区分既有广清连接与扩建规划；完整门到门路径、时间及限制待核。"
+              },
+              "content_sha256": null
+            },
+            {
+              "source_id": "cn.moa.quarantine-2022",
+              "url": "https://xmsyj.moa.gov.cn/gzdt/202209/t20220909_6408945.htm",
+              "locator": "Articles 12 and 46; species/local procedure not compiled",
+              "accessed_at": "2026-10-08",
+              "language": "zh-CN",
+              "summary": {
+                "en": "Transport documentation, destination and arrival time need local species-specific review; intermediate provinces and designated passages unknown.",
+                "zh-CN": "运输证件、目的地与运达时间需逐物种属地复核；途经省份及指定通道未知。"
+              },
+              "content_sha256": null
+            }
+          ],
+          "pending_checks": [
+            "current_product_station_or_airport_pair",
+            "travel_date_and_capacity",
+            "exact_handover_facility_and_hours",
+            "named_custody_and_original_documents",
+            "origin_destination_transit_local_rules",
+            "independent_human_review"
+          ]
+        },
+        {
+          "segment_id": "cn.south.rail-access",
+          "from_node": "cn.qingyuan",
+          "to_node": "cn.guangzhou-south",
+          "origin_jurisdiction": "CN-GD",
+          "destination_jurisdiction": "CN-GD",
+          "transit_jurisdictions": null,
+          "product": "ground_transfer",
+          "species": [
+            "dog",
+            "cat"
+          ],
+          "travel_date": null,
+          "status": "unsupported",
+          "dated_acceptance": "unknown",
+          "receiving_window": null,
+          "facility_location": null,
+          "custodian": null,
+          "document_custodian": null,
+          "price": null,
+          "evidence": [
+            {
+              "source_id": "cn.road.south-network",
+              "url": "https://www.gdqy.gov.cn/gdqy/zxzx/bmdt/content/post_1663002.html",
+              "locator": "Transport director interview; existing road connections and planned expansion",
+              "accessed_at": "2026-10-08",
+              "language": "zh-CN",
+              "summary": {
+                "en": "Existing connections with Guangzhou are distinguished from planned expansion; full door-to-door roads, times and restrictions remain unchecked.",
+                "zh-CN": "区分既有广清连接与扩建规划；完整门到门路径、时间及限制待核。"
+              },
+              "content_sha256": null
+            },
+            {
+              "source_id": "cn.moa.quarantine-2022",
+              "url": "https://xmsyj.moa.gov.cn/gzdt/202209/t20220909_6408945.htm",
+              "locator": "Articles 12 and 46; species/local procedure not compiled",
+              "accessed_at": "2026-10-08",
+              "language": "zh-CN",
+              "summary": {
+                "en": "Transport documentation, destination and arrival time need local species-specific review; intermediate provinces and designated passages unknown.",
+                "zh-CN": "运输证件、目的地与运达时间需逐物种属地复核；途经省份及指定通道未知。"
+              },
+              "content_sha256": null
+            }
+          ],
+          "pending_checks": [
+            "current_product_station_or_airport_pair",
+            "travel_date_and_capacity",
+            "exact_handover_facility_and_hours",
+            "named_custody_and_original_documents",
+            "origin_destination_transit_local_rules",
+            "independent_human_review"
+          ]
+        },
+        {
+          "segment_id": "cn.south.rail-egress",
+          "from_node": "cn.beijing-west",
+          "to_node": "cn.langfang",
+          "origin_jurisdiction": "CN-BJ",
+          "destination_jurisdiction": "CN-HE",
+          "transit_jurisdictions": null,
+          "product": "ground_transfer",
+          "species": [
+            "dog",
+            "cat"
+          ],
+          "travel_date": null,
+          "status": "unsupported",
+          "dated_acceptance": "unknown",
+          "receiving_window": null,
+          "facility_location": null,
+          "custodian": null,
+          "document_custodian": null,
+          "price": null,
+          "evidence": [
+            {
+              "source_id": "cn.road.south-network",
+              "url": "https://www.gdqy.gov.cn/gdqy/zxzx/bmdt/content/post_1663002.html",
+              "locator": "Transport director interview; existing road connections and planned expansion",
+              "accessed_at": "2026-10-08",
+              "language": "zh-CN",
+              "summary": {
+                "en": "Existing connections with Guangzhou are distinguished from planned expansion; full door-to-door roads, times and restrictions remain unchecked.",
+                "zh-CN": "区分既有广清连接与扩建规划；完整门到门路径、时间及限制待核。"
+              },
+              "content_sha256": null
+            },
+            {
+              "source_id": "cn.moa.quarantine-2022",
+              "url": "https://xmsyj.moa.gov.cn/gzdt/202209/t20220909_6408945.htm",
+              "locator": "Articles 12 and 46; species/local procedure not compiled",
+              "accessed_at": "2026-10-08",
+              "language": "zh-CN",
+              "summary": {
+                "en": "Transport documentation, destination and arrival time need local species-specific review; intermediate provinces and designated passages unknown.",
+                "zh-CN": "运输证件、目的地与运达时间需逐物种属地复核；途经省份及指定通道未知。"
+              },
+              "content_sha256": null
+            }
+          ],
+          "pending_checks": [
+            "current_product_station_or_airport_pair",
+            "travel_date_and_capacity",
+            "exact_handover_facility_and_hours",
+            "named_custody_and_original_documents",
+            "origin_destination_transit_local_rules",
+            "independent_human_review"
+          ]
+        },
+        {
+          "segment_id": "cn.south.air",
+          "from_node": "cn.can",
+          "to_node": "cn.pek",
+          "origin_jurisdiction": "CN-GD",
+          "destination_jurisdiction": "CN-BJ",
+          "transit_jurisdictions": null,
+          "product": "cz_passenger_pet_baggage",
+          "species": [
+            "dog",
+            "cat"
+          ],
+          "travel_date": null,
+          "status": "unsupported",
+          "dated_acceptance": "unknown",
+          "receiving_window": null,
+          "facility_location": null,
+          "custodian": null,
+          "document_custodian": null,
+          "price": null,
+          "evidence": [
+            {
+              "source_id": "cn.air.cz-pet",
+              "url": "https://www.csair.com/tw/tc/tourguide/luggage_service/pet/",
+              "locator": "I(3); II(2),(5),(6),(10)",
+              "accessed_at": "2026-10-08",
+              "language": "zh-CN",
+              "summary": {
+                "en": "CZ direct passenger baggage excludes short-nosed cats/dogs. Temperature caution is outside inclusive −12..30 C, distinct from MU. Actual flight, aircraft and approval unknown; no seasonal blanket ban inferred.",
+                "zh-CN": "南航直达旅客行李产品拒收短鼻犬猫；温度提示为闭区间−12..30℃之外，与东航不同。实际航班、机型与接受未知，不推导通用季节禁令。"
+              },
+              "content_sha256": null
+            }
+          ],
+          "pending_checks": [
+            "current_product_station_or_airport_pair",
+            "travel_date_and_capacity",
+            "exact_handover_facility_and_hours",
+            "named_custody_and_original_documents",
+            "origin_destination_transit_local_rules",
+            "independent_human_review"
+          ]
+        },
+        {
+          "segment_id": "cn.south.rail-owner-accompanied",
+          "from_node": "cn.guangzhou-south",
+          "to_node": "cn.beijing-west",
+          "origin_jurisdiction": "CN-GD",
+          "destination_jurisdiction": "CN-BJ",
+          "transit_jurisdictions": null,
+          "product": "rail_owner_accompanied",
+          "species": [
+            "dog",
+            "cat"
+          ],
+          "travel_date": null,
+          "status": "unsupported",
+          "dated_acceptance": "unknown",
+          "receiving_window": null,
+          "facility_location": null,
+          "custodian": null,
+          "document_custodian": null,
+          "price": null,
+          "evidence": [
+            {
+              "source_id": "cn.rail.pet-2026",
+              "url": "https://www.rails.cn/html/news/2/2026/20260410_68532.html",
+              "locator": "2026-04-08 launch; product conditions and appointment paragraph",
+              "accessed_at": "2026-10-08",
+              "language": "zh-CN",
+              "summary": {
+                "en": "Two separated-transport products for healthy domestic dogs/cats: accompanied booking cutoff differs from unaccompanied 2–5 days. Dimensions and quarantine certificate required; no dated station-pair capacity shown.",
+                "zh-CN": "双产品均为人宠分离运输；同行预约分12时截止，独行提前2—5天。犬猫健康、体尺、检疫证明要求不等于日期限定站对运力。"
+              },
+              "content_sha256": null
+            },
+            {
+              "source_id": "cn.rail.stations-2025",
+              "url": "https://www.beijing.gov.cn/fuwu/bmfw/sy/jrts/202506/t20250623_4118838.html",
+              "locator": "2025-06-20 station expansion; no reverse pair/date guarantee",
+              "accessed_at": "2026-10-08",
+              "language": "zh-CN",
+              "summary": {
+                "en": "Guangzhou South and Beijing West listed historically; direction/product/date pair unknown. The 2025 one-pet accompanied limit is not current 2026 product evidence.",
+                "zh-CN": "广州南、北京西历史名单非方向／产品／日期站对证明；2025同行一只限制不能覆盖2026双产品。"
+              },
+              "content_sha256": null
+            }
+          ],
+          "pending_checks": [
+            "current_product_station_or_airport_pair",
+            "travel_date_and_capacity",
+            "exact_handover_facility_and_hours",
+            "named_custody_and_original_documents",
+            "origin_destination_transit_local_rules",
+            "independent_human_review"
+          ]
+        },
+        {
+          "segment_id": "cn.south.rail-unaccompanied",
+          "from_node": "cn.guangzhou-south",
+          "to_node": "cn.beijing-west",
+          "origin_jurisdiction": "CN-GD",
+          "destination_jurisdiction": "CN-BJ",
+          "transit_jurisdictions": null,
+          "product": "rail_unaccompanied",
+          "species": [
+            "dog",
+            "cat"
+          ],
+          "travel_date": null,
+          "status": "unsupported",
+          "dated_acceptance": "unknown",
+          "receiving_window": null,
+          "facility_location": null,
+          "custodian": null,
+          "document_custodian": null,
+          "price": null,
+          "evidence": [
+            {
+              "source_id": "cn.rail.pet-2026",
+              "url": "https://www.rails.cn/html/news/2/2026/20260410_68532.html",
+              "locator": "2026-04-08 launch; product conditions and appointment paragraph",
+              "accessed_at": "2026-10-08",
+              "language": "zh-CN",
+              "summary": {
+                "en": "Two separated-transport products for healthy domestic dogs/cats: accompanied booking cutoff differs from unaccompanied 2–5 days. Dimensions and quarantine certificate required; no dated station-pair capacity shown.",
+                "zh-CN": "双产品均为人宠分离运输；同行预约分12时截止，独行提前2—5天。犬猫健康、体尺、检疫证明要求不等于日期限定站对运力。"
+              },
+              "content_sha256": null
+            },
+            {
+              "source_id": "cn.rail.stations-2025",
+              "url": "https://www.beijing.gov.cn/fuwu/bmfw/sy/jrts/202506/t20250623_4118838.html",
+              "locator": "2025-06-20 station expansion; no reverse pair/date guarantee",
+              "accessed_at": "2026-10-08",
+              "language": "zh-CN",
+              "summary": {
+                "en": "Guangzhou South and Beijing West listed historically; direction/product/date pair unknown. The 2025 one-pet accompanied limit is not current 2026 product evidence.",
+                "zh-CN": "广州南、北京西历史名单非方向／产品／日期站对证明；2025同行一只限制不能覆盖2026双产品。"
+              },
+              "content_sha256": null
+            }
+          ],
+          "pending_checks": [
+            "current_product_station_or_airport_pair",
+            "travel_date_and_capacity",
+            "exact_handover_facility_and_hours",
+            "named_custody_and_original_documents",
+            "origin_destination_transit_local_rules",
+            "independent_human_review"
+          ]
+        }
+      ]
+    }
+  ],
+  "ground_qualification_checks": [
+    {
+      "activity": "owner_vehicle",
+      "jurisdictions": [
+        "CN-BJ",
+        "CN-GD",
+        "CN-HE",
+        "CN-SH",
+        "CN-ZJ"
+      ],
+      "entity_name": null,
+      "registration": "unknown",
+      "licensing_applicability": "unknown",
+      "license_status": "unknown",
+      "vehicle_and_driver": "unknown",
+      "animal_documents": "unknown",
+      "capability": "unknown",
+      "dated_acceptance": "unknown",
+      "affiliation": {
+        "en": "No entity selected; no sponsorship, commission or referral arrangement.",
+        "zh-CN": "未选定主体，无赞助、佣金或转介安排。"
+      },
+      "evidence": [
+        {
+          "source_id": "cn.mot.freight-2026",
+          "url": "https://xxgk.mot.gov.cn/jigou/fgs/202602/t20260213_4200284.html",
+          "locator": "Articles 2, 6, 8, 15, 17, 20; effective 2026-03-20",
+          "accessed_at": "2026-10-08",
+          "language": "zh-CN",
+          "summary": {
+            "en": "Commercial freight registration, licence/vehicle/driver and activity scope are separate. Ordinary freight vehicles ≤4500 kg have a limited exemption; pet activity/vehicle and local applicability unknown. Private owner driving not assumed commercial freight.",
+            "zh-CN": "商业货运登记、许可、车辆、驾驶与活动范围分开；≤4500千克普通货运有特定豁免，犬猫活动／车型及属地适用未知；私人自驾不自动套商业货运。"
+          },
+          "content_sha256": null
+        },
+        {
+          "source_id": "cn.moa.quarantine-2022",
+          "url": "https://xmsyj.moa.gov.cn/gzdt/202209/t20220909_6408945.htm",
+          "locator": "Articles 12 and 46",
+          "accessed_at": "2026-10-08",
+          "language": "zh-CN",
+          "summary": {
+            "en": "Animal quarantine and transport route/time checks remain distinct from transport business licensing. No universal licence number proves acceptance or custody.",
+            "zh-CN": "动物检疫、运输途经／时间与道路经营许可分开；任何单一编号不证明收运或保管。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "access_gaps": [
+        "cn.samr.registry-attempt"
+      ],
+      "pending_checks": [
+        "identified_legal_entity",
+        "exact_vehicle_and_activity",
+        "local_authority_scope",
+        "species_quarantine_procedure",
+        "dated_acceptance_and_custody"
+      ]
+    },
+    {
+      "activity": "ground_transfer",
+      "jurisdictions": [
+        "CN-BJ",
+        "CN-GD",
+        "CN-HE",
+        "CN-SH",
+        "CN-ZJ"
+      ],
+      "entity_name": null,
+      "registration": "unknown",
+      "licensing_applicability": "unknown",
+      "license_status": "unknown",
+      "vehicle_and_driver": "unknown",
+      "animal_documents": "unknown",
+      "capability": "unknown",
+      "dated_acceptance": "unknown",
+      "affiliation": {
+        "en": "No entity selected; no sponsorship, commission or referral arrangement.",
+        "zh-CN": "未选定主体，无赞助、佣金或转介安排。"
+      },
+      "evidence": [
+        {
+          "source_id": "cn.mot.freight-2026",
+          "url": "https://xxgk.mot.gov.cn/jigou/fgs/202602/t20260213_4200284.html",
+          "locator": "Articles 2, 6, 8, 15, 17, 20; effective 2026-03-20",
+          "accessed_at": "2026-10-08",
+          "language": "zh-CN",
+          "summary": {
+            "en": "Commercial freight registration, licence/vehicle/driver and activity scope are separate. Ordinary freight vehicles ≤4500 kg have a limited exemption; pet activity/vehicle and local applicability unknown. Private owner driving not assumed commercial freight.",
+            "zh-CN": "商业货运登记、许可、车辆、驾驶与活动范围分开；≤4500千克普通货运有特定豁免，犬猫活动／车型及属地适用未知；私人自驾不自动套商业货运。"
+          },
+          "content_sha256": null
+        },
+        {
+          "source_id": "cn.moa.quarantine-2022",
+          "url": "https://xmsyj.moa.gov.cn/gzdt/202209/t20220909_6408945.htm",
+          "locator": "Articles 12 and 46",
+          "accessed_at": "2026-10-08",
+          "language": "zh-CN",
+          "summary": {
+            "en": "Animal quarantine and transport route/time checks remain distinct from transport business licensing. No universal licence number proves acceptance or custody.",
+            "zh-CN": "动物检疫、运输途经／时间与道路经营许可分开；任何单一编号不证明收运或保管。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "access_gaps": [
+        "cn.samr.registry-attempt"
+      ],
+      "pending_checks": [
+        "identified_legal_entity",
+        "exact_vehicle_and_activity",
+        "local_authority_scope",
+        "species_quarantine_procedure",
+        "dated_acceptance_and_custody"
+      ]
+    },
+    {
+      "activity": "unaccompanied_animal_carrier",
+      "jurisdictions": [
+        "CN-BJ",
+        "CN-GD",
+        "CN-HE",
+        "CN-SH",
+        "CN-ZJ"
+      ],
+      "entity_name": null,
+      "registration": "unknown",
+      "licensing_applicability": "unknown",
+      "license_status": "unknown",
+      "vehicle_and_driver": "unknown",
+      "animal_documents": "unknown",
+      "capability": "unknown",
+      "dated_acceptance": "unknown",
+      "affiliation": {
+        "en": "No entity selected; no sponsorship, commission or referral arrangement.",
+        "zh-CN": "未选定主体，无赞助、佣金或转介安排。"
+      },
+      "evidence": [
+        {
+          "source_id": "cn.mot.freight-2026",
+          "url": "https://xxgk.mot.gov.cn/jigou/fgs/202602/t20260213_4200284.html",
+          "locator": "Articles 2, 6, 8, 15, 17, 20; effective 2026-03-20",
+          "accessed_at": "2026-10-08",
+          "language": "zh-CN",
+          "summary": {
+            "en": "Commercial freight registration, licence/vehicle/driver and activity scope are separate. Ordinary freight vehicles ≤4500 kg have a limited exemption; pet activity/vehicle and local applicability unknown. Private owner driving not assumed commercial freight.",
+            "zh-CN": "商业货运登记、许可、车辆、驾驶与活动范围分开；≤4500千克普通货运有特定豁免，犬猫活动／车型及属地适用未知；私人自驾不自动套商业货运。"
+          },
+          "content_sha256": null
+        },
+        {
+          "source_id": "cn.moa.quarantine-2022",
+          "url": "https://xmsyj.moa.gov.cn/gzdt/202209/t20220909_6408945.htm",
+          "locator": "Articles 12 and 46",
+          "accessed_at": "2026-10-08",
+          "language": "zh-CN",
+          "summary": {
+            "en": "Animal quarantine and transport route/time checks remain distinct from transport business licensing. No universal licence number proves acceptance or custody.",
+            "zh-CN": "动物检疫、运输途经／时间与道路经营许可分开；任何单一编号不证明收运或保管。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "access_gaps": [
+        "cn.samr.registry-attempt"
+      ],
+      "pending_checks": [
+        "identified_legal_entity",
+        "exact_vehicle_and_activity",
+        "local_authority_scope",
+        "species_quarantine_procedure",
+        "dated_acceptance_and_custody"
+      ]
+    }
+  ]
+}

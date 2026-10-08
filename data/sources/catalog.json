@@ -1200,6 +1200,81 @@
           "zh-CN": "独立合格人工复核、完整附件及操作条件待核。"
         }
       ]
+    },
+    {
+      "id": "cn.mot.freight-2026",
+      "authority": "CN-MOT",
+      "publisher": "Ministry of Transport",
+      "kind": "government",
+      "url": "https://xxgk.mot.gov.cn/jigou/fgs/202602/t20260213_4200284.html",
+      "title": {
+        "en": "Road freight rules, 2026 amendment",
+        "zh-CN": "道路货运2026修正规定"
+      },
+      "language": "zh-CN",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "read_pending_review",
+      "license_boundary": {
+        "en": "Link and original summary only; source rights retained.",
+        "zh-CN": "仅链接及原创摘要；保留原文权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Activity-specific local applicability and independent review remain pending; no entity qualification established.",
+          "zh-CN": "逐活动属地适用与独立复核待核，未证明主体资质。"
+        }
+      ]
+    },
+    {
+      "id": "cn.moa.quarantine-2022",
+      "authority": "CN-MOA",
+      "publisher": "Ministry of Agriculture and Rural Affairs",
+      "kind": "government",
+      "url": "https://xmsyj.moa.gov.cn/gzdt/202209/t20220909_6408945.htm",
+      "title": {
+        "en": "Animal quarantine administration",
+        "zh-CN": "动物检疫管理办法"
+      },
+      "language": "zh-CN",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "read_pending_review",
+      "license_boundary": {
+        "en": "Link and original summary only; source rights retained.",
+        "zh-CN": "仅链接及原创摘要；保留原文权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Activity-specific local applicability and independent review remain pending; no entity qualification established.",
+          "zh-CN": "逐活动属地适用与独立复核待核，未证明主体资质。"
+        }
+      ]
+    },
+    {
+      "id": "cn.samr.registry-attempt",
+      "authority": "CN-SAMR",
+      "publisher": "National Enterprise Credit Information Publicity System",
+      "kind": "government",
+      "url": "https://www.gsxt.gov.cn/",
+      "title": {
+        "en": "Entity registry access attempt",
+        "zh-CN": "主体登记查询尝试"
+      },
+      "language": "zh-CN",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "unavailable",
+      "license_boundary": {
+        "en": "Link and original summary only; source rights retained.",
+        "zh-CN": "仅链接及原创摘要；保留原文权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Activity-specific local applicability and independent review remain pending; no entity qualification established.",
+          "zh-CN": "逐活动属地适用与独立复核待核，未证明主体资质。"
+        }
+      ]
     }
   ]
 }

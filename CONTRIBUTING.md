@@ -15,3 +15,6 @@ High-risk cross-border rules stay `draft` until another qualified human reviewer
 Code and original documentation contributions use Apache-2.0; original curated data uses CC BY 4.0. Only submit material you can license. Preserve upstream attribution and modifications; never relicense evidence texts or third-party assets merely because they are publicly readable.
 
 中文要点：先提供官方依据及定位，再写最小规则和正反例；缺失、过期与冲突必须显式记录。跨境关键条目需要另一位具备语言与领域能力的人工复核者；未到位就保持草稿。不要提交真实身份、订单或未经授权的商业资料。可通过本项目模板提供纠错；勿提交个人材料。
+
+Formal `verified` records require two distinct actual qualified human reviewers, matching the schema/engine gate; all current records remain draft. Preserve public source/revision diffs and affiliations; private evidence must not enter issues. Unsourced reports are leads only.
+正式 verified 记录按schema及内核需两位不同的真实合格人工复核者；公开来源、版本差异及利益披露，私有凭证不入issue，无来源报告仅作待核线索。

@@ -32,7 +32,12 @@
             "enum": [
               "US-CA",
               "US-NY",
-              "US-TX"
+              "US-TX",
+              "CN-BJ",
+              "CN-GD",
+              "CN-HE",
+              "CN-SH",
+              "CN-ZJ"
             ]
           }
         },

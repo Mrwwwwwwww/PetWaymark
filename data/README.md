@@ -18,10 +18,12 @@ status, unknown estimates and pending responsibilities. Original curation is CC 
 
 ## v0.1 package / 独立数据包
 
-Curated package version `2026.10.08-draft.1` is independent of engine `0.1.0`.
+Curated package version `2026.10.08-draft.2` is independent of engine `0.1.0`.
 `VERSION.json` records SHA-256 hashes; `scripts/package_data.py --check` detects drift,
 and `scripts/package_data.py` builds a deterministic archive. All 15 rule records
 remain drafts; no verified route. Component historical versions are preserved.
 
 数据包版本独立于引擎，哈希仅证明文件一致，不证明规则已核。全部15条规则仍为
 草稿、零已验证路线；发布边界见[发布说明](../docs/releases/v0.1.0.md)。
+
+Week 11: [two official desk-research chains and gaps](../docs/research/week11/README.md). Both remain unsupported; no route promotion. / 两条逐段官方案头研究，均缺口，不升级路线。

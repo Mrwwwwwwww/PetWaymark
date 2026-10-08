@@ -1,15 +1,15 @@
 {
-  "dataset_version": "2026.10.08-draft.1",
+  "dataset_version": "2026.10.08-draft.2",
   "compatible_engine": "0.1.0",
   "status": "draft",
   "verified_rules": 0,
   "verified_feasible_routes": 0,
   "license": "CC-BY-4.0",
   "files": {
-    "data/README.md": "f0075f965da45821103df0bee7cd3123a8bda66adba6d6c66e8f3b31e9795df9",
+    "data/README.md": "7c6cf10d8f2f0641a00ab53e3bbeb49e2108766e5f0f0873d47e35c210cfe948",
     "data/airports/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "data/corridors/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "data/corridors/cn-preview.json": "f5335891d6b61a84ad14450b3504582557b1b7a6a31c760b27320853aa22c5a3",
+    "data/corridors/cn-preview.json": "24ee06481f0c0cc89dafa50e1af880bb4a71f1e1dbe6ededb8f6aa1986fff286",
     "data/corridors/us-preview.json": "fd053dd611b6fddf59998368754bd028b0cc02f7ae7b598315627bb4e16a8be3",
     "data/coverage/cn-inbound.json": "11b9e539de95d3904d8e9fa02a1b70daef1f0fbdc0e2e619817146b872caabac",
     "data/coverage/cn-outbound.json": "deb75f41ef7a605f29b1b6a3c79463b97b76304c8008bed64eaecd371251877a",
@@ -17,6 +17,7 @@
     "data/coverage/us-eu.json": "f8b6a47f89ca5e395802f0b7ffbb835c21cb3f6d0bca5d0e002872ac6fdfcce0",
     "data/coverage/us-state-overlays.json": "131d343f6a1906cb17e200b19b3abb577c91da007a8944b49b1c4ff4af782fc4",
     "data/coverage/week1-candidates.json": "28769f920a95537af7f9b9f9f24ea1952a3294e13dc56be03b17156f45562f5a",
+    "data/coverage/week11-deep-review.json": "e6e0b4123369b3457cfbcfb3b91d9a5ffb119d3c62f1278ba5bfe47be602e8eb",
     "data/coverage/week9-audit.json": "54fec8f119db5113755f5e06bf0d379e9d1cf091a25def0b9a3dfd2472bf8a86",
     "data/coverage/week9-matrix.md": "fb75eac07ab112d693bbece0c54986a6e9695e2a418bdbadddba78695308ef9e",
     "data/providers/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -41,7 +42,7 @@
     "data/rules/us/us.cdc.dog.low-risk.microchip.json": "b41287020230c48a62f2ce463d673ce3b31a06b809b3612d6430371110662a3e",
     "data/rules/us/us.cdc.dog.low-risk.minimum-age.json": "ec8b29bc303f1e07bcb735def8bdfaa586147631043071283fd80baa313a05f2",
     "data/rules/us/us.cdc.dog.low-risk.receipt.json": "10d67dcbf8f3528ddf3440b5448e8baffe4bfa7fc85f0a69a61e9e2bdaf06bad",
-    "data/sources/catalog.json": "b5c324385487e1d0847a1c01d8fc2c1ee9dfd252fa332013595d8b9d209ef630",
+    "data/sources/catalog.json": "2ff07e084dc04701dbbfd07200154aff28441f8b8855c0d98ad12fb99667df23",
     "data/sources/week1-research-index.json": "a1d612e860c0d4505193890cfe667b006f473db39bc6c0ed17bf811c2410a455"
   }
 }

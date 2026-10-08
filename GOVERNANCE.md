@@ -13,3 +13,6 @@ Apply the same inclusion, evidence, ranking and interface access standards to al
 项目以帮助宠物主人为目的，纯公益、免费开放，与任何商业品牌无关。任何合规服务商都可平等通过开放接口接入；项目不经营、不收单、不偏向任何商家，服务对接／跳转到服务商自有渠道。统一收录、证据与排序标准，继续执行利益披露、回避、合规和安全要求。
 
 首发前由项目所有者明确实际维护者与私密报告渠道；当前不虚构人员、联系方式、复核签名或服务时限承诺。
+
+No bidding, paid placement, commissions, referral tracking, traffic exchange or provider promotion. Official/entity-owned policy channels only. Inclusion, correction and removal use the same scoped evidence/current review criteria; an unavailable or disputed record stays a visible gap, never a fulfillment endorsement. No agreed regional reviewers are recorded.
+零竞价、广告、返佣、转介跟踪、流量交换或服务商推广。仅核实官方／主体自有政策渠道；收录、更正、移除使用统一证据及复核标准，不可读／争议保持缺口。无已同意地区复核角色。

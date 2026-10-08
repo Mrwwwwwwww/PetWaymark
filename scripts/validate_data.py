@@ -188,7 +188,57 @@ def validate_repository(root=ROOT):
                 if (source.get('kind') != 'carrier' or source.get('status') != 'read_pending_review'
                     or row['url'] != source.get('url') or row['checked_at'] != source.get('accessed_at')):
                     errors.append('directory: unresolved or drifted public capability evidence')
+    deep_path = root / 'data/coverage/week11-deep-review.json'
+    if deep_path.exists():
+        deep = load(deep_path, 'deep-review.schema.json')
+        if deep:
+            graph = read_json(root / 'data/corridors/cn-preview.json')
+            errors.extend(validate_deep_review(deep, graph, sources))
     return errors, counts
+
+
+def validate_deep_review(inventory, graph, sources):
+    """Desk research is auditable evidence, never an operational promotion."""
+    errors = []
+    expected = {c['id'] for c in graph['corridors']}
+    rows = inventory['corridors']
+    if len(rows) != len(expected) or {r['corridor_id'] for r in rows} != expected:
+        errors.append('deep review: missing/duplicate corridor')
+    graph_legs = {s['segment_id']: s for s in graph['segments']}
+    nodes = {n['id']: n for n in graph['nodes']}
+    evidence_rows = []
+    for row in rows:
+        prefix = 'cn.east.' if row['corridor_id'] == 'dom.cn.east' else 'cn.south.'
+        expected_legs = {s for s in graph_legs if s.startswith(prefix)}
+        legs = row['segments']
+        if len(legs) != len(expected_legs) or {s['segment_id'] for s in legs} != expected_legs:
+            errors.append('deep review: missing/duplicate segment')
+        for leg in legs:
+            original = graph_legs.get(leg['segment_id'], {})
+            if any(leg[k] != original.get(k) for k in ('from_node', 'to_node', 'product', 'species')):
+                errors.append('deep review: graph scope drift')
+            for side, key in [('origin', 'from_node'), ('destination', 'to_node')]:
+                if leg[side + '_jurisdiction'] != nodes.get(leg[key], {}).get('subdivision'):
+                    errors.append('deep review: jurisdiction drift')
+            evidence_rows.append(leg['evidence'])
+    checks = inventory['ground_qualification_checks']
+    if len(checks) != 3 or {c['activity'] for c in checks} != {
+            'owner_vehicle', 'ground_transfer', 'unaccompanied_animal_carrier'}:
+        errors.append('deep review: missing/duplicate ground activity')
+    for row in checks:
+        evidence_rows.append(row['evidence'])
+        for sid in row['access_gaps']:
+            if sources.get(sid, {}).get('status') != 'unavailable':
+                errors.append('deep review: unrecorded access gap')
+    for evidence in evidence_rows:
+        if len({e['source_id'] for e in evidence}) != len(evidence):
+            errors.append('deep review: duplicate evidence')
+        for e in evidence:
+            source = sources.get(e['source_id'], {})
+            if (source.get('status') != 'read_pending_review' or
+                    any(e[k] != source.get(k) for k in ('url', 'accessed_at', 'language'))):
+                errors.append('deep review: unavailable or drifted evidence')
+    return errors
 
 
 def validate_us_eu(inventory, sources):

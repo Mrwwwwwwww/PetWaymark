@@ -78,3 +78,5 @@ Original code and documentation: [Apache-2.0](LICENSE). Original curated data un
 No external repository, account, package or domain was created during Week 1.
 
 Week 9: independent US/EU dog/cat research and 48 executed synthetic regressions; all six international directions remain unsupported, verified feasible routes 0. [Research](docs/research/week9/README.md).
+
+Week 11: [two small-city research chains, rail/product conflicts and ground qualification gaps](docs/research/week11/README.md). Both unsupported; zero verified feasible routes.

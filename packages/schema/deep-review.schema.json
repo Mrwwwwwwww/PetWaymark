@@ -1,0 +1,260 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "0.1.0"
+    },
+    "dataset_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "checked_at": {
+      "$ref": "common.schema.json#/$defs/date"
+    },
+    "verified_feasible_routes": {
+      "const": 0
+    },
+    "corridors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "corridor_id": {
+            "$ref": "common.schema.json#/$defs/id"
+          },
+          "research_candidate_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "checked_at": {
+            "$ref": "common.schema.json#/$defs/date"
+          },
+          "status": {
+            "const": "unsupported"
+          },
+          "review_status": {
+            "const": "draft"
+          },
+          "reviewed_by": {
+            "const": []
+          },
+          "conclusion": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "segments": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "segment_id": {
+                  "$ref": "common.schema.json#/$defs/id"
+                },
+                "from_node": {
+                  "$ref": "common.schema.json#/$defs/id"
+                },
+                "to_node": {
+                  "$ref": "common.schema.json#/$defs/id"
+                },
+                "origin_jurisdiction": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "destination_jurisdiction": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "transit_jurisdictions": {
+                  "type": "null"
+                },
+                "product": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "species": {
+                  "const": [
+                    "dog",
+                    "cat"
+                  ]
+                },
+                "travel_date": {
+                  "type": "null"
+                },
+                "status": {
+                  "const": "unsupported"
+                },
+                "dated_acceptance": {
+                  "const": "unknown"
+                },
+                "receiving_window": {
+                  "type": "null"
+                },
+                "facility_location": {
+                  "type": "null"
+                },
+                "custodian": {
+                  "type": "null"
+                },
+                "document_custodian": {
+                  "type": "null"
+                },
+                "price": {
+                  "type": "null"
+                },
+                "evidence": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "common.schema.json#/$defs/evidence"
+                  },
+                  "minItems": 1
+                },
+                "pending_checks": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "minItems": 1
+                }
+              },
+              "required": [
+                "segment_id",
+                "from_node",
+                "to_node",
+                "origin_jurisdiction",
+                "destination_jurisdiction",
+                "transit_jurisdictions",
+                "product",
+                "species",
+                "travel_date",
+                "status",
+                "dated_acceptance",
+                "receiving_window",
+                "facility_location",
+                "custodian",
+                "document_custodian",
+                "price",
+                "evidence",
+                "pending_checks"
+              ]
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "corridor_id",
+          "research_candidate_id",
+          "checked_at",
+          "status",
+          "review_status",
+          "reviewed_by",
+          "conclusion",
+          "segments"
+        ]
+      },
+      "minItems": 1
+    },
+    "ground_qualification_checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "activity": {
+            "enum": [
+              "owner_vehicle",
+              "ground_transfer",
+              "unaccompanied_animal_carrier"
+            ]
+          },
+          "jurisdictions": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "entity_name": {
+            "type": "null"
+          },
+          "registration": {
+            "const": "unknown"
+          },
+          "licensing_applicability": {
+            "const": "unknown"
+          },
+          "license_status": {
+            "const": "unknown"
+          },
+          "vehicle_and_driver": {
+            "const": "unknown"
+          },
+          "animal_documents": {
+            "const": "unknown"
+          },
+          "capability": {
+            "const": "unknown"
+          },
+          "dated_acceptance": {
+            "const": "unknown"
+          },
+          "affiliation": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "$ref": "common.schema.json#/$defs/evidence"
+            },
+            "minItems": 1
+          },
+          "access_gaps": {
+            "type": "array",
+            "items": {
+              "$ref": "common.schema.json#/$defs/id"
+            },
+            "minItems": 1
+          },
+          "pending_checks": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "activity",
+          "jurisdictions",
+          "entity_name",
+          "registration",
+          "licensing_applicability",
+          "license_status",
+          "vehicle_and_driver",
+          "animal_documents",
+          "capability",
+          "dated_acceptance",
+          "affiliation",
+          "evidence",
+          "access_gaps",
+          "pending_checks"
+        ]
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "dataset_version",
+    "checked_at",
+    "verified_feasible_routes",
+    "corridors",
+    "ground_qualification_checks"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://petwaymark.org/schemas/0.1.0/deep-review.schema.json"
+}
