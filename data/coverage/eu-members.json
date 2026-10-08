@@ -1,6 +1,6 @@
 {
   "schema_version": "0.1.0",
-  "dataset_version": "2026-10-08.week6-preview",
+  "dataset_version": "2026-10-08.week7-preview",
   "verified_rule_count": 0,
   "framework": {
     "source_ids": [
@@ -9,7 +9,8 @@
       "eu.law.2026-705",
       "eu.ec.intra-eu",
       "eu.ec.young-animals",
-      "eu.ec.faqs"
+      "eu.ec.faqs",
+      "eu.law.2026-131-readable"
     ],
     "evidence": [
       {
@@ -59,10 +60,22 @@
           "zh-CN": "普通跨成员国流程须核主人移动与书面责任。"
         },
         "content_sha256": null
+      },
+      {
+        "source_id": "eu.law.2026-131-readable",
+        "url": "https://eur-lex.europa.eu/eli/reg_del/2026/131/oj",
+        "locator": "Articles 4, 13–20",
+        "accessed_at": "2026-10-08",
+        "language": "en",
+        "summary": {
+          "en": "Readable framework: identification, exceptions, entry points and issue/endorsement roles; incorporated annexes not fully reviewed.",
+          "zh-CN": "正文可读：标识、例外、口岸及签发背书角色；援引合并附件未完整复核。"
+        },
+        "content_sha256": null
       }
     ],
     "pending_checks": [
-      "2026_131_full_text_unavailable",
+      "2026_131_independent_review_pending",
       "2026_636_annex_lists_unavailable",
       "2019_2035_2020_688_2020_692_consolidated_annexes",
       "independent_human_review",

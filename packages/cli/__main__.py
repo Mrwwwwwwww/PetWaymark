@@ -14,6 +14,7 @@ def main():
     parser.add_argument('--assessment-at', required=True, help='explicit YYYY-MM-DD assessment date')
     parser.add_argument('--root', type=Path, default=ROOT, help='validated data repository')
     mode = parser.add_mutually_exclusive_group()
+    mode.add_argument('--outbound-preview', action='store_true', help='CN outbound document/timeline evidence preview')
     mode.add_argument('--eu-preview', action='store_true', help='EU domestic/cross-member evidence preview, no transport routes')
     mode.add_argument('--corridor', choices=('dom.cn.east', 'dom.cn.south', 'dom.us.ca-ny', 'dom.us.ny-tx', 'dom.us.tx-ca'),
                         help='Week 4 domestic research graph preview')
@@ -25,6 +26,16 @@ def main():
         payload = read_json(args.input)
         if not isinstance(payload, dict):
             raise ValueError('profile must be a JSON object')
+        if args.outbound_preview:
+            from packages.engine.outbound import assess, checklist, load_inventory
+            from packages.engine.eu import load_inventory as load_eu
+            # Validate reference integrity before trusting an alternate repository.
+            load_repository(args.root)
+            result = assess(payload, assessment_at=args.assessment_at,
+                            inventory=load_inventory(args.root), eu_inventory=load_eu(args.root))
+            print(checklist(result, language=args.language) if args.format == 'checklist'
+                  else json.dumps(result, ensure_ascii=False, indent=2), end='\n' if args.format == 'json' else '')
+            return 0
         if args.eu_preview:
             from packages.engine.eu import assess, checklist, load_inventory
             result = assess(payload, assessment_at=args.assessment_at,

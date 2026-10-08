@@ -1,0 +1,51 @@
+{
+  "synthetic": true,
+  "pet": {
+    "species": "dog",
+    "service_animal": false,
+    "birth_date": "2024-01-01",
+    "identification_method": "microchip",
+    "microchip_present": true
+  },
+  "journey": {
+    "origin": "CN",
+    "destination": "US",
+    "purpose": "relocation",
+    "ownership_transfer": false,
+    "pets_per_person": 1,
+    "accompaniment": "owner",
+    "transport_mode": "checked_baggage",
+    "departure_at": "2026-11-09",
+    "entry_at": "2026-11-10",
+    "owner_moving": true,
+    "owner_entry_at": "2026-11-10",
+    "vaccination_branch": "primary",
+    "titre_branch": "test_required",
+    "travel_history_branch": "high_risk_in_6_months",
+    "rabies_vaccine_origin": "foreign",
+    "first_entry_member": "NL",
+    "destination_member": "DE",
+    "entry_airport": "JFK"
+  },
+  "events": {
+    "identification_at": "2026-06-01",
+    "rabies_vaccination_at": "2026-06-01",
+    "primary_protocol_completed_at": "2026-06-01",
+    "titre_sample_at": "2026-07-01",
+    "document_delivery_at": "2026-11-06"
+  },
+  "documents": {
+    "origin_certificate_issued_at": "2026-11-05",
+    "certificate_issued_at": "2026-11-01",
+    "certificate_endorsed_at": "2026-11-05",
+    "certificate_model": "eu.705.ahc",
+    "issuer_route": "authorized_then_endorsed",
+    "receipt_airport": "JFK",
+    "acf_airport": "JFK",
+    "receipt_entry_at": "2026-11-10"
+  },
+  "appointments": {
+    "certificate_at": "2026-11-05",
+    "document_check_at": "2026-11-10"
+  }
+}

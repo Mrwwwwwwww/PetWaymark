@@ -160,7 +160,31 @@ def validate_repository(root=ROOT):
         eu = load(eu_path, 'eu-members.schema.json')
         if eu:
             errors.extend(validate_eu_inventory(eu, sources, rules))
+    outbound_path = root / 'data/coverage/cn-outbound.json'
+    if outbound_path.exists():
+        outbound = load(outbound_path, 'cn-outbound.schema.json')
+        if outbound:
+            errors.extend(validate_outbound(outbound, sources))
     return errors, counts
+
+
+def validate_outbound(inventory, sources):
+    """Evidence references, draft-only package and recorded listing integrity."""
+    errors = []
+    rows = inventory['evidence']
+    if len({r['source_id'] for r in rows}) != len(rows):
+        errors.append('outbound: duplicate evidence ID')
+    for row in rows:
+        source = sources.get(row['source_id'], {})
+        if any(row[key] != source.get(key) for key in ('url', 'accessed_at', 'status')):
+            errors.append('outbound: evidence differs from source catalog')
+    if set(inventory['us_acf_airports']) != {'ATL','DFW','LAX','MIA','JFK','PHL','SEA','IAD'}:
+        errors.append('outbound: ACF snapshot changed without source review')
+    if inventory['eu_entry_points'] != [dict(member='NL',airport='AMS',source_id='eu.nvwa.entry-points',status='read_pending_review')]:
+        errors.append('outbound: entry point snapshot changed without source review')
+    if inventory['review_status'] != 'draft' or inventory['reviewed_by'] or inventory['verified_rule_count'] != 0:
+        errors.append('outbound: no qualified reviews recorded; promotion forbidden')
+    return errors
 
 
 def validate_eu_inventory(inventory, sources, rules):

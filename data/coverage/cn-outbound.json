@@ -1,0 +1,155 @@
+{
+  "schema_version": "0.1.0",
+  "dataset_version": "2026-10-08.week7-preview",
+  "review_status": "draft",
+  "reviewed_by": [],
+  "verified_rule_count": 0,
+  "evidence": [
+    {
+      "source_id": "cn.gacc.pet-export-portal",
+      "url": "https://online.customs.gov.cn/ocportal/publicService/",
+      "locator": "Public service: pet export quarantine",
+      "accessed_at": "2026-10-08",
+      "status": "read_pending_review",
+      "summary": {
+        "en": "Portal entry only; local instructions and cargo scope unverified.",
+        "zh-CN": "仅确认携带出境宠物检疫入口；属地流程及独立货运范围待核。"
+      }
+    },
+    {
+      "source_id": "cn.samr.carried-export",
+      "url": "https://www.samr.gov.cn/fgs/zcfg/art/2023/art_b899b25b6faf4c0f83432109d679f17c.html",
+      "locator": "Article 24; historical publication",
+      "accessed_at": "2026-10-08",
+      "status": "read_pending_review",
+      "summary": {
+        "en": "Carried export application and documents; current amendments and cargo process pending.",
+        "zh-CN": "携带出境按输入地要求申请检疫及单证；现行修订和独立货运流程待核。"
+      }
+    },
+    {
+      "source_id": "cn.luohu.pet-export",
+      "url": "https://www.szlh.gov.cn/zmhd/wdzsk/content/post_12341907.html",
+      "locator": "2025-08-22: application / on-site procedure",
+      "accessed_at": "2026-10-08",
+      "status": "read_pending_review",
+      "summary": {
+        "en": "Luohu only: 3–10 working-day application, agreed inspection, vaccination/chip/lab documents and delegation. No national service-time guarantee.",
+        "zh-CN": "仅罗湖：提前3–10工作日申请、约定查验、芯片免疫检测材料和委托证明；非全国时限保证。"
+      }
+    },
+    {
+      "source_id": "us.cdc.foreign-high-risk",
+      "url": "https://www.cdc.gov/importation/dogs/foreign-vaccinated-high-risk-countries.html",
+      "locator": "Form completion/validity; titer; airport; checklist",
+      "accessed_at": "2026-10-08",
+      "status": "read_pending_review",
+      "summary": {
+        "en": "Foreign-vaccinated high-risk dogs: form signed within 30 days, government endorsement, sample waits and ACF reservation; no titer requires quarantine branch.",
+        "zh-CN": "境外接种高风险犬：30日内兽医签署、政府背书、采血等待及设施预约；无有效抗体报告须走隔离分支。"
+      }
+    },
+    {
+      "source_id": "us.cdc.high-risk-list",
+      "url": "https://www.cdc.gov/importation/dogs/high-risk-countries.html",
+      "locator": "Asia: China",
+      "accessed_at": "2026-10-08",
+      "status": "read_pending_review",
+      "summary": {
+        "en": "Mainland China is listed; six-month history and vaccination origin require separate classification.",
+        "zh-CN": "中国大陆列入名单；六个月旅行史与疫苗签发来源须分别分类。"
+      }
+    },
+    {
+      "source_id": "us.cdc.acf-list",
+      "url": "https://www.cdc.gov/importation/dogs/approved-care-facilities.html",
+      "locator": "2026-09-01 airport headings and SEA / LAX notes",
+      "accessed_at": "2026-10-08",
+      "status": "read_pending_review",
+      "summary": {
+        "en": "Eight airport headings read; SEA cargo only, LAX transfer caveat. Listing does not confirm space, hours or acceptance.",
+        "zh-CN": "查阅8机场标题；SEA仅货运，LAX有转货运提示。列名不证明仓位、营业时间或实际收运。"
+      }
+    },
+    {
+      "source_id": "eu.law.2026-131-readable",
+      "url": "https://eur-lex.europa.eu/eli/reg_del/2026/131/oj",
+      "locator": "Articles 4, 13–20",
+      "accessed_at": "2026-10-08",
+      "status": "read_pending_review",
+      "summary": {
+        "en": "Readable framework: identification, exceptions, entry points and issue/endorsement roles; incorporated annexes not fully reviewed.",
+        "zh-CN": "正文可读：标识、例外、口岸及签发背书角色；援引合并附件未完整复核。"
+      }
+    },
+    {
+      "source_id": "eu.ec.entry-points-attempt",
+      "url": "https://food.ec.europa.eu/animals/movement-pets/travellers-points-entry_en",
+      "locator": "404 on direct open and linked page",
+      "accessed_at": "2026-10-08",
+      "status": "unavailable",
+      "summary": {
+        "en": "Index fetch failed; no DE/FR entry point compiled from search snippets.",
+        "zh-CN": "索引读取失败；不依据搜索摘要编译德法口岸。"
+      }
+    },
+    {
+      "source_id": "eu.nvwa.entry-points",
+      "url": "https://ivo.nvwa.nl/docs/digd012024a.pdf",
+      "locator": "Page 1; version 1.0.4, 2024-12-16; Airports",
+      "accessed_at": "2026-10-08",
+      "status": "read_pending_review",
+      "summary": {
+        "en": "Amsterdam Schiphol listed for non-commercial pets; commercial inspection centres are separate. Current designation and hours pending.",
+        "zh-CN": "非商业宠物表列Amsterdam Schiphol；商业查验中心另分。现行指定资格及营业时间待核。"
+      }
+    },
+    {
+      "source_id": "eu.ec.non-eu",
+      "url": "https://food.ec.europa.eu/animals/live-animal-movements/dogs-cats-and-ferrets/bringing-pet-eu-non-eu-country_en",
+      "locator": "Rabies; certificate; owner exception",
+      "accessed_at": "2026-10-08",
+      "status": "read_pending_review",
+      "summary": {
+        "en": "Primary protocol, 30/90-day sample chain, 10-day checks and owner authorisation; no full legal approval.",
+        "zh-CN": "初次程序、30／90日采血链、十日检查及主人授权；未作完整法律批准。"
+      }
+    },
+    {
+      "source_id": "us.cdc.animals",
+      "url": "https://www.cdc.gov/importation/bringing-an-animal-into-the-us/index.html",
+      "locator": "Cats; Certificates of health",
+      "accessed_at": "2026-10-08",
+      "status": "read_pending_review",
+      "summary": {
+        "en": "CDC cat arrival health checks; dog form and ACF chain not applied to cats. State and carrier rules remain separate.",
+        "zh-CN": "CDC猫抵达健康检查；不套犬表格及设施链。州与承运规定另核。"
+      }
+    }
+  ],
+  "us_acf_airports": [
+    "ATL",
+    "DFW",
+    "LAX",
+    "MIA",
+    "JFK",
+    "PHL",
+    "SEA",
+    "IAD"
+  ],
+  "eu_entry_points": [
+    {
+      "member": "NL",
+      "airport": "AMS",
+      "source_id": "eu.nvwa.entry-points",
+      "status": "read_pending_review"
+    }
+  ],
+  "pending_checks": [
+    "two_qualified_human_reviews_pending",
+    "cn_current_local_export_and_cargo_procedure_unreviewed",
+    "us_aphis_state_and_carrier_requirements_unreviewed",
+    "eu_636_lists_and_incorporated_annexes_unreviewed",
+    "entry_facility_hours_capacity_and_custody_unverified"
+  ]
+}

@@ -138,7 +138,7 @@ class EUPreviewTests(unittest.TestCase):
         p=self.profile();p['contact']='PRIVATE-MARKER';before=deepcopy(p);r=self.assess(p)
         for language in ('en','zh-CN'):
             output=checklist(r,language=language);self.assertNotIn('PRIVATE-MARKER',output)
-            self.assertIn('2026_131_full_text_unavailable',output);self.assertIn('local_overlay_uncovered',output)
+            self.assertIn('2026_131_independent_review_pending',output);self.assertIn('local_overlay_uncovered',output)
             self.assertIn('eu.577.ahc',output);self.assertIn('2011',output)
         self.assertEqual(p,before)
 

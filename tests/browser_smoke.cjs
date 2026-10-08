@@ -44,7 +44,7 @@ const base = process.env.PETWAYMARK_WEB_URL || 'http://127.0.0.1:8766';
   await page.locator('#result-title').waitFor();
   const euCodes=await page.locator('section > p.codes').innerText();
   assert.match(await page.locator('section').innerText(),/local_overlay_uncovered/);
-  assert.match(await page.locator('section').innerText(),/2026_131_full_text_unavailable/);
+  assert.match(await page.locator('section').innerText(),/2026_131_independent_review_pending/);
   await page.locator('#language').click();
   await page.waitForFunction(()=>document.documentElement.lang==='en');
   assert.equal(await page.locator('section > p.codes').innerText(),euCodes);

@@ -125,7 +125,7 @@ class WebTests(unittest.TestCase):
             for lang in ('en','zh-CN'):
                 code,_,html=self.post({**f,'output':'html','language':lang});self.assertEqual(code,200)
                 self.assertIn('local_overlay_uncovered',html);self.assertIn('eu.577.ahc',html)
-                self.assertIn('class="printable"',html);self.assertIn('2026_131_full_text_unavailable',html)
+                self.assertIn('class="printable"',html);self.assertIn('2026_131_independent_review_pending',html)
 
     def test_eu_owner_stays_home_stops_before_document_diagnostics(self):
         f=self.eu_fields();f.update(purpose='boarding',owner_moving='false',owner_entry_at='',accompaniment='authorized_person',authorized_person_written='true')

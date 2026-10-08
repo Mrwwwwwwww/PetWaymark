@@ -700,6 +700,231 @@
           "zh-CN": "完整现行条款、附件、例外及两位合格人工复核待完成。"
         }
       ]
+    },
+    {
+      "id": "cn.gacc.pet-export-portal",
+      "authority": "CN-GACC",
+      "publisher": "General Administration of Customs",
+      "kind": "government",
+      "url": "https://online.customs.gov.cn/ocportal/publicService/",
+      "title": {
+        "en": "Pet export application portal",
+        "zh-CN": "宠物出境申请入口"
+      },
+      "language": "zh-CN",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "read_pending_review",
+      "license_boundary": {
+        "en": "Link and original summary only; original rights retained.",
+        "zh-CN": "仅链接及原创摘要；原文保留自身权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Currency, scope and two qualified independent human reviews pending.",
+          "zh-CN": "现行范围及两位合格独立人工复核待完成。"
+        }
+      ]
+    },
+    {
+      "id": "cn.samr.carried-export",
+      "authority": "CN-SAMR",
+      "publisher": "State Administration for Market Regulation",
+      "kind": "government",
+      "url": "https://www.samr.gov.cn/fgs/zcfg/art/2023/art_b899b25b6faf4c0f83432109d679f17c.html",
+      "title": {
+        "en": "Carried articles quarantine regulation",
+        "zh-CN": "携带物检疫管理办法"
+      },
+      "language": "zh-CN",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "read_pending_review",
+      "license_boundary": {
+        "en": "Link and original summary only; original rights retained.",
+        "zh-CN": "仅链接及原创摘要；原文保留自身权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Currency, scope and two qualified independent human reviews pending.",
+          "zh-CN": "现行范围及两位合格独立人工复核待完成。"
+        }
+      ]
+    },
+    {
+      "id": "cn.luohu.pet-export",
+      "authority": "CN-Luohu",
+      "publisher": "Luohu district government",
+      "kind": "government",
+      "url": "https://www.szlh.gov.cn/zmhd/wdzsk/content/post_12341907.html",
+      "title": {
+        "en": "Luohu export process",
+        "zh-CN": "罗湖宠物出境办理"
+      },
+      "language": "zh-CN",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "read_pending_review",
+      "license_boundary": {
+        "en": "Link and original summary only; original rights retained.",
+        "zh-CN": "仅链接及原创摘要；原文保留自身权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Currency, scope and two qualified independent human reviews pending.",
+          "zh-CN": "现行范围及两位合格独立人工复核待完成。"
+        }
+      ]
+    },
+    {
+      "id": "us.cdc.foreign-high-risk",
+      "authority": "US-CDC",
+      "publisher": "Centers for Disease Control and Prevention",
+      "kind": "government",
+      "url": "https://www.cdc.gov/importation/dogs/foreign-vaccinated-high-risk-countries.html",
+      "title": {
+        "en": "Foreign-vaccinated high-risk dogs",
+        "zh-CN": "境外接种高风险犬"
+      },
+      "language": "en",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "read_pending_review",
+      "license_boundary": {
+        "en": "Link and original summary only; original rights retained.",
+        "zh-CN": "仅链接及原创摘要；原文保留自身权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Currency, scope and two qualified independent human reviews pending.",
+          "zh-CN": "现行范围及两位合格独立人工复核待完成。"
+        }
+      ]
+    },
+    {
+      "id": "us.cdc.high-risk-list",
+      "authority": "US-CDC",
+      "publisher": "Centers for Disease Control and Prevention",
+      "kind": "government",
+      "url": "https://www.cdc.gov/importation/dogs/high-risk-countries.html",
+      "title": {
+        "en": "Dog rabies high-risk list",
+        "zh-CN": "犬狂犬病高风险名单"
+      },
+      "language": "en",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "read_pending_review",
+      "license_boundary": {
+        "en": "Link and original summary only; original rights retained.",
+        "zh-CN": "仅链接及原创摘要；原文保留自身权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Currency, scope and two qualified independent human reviews pending.",
+          "zh-CN": "现行范围及两位合格独立人工复核待完成。"
+        }
+      ]
+    },
+    {
+      "id": "us.cdc.acf-list",
+      "authority": "US-CDC",
+      "publisher": "Centers for Disease Control and Prevention",
+      "kind": "government",
+      "url": "https://www.cdc.gov/importation/dogs/approved-care-facilities.html",
+      "title": {
+        "en": "Registered animal care facilities",
+        "zh-CN": "登记动物照护设施"
+      },
+      "language": "en",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "read_pending_review",
+      "license_boundary": {
+        "en": "Link and original summary only; original rights retained.",
+        "zh-CN": "仅链接及原创摘要；原文保留自身权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Currency, scope and two qualified independent human reviews pending.",
+          "zh-CN": "现行范围及两位合格独立人工复核待完成。"
+        }
+      ]
+    },
+    {
+      "id": "eu.law.2026-131-readable",
+      "authority": "EU-EC",
+      "publisher": "European Commission",
+      "kind": "government",
+      "url": "https://eur-lex.europa.eu/eli/reg_del/2026/131/oj",
+      "title": {
+        "en": "2026/131 framework accessible ELI",
+        "zh-CN": "2026/131可读ELI正文"
+      },
+      "language": "en",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "read_pending_review",
+      "license_boundary": {
+        "en": "Link and original summary only; original rights retained.",
+        "zh-CN": "仅链接及原创摘要；原文保留自身权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Currency, scope and two qualified independent human reviews pending.",
+          "zh-CN": "现行范围及两位合格独立人工复核待完成。"
+        }
+      ]
+    },
+    {
+      "id": "eu.ec.entry-points-attempt",
+      "authority": "EU-EC",
+      "publisher": "European Commission",
+      "kind": "government",
+      "url": "https://food.ec.europa.eu/animals/movement-pets/travellers-points-entry_en",
+      "title": {
+        "en": "Entry point index unavailable",
+        "zh-CN": "旅客口岸索引不可读"
+      },
+      "language": "en",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "unavailable",
+      "license_boundary": {
+        "en": "Link and original summary only; original rights retained.",
+        "zh-CN": "仅链接及原创摘要；原文保留自身权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Currency, scope and two qualified independent human reviews pending.",
+          "zh-CN": "现行范围及两位合格独立人工复核待完成。"
+        }
+      ]
+    },
+    {
+      "id": "eu.nvwa.entry-points",
+      "authority": "EU-NVWA",
+      "publisher": "Netherlands Food and Consumer Product Safety Authority",
+      "kind": "government",
+      "url": "https://ivo.nvwa.nl/docs/digd012024a.pdf",
+      "title": {
+        "en": "Netherlands travellers entry points",
+        "zh-CN": "荷兰旅客口岸"
+      },
+      "language": "en",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "read_pending_review",
+      "license_boundary": {
+        "en": "Link and original summary only; original rights retained.",
+        "zh-CN": "仅链接及原创摘要；原文保留自身权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Currency, scope and two qualified independent human reviews pending.",
+          "zh-CN": "现行范围及两位合格独立人工复核待完成。"
+        }
+      ]
     }
   ]
 }
