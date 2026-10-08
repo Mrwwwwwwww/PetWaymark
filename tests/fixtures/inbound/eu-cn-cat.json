@@ -1,0 +1,50 @@
+{
+  "pet": {
+    "species": "cat",
+    "service_animal": false,
+    "microchip_present": true,
+    "healthy": true
+  },
+  "journey": {
+    "origin": "EU",
+    "destination": "CN",
+    "origin_member": "NL",
+    "origin_subdivision": null,
+    "purpose": "relocation",
+    "ownership_transfer": false,
+    "pets_per_person": 1,
+    "accompaniment": "owner",
+    "transport_mode": "checked_baggage",
+    "departure_at": "2026-11-09",
+    "entry_at": "2026-11-10",
+    "cn_entry_branch": "non_designated_titre",
+    "entry_airport": "PVG",
+    "transit": "none"
+  },
+  "documents": {
+    "health_certificate_present": true,
+    "rabies_certificate_present": true,
+    "certificate_issued_at": "2026-10-27",
+    "certificate_endorsed_at": "2026-11-05",
+    "certificate_model": "unknown",
+    "vehcs_endorsed": true,
+    "traveler_identity_matches": true,
+    "one_pet_per_certificate": true,
+    "chip_readable": true,
+    "titre_iu_ml": 0.6,
+    "lab_acceptance": true
+  },
+  "events": {
+    "rabies_first_at": "2025-06-01",
+    "rabies_second_at": "2026-06-01",
+    "rabies_valid_until": "2027-06-01",
+    "titre_sample_at": "2026-06-01",
+    "clinical_exam_at": "2026-10-27",
+    "document_delivery_at": "2026-11-06"
+  },
+  "responsibility": {
+    "carrying_role": "owner",
+    "delivery_role": "veterinarian",
+    "receiving_role": "receiving_authority"
+  }
+}

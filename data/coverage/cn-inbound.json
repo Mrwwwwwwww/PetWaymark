@@ -1,0 +1,109 @@
+{
+  "schema_version": "0.1.0",
+  "dataset_version": "2026-10-08.week8-preview",
+  "review_status": "draft",
+  "reviewed_by": [],
+  "verified_rule_count": 0,
+  "evidence": [
+    {
+      "source_id": "cn.gacc.2019-5",
+      "url": "https://www.mofcom.gov.cn/zcfb/zgdwjjmywg/art/2019/art_71739ec848d14deca4ec330fad835774.html",
+      "accessed_at": "2026-10-08",
+      "status": "read_pending_review",
+      "locator": "2019 No.5 sections 1-3; annexes not republished",
+      "summary": {
+        "en": "Carried dogs/cats only, one per person, official export and rabies documents, chip, arrival inspection; 30-day quarantine branch needs facilities. Current annex lists unverified.",
+        "zh-CN": "仅携带犬猫，每人一只，官方出口检疫和免疫证、芯片、现场检疫；30日隔离分支需设施。现行附件名单未核。"
+      }
+    },
+    {
+      "source_id": "us.aphis.cn-entry",
+      "url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-china",
+      "accessed_at": "2026-10-08",
+      "status": "read_pending_review",
+      "locator": "Week 8 research reading / attempt",
+      "summary": {
+        "en": "Dogs/cats export: issue within 14 days of arrival, VEHCS endorsement and printed copy. Titer boundary differs from dog PDF.",
+        "zh-CN": "犬猫出口：到达前14日内签发、VEHCS背书及打印件；抗体边界与犬PDF不同。"
+      }
+    },
+    {
+      "source_id": "us.aphis.cn-dog-model",
+      "url": "https://www.aphis.usda.gov/sites/default/files/china-dog.pdf",
+      "accessed_at": "2026-10-08",
+      "status": "read_pending_review",
+      "locator": "Week 8 research reading / attempt",
+      "summary": {
+        "en": "Four-page dog model: two vaccinations, sample on/after second vaccine, one-year sample validity, greater than 0.5. No cat model inference.",
+        "zh-CN": "四页犬范本：两次免疫、第二次后或当日采血、采血一年有效、大于0.5；不推定猫范本。"
+      }
+    },
+    {
+      "source_id": "us.aphis.cn-cat-model",
+      "url": "https://www.aphis.usda.gov/sites/default/files/china-cat.pdf",
+      "accessed_at": "2026-10-08",
+      "status": "unavailable",
+      "locator": "Week 8 research reading / attempt",
+      "summary": {
+        "en": "Cat PDF returned 503; webpage read does not establish full cat model content.",
+        "zh-CN": "猫PDF返回503；网页查阅不证明猫范本已完整核实。"
+      }
+    },
+    {
+      "source_id": "eu.nl.export-legalisation",
+      "url": "https://english.nvwa.nl/topics/animal-health/travelling-to-the-netherlands-with-your-dog-or-cat/legalisation-of-eu-pet-passports-and-other-documents-for-dogs-cats-and-ferrets",
+      "accessed_at": "2026-10-08",
+      "status": "read_pending_review",
+      "locator": "Week 8 research reading / attempt",
+      "summary": {
+        "en": "Check binding destination certificate first; otherwise confirm legalisation. Vet completes certificate before legalisation; advance appointment uses working days, no computed guarantee.",
+        "zh-CN": "先查目的地绑定证书，否则确认认证；兽医填签后认证。预约按工作日提前申请，不计算保证时限。"
+      }
+    },
+    {
+      "source_id": "eu.de.berlin-export",
+      "url": "https://www.berlin.de/ba-treptow-koepenick/politik-und-verwaltung/aemter/ordnungsamt/veterinaer-und-lebensmittelaufsicht/artikel.1088792.php",
+      "accessed_at": "2026-10-08",
+      "status": "read_pending_review",
+      "locator": "Week 8 research reading / attempt",
+      "summary": {
+        "en": "District guidance: destination rules apply, official certificate application with supporting documents. Not national China export certification.",
+        "zh-CN": "区级指引：遵守目的地规则，提交官方证书申请及材料；非全国赴中国出口证流程。"
+      }
+    },
+    {
+      "source_id": "eu.fr.third-country-export",
+      "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F21374?lang=fr",
+      "accessed_at": "2026-10-08",
+      "status": "read_pending_review",
+      "locator": "Week 8 research reading / attempt",
+      "summary": {
+        "en": "Other-country section: passport and health preparation plus destination/transit and DDPP confirmation. Passport alone does not meet CN official export certificate.",
+        "zh-CN": "其他国家段：护照、健康准备及目的地／过境与DDPP确认；护照不替代中国要求的官方出口检疫证。"
+      }
+    },
+    {
+      "source_id": "eu.af.pet-policy",
+      "url": "https://wwws.airfrance.us/information/passagers/voyager-avec-son-animal-chien-chat",
+      "accessed_at": "2026-10-08",
+      "status": "read_pending_review",
+      "locator": "Week 8 research reading / attempt",
+      "summary": {
+        "en": "Public dog/cat hold policy; flight availability and conditions can cause refusal. No China flight, capacity or price verified.",
+        "zh-CN": "公开犬猫行李舱政策；航班可用性及条件可能导致拒收；未核中国航段、运力或价格。"
+      }
+    }
+  ],
+  "eu_origin_sources": {
+    "DE": "eu.de.berlin-export",
+    "FR": "eu.fr.third-country-export",
+    "NL": "eu.nl.export-legalisation"
+  },
+  "pending_checks": [
+    "independent_human_review_pending",
+    "cn_current_designated_origin_lab_and_quarantine_port_lists_unreviewed",
+    "arrival_inspection_and_release_unconfirmed",
+    "carrier_transit_and_last_mile_unconfirmed",
+    "original_document_custody_pending"
+  ]
+}

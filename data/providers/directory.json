@@ -1,0 +1,79 @@
+{
+  "schema_version": "0.1.0",
+  "dataset_version": "2026-10-08.week8-preview",
+  "selection_policy": {
+    "en": "Alphabetical public-source samples, equal evidence criteria, no ranking or endorsement. Listing and policy are not confirmed service.",
+    "zh-CN": "公开来源样本按名称排序、统一证据标准、不排名或背书；收录及政策非实际服务确认。"
+  },
+  "providers": [
+    {
+      "provider_id": "air-france",
+      "name": "Air France",
+      "public_listing": "listed",
+      "capability_status": "public_policy_read_pending_review",
+      "source_id": "eu.af.pet-policy",
+      "url": "https://wwws.airfrance.us/information/passagers/voyager-avec-son-animal-chien-chat",
+      "checked_at": "2026-10-08",
+      "capability_scope": "Public passenger hold policy; China leg unverified.",
+      "external_confirmation": "unknown",
+      "confirmation_reference": null,
+      "affiliation": {
+        "en": "No project affiliation, sponsorship or referral arrangement recorded.",
+        "zh-CN": "无已记录项目关联、赞助或转介安排。"
+      },
+      "pending_checks": [
+        "responsible_operating_entity",
+        "dated_leg_and_species_acceptance",
+        "facility_and_last_mile_scope",
+        "current_qualification_and_policy",
+        "price_inclusions_exclusions"
+      ]
+    },
+    {
+      "provider_id": "alaska-air-cargo",
+      "name": "Alaska Air Cargo",
+      "public_listing": "listed",
+      "capability_status": "public_policy_read_pending_review",
+      "source_id": "us.as.cargo-petconnect",
+      "url": "https://www.alaskacargo.com/petconnect",
+      "checked_at": "2026-10-08",
+      "capability_scope": "Public separate cargo product; US domestic lead only, no China capacity.",
+      "external_confirmation": "unknown",
+      "confirmation_reference": null,
+      "affiliation": {
+        "en": "No project affiliation, sponsorship or referral arrangement recorded.",
+        "zh-CN": "无已记录项目关联、赞助或转介安排。"
+      },
+      "pending_checks": [
+        "responsible_operating_entity",
+        "dated_leg_and_species_acceptance",
+        "facility_and_last_mile_scope",
+        "current_qualification_and_policy",
+        "price_inclusions_exclusions"
+      ]
+    },
+    {
+      "provider_id": "china-eastern",
+      "name": "China Eastern Airlines",
+      "public_listing": "listed",
+      "capability_status": "public_policy_read_pending_review",
+      "source_id": "cn.air.mu-pet",
+      "url": "https://global.ceair.com/global/static/Announcement/TravelTips/SpecialPassengerServiceNotice/LittleAnimal/",
+      "checked_at": "2026-10-08",
+      "capability_scope": "Public passenger baggage policy; actual inbound flight unverified.",
+      "external_confirmation": "unknown",
+      "confirmation_reference": null,
+      "affiliation": {
+        "en": "No project affiliation, sponsorship or referral arrangement recorded.",
+        "zh-CN": "无已记录项目关联、赞助或转介安排。"
+      },
+      "pending_checks": [
+        "responsible_operating_entity",
+        "dated_leg_and_species_acceptance",
+        "facility_and_last_mile_scope",
+        "current_qualification_and_policy",
+        "price_inclusions_exclusions"
+      ]
+    }
+  ]
+}

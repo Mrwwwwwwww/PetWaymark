@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://petwaymark.org/schemas/0.1.0/provider-directory.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "0.1.0"
+    },
+    "dataset_version": {
+      "type": "string"
+    },
+    "selection_policy": {
+      "$ref": "common.schema.json#/$defs/text"
+    },
+    "providers": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "provider_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "public_listing": {
+            "const": "listed"
+          },
+          "capability_status": {
+            "const": "public_policy_read_pending_review"
+          },
+          "source_id": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "checked_at": {
+            "type": "string",
+            "format": "date"
+          },
+          "capability_scope": {
+            "type": "string"
+          },
+          "external_confirmation": {
+            "const": "unknown"
+          },
+          "confirmation_reference": {
+            "type": "null"
+          },
+          "affiliation": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "pending_checks": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "provider_id",
+          "name",
+          "public_listing",
+          "capability_status",
+          "source_id",
+          "url",
+          "checked_at",
+          "capability_scope",
+          "external_confirmation",
+          "confirmation_reference",
+          "affiliation",
+          "pending_checks"
+        ]
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "dataset_version",
+    "selection_policy",
+    "providers"
+  ]
+}

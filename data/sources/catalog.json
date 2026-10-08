@@ -925,6 +925,181 @@
           "zh-CN": "现行范围及两位合格独立人工复核待完成。"
         }
       ]
+    },
+    {
+      "id": "us.aphis.cn-entry",
+      "authority": "US-APHIS",
+      "publisher": "Animal and Plant Health Inspection Service",
+      "kind": "government",
+      "url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-china",
+      "title": {
+        "en": "US pets to China",
+        "zh-CN": "美国宠物赴中国"
+      },
+      "language": "en",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "read_pending_review",
+      "license_boundary": {
+        "en": "Link and original summary only; source retains its rights.",
+        "zh-CN": "仅链接及原创摘要；原文保留自身权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Current scope, attachments and independent qualified review pending.",
+          "zh-CN": "现行范围、附件与合格独立复核待完成。"
+        }
+      ]
+    },
+    {
+      "id": "us.aphis.cn-dog-model",
+      "authority": "US-APHIS",
+      "publisher": "Animal and Plant Health Inspection Service",
+      "kind": "government",
+      "url": "https://www.aphis.usda.gov/sites/default/files/china-dog.pdf",
+      "title": {
+        "en": "China dog certificate January 2026",
+        "zh-CN": "2026年1月中国犬证范本"
+      },
+      "language": "en",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "read_pending_review",
+      "license_boundary": {
+        "en": "Link and original summary only; source retains its rights.",
+        "zh-CN": "仅链接及原创摘要；原文保留自身权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Current scope, attachments and independent qualified review pending.",
+          "zh-CN": "现行范围、附件与合格独立复核待完成。"
+        }
+      ]
+    },
+    {
+      "id": "us.aphis.cn-cat-model",
+      "authority": "US-APHIS",
+      "publisher": "Animal and Plant Health Inspection Service",
+      "kind": "government",
+      "url": "https://www.aphis.usda.gov/sites/default/files/china-cat.pdf",
+      "title": {
+        "en": "China cat certificate attempt",
+        "zh-CN": "中国猫证读取尝试"
+      },
+      "language": "en",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "unavailable",
+      "license_boundary": {
+        "en": "Link and original summary only; source retains its rights.",
+        "zh-CN": "仅链接及原创摘要；原文保留自身权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Current scope, attachments and independent qualified review pending.",
+          "zh-CN": "现行范围、附件与合格独立复核待完成。"
+        }
+      ]
+    },
+    {
+      "id": "eu.nl.export-legalisation",
+      "authority": "NL-NVWA",
+      "publisher": "Netherlands Food and Consumer Product Safety Authority",
+      "kind": "government",
+      "url": "https://english.nvwa.nl/topics/animal-health/travelling-to-the-netherlands-with-your-dog-or-cat/legalisation-of-eu-pet-passports-and-other-documents-for-dogs-cats-and-ferrets",
+      "title": {
+        "en": "NL pet document legalisation",
+        "zh-CN": "荷兰宠物文件认证"
+      },
+      "language": "en",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "read_pending_review",
+      "license_boundary": {
+        "en": "Link and original summary only; source retains its rights.",
+        "zh-CN": "仅链接及原创摘要；原文保留自身权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Current scope, attachments and independent qualified review pending.",
+          "zh-CN": "现行范围、附件与合格独立复核待完成。"
+        }
+      ]
+    },
+    {
+      "id": "eu.de.berlin-export",
+      "authority": "DE-Berlin",
+      "publisher": "Bezirksamt Treptow-Koepenick Berlin",
+      "kind": "government",
+      "url": "https://www.berlin.de/ba-treptow-koepenick/politik-und-verwaltung/aemter/ordnungsamt/veterinaer-und-lebensmittelaufsicht/artikel.1088792.php",
+      "title": {
+        "en": "Berlin third-country pet export",
+        "zh-CN": "柏林第三国宠物出口"
+      },
+      "language": "de",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "read_pending_review",
+      "license_boundary": {
+        "en": "Link and original summary only; source retains its rights.",
+        "zh-CN": "仅链接及原创摘要；原文保留自身权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Current scope, attachments and independent qualified review pending.",
+          "zh-CN": "现行范围、附件与合格独立复核待完成。"
+        }
+      ]
+    },
+    {
+      "id": "eu.fr.third-country-export",
+      "authority": "FR-DILA",
+      "publisher": "Service Public / DILA",
+      "kind": "government",
+      "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F21374?lang=fr",
+      "title": {
+        "en": "France third-country pet travel",
+        "zh-CN": "法国第三国宠物旅行"
+      },
+      "language": "fr",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "read_pending_review",
+      "license_boundary": {
+        "en": "Link and original summary only; source retains its rights.",
+        "zh-CN": "仅链接及原创摘要；原文保留自身权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Current scope, attachments and independent qualified review pending.",
+          "zh-CN": "现行范围、附件与合格独立复核待完成。"
+        }
+      ]
+    },
+    {
+      "id": "eu.af.pet-policy",
+      "authority": "FR-AF",
+      "publisher": "Air France",
+      "kind": "carrier",
+      "url": "https://wwws.airfrance.us/information/passagers/voyager-avec-son-animal-chien-chat",
+      "title": {
+        "en": "Air France public pet policy",
+        "zh-CN": "法航公开宠物政策"
+      },
+      "language": "en",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "read_pending_review",
+      "license_boundary": {
+        "en": "Link and original summary only; source retains its rights.",
+        "zh-CN": "仅链接及原创摘要；原文保留自身权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Current scope, attachments and independent qualified review pending.",
+          "zh-CN": "现行范围、附件与合格独立复核待完成。"
+        }
+      ]
     }
   ]
 }

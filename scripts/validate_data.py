@@ -165,7 +165,43 @@ def validate_repository(root=ROOT):
         outbound = load(outbound_path, 'cn-outbound.schema.json')
         if outbound:
             errors.extend(validate_outbound(outbound, sources))
+    inbound_path = root / 'data/coverage/cn-inbound.json'
+    if inbound_path.exists():
+        inbound = load(inbound_path, 'cn-inbound.schema.json')
+        if inbound:
+            errors.extend(validate_inbound(inbound, sources))
+    directory_path = root / 'data/providers/directory.json'
+    if directory_path.exists():
+        directory = load(directory_path, 'provider-directory.schema.json')
+        if directory:
+            seen = set()
+            for row in directory['providers']:
+                if row['provider_id'] in seen:
+                    errors.append('directory: duplicate provider ID')
+                seen.add(row['provider_id'])
+                source = sources.get(row['source_id'], {})
+                if (source.get('kind') != 'carrier' or source.get('status') != 'read_pending_review'
+                    or row['url'] != source.get('url') or row['checked_at'] != source.get('accessed_at')):
+                    errors.append('directory: unresolved or drifted public capability evidence')
     return errors, counts
+
+
+def validate_inbound(inventory, sources):
+    errors = []
+    seen = set()
+    for row in inventory['evidence']:
+        if row['source_id'] in seen:
+            errors.append('inbound: duplicate evidence ID')
+        seen.add(row['source_id'])
+        source = sources.get(row['source_id'], {})
+        if any(row[key] != source.get(key) for key in ('url', 'accessed_at', 'status')):
+            errors.append('inbound: evidence differs from source catalog')
+    for sid in inventory['eu_origin_sources'].values():
+        if sid not in seen or sources.get(sid, {}).get('status') != 'read_pending_review':
+            errors.append('inbound: unresolved member export evidence')
+    if inventory['review_status'] != 'draft' or inventory['reviewed_by'] or inventory['verified_rule_count'] != 0:
+        errors.append('inbound: unrecorded human review promotion forbidden')
+    return errors
 
 
 def validate_outbound(inventory, sources):
