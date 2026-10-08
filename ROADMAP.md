@@ -163,3 +163,14 @@ maintenance; funding is not guaranteed and adds no paid runtime requirement.
 
 反馈、采用与维护须有真实日期、样本量及利益披露；合成测试和维护者自用分别记录。
 不刷 star／提交，不造假用户或复核，不擅自外联；申请只整理真实公益价值，不保证资助，不强加付费运行依赖。
+
+## Week 10 authorized research release / 第10周授权研究发布
+
+The user explicitly approved v0.1.0 publication as an early research preview.
+[Release scope and P0 audit](docs/releases/v0.1.0.md) distinguish working software
+from incomplete independent rule review and real voluntary trial evidence. This
+release does not claim Stage A fully passed; no rule or route is promoted to verified.
+Engine `0.1.0`; curated dataset `2026.10.08-draft.1`; fixed synthetic Pages demo.
+
+用户明确授权v0.1.0研究预览发布；A阶段人工复核／真实试用门槛尚未通过，相关
+方向继续草稿／未覆盖。技术发布不作为规则已核或服务已确认的证明。

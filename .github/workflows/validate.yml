@@ -51,3 +51,31 @@ jobs:
               raise SystemExit('Local web failed to start')
           PY
           node tests/browser_smoke.cjs
+      - name: Verify independent data version
+        run: python scripts/package_data.py --check
+      - name: Build static bilingual demo
+        if: matrix.python-version == '3.13'
+        run: python scripts/build_demo.py
+      - name: Verify static demo in a browser
+        if: matrix.python-version == '3.13'
+        env:
+          NODE_PATH: ${{ runner.temp }}/petwaymark-browser/node_modules
+        run: node tests/pages_smoke.cjs
+      - uses: actions/upload-pages-artifact@v3
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && matrix.python-version == '3.13'
+        with:
+          path: _site
+  deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: validate
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy validated demo to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

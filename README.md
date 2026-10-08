@@ -1,12 +1,14 @@
 # PetWaymark · 宠途路标
 
+[在线双语演示 / Bilingual demo](https://mrwwwwwwww.github.io/PetWaymark/) · [v0.1.0](https://github.com/Mrwwwwwwww/PetWaymark/releases/tag/v0.1.0) · [发布范围 / Release scope](docs/releases/v0.1.0.md)
+
 [简体中文](README.zh-CN.md)
 
 An open, bilingual planning project for dog and cat journeys that combine ground transport, rail and air travel across China, the United States and the European Union.
 
 PetWaymark is a purely public-benefit open-source project whose primary purpose is to help pet owners. It is free and open, with no affiliation to any commercial brand. Any compliant service provider may connect on equal terms through open interfaces. The project does not operate transport or other commercial services, accept orders or favor any provider. Planned service connections link or redirect users to providers' own channels; compliance, privacy and animal welfare remain requirements.
 
-**Week 7 adds independent CN→US/EU dog/cat document timelines, entry filters, appointment conflicts and original-document roles to the bilingual CLI/web; zero verified feasible routes.** The planned scope is one privately owned dog or cat, with purpose, ownership changes, accompaniment and owner travel dates assessed separately. Service animals need a separate review path. Draft road/rail/air-ground paths are unranked and remain unsupported; actual slots, schedules and prices are unknown.
+**v0.1.0 early research preview: all rules are unreviewed drafts, zero verified routes; no booking, order acceptance, live capacity or prices.** Six international directions have independent dog/cat synthetic examples; 48 executed audit cases pass. The hosted demo shows fixed synthetic examples; the local web app accepts anonymous inputs. Independent human review and real voluntary user trials remain incomplete.
 
 The planned outputs are route alternatives, document timelines, itemized costs, handover checklists and explanations linked to official evidence. Unknown rules must never become permission. Kernel result states are `eligible`, `conditional`, `ineligible` and `unsupported`; none confirms a booking or carrier acceptance.
 
@@ -28,7 +30,7 @@ python3 -m venv .venv
 ```
 
 Open `http://127.0.0.1:8766` for the anonymous local web form; Ctrl+C stops it.
-No hosted static site is claimed. CA/TX sources are read pending independent review;
+The hosted static demo shows engine-generated fixed synthetic examples with bilingual print/export; it does not assess custom inputs online. CA/TX sources are read pending independent review;
 NY's current official page was unavailable. All fifteen constraints remain drafts. EU framework and DE/FR/NL readings are partial; the other 24 local overlays are unresearched.
 
 - [US ↔ EU documents and return risks](docs/en/us-eu-preview.md) · [中文](docs/zh/us-eu-preview.md)

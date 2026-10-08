@@ -15,3 +15,13 @@ status, unknown estimates and pending responsibilities. Original curation is CC 
 
 本目录的走廊是待研究候选；不能用于断言可以运输。正式规则需独立来源、日期、适用范围与人工复核记录。
 第4周图仅为国内草稿研究预览；增加来源不等于完成独立复核或开放实际能力。
+
+## v0.1 package / 独立数据包
+
+Curated package version `2026.10.08-draft.1` is independent of engine `0.1.0`.
+`VERSION.json` records SHA-256 hashes; `scripts/package_data.py --check` detects drift,
+and `scripts/package_data.py` builds a deterministic archive. All 15 rule records
+remain drafts; no verified route. Component historical versions are preserved.
+
+数据包版本独立于引擎，哈希仅证明文件一致，不证明规则已核。全部15条规则仍为
+草稿、零已验证路线；发布边界见[发布说明](../docs/releases/v0.1.0.md)。

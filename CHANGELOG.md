@@ -136,3 +136,14 @@
 
 新增规则来源边界 schema、双语契约、4来源、10草稿、9合成边界、23测试与双版本 CI。
 约定四类规划扩展并公开路线图及6组任务；正式规则与已验证路线仍为零。此记录不是 release，不打版本标签。
+
+## v0.1.0 — 2026-10-08 / Early research preview
+
+User-authorized research release: all rules remain drafts and verified routes remain
+zero. Adds a reproducible bilingual static demo, independent draft data package with
+hashes, and CI-gated Pages deployment. No booking/order acceptance or live inventory.
+P0 evidence and real user-understanding gaps remain open; see
+[release scope](docs/releases/v0.1.0.md).
+
+用户授权发布研究预览；规则均待核、零已验证路线。新增双语静态合成演示、独立
+数据版本与哈希、CI通过后Pages部署；非订舱非接单。人工复核和真实试用仍待完成。

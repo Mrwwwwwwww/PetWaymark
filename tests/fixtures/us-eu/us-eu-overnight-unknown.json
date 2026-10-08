@@ -1,0 +1,65 @@
+{
+  "synthetic": true,
+  "pet": {
+    "species": "dog",
+    "service_animal": false,
+    "birth_date": "2024-01-01",
+    "microchip_present": true,
+    "identification_method": "microchip",
+    "healthy": true
+  },
+  "journey": {
+    "origin": "US",
+    "destination": "EU",
+    "purpose": "relocation",
+    "ownership_transfer": false,
+    "pets_per_person": 1,
+    "accompaniment": "owner",
+    "transport_mode": "checked_baggage",
+    "departure_at": "2026-11-09",
+    "entry_at": "2026-11-10",
+    "owner_moving": true,
+    "owner_entry_at": "2026-11-10",
+    "first_entry_member": "FR",
+    "destination_member": "FR",
+    "origin_member": "FR",
+    "destination_subdivision": "US-CA",
+    "entry_airport": "CDG",
+    "transit": "none",
+    "vaccination_branch": "primary",
+    "titre_branch": "listed_origin",
+    "history_complete": true,
+    "travel_history_branch": "only_low_risk_6_months",
+    "rabies_vaccine_origin": "US"
+  },
+  "events": {
+    "identification_at": "2026-06-01",
+    "rabies_vaccination_at": "2026-06-01",
+    "primary_protocol_completed_at": "2026-06-01",
+    "rabies_valid_until": "2027-06-01",
+    "document_delivery_at": "2026-11-06",
+    "manufacturer_immunity_days": 21
+  },
+  "documents": {
+    "certificate_model": "eu.705.ahc",
+    "certificate_issued_at": "2026-11-01",
+    "certificate_endorsed_at": "2026-11-05",
+    "eu_document_route": "health_certificate",
+    "receipt_present": true,
+    "receipt_issued_at": "2026-10-01",
+    "receipt_expires_at": "2027-04-01",
+    "receipt_departure_member": "FR"
+  },
+  "appointments": {
+    "document_check_at": "2026-11-10"
+  },
+  "responsibility": {
+    "carrying_role": "owner",
+    "delivery_role": "veterinarian",
+    "receiving_role": "receiving_authority"
+  },
+  "handover": {
+    "overnight_required": true,
+    "overnight_care_available": null
+  }
+}
