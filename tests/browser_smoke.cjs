@@ -97,6 +97,8 @@ const base = process.env.PETWAYMARK_WEB_URL || 'http://127.0.0.1:8766';
   await page.evaluate(()=>{window.print=()=>{window.didPrint=true}});
   await page.locator('#print').click();assert.equal(await page.evaluate(()=>window.didPrint),true);
   assert.match(await page.locator('.printable').innerText(),/pending_arrangement/);
+  const overflow = await page.evaluate(()=>Array.from(document.querySelectorAll('section *')).filter(el=>el.getBoundingClientRect().right>innerWidth+1).map(el=>({tag:el.tagName,text:el.textContent.slice(0,100),right:el.getBoundingClientRect().right})));
+  assert.deepEqual(overflow,[], 'Outbound result/print checklist must fit mobile viewport');
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
   await page.emulateMedia({media:'print'});
   await page.pdf({path:'/tmp/petwaymark-outbound-'+direction+'.pdf',format:'A4'});
