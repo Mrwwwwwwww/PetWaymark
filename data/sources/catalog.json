@@ -300,6 +300,156 @@
           "zh-CN": "独立复核、现行有效性、设施产品范围及日期限定收运待确认。"
         }
       ]
+    },
+    {
+      "id": "us.ca.cdfa-entry",
+      "authority": "US-CA-CDFA",
+      "publisher": "California Department of Food and Agriculture",
+      "kind": "government",
+      "url": "https://www.cdfa.ca.gov/AHFSS/Animal_Health/FAQS.html",
+      "title": {
+        "en": "CA animal entry FAQ",
+        "zh-CN": "加州动物入境说明"
+      },
+      "language": "en",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "read_pending_review",
+      "license_boundary": {
+        "en": "Links and original summaries only; source text retains its rights.",
+        "zh-CN": "仅链接和原创摘要；原文保留自身权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Independent review, currency, exceptions and dated acceptance pending.",
+          "zh-CN": "独立复核、现行有效性、例外及日期限定收运待核。"
+        }
+      ]
+    },
+    {
+      "id": "us.ca.cdfa-nws",
+      "authority": "US-CA-CDFA",
+      "publisher": "California Department of Food and Agriculture",
+      "kind": "government",
+      "url": "https://www.cdfa.ca.gov/ahfss/Animal_Health/screwworm/",
+      "title": {
+        "en": "CA NWS entry overlay",
+        "zh-CN": "加州螺旋蝇附加要求"
+      },
+      "language": "en",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "read_pending_review",
+      "license_boundary": {
+        "en": "Links and original summaries only; source text retains its rights.",
+        "zh-CN": "仅链接和原创摘要；原文保留自身权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Independent review, currency, exceptions and dated acceptance pending.",
+          "zh-CN": "独立复核、现行有效性、例外及日期限定收运待核。"
+        }
+      ]
+    },
+    {
+      "id": "us.ny.companion-entry",
+      "authority": "US-NY-AGM",
+      "publisher": "New York Department of Agriculture and Markets",
+      "kind": "government",
+      "url": "https://agriculture.ny.gov/animals/companion-animals",
+      "title": {
+        "en": "NY companion animal entry (unavailable)",
+        "zh-CN": "纽约犬猫入境（本次不可读）"
+      },
+      "language": "en",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "unavailable",
+      "license_boundary": {
+        "en": "Links and original summaries only; source text retains its rights.",
+        "zh-CN": "仅链接和原创摘要；原文保留自身权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Independent review, currency, exceptions and dated acceptance pending.",
+          "zh-CN": "独立复核、现行有效性、例外及日期限定收运待核。"
+        }
+      ]
+    },
+    {
+      "id": "us.tx.dshs-entry",
+      "authority": "US-TX-DSHS",
+      "publisher": "Texas Department of State Health Services",
+      "kind": "government",
+      "url": "https://www.dshs.texas.gov/disease-surveillance-epidemiology-section/zoonosis-control/pets/entry",
+      "title": {
+        "en": "TX dog and cat entry",
+        "zh-CN": "德州犬猫入境"
+      },
+      "language": "en",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "read_pending_review",
+      "license_boundary": {
+        "en": "Links and original summaries only; source text retains its rights.",
+        "zh-CN": "仅链接和原创摘要；原文保留自身权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Independent review, currency, exceptions and dated acceptance pending.",
+          "zh-CN": "独立复核、现行有效性、例外及日期限定收运待核。"
+        }
+      ]
+    },
+    {
+      "id": "us.as.product-overview",
+      "authority": "US-AS",
+      "publisher": "Alaska Airlines / Hawaiian Airlines",
+      "kind": "carrier",
+      "url": "https://news.alaskaair.com/company/what-to-know-before-traveling-with-a-canine-companion/",
+      "title": {
+        "en": "Dated cabin, baggage and cargo overview",
+        "zh-CN": "日期限定客舱、行李与货运说明"
+      },
+      "language": "en",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "read_pending_review",
+      "license_boundary": {
+        "en": "Links and original summaries only; source text retains its rights.",
+        "zh-CN": "仅链接和原创摘要；原文保留自身权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Independent review, currency, exceptions and dated acceptance pending.",
+          "zh-CN": "独立复核、现行有效性、例外及日期限定收运待核。"
+        }
+      ]
+    },
+    {
+      "id": "us.as.cargo-petconnect",
+      "authority": "US-AS-Cargo",
+      "publisher": "Alaska Air Cargo",
+      "kind": "carrier",
+      "url": "https://www.alaskacargo.com/petconnect",
+      "title": {
+        "en": "Separate cargo product requirements",
+        "zh-CN": "独立货运产品要求"
+      },
+      "language": "en",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "read_pending_review",
+      "license_boundary": {
+        "en": "Links and original summaries only; source text retains its rights.",
+        "zh-CN": "仅链接和原创摘要；原文保留自身权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Independent review, currency, exceptions and dated acceptance pending.",
+          "zh-CN": "独立复核、现行有效性、例外及日期限定收运待核。"
+        }
+      ]
     }
   ]
 }

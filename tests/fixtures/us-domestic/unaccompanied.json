@@ -1,0 +1,28 @@
+{
+  "synthetic": true,
+  "pet": {
+    "species": "dog",
+    "service_animal": false,
+    "weight_kg": 15,
+    "shoulder_height_cm": 40,
+    "body_length_cm": 52,
+    "healthy": true
+  },
+  "journey": {
+    "origin": "US",
+    "destination": "US",
+    "purpose": "relocation",
+    "ownership_transfer": false,
+    "accompaniment": "unaccompanied",
+    "pets_per_person": 1,
+    "entry_at": "2026-11-10"
+  },
+  "preview": {
+    "journey_id": "synthetic.week5-unaccompanied",
+    "plan_revision": 1,
+    "can_drive": true
+  },
+  "documents": {
+    "health_certificate_present": true
+  }
+}

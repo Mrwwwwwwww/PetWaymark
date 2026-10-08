@@ -146,11 +146,15 @@ def validate_repository(root=ROOT):
                          inp.get("travel_history_branch") == "high_risk_in_6_months"))
             if not mismatch:
                 errors.append(f"{ident}: no scope mismatch for excluded rule {rid}")
-    graph_path = root / "data/corridors/cn-preview.json"
-    if graph_path.exists():
+    for graph_path in sorted((root / "data/corridors").glob("*-preview.json")):
         graph = load(graph_path, "corridor-graph.schema.json")
         if graph:
             errors.extend(validate_graph(graph, sources))
+    overlay_path = root / "data/coverage/us-state-overlays.json"
+    if overlay_path.exists():
+        overlay = load(overlay_path, "state-overlays.schema.json")
+        if overlay:
+            errors.extend(validate_overlays(overlay, sources, rules))
     return errors, counts
 
 
@@ -187,7 +191,8 @@ def validate_graph(graph, sources):
         if any(l["source_id"] not in ids for l in leg["limits"]):
             errors.append(f"{name}: limit source must be declared")
         product = leg["product"]
-        expected = "rail" if product.startswith("rail_") else "checked_baggage" if "baggage" in product else "road"
+        expected = ("rail" if product.startswith("rail_") else "checked_baggage" if "baggage" in product
+                    else "cabin" if product.endswith("_cabin") else "manifest_cargo" if product.endswith("_cargo") else "road")
         if leg["mode"] != expected:
             errors.append(f"{name}: product/mode mismatch")
     for corridor in graph["corridors"]:
@@ -195,6 +200,30 @@ def validate_graph(graph, sources):
             errors.append(f"{corridor['id']}: unresolved corridor node")
         if corridor["origin_node"] == corridor["destination_node"]:
             errors.append(f"{corridor['id']}: corridor endpoints must differ")
+    return errors
+
+
+def validate_overlays(overlay, sources, rules):
+    errors = []
+    if {s['subdivision'] for s in overlay['states']} != {'US-CA', 'US-NY', 'US-TX'}:
+        errors.append('overlays: missing or duplicate target state')
+    for state in overlay['states']:
+        ids = set(state['source_ids'])
+        if not ids <= sources.keys() or not set(state['rule_ids']) <= rules.keys():
+            errors.append('overlays: unresolved source or rule')
+        if state['status'] == 'source_unavailable':
+            if state['evidence'] or state['rule_ids'] or any(sources.get(i, {}).get('status') != 'unavailable' for i in ids):
+                errors.append('overlays: unavailable source cannot claim reading or rules')
+        elif ids != {e['source_id'] for e in state['evidence']}:
+            errors.append('overlays: missing reading evidence')
+        for e in state['evidence']:
+            source = sources.get(e['source_id'], {})
+            if any(e[k] != source.get(k) for k in ('url', 'accessed_at', 'language')):
+                errors.append('overlays: evidence differs from catalog')
+        for rid in state['rule_ids']:
+            rule = rules.get(rid)
+            if rule and (rule['review']['status'] != 'draft' or rule['scope']['subdivisions'] != [state['subdivision']]):
+                errors.append('overlays: rule scope/review mismatch')
     return errors
 
 

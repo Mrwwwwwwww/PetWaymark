@@ -8,9 +8,11 @@ from packages.engine.io import ROOT, load_repository
 from scripts.validate_data import read_json
 
 
-def load_graph(root=ROOT):
+def load_graph(root=ROOT, *, region='CN'):
     load_repository(root)  # schemas and cross references, including graph evidence
-    return read_json(root / 'data/corridors/cn-preview.json')
+    if region not in ('CN', 'US'):
+        raise ValueError('unsupported domestic region')
+    return read_json(root / f'data/corridors/{region.lower()}-preview.json')
 
 
 def paths(graph, origin, destination):
@@ -40,11 +42,11 @@ def limit_diagnostics(leg, profile):
     return rows
 
 
-def preview(profile, graph, *, corridor_id, assessment_at):
+def preview(profile, graph, *, corridor_id, assessment_at, rules=(), overlays=None):
     """Assess research paths. Public graph and coverage are trusted maintainer inputs.
 
     User input can reject a leg or supply readiness but cannot upgrade evidence,
-    capacity, hours, rules, roles or coverage. No CN import rule is used domestically.
+    capacity, hours, rules, roles or coverage. Import rules are not used domestically.
     """
     day(assessment_at)
     if not isinstance(profile, dict):
@@ -83,8 +85,10 @@ def preview(profile, graph, *, corridor_id, assessment_at):
     classification_profile = deepcopy(profile)
     classification_profile.setdefault('journey', {})['transport_mode'] = 'road'
     reasons, gaps = classify(classification_profile)
-    if journey.get('origin') != 'CN' or journey.get('destination') != 'CN':
-        gaps.append('domestic_cn_scope_only')
+    region = 'US' if corridor_id.startswith('dom.us.') else 'CN'
+    if journey.get('origin') != region or journey.get('destination') != region:
+        gaps.append('domestic_' + region.lower() + '_scope_only')
+    nodes = {n['id']: n for n in graph['nodes']}
     if profile.get('pet', {}).get('service_animal') is not False:
         gaps.append('ordinary_pet_classification_unconfirmed')
     if journey.get('pets_per_person') != 1 or type(journey.get('pets_per_person')) is not int:
@@ -98,6 +102,9 @@ def preview(profile, graph, *, corridor_id, assessment_at):
                   corridor_id=corridor_id, research_candidate_id=corridor['research_candidate_id'],
                   status='unsupported', candidates=[], excluded=[], reason_codes=sorted(set(reasons + gaps)),
                   recommendations=[], booking_confirmed=False, verified_feasible_route_count=0)
+    if region == 'US':
+        result['state_overlays'] = deepcopy((overlays or {}).get('states', []))
+        result['reason_codes'].append('us_state_packages_unreviewed')
     if gaps:
         return result  # no route construction before classification is resolved
     for route in paths(graph, corridor['origin_node'], corridor['destination_node']):
@@ -118,12 +125,14 @@ def preview(profile, graph, *, corridor_id, assessment_at):
                     leg_reasons.append('driving_unavailable')
                 elif controls.get('can_drive') is not True:
                     route_gaps.add('driving_readiness_unknown')
-            if product == 'rail_owner_accompanied' or leg['mode'] == 'checked_baggage':
+            if product == 'rail_owner_accompanied' or leg['mode'] in ('cabin', 'checked_baggage'):
                 if journey.get('accompaniment') == 'unaccompanied':
                     leg_reasons.append('accompanied_product_unavailable')
-            if product in ('rail_unaccompanied', 'unaccompanied_animal_carrier'):
+            if product in ('rail_unaccompanied', 'unaccompanied_animal_carrier', 'as_manifest_pet_cargo'):
                 if journey.get('accompaniment') != 'unaccompanied':
                     leg_reasons.append('unaccompanied_product_scope_mismatch')
+            if product == 'parcel_delivery':
+                leg_reasons.append('parcel_cannot_transport_live_animal')
             if profile.get('pet', {}).get('species') not in leg['species']:
                 leg_reasons.append('species_product_mismatch')
             # Operational conflicts come from explicit input, not unreviewed legal rules.
@@ -131,7 +140,13 @@ def preview(profile, graph, *, corridor_id, assessment_at):
             local = deepcopy(profile)
             local['journey']['transport_mode'] = leg['mode']
             local['journey']['carrier_acceptance'] = acceptance
-            assessment = evaluate(local, [], assessment_at=assessment_at,
+            local['journey']['subdivision'] = nodes[leg['to_node']].get('subdivision')
+            crossing = nodes[leg['from_node']].get('subdivision') != nodes[leg['to_node']].get('subdivision')
+            applicable_rules = [r for r in rules if r['scope']['movement_category'] == 'domestic_pet'
+                                and (not r['scope']['subdivisions'] or crossing)
+                                and (r['record_class'] != 'carrier_policy' or
+                                     set(r['source_ids']) <= set(leg['source_ids']))]
+            assessment = evaluate(local, applicable_rules, assessment_at=assessment_at,
                                   coverage_gaps=leg['coverage_gaps'])
             route_gaps.update(assessment['coverage_gaps'])
             row = deepcopy(leg)
@@ -168,6 +183,11 @@ def checklist(result, graph, *, language='zh-CN'):
              f"{result['journey_id']} | revision {result['plan_revision']} | {result['dataset_version']}",
              ('未知不能变成允许；候选不作排名。' if zh else 'Unknown is not permission; candidates are not ranked.'),
              ', '.join(result['reason_codes'])]
+    for overlay in result.get('state_overlays', []):
+        lines.append(f"{overlay['subdivision']} | {overlay['status']} | " + ', '.join(overlay['pending_checks']))
+        for e in overlay['evidence']:
+            lines.append(f"{e['source_id']} | {e['url']} | {e['accessed_at']}")
+            lines.append(e['summary'][language])
     role_names = {'escort': '陪同', 'custodian': '宠物保管', 'handover_recipient': '交接接收', 'document_custodian': '原件保管'}
     for group in ('candidates', 'excluded'):
         for route in result[group]:
@@ -181,6 +201,8 @@ def checklist(result, graph, *, language='zh-CN'):
                     lines.append(f"{role_names[role] if zh else role}: {pending}")
                 lines.append(f"{'收运进度（输入报告）' if zh else 'Acceptance (input report)'}: {leg['reported_acceptance']}")
                 lines.append(f"{'原因／缺口' if zh else 'Reasons / gaps'}: " + ', '.join(leg['reason_codes'] + leg['rule_assessment']['reason_codes']))
+                for rule in leg['rule_assessment']['explanations']:
+                    lines.append(f"{rule['rule_id']} | {rule['outcome']} | " + rule['message'][language])
                 for d in leg['draft_diagnostics']:
                     lines.append(f"{'草稿诊断（非执行规则）' if zh else 'Draft diagnostic (not enforced)'}: {d['field']} <= {d['maximum']} | {d['outcome']} | {d['source_id']}")
                 for e in leg['evidence']:

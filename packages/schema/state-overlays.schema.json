@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://petwaymark.org/schemas/0.1.0/state-overlays.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "0.1.0"
+    },
+    "dataset_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "verified_rule_count": {
+      "const": 0
+    },
+    "states": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "subdivision": {
+            "enum": [
+              "US-CA",
+              "US-NY",
+              "US-TX"
+            ]
+          },
+          "status": {
+            "enum": [
+              "read_pending_independent_review",
+              "source_unavailable"
+            ]
+          },
+          "source_ids": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "$ref": "common.schema.json#/$defs/id"
+            }
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "$ref": "common.schema.json#/$defs/evidence"
+            }
+          },
+          "pending_checks": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "not_applicable": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "rule_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "$ref": "common.schema.json#/$defs/id"
+            }
+          }
+        },
+        "required": [
+          "subdivision",
+          "status",
+          "source_ids",
+          "evidence",
+          "pending_checks",
+          "not_applicable",
+          "rule_ids"
+        ]
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "dataset_version",
+    "verified_rule_count",
+    "states"
+  ]
+}

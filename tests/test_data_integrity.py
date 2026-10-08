@@ -43,7 +43,7 @@ class DataIntegrityTests(unittest.TestCase):
     def test_current_dataset_is_draft_only_and_complete(self):
         errors, counts = validate_repository(self.root)
         self.assertEqual(errors, [])
-        self.assertEqual(counts, {"rules": 10, "sources": 12, "cases": 9})
+        self.assertEqual(counts, {"rules": 12, "sources": 18, "cases": 9})
         for path in (self.root / "data/rules").rglob("*.json"):
             rule = read_json(path)
             self.assertEqual(rule["review"]["status"], "draft")

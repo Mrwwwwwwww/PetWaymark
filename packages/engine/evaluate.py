@@ -82,7 +82,7 @@ def classify(profile):
         reasons.append('accompaniment_unknown')
     if j.get('transport_mode') not in ('cabin', 'checked_baggage', 'manifest_cargo', 'road', 'rail'):
         reasons.append('transport_mode_unknown')
-    if j.get('destination') == 'US' and p.get('species') == 'dog':
+    if j.get('destination') == 'US' and j.get('origin') != 'US' and p.get('species') == 'dog':
         history = j.get('travel_history_branch')
         if history == 'high_risk_in_6_months':
             gaps.append('high_risk_branch_uncovered')
@@ -109,6 +109,9 @@ def scope_check(rule, profile):
     """Known mismatch wins over unknown fields; a mismatch never runs comparisons."""
     s, p, j = rule['scope'], profile.get('pet', {}), profile.get('journey', {})
     mismatches, missing = [], []
+    if (s['movement_category'] in ('all_imports', 'carried_entry') and
+            j.get('origin') is not None and j.get('origin') == j.get('destination')):
+        mismatches.append('international_entry_scope_mismatch')
     checks = [('species', p.get('species'), s['species']),
               ('destination', j.get('destination'), [s['destination']]),
               ('transport_mode', j.get('transport_mode'), s['transport_modes']),

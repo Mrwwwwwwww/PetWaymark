@@ -1,0 +1,1567 @@
+{
+  "schema_version": "0.1.0",
+  "dataset_version": "2026-10-08.week5-preview",
+  "nodes": [
+    {
+      "id": "us.ventura",
+      "name": {
+        "en": "Ventura, CA",
+        "zh-CN": "文图拉，CA"
+      },
+      "kind": "city",
+      "subdivision": "US-CA"
+    },
+    {
+      "id": "us.kingston",
+      "name": {
+        "en": "Kingston, NY",
+        "zh-CN": "金斯顿，NY"
+      },
+      "kind": "city",
+      "subdivision": "US-NY"
+    },
+    {
+      "id": "us.denton",
+      "name": {
+        "en": "Denton, TX",
+        "zh-CN": "登顿，TX"
+      },
+      "kind": "city",
+      "subdivision": "US-TX"
+    },
+    {
+      "id": "us.lax",
+      "name": {
+        "en": "Los Angeles airport (LAX)",
+        "zh-CN": "洛杉矶机场（LAX）"
+      },
+      "kind": "airport",
+      "subdivision": "US-CA"
+    },
+    {
+      "id": "us.jfk",
+      "name": {
+        "en": "New York airport (JFK)",
+        "zh-CN": "纽约机场（JFK）"
+      },
+      "kind": "airport",
+      "subdivision": "US-NY"
+    },
+    {
+      "id": "us.dfw",
+      "name": {
+        "en": "Dallas/Fort Worth airport (DFW)",
+        "zh-CN": "达拉斯沃思堡机场（DFW）"
+      },
+      "kind": "airport",
+      "subdivision": "US-TX"
+    }
+  ],
+  "segments": [
+    {
+      "segment_id": "us.ventura.kingston.owner-vehicle",
+      "from_node": "us.ventura",
+      "to_node": "us.kingston",
+      "mode": "road",
+      "product": "owner_vehicle",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "review_status": "draft",
+      "coverage_gaps": [
+        "state_package_unreviewed",
+        "actual_operating_carrier_unconfirmed",
+        "dated_acceptance_unknown",
+        "facility_capability_unknown",
+        "ground_live_animal_capability_unknown",
+        "road_network_unverified",
+        "handover_window_unknown",
+        "custody_pending",
+        "overnight_care_unknown"
+      ],
+      "source_ids": [
+        "us.ny.companion-entry"
+      ],
+      "evidence": [
+        {
+          "source_id": "us.ny.companion-entry",
+          "url": "https://agriculture.ny.gov/animals/companion-animals",
+          "locator": "Research scope only; Ways to fly / state entry",
+          "accessed_at": "2026-10-08",
+          "language": "en",
+          "summary": {
+            "en": "Illustrative geography/product pairing only; no actual leg, road connectivity, station capability or dated acceptance verified.",
+            "zh-CN": "仅地理／产品研究组合；未核实实际航段、道路连通、站点能力或日期限定收运。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "limits": [],
+      "estimate_minutes": null,
+      "distance_km": null,
+      "cost_cny": null,
+      "handover": {
+        "location_node": "us.kingston",
+        "window": null,
+        "roles": {
+          "escort": null,
+          "custodian": null,
+          "handover_recipient": null,
+          "document_custodian": null
+        }
+      },
+      "supersedes_segment_ids": []
+    },
+    {
+      "segment_id": "us.ventura.kingston.unaccompanied-animal-carrier",
+      "from_node": "us.ventura",
+      "to_node": "us.kingston",
+      "mode": "road",
+      "product": "unaccompanied_animal_carrier",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "review_status": "draft",
+      "coverage_gaps": [
+        "state_package_unreviewed",
+        "actual_operating_carrier_unconfirmed",
+        "dated_acceptance_unknown",
+        "facility_capability_unknown",
+        "ground_live_animal_capability_unknown",
+        "road_network_unverified",
+        "handover_window_unknown",
+        "custody_pending",
+        "overnight_care_unknown"
+      ],
+      "source_ids": [
+        "us.ny.companion-entry"
+      ],
+      "evidence": [
+        {
+          "source_id": "us.ny.companion-entry",
+          "url": "https://agriculture.ny.gov/animals/companion-animals",
+          "locator": "Research scope only; Ways to fly / state entry",
+          "accessed_at": "2026-10-08",
+          "language": "en",
+          "summary": {
+            "en": "Illustrative geography/product pairing only; no actual leg, road connectivity, station capability or dated acceptance verified.",
+            "zh-CN": "仅地理／产品研究组合；未核实实际航段、道路连通、站点能力或日期限定收运。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "limits": [],
+      "estimate_minutes": null,
+      "distance_km": null,
+      "cost_cny": null,
+      "handover": {
+        "location_node": "us.kingston",
+        "window": null,
+        "roles": {
+          "escort": null,
+          "custodian": null,
+          "handover_recipient": null,
+          "document_custodian": null
+        }
+      },
+      "supersedes_segment_ids": []
+    },
+    {
+      "segment_id": "us.ventura.lax.owner-vehicle",
+      "from_node": "us.ventura",
+      "to_node": "us.lax",
+      "mode": "road",
+      "product": "owner_vehicle",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "review_status": "draft",
+      "coverage_gaps": [
+        "state_package_unreviewed",
+        "actual_operating_carrier_unconfirmed",
+        "dated_acceptance_unknown",
+        "facility_capability_unknown",
+        "ground_live_animal_capability_unknown",
+        "road_network_unverified",
+        "handover_window_unknown",
+        "custody_pending",
+        "overnight_care_unknown"
+      ],
+      "source_ids": [
+        "us.ny.companion-entry"
+      ],
+      "evidence": [
+        {
+          "source_id": "us.ny.companion-entry",
+          "url": "https://agriculture.ny.gov/animals/companion-animals",
+          "locator": "Research scope only; Ways to fly / state entry",
+          "accessed_at": "2026-10-08",
+          "language": "en",
+          "summary": {
+            "en": "Illustrative geography/product pairing only; no actual leg, road connectivity, station capability or dated acceptance verified.",
+            "zh-CN": "仅地理／产品研究组合；未核实实际航段、道路连通、站点能力或日期限定收运。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "limits": [],
+      "estimate_minutes": null,
+      "distance_km": null,
+      "cost_cny": null,
+      "handover": {
+        "location_node": "us.lax",
+        "window": null,
+        "roles": {
+          "escort": null,
+          "custodian": null,
+          "handover_recipient": null,
+          "document_custodian": null
+        }
+      },
+      "supersedes_segment_ids": []
+    },
+    {
+      "segment_id": "us.ventura.lax.unaccompanied-animal-carrier",
+      "from_node": "us.ventura",
+      "to_node": "us.lax",
+      "mode": "road",
+      "product": "unaccompanied_animal_carrier",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "review_status": "draft",
+      "coverage_gaps": [
+        "state_package_unreviewed",
+        "actual_operating_carrier_unconfirmed",
+        "dated_acceptance_unknown",
+        "facility_capability_unknown",
+        "ground_live_animal_capability_unknown",
+        "road_network_unverified",
+        "handover_window_unknown",
+        "custody_pending",
+        "overnight_care_unknown"
+      ],
+      "source_ids": [
+        "us.ny.companion-entry"
+      ],
+      "evidence": [
+        {
+          "source_id": "us.ny.companion-entry",
+          "url": "https://agriculture.ny.gov/animals/companion-animals",
+          "locator": "Research scope only; Ways to fly / state entry",
+          "accessed_at": "2026-10-08",
+          "language": "en",
+          "summary": {
+            "en": "Illustrative geography/product pairing only; no actual leg, road connectivity, station capability or dated acceptance verified.",
+            "zh-CN": "仅地理／产品研究组合；未核实实际航段、道路连通、站点能力或日期限定收运。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "limits": [],
+      "estimate_minutes": null,
+      "distance_km": null,
+      "cost_cny": null,
+      "handover": {
+        "location_node": "us.lax",
+        "window": null,
+        "roles": {
+          "escort": null,
+          "custodian": null,
+          "handover_recipient": null,
+          "document_custodian": null
+        }
+      },
+      "supersedes_segment_ids": []
+    },
+    {
+      "segment_id": "us.jfk.kingston.owner-vehicle",
+      "from_node": "us.jfk",
+      "to_node": "us.kingston",
+      "mode": "road",
+      "product": "owner_vehicle",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "review_status": "draft",
+      "coverage_gaps": [
+        "state_package_unreviewed",
+        "actual_operating_carrier_unconfirmed",
+        "dated_acceptance_unknown",
+        "facility_capability_unknown",
+        "ground_live_animal_capability_unknown",
+        "road_network_unverified",
+        "handover_window_unknown",
+        "custody_pending",
+        "overnight_care_unknown"
+      ],
+      "source_ids": [
+        "us.ny.companion-entry"
+      ],
+      "evidence": [
+        {
+          "source_id": "us.ny.companion-entry",
+          "url": "https://agriculture.ny.gov/animals/companion-animals",
+          "locator": "Research scope only; Ways to fly / state entry",
+          "accessed_at": "2026-10-08",
+          "language": "en",
+          "summary": {
+            "en": "Illustrative geography/product pairing only; no actual leg, road connectivity, station capability or dated acceptance verified.",
+            "zh-CN": "仅地理／产品研究组合；未核实实际航段、道路连通、站点能力或日期限定收运。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "limits": [],
+      "estimate_minutes": null,
+      "distance_km": null,
+      "cost_cny": null,
+      "handover": {
+        "location_node": "us.kingston",
+        "window": null,
+        "roles": {
+          "escort": null,
+          "custodian": null,
+          "handover_recipient": null,
+          "document_custodian": null
+        }
+      },
+      "supersedes_segment_ids": []
+    },
+    {
+      "segment_id": "us.jfk.kingston.unaccompanied-animal-carrier",
+      "from_node": "us.jfk",
+      "to_node": "us.kingston",
+      "mode": "road",
+      "product": "unaccompanied_animal_carrier",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "review_status": "draft",
+      "coverage_gaps": [
+        "state_package_unreviewed",
+        "actual_operating_carrier_unconfirmed",
+        "dated_acceptance_unknown",
+        "facility_capability_unknown",
+        "ground_live_animal_capability_unknown",
+        "road_network_unverified",
+        "handover_window_unknown",
+        "custody_pending",
+        "overnight_care_unknown"
+      ],
+      "source_ids": [
+        "us.ny.companion-entry"
+      ],
+      "evidence": [
+        {
+          "source_id": "us.ny.companion-entry",
+          "url": "https://agriculture.ny.gov/animals/companion-animals",
+          "locator": "Research scope only; Ways to fly / state entry",
+          "accessed_at": "2026-10-08",
+          "language": "en",
+          "summary": {
+            "en": "Illustrative geography/product pairing only; no actual leg, road connectivity, station capability or dated acceptance verified.",
+            "zh-CN": "仅地理／产品研究组合；未核实实际航段、道路连通、站点能力或日期限定收运。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "limits": [],
+      "estimate_minutes": null,
+      "distance_km": null,
+      "cost_cny": null,
+      "handover": {
+        "location_node": "us.kingston",
+        "window": null,
+        "roles": {
+          "escort": null,
+          "custodian": null,
+          "handover_recipient": null,
+          "document_custodian": null
+        }
+      },
+      "supersedes_segment_ids": []
+    },
+    {
+      "segment_id": "us.lax.jfk.as-passenger-pet-cabin",
+      "from_node": "us.lax",
+      "to_node": "us.jfk",
+      "mode": "cabin",
+      "product": "as_passenger_pet_cabin",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "review_status": "draft",
+      "coverage_gaps": [
+        "state_package_unreviewed",
+        "actual_operating_carrier_unconfirmed",
+        "dated_acceptance_unknown",
+        "facility_capability_unknown",
+        "ground_live_animal_capability_unknown",
+        "road_network_unverified",
+        "handover_window_unknown",
+        "custody_pending",
+        "overnight_care_unknown"
+      ],
+      "source_ids": [
+        "us.as.product-overview"
+      ],
+      "evidence": [
+        {
+          "source_id": "us.as.product-overview",
+          "url": "https://news.alaskaair.com/company/what-to-know-before-traveling-with-a-canine-companion/",
+          "locator": "Research scope only; Ways to fly / state entry",
+          "accessed_at": "2026-10-08",
+          "language": "en",
+          "summary": {
+            "en": "Illustrative geography/product pairing only; no actual leg, road connectivity, station capability or dated acceptance verified.",
+            "zh-CN": "仅地理／产品研究组合；未核实实际航段、道路连通、站点能力或日期限定收运。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "limits": [],
+      "estimate_minutes": null,
+      "distance_km": null,
+      "cost_cny": null,
+      "handover": {
+        "location_node": "us.jfk",
+        "window": null,
+        "roles": {
+          "escort": null,
+          "custodian": null,
+          "handover_recipient": null,
+          "document_custodian": null
+        }
+      },
+      "supersedes_segment_ids": []
+    },
+    {
+      "segment_id": "us.lax.jfk.as-passenger-pet-baggage",
+      "from_node": "us.lax",
+      "to_node": "us.jfk",
+      "mode": "checked_baggage",
+      "product": "as_passenger_pet_baggage",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "review_status": "draft",
+      "coverage_gaps": [
+        "state_package_unreviewed",
+        "actual_operating_carrier_unconfirmed",
+        "dated_acceptance_unknown",
+        "facility_capability_unknown",
+        "ground_live_animal_capability_unknown",
+        "road_network_unverified",
+        "handover_window_unknown",
+        "custody_pending",
+        "overnight_care_unknown"
+      ],
+      "source_ids": [
+        "us.as.product-overview"
+      ],
+      "evidence": [
+        {
+          "source_id": "us.as.product-overview",
+          "url": "https://news.alaskaair.com/company/what-to-know-before-traveling-with-a-canine-companion/",
+          "locator": "Research scope only; Ways to fly / state entry",
+          "accessed_at": "2026-10-08",
+          "language": "en",
+          "summary": {
+            "en": "Illustrative geography/product pairing only; no actual leg, road connectivity, station capability or dated acceptance verified.",
+            "zh-CN": "仅地理／产品研究组合；未核实实际航段、道路连通、站点能力或日期限定收运。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "limits": [],
+      "estimate_minutes": null,
+      "distance_km": null,
+      "cost_cny": null,
+      "handover": {
+        "location_node": "us.jfk",
+        "window": null,
+        "roles": {
+          "escort": null,
+          "custodian": null,
+          "handover_recipient": null,
+          "document_custodian": null
+        }
+      },
+      "supersedes_segment_ids": []
+    },
+    {
+      "segment_id": "us.lax.jfk.as-manifest-pet-cargo",
+      "from_node": "us.lax",
+      "to_node": "us.jfk",
+      "mode": "manifest_cargo",
+      "product": "as_manifest_pet_cargo",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "review_status": "draft",
+      "coverage_gaps": [
+        "state_package_unreviewed",
+        "actual_operating_carrier_unconfirmed",
+        "dated_acceptance_unknown",
+        "facility_capability_unknown",
+        "ground_live_animal_capability_unknown",
+        "road_network_unverified",
+        "handover_window_unknown",
+        "custody_pending",
+        "overnight_care_unknown"
+      ],
+      "source_ids": [
+        "us.as.cargo-petconnect"
+      ],
+      "evidence": [
+        {
+          "source_id": "us.as.cargo-petconnect",
+          "url": "https://www.alaskacargo.com/petconnect",
+          "locator": "Research scope only; Certificate Requirements",
+          "accessed_at": "2026-10-08",
+          "language": "en",
+          "summary": {
+            "en": "Illustrative geography/product pairing only; no actual leg, road connectivity, station capability or dated acceptance verified.",
+            "zh-CN": "仅地理／产品研究组合；未核实实际航段、道路连通、站点能力或日期限定收运。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "limits": [],
+      "estimate_minutes": null,
+      "distance_km": null,
+      "cost_cny": null,
+      "handover": {
+        "location_node": "us.jfk",
+        "window": null,
+        "roles": {
+          "escort": null,
+          "custodian": null,
+          "handover_recipient": null,
+          "document_custodian": null
+        }
+      },
+      "supersedes_segment_ids": []
+    },
+    {
+      "segment_id": "us.kingston.denton.owner-vehicle",
+      "from_node": "us.kingston",
+      "to_node": "us.denton",
+      "mode": "road",
+      "product": "owner_vehicle",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "review_status": "draft",
+      "coverage_gaps": [
+        "state_package_unreviewed",
+        "actual_operating_carrier_unconfirmed",
+        "dated_acceptance_unknown",
+        "facility_capability_unknown",
+        "ground_live_animal_capability_unknown",
+        "road_network_unverified",
+        "handover_window_unknown",
+        "custody_pending",
+        "overnight_care_unknown"
+      ],
+      "source_ids": [
+        "us.tx.dshs-entry"
+      ],
+      "evidence": [
+        {
+          "source_id": "us.tx.dshs-entry",
+          "url": "https://www.dshs.texas.gov/disease-surveillance-epidemiology-section/zoonosis-control/pets/entry",
+          "locator": "Research scope only; Ways to fly / state entry",
+          "accessed_at": "2026-10-08",
+          "language": "en",
+          "summary": {
+            "en": "Illustrative geography/product pairing only; no actual leg, road connectivity, station capability or dated acceptance verified.",
+            "zh-CN": "仅地理／产品研究组合；未核实实际航段、道路连通、站点能力或日期限定收运。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "limits": [],
+      "estimate_minutes": null,
+      "distance_km": null,
+      "cost_cny": null,
+      "handover": {
+        "location_node": "us.denton",
+        "window": null,
+        "roles": {
+          "escort": null,
+          "custodian": null,
+          "handover_recipient": null,
+          "document_custodian": null
+        }
+      },
+      "supersedes_segment_ids": []
+    },
+    {
+      "segment_id": "us.kingston.denton.unaccompanied-animal-carrier",
+      "from_node": "us.kingston",
+      "to_node": "us.denton",
+      "mode": "road",
+      "product": "unaccompanied_animal_carrier",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "review_status": "draft",
+      "coverage_gaps": [
+        "state_package_unreviewed",
+        "actual_operating_carrier_unconfirmed",
+        "dated_acceptance_unknown",
+        "facility_capability_unknown",
+        "ground_live_animal_capability_unknown",
+        "road_network_unverified",
+        "handover_window_unknown",
+        "custody_pending",
+        "overnight_care_unknown"
+      ],
+      "source_ids": [
+        "us.tx.dshs-entry"
+      ],
+      "evidence": [
+        {
+          "source_id": "us.tx.dshs-entry",
+          "url": "https://www.dshs.texas.gov/disease-surveillance-epidemiology-section/zoonosis-control/pets/entry",
+          "locator": "Research scope only; Ways to fly / state entry",
+          "accessed_at": "2026-10-08",
+          "language": "en",
+          "summary": {
+            "en": "Illustrative geography/product pairing only; no actual leg, road connectivity, station capability or dated acceptance verified.",
+            "zh-CN": "仅地理／产品研究组合；未核实实际航段、道路连通、站点能力或日期限定收运。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "limits": [],
+      "estimate_minutes": null,
+      "distance_km": null,
+      "cost_cny": null,
+      "handover": {
+        "location_node": "us.denton",
+        "window": null,
+        "roles": {
+          "escort": null,
+          "custodian": null,
+          "handover_recipient": null,
+          "document_custodian": null
+        }
+      },
+      "supersedes_segment_ids": []
+    },
+    {
+      "segment_id": "us.kingston.jfk.owner-vehicle",
+      "from_node": "us.kingston",
+      "to_node": "us.jfk",
+      "mode": "road",
+      "product": "owner_vehicle",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "review_status": "draft",
+      "coverage_gaps": [
+        "state_package_unreviewed",
+        "actual_operating_carrier_unconfirmed",
+        "dated_acceptance_unknown",
+        "facility_capability_unknown",
+        "ground_live_animal_capability_unknown",
+        "road_network_unverified",
+        "handover_window_unknown",
+        "custody_pending",
+        "overnight_care_unknown"
+      ],
+      "source_ids": [
+        "us.tx.dshs-entry"
+      ],
+      "evidence": [
+        {
+          "source_id": "us.tx.dshs-entry",
+          "url": "https://www.dshs.texas.gov/disease-surveillance-epidemiology-section/zoonosis-control/pets/entry",
+          "locator": "Research scope only; Ways to fly / state entry",
+          "accessed_at": "2026-10-08",
+          "language": "en",
+          "summary": {
+            "en": "Illustrative geography/product pairing only; no actual leg, road connectivity, station capability or dated acceptance verified.",
+            "zh-CN": "仅地理／产品研究组合；未核实实际航段、道路连通、站点能力或日期限定收运。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "limits": [],
+      "estimate_minutes": null,
+      "distance_km": null,
+      "cost_cny": null,
+      "handover": {
+        "location_node": "us.jfk",
+        "window": null,
+        "roles": {
+          "escort": null,
+          "custodian": null,
+          "handover_recipient": null,
+          "document_custodian": null
+        }
+      },
+      "supersedes_segment_ids": []
+    },
+    {
+      "segment_id": "us.kingston.jfk.unaccompanied-animal-carrier",
+      "from_node": "us.kingston",
+      "to_node": "us.jfk",
+      "mode": "road",
+      "product": "unaccompanied_animal_carrier",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "review_status": "draft",
+      "coverage_gaps": [
+        "state_package_unreviewed",
+        "actual_operating_carrier_unconfirmed",
+        "dated_acceptance_unknown",
+        "facility_capability_unknown",
+        "ground_live_animal_capability_unknown",
+        "road_network_unverified",
+        "handover_window_unknown",
+        "custody_pending",
+        "overnight_care_unknown"
+      ],
+      "source_ids": [
+        "us.tx.dshs-entry"
+      ],
+      "evidence": [
+        {
+          "source_id": "us.tx.dshs-entry",
+          "url": "https://www.dshs.texas.gov/disease-surveillance-epidemiology-section/zoonosis-control/pets/entry",
+          "locator": "Research scope only; Ways to fly / state entry",
+          "accessed_at": "2026-10-08",
+          "language": "en",
+          "summary": {
+            "en": "Illustrative geography/product pairing only; no actual leg, road connectivity, station capability or dated acceptance verified.",
+            "zh-CN": "仅地理／产品研究组合；未核实实际航段、道路连通、站点能力或日期限定收运。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "limits": [],
+      "estimate_minutes": null,
+      "distance_km": null,
+      "cost_cny": null,
+      "handover": {
+        "location_node": "us.jfk",
+        "window": null,
+        "roles": {
+          "escort": null,
+          "custodian": null,
+          "handover_recipient": null,
+          "document_custodian": null
+        }
+      },
+      "supersedes_segment_ids": []
+    },
+    {
+      "segment_id": "us.dfw.denton.owner-vehicle",
+      "from_node": "us.dfw",
+      "to_node": "us.denton",
+      "mode": "road",
+      "product": "owner_vehicle",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "review_status": "draft",
+      "coverage_gaps": [
+        "state_package_unreviewed",
+        "actual_operating_carrier_unconfirmed",
+        "dated_acceptance_unknown",
+        "facility_capability_unknown",
+        "ground_live_animal_capability_unknown",
+        "road_network_unverified",
+        "handover_window_unknown",
+        "custody_pending",
+        "overnight_care_unknown"
+      ],
+      "source_ids": [
+        "us.tx.dshs-entry"
+      ],
+      "evidence": [
+        {
+          "source_id": "us.tx.dshs-entry",
+          "url": "https://www.dshs.texas.gov/disease-surveillance-epidemiology-section/zoonosis-control/pets/entry",
+          "locator": "Research scope only; Ways to fly / state entry",
+          "accessed_at": "2026-10-08",
+          "language": "en",
+          "summary": {
+            "en": "Illustrative geography/product pairing only; no actual leg, road connectivity, station capability or dated acceptance verified.",
+            "zh-CN": "仅地理／产品研究组合；未核实实际航段、道路连通、站点能力或日期限定收运。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "limits": [],
+      "estimate_minutes": null,
+      "distance_km": null,
+      "cost_cny": null,
+      "handover": {
+        "location_node": "us.denton",
+        "window": null,
+        "roles": {
+          "escort": null,
+          "custodian": null,
+          "handover_recipient": null,
+          "document_custodian": null
+        }
+      },
+      "supersedes_segment_ids": []
+    },
+    {
+      "segment_id": "us.dfw.denton.unaccompanied-animal-carrier",
+      "from_node": "us.dfw",
+      "to_node": "us.denton",
+      "mode": "road",
+      "product": "unaccompanied_animal_carrier",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "review_status": "draft",
+      "coverage_gaps": [
+        "state_package_unreviewed",
+        "actual_operating_carrier_unconfirmed",
+        "dated_acceptance_unknown",
+        "facility_capability_unknown",
+        "ground_live_animal_capability_unknown",
+        "road_network_unverified",
+        "handover_window_unknown",
+        "custody_pending",
+        "overnight_care_unknown"
+      ],
+      "source_ids": [
+        "us.tx.dshs-entry"
+      ],
+      "evidence": [
+        {
+          "source_id": "us.tx.dshs-entry",
+          "url": "https://www.dshs.texas.gov/disease-surveillance-epidemiology-section/zoonosis-control/pets/entry",
+          "locator": "Research scope only; Ways to fly / state entry",
+          "accessed_at": "2026-10-08",
+          "language": "en",
+          "summary": {
+            "en": "Illustrative geography/product pairing only; no actual leg, road connectivity, station capability or dated acceptance verified.",
+            "zh-CN": "仅地理／产品研究组合；未核实实际航段、道路连通、站点能力或日期限定收运。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "limits": [],
+      "estimate_minutes": null,
+      "distance_km": null,
+      "cost_cny": null,
+      "handover": {
+        "location_node": "us.denton",
+        "window": null,
+        "roles": {
+          "escort": null,
+          "custodian": null,
+          "handover_recipient": null,
+          "document_custodian": null
+        }
+      },
+      "supersedes_segment_ids": []
+    },
+    {
+      "segment_id": "us.jfk.dfw.as-passenger-pet-cabin",
+      "from_node": "us.jfk",
+      "to_node": "us.dfw",
+      "mode": "cabin",
+      "product": "as_passenger_pet_cabin",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "review_status": "draft",
+      "coverage_gaps": [
+        "state_package_unreviewed",
+        "actual_operating_carrier_unconfirmed",
+        "dated_acceptance_unknown",
+        "facility_capability_unknown",
+        "ground_live_animal_capability_unknown",
+        "road_network_unverified",
+        "handover_window_unknown",
+        "custody_pending",
+        "overnight_care_unknown"
+      ],
+      "source_ids": [
+        "us.as.product-overview"
+      ],
+      "evidence": [
+        {
+          "source_id": "us.as.product-overview",
+          "url": "https://news.alaskaair.com/company/what-to-know-before-traveling-with-a-canine-companion/",
+          "locator": "Research scope only; Ways to fly / state entry",
+          "accessed_at": "2026-10-08",
+          "language": "en",
+          "summary": {
+            "en": "Illustrative geography/product pairing only; no actual leg, road connectivity, station capability or dated acceptance verified.",
+            "zh-CN": "仅地理／产品研究组合；未核实实际航段、道路连通、站点能力或日期限定收运。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "limits": [],
+      "estimate_minutes": null,
+      "distance_km": null,
+      "cost_cny": null,
+      "handover": {
+        "location_node": "us.dfw",
+        "window": null,
+        "roles": {
+          "escort": null,
+          "custodian": null,
+          "handover_recipient": null,
+          "document_custodian": null
+        }
+      },
+      "supersedes_segment_ids": []
+    },
+    {
+      "segment_id": "us.jfk.dfw.as-passenger-pet-baggage",
+      "from_node": "us.jfk",
+      "to_node": "us.dfw",
+      "mode": "checked_baggage",
+      "product": "as_passenger_pet_baggage",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "review_status": "draft",
+      "coverage_gaps": [
+        "state_package_unreviewed",
+        "actual_operating_carrier_unconfirmed",
+        "dated_acceptance_unknown",
+        "facility_capability_unknown",
+        "ground_live_animal_capability_unknown",
+        "road_network_unverified",
+        "handover_window_unknown",
+        "custody_pending",
+        "overnight_care_unknown"
+      ],
+      "source_ids": [
+        "us.as.product-overview"
+      ],
+      "evidence": [
+        {
+          "source_id": "us.as.product-overview",
+          "url": "https://news.alaskaair.com/company/what-to-know-before-traveling-with-a-canine-companion/",
+          "locator": "Research scope only; Ways to fly / state entry",
+          "accessed_at": "2026-10-08",
+          "language": "en",
+          "summary": {
+            "en": "Illustrative geography/product pairing only; no actual leg, road connectivity, station capability or dated acceptance verified.",
+            "zh-CN": "仅地理／产品研究组合；未核实实际航段、道路连通、站点能力或日期限定收运。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "limits": [],
+      "estimate_minutes": null,
+      "distance_km": null,
+      "cost_cny": null,
+      "handover": {
+        "location_node": "us.dfw",
+        "window": null,
+        "roles": {
+          "escort": null,
+          "custodian": null,
+          "handover_recipient": null,
+          "document_custodian": null
+        }
+      },
+      "supersedes_segment_ids": []
+    },
+    {
+      "segment_id": "us.jfk.dfw.as-manifest-pet-cargo",
+      "from_node": "us.jfk",
+      "to_node": "us.dfw",
+      "mode": "manifest_cargo",
+      "product": "as_manifest_pet_cargo",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "review_status": "draft",
+      "coverage_gaps": [
+        "state_package_unreviewed",
+        "actual_operating_carrier_unconfirmed",
+        "dated_acceptance_unknown",
+        "facility_capability_unknown",
+        "ground_live_animal_capability_unknown",
+        "road_network_unverified",
+        "handover_window_unknown",
+        "custody_pending",
+        "overnight_care_unknown"
+      ],
+      "source_ids": [
+        "us.as.cargo-petconnect"
+      ],
+      "evidence": [
+        {
+          "source_id": "us.as.cargo-petconnect",
+          "url": "https://www.alaskacargo.com/petconnect",
+          "locator": "Research scope only; Certificate Requirements",
+          "accessed_at": "2026-10-08",
+          "language": "en",
+          "summary": {
+            "en": "Illustrative geography/product pairing only; no actual leg, road connectivity, station capability or dated acceptance verified.",
+            "zh-CN": "仅地理／产品研究组合；未核实实际航段、道路连通、站点能力或日期限定收运。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "limits": [],
+      "estimate_minutes": null,
+      "distance_km": null,
+      "cost_cny": null,
+      "handover": {
+        "location_node": "us.dfw",
+        "window": null,
+        "roles": {
+          "escort": null,
+          "custodian": null,
+          "handover_recipient": null,
+          "document_custodian": null
+        }
+      },
+      "supersedes_segment_ids": []
+    },
+    {
+      "segment_id": "us.denton.ventura.owner-vehicle",
+      "from_node": "us.denton",
+      "to_node": "us.ventura",
+      "mode": "road",
+      "product": "owner_vehicle",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "review_status": "draft",
+      "coverage_gaps": [
+        "state_package_unreviewed",
+        "actual_operating_carrier_unconfirmed",
+        "dated_acceptance_unknown",
+        "facility_capability_unknown",
+        "ground_live_animal_capability_unknown",
+        "road_network_unverified",
+        "handover_window_unknown",
+        "custody_pending",
+        "overnight_care_unknown"
+      ],
+      "source_ids": [
+        "us.ca.cdfa-entry"
+      ],
+      "evidence": [
+        {
+          "source_id": "us.ca.cdfa-entry",
+          "url": "https://www.cdfa.ca.gov/AHFSS/Animal_Health/FAQS.html",
+          "locator": "Research scope only; Ways to fly / state entry",
+          "accessed_at": "2026-10-08",
+          "language": "en",
+          "summary": {
+            "en": "Illustrative geography/product pairing only; no actual leg, road connectivity, station capability or dated acceptance verified.",
+            "zh-CN": "仅地理／产品研究组合；未核实实际航段、道路连通、站点能力或日期限定收运。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "limits": [],
+      "estimate_minutes": null,
+      "distance_km": null,
+      "cost_cny": null,
+      "handover": {
+        "location_node": "us.ventura",
+        "window": null,
+        "roles": {
+          "escort": null,
+          "custodian": null,
+          "handover_recipient": null,
+          "document_custodian": null
+        }
+      },
+      "supersedes_segment_ids": []
+    },
+    {
+      "segment_id": "us.denton.ventura.unaccompanied-animal-carrier",
+      "from_node": "us.denton",
+      "to_node": "us.ventura",
+      "mode": "road",
+      "product": "unaccompanied_animal_carrier",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "review_status": "draft",
+      "coverage_gaps": [
+        "state_package_unreviewed",
+        "actual_operating_carrier_unconfirmed",
+        "dated_acceptance_unknown",
+        "facility_capability_unknown",
+        "ground_live_animal_capability_unknown",
+        "road_network_unverified",
+        "handover_window_unknown",
+        "custody_pending",
+        "overnight_care_unknown"
+      ],
+      "source_ids": [
+        "us.ca.cdfa-entry"
+      ],
+      "evidence": [
+        {
+          "source_id": "us.ca.cdfa-entry",
+          "url": "https://www.cdfa.ca.gov/AHFSS/Animal_Health/FAQS.html",
+          "locator": "Research scope only; Ways to fly / state entry",
+          "accessed_at": "2026-10-08",
+          "language": "en",
+          "summary": {
+            "en": "Illustrative geography/product pairing only; no actual leg, road connectivity, station capability or dated acceptance verified.",
+            "zh-CN": "仅地理／产品研究组合；未核实实际航段、道路连通、站点能力或日期限定收运。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "limits": [],
+      "estimate_minutes": null,
+      "distance_km": null,
+      "cost_cny": null,
+      "handover": {
+        "location_node": "us.ventura",
+        "window": null,
+        "roles": {
+          "escort": null,
+          "custodian": null,
+          "handover_recipient": null,
+          "document_custodian": null
+        }
+      },
+      "supersedes_segment_ids": []
+    },
+    {
+      "segment_id": "us.denton.dfw.owner-vehicle",
+      "from_node": "us.denton",
+      "to_node": "us.dfw",
+      "mode": "road",
+      "product": "owner_vehicle",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "review_status": "draft",
+      "coverage_gaps": [
+        "state_package_unreviewed",
+        "actual_operating_carrier_unconfirmed",
+        "dated_acceptance_unknown",
+        "facility_capability_unknown",
+        "ground_live_animal_capability_unknown",
+        "road_network_unverified",
+        "handover_window_unknown",
+        "custody_pending",
+        "overnight_care_unknown"
+      ],
+      "source_ids": [
+        "us.ca.cdfa-entry"
+      ],
+      "evidence": [
+        {
+          "source_id": "us.ca.cdfa-entry",
+          "url": "https://www.cdfa.ca.gov/AHFSS/Animal_Health/FAQS.html",
+          "locator": "Research scope only; Ways to fly / state entry",
+          "accessed_at": "2026-10-08",
+          "language": "en",
+          "summary": {
+            "en": "Illustrative geography/product pairing only; no actual leg, road connectivity, station capability or dated acceptance verified.",
+            "zh-CN": "仅地理／产品研究组合；未核实实际航段、道路连通、站点能力或日期限定收运。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "limits": [],
+      "estimate_minutes": null,
+      "distance_km": null,
+      "cost_cny": null,
+      "handover": {
+        "location_node": "us.dfw",
+        "window": null,
+        "roles": {
+          "escort": null,
+          "custodian": null,
+          "handover_recipient": null,
+          "document_custodian": null
+        }
+      },
+      "supersedes_segment_ids": []
+    },
+    {
+      "segment_id": "us.denton.dfw.unaccompanied-animal-carrier",
+      "from_node": "us.denton",
+      "to_node": "us.dfw",
+      "mode": "road",
+      "product": "unaccompanied_animal_carrier",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "review_status": "draft",
+      "coverage_gaps": [
+        "state_package_unreviewed",
+        "actual_operating_carrier_unconfirmed",
+        "dated_acceptance_unknown",
+        "facility_capability_unknown",
+        "ground_live_animal_capability_unknown",
+        "road_network_unverified",
+        "handover_window_unknown",
+        "custody_pending",
+        "overnight_care_unknown"
+      ],
+      "source_ids": [
+        "us.ca.cdfa-entry"
+      ],
+      "evidence": [
+        {
+          "source_id": "us.ca.cdfa-entry",
+          "url": "https://www.cdfa.ca.gov/AHFSS/Animal_Health/FAQS.html",
+          "locator": "Research scope only; Ways to fly / state entry",
+          "accessed_at": "2026-10-08",
+          "language": "en",
+          "summary": {
+            "en": "Illustrative geography/product pairing only; no actual leg, road connectivity, station capability or dated acceptance verified.",
+            "zh-CN": "仅地理／产品研究组合；未核实实际航段、道路连通、站点能力或日期限定收运。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "limits": [],
+      "estimate_minutes": null,
+      "distance_km": null,
+      "cost_cny": null,
+      "handover": {
+        "location_node": "us.dfw",
+        "window": null,
+        "roles": {
+          "escort": null,
+          "custodian": null,
+          "handover_recipient": null,
+          "document_custodian": null
+        }
+      },
+      "supersedes_segment_ids": []
+    },
+    {
+      "segment_id": "us.lax.ventura.owner-vehicle",
+      "from_node": "us.lax",
+      "to_node": "us.ventura",
+      "mode": "road",
+      "product": "owner_vehicle",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "review_status": "draft",
+      "coverage_gaps": [
+        "state_package_unreviewed",
+        "actual_operating_carrier_unconfirmed",
+        "dated_acceptance_unknown",
+        "facility_capability_unknown",
+        "ground_live_animal_capability_unknown",
+        "road_network_unverified",
+        "handover_window_unknown",
+        "custody_pending",
+        "overnight_care_unknown"
+      ],
+      "source_ids": [
+        "us.ca.cdfa-entry"
+      ],
+      "evidence": [
+        {
+          "source_id": "us.ca.cdfa-entry",
+          "url": "https://www.cdfa.ca.gov/AHFSS/Animal_Health/FAQS.html",
+          "locator": "Research scope only; Ways to fly / state entry",
+          "accessed_at": "2026-10-08",
+          "language": "en",
+          "summary": {
+            "en": "Illustrative geography/product pairing only; no actual leg, road connectivity, station capability or dated acceptance verified.",
+            "zh-CN": "仅地理／产品研究组合；未核实实际航段、道路连通、站点能力或日期限定收运。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "limits": [],
+      "estimate_minutes": null,
+      "distance_km": null,
+      "cost_cny": null,
+      "handover": {
+        "location_node": "us.ventura",
+        "window": null,
+        "roles": {
+          "escort": null,
+          "custodian": null,
+          "handover_recipient": null,
+          "document_custodian": null
+        }
+      },
+      "supersedes_segment_ids": []
+    },
+    {
+      "segment_id": "us.lax.ventura.unaccompanied-animal-carrier",
+      "from_node": "us.lax",
+      "to_node": "us.ventura",
+      "mode": "road",
+      "product": "unaccompanied_animal_carrier",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "review_status": "draft",
+      "coverage_gaps": [
+        "state_package_unreviewed",
+        "actual_operating_carrier_unconfirmed",
+        "dated_acceptance_unknown",
+        "facility_capability_unknown",
+        "ground_live_animal_capability_unknown",
+        "road_network_unverified",
+        "handover_window_unknown",
+        "custody_pending",
+        "overnight_care_unknown"
+      ],
+      "source_ids": [
+        "us.ca.cdfa-entry"
+      ],
+      "evidence": [
+        {
+          "source_id": "us.ca.cdfa-entry",
+          "url": "https://www.cdfa.ca.gov/AHFSS/Animal_Health/FAQS.html",
+          "locator": "Research scope only; Ways to fly / state entry",
+          "accessed_at": "2026-10-08",
+          "language": "en",
+          "summary": {
+            "en": "Illustrative geography/product pairing only; no actual leg, road connectivity, station capability or dated acceptance verified.",
+            "zh-CN": "仅地理／产品研究组合；未核实实际航段、道路连通、站点能力或日期限定收运。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "limits": [],
+      "estimate_minutes": null,
+      "distance_km": null,
+      "cost_cny": null,
+      "handover": {
+        "location_node": "us.ventura",
+        "window": null,
+        "roles": {
+          "escort": null,
+          "custodian": null,
+          "handover_recipient": null,
+          "document_custodian": null
+        }
+      },
+      "supersedes_segment_ids": []
+    },
+    {
+      "segment_id": "us.dfw.lax.as-passenger-pet-cabin",
+      "from_node": "us.dfw",
+      "to_node": "us.lax",
+      "mode": "cabin",
+      "product": "as_passenger_pet_cabin",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "review_status": "draft",
+      "coverage_gaps": [
+        "state_package_unreviewed",
+        "actual_operating_carrier_unconfirmed",
+        "dated_acceptance_unknown",
+        "facility_capability_unknown",
+        "ground_live_animal_capability_unknown",
+        "road_network_unverified",
+        "handover_window_unknown",
+        "custody_pending",
+        "overnight_care_unknown"
+      ],
+      "source_ids": [
+        "us.as.product-overview"
+      ],
+      "evidence": [
+        {
+          "source_id": "us.as.product-overview",
+          "url": "https://news.alaskaair.com/company/what-to-know-before-traveling-with-a-canine-companion/",
+          "locator": "Research scope only; Ways to fly / state entry",
+          "accessed_at": "2026-10-08",
+          "language": "en",
+          "summary": {
+            "en": "Illustrative geography/product pairing only; no actual leg, road connectivity, station capability or dated acceptance verified.",
+            "zh-CN": "仅地理／产品研究组合；未核实实际航段、道路连通、站点能力或日期限定收运。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "limits": [],
+      "estimate_minutes": null,
+      "distance_km": null,
+      "cost_cny": null,
+      "handover": {
+        "location_node": "us.lax",
+        "window": null,
+        "roles": {
+          "escort": null,
+          "custodian": null,
+          "handover_recipient": null,
+          "document_custodian": null
+        }
+      },
+      "supersedes_segment_ids": []
+    },
+    {
+      "segment_id": "us.dfw.lax.as-passenger-pet-baggage",
+      "from_node": "us.dfw",
+      "to_node": "us.lax",
+      "mode": "checked_baggage",
+      "product": "as_passenger_pet_baggage",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "review_status": "draft",
+      "coverage_gaps": [
+        "state_package_unreviewed",
+        "actual_operating_carrier_unconfirmed",
+        "dated_acceptance_unknown",
+        "facility_capability_unknown",
+        "ground_live_animal_capability_unknown",
+        "road_network_unverified",
+        "handover_window_unknown",
+        "custody_pending",
+        "overnight_care_unknown"
+      ],
+      "source_ids": [
+        "us.as.product-overview"
+      ],
+      "evidence": [
+        {
+          "source_id": "us.as.product-overview",
+          "url": "https://news.alaskaair.com/company/what-to-know-before-traveling-with-a-canine-companion/",
+          "locator": "Research scope only; Ways to fly / state entry",
+          "accessed_at": "2026-10-08",
+          "language": "en",
+          "summary": {
+            "en": "Illustrative geography/product pairing only; no actual leg, road connectivity, station capability or dated acceptance verified.",
+            "zh-CN": "仅地理／产品研究组合；未核实实际航段、道路连通、站点能力或日期限定收运。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "limits": [],
+      "estimate_minutes": null,
+      "distance_km": null,
+      "cost_cny": null,
+      "handover": {
+        "location_node": "us.lax",
+        "window": null,
+        "roles": {
+          "escort": null,
+          "custodian": null,
+          "handover_recipient": null,
+          "document_custodian": null
+        }
+      },
+      "supersedes_segment_ids": []
+    },
+    {
+      "segment_id": "us.dfw.lax.as-manifest-pet-cargo",
+      "from_node": "us.dfw",
+      "to_node": "us.lax",
+      "mode": "manifest_cargo",
+      "product": "as_manifest_pet_cargo",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "review_status": "draft",
+      "coverage_gaps": [
+        "state_package_unreviewed",
+        "actual_operating_carrier_unconfirmed",
+        "dated_acceptance_unknown",
+        "facility_capability_unknown",
+        "ground_live_animal_capability_unknown",
+        "road_network_unverified",
+        "handover_window_unknown",
+        "custody_pending",
+        "overnight_care_unknown"
+      ],
+      "source_ids": [
+        "us.as.cargo-petconnect"
+      ],
+      "evidence": [
+        {
+          "source_id": "us.as.cargo-petconnect",
+          "url": "https://www.alaskacargo.com/petconnect",
+          "locator": "Research scope only; Certificate Requirements",
+          "accessed_at": "2026-10-08",
+          "language": "en",
+          "summary": {
+            "en": "Illustrative geography/product pairing only; no actual leg, road connectivity, station capability or dated acceptance verified.",
+            "zh-CN": "仅地理／产品研究组合；未核实实际航段、道路连通、站点能力或日期限定收运。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "limits": [],
+      "estimate_minutes": null,
+      "distance_km": null,
+      "cost_cny": null,
+      "handover": {
+        "location_node": "us.lax",
+        "window": null,
+        "roles": {
+          "escort": null,
+          "custodian": null,
+          "handover_recipient": null,
+          "document_custodian": null
+        }
+      },
+      "supersedes_segment_ids": []
+    }
+  ],
+  "corridors": [
+    {
+      "id": "dom.us.ca-ny",
+      "research_candidate_id": "DOM.US.CA-NY",
+      "origin_node": "us.ventura",
+      "destination_node": "us.kingston"
+    },
+    {
+      "id": "dom.us.ny-tx",
+      "research_candidate_id": "DOM.US.NY-TX",
+      "origin_node": "us.kingston",
+      "destination_node": "us.denton"
+    },
+    {
+      "id": "dom.us.tx-ca",
+      "research_candidate_id": "DOM.US.TX-CA",
+      "origin_node": "us.denton",
+      "destination_node": "us.ventura"
+    }
+  ]
+}

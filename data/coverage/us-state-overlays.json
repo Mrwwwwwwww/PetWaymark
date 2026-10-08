@@ -1,0 +1,104 @@
+{
+  "schema_version": "0.1.0",
+  "dataset_version": "2026-10-08.week5-preview",
+  "verified_rule_count": 0,
+  "states": [
+    {
+      "subdivision": "US-CA",
+      "status": "read_pending_independent_review",
+      "source_ids": [
+        "us.ca.cdfa-entry",
+        "us.ca.cdfa-nws"
+      ],
+      "evidence": [
+        {
+          "source_id": "us.ca.cdfa-entry",
+          "url": "https://www.cdfa.ca.gov/AHFSS/Animal_Health/FAQS.html",
+          "locator": "California Entry Requirements for Dogs / Cats",
+          "accessed_at": "2026-10-08",
+          "language": "en",
+          "summary": {
+            "en": "Healthy dogs/cats required; dogs aged four months need rabies documentation. Ownership changes have separate CVI conditions. Ordinary cat entry has no routine state CVI/rabies requirement; this does not waive disease overlays or carrier rules.",
+            "zh-CN": "犬猫须健康；四个月龄犬须狂犬病证明，所有权变化另有CVI条件。普通猫入州无常规州级CVI／狂犬要求，但不免除疫病叠加与承运政策。"
+          },
+          "content_sha256": null
+        },
+        {
+          "source_id": "us.ca.cdfa-nws",
+          "url": "https://www.cdfa.ca.gov/ahfss/Animal_Health/screwworm/",
+          "locator": "June 11, 2026 entry requirements",
+          "accessed_at": "2026-10-08",
+          "language": "en",
+          "summary": {
+            "en": "Affected origins have inspection, electronic CVI and permit conditions from June 12; current zones and full quarantine annex need checking.",
+            "zh-CN": "6月12日起受影响来源地有检查、电子CVI及许可条件；当前区域和完整检疫附件待核。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "pending_checks": [
+        "independent_review",
+        "current_nws_origin_zones",
+        "quarantine_annex",
+        "county_rules",
+        "age_and_ownership_branches"
+      ],
+      "not_applicable": [
+        "ownership_transfer_package_for_confirmed_no_transfer"
+      ],
+      "rule_ids": [
+        "us.ca.domestic.health"
+      ]
+    },
+    {
+      "subdivision": "US-NY",
+      "status": "source_unavailable",
+      "source_ids": [
+        "us.ny.companion-entry"
+      ],
+      "evidence": [],
+      "pending_checks": [
+        "official_page_403",
+        "certificate_age_and_stay_exceptions",
+        "rabies_age_and_exemptions",
+        "current_emergency_orders",
+        "county_rules",
+        "independent_review"
+      ],
+      "not_applicable": [],
+      "rule_ids": []
+    },
+    {
+      "subdivision": "US-TX",
+      "status": "read_pending_independent_review",
+      "source_ids": [
+        "us.tx.dshs-entry"
+      ],
+      "evidence": [
+        {
+          "source_id": "us.tx.dshs-entry",
+          "url": "https://www.dshs.texas.gov/disease-surveillance-epidemiology-section/zoonosis-control/pets/entry",
+          "locator": "Entry Requirements / reference §169.31",
+          "accessed_at": "2026-10-08",
+          "language": "en",
+          "summary": {
+            "en": "Dogs/cats aged twelve weeks need current rabies vaccination and documentation. Initial-dose confinement, local ordinances and emergency movement restrictions need separate checks; airline health certificates are separate.",
+            "zh-CN": "十二周龄犬猫须有效狂犬疫苗及证明。首针限制、地方条例与应急移动限制另核；航司健康证为独立要求。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "pending_checks": [
+        "independent_review",
+        "current_emergency_movement_orders",
+        "age_and_initial_vaccination",
+        "certificate_details",
+        "local_ordinances"
+      ],
+      "not_applicable": [
+        "generic_tahc_livestock_ecvi_not_substituted_for_dshs_pet_policy"
+      ],
+      "rule_ids": []
+    }
+  ]
+}

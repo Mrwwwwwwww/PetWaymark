@@ -27,6 +27,13 @@
               "airport",
               "station"
             ]
+          },
+          "subdivision": {
+            "enum": [
+              "US-CA",
+              "US-NY",
+              "US-TX"
+            ]
           }
         },
         "required": [
@@ -56,7 +63,9 @@
             "enum": [
               "road",
               "rail",
-              "checked_baggage"
+              "checked_baggage",
+              "cabin",
+              "manifest_cargo"
             ]
           },
           "product": {
@@ -67,7 +76,10 @@
               "mu_passenger_pet_baggage",
               "cz_passenger_pet_baggage",
               "rail_owner_accompanied",
-              "rail_unaccompanied"
+              "rail_unaccompanied",
+              "as_passenger_pet_cabin",
+              "as_passenger_pet_baggage",
+              "as_manifest_pet_cargo"
             ]
           },
           "species": {

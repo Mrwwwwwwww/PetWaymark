@@ -1,0 +1,84 @@
+{
+  "schema_version": "0.1.0",
+  "id": "us.ca.domestic.health",
+  "revision": 1,
+  "record_class": "official_guidance",
+  "authority": "US-CA-CDFA",
+  "scope": {
+    "origin": "US",
+    "destination": "US",
+    "subdivisions": [
+      "US-CA"
+    ],
+    "species": [
+      "dog",
+      "cat"
+    ],
+    "transport_modes": [
+      "road",
+      "cabin",
+      "checked_baggage",
+      "manifest_cargo"
+    ],
+    "movement_category": "domestic_pet",
+    "accompaniment": [
+      "owner",
+      "authorized_person",
+      "unaccompanied"
+    ],
+    "travel_history_branch": "any",
+    "vaccination_branch": "any",
+    "exclusions": {
+      "en": "Not a complete legal/carrier package; no acceptance or booking evidence.",
+      "zh-CN": "非完整法规／承运包；无收运或订舱证据。"
+    }
+  },
+  "validity": {
+    "effective_from": null,
+    "effective_to": null,
+    "applies_at": "entry_at"
+  },
+  "requirement": {
+    "field": "pet.healthy",
+    "operator": "equals",
+    "value": true
+  },
+  "on_fail": "needs_confirmation",
+  "on_missing": "needs_confirmation",
+  "exceptions": [],
+  "source_ids": [
+    "us.ca.cdfa-entry"
+  ],
+  "evidence": [
+    {
+      "source_id": "us.ca.cdfa-entry",
+      "url": "https://www.cdfa.ca.gov/AHFSS/Animal_Health/FAQS.html",
+      "locator": "California Entry Requirements for Dogs / Cats",
+      "accessed_at": "2026-10-08",
+      "language": "en",
+      "summary": {
+        "en": "CA requires healthy dogs and cats; self-reported health is only a draft diagnostic.",
+        "zh-CN": "加州要求犬猫健康；用户报告仅作草稿诊断。"
+      },
+      "content_sha256": null
+    }
+  ],
+  "review": {
+    "status": "draft",
+    "last_verified_at": null,
+    "review_due_at": null,
+    "reviewed_by": []
+  },
+  "supersedes": [],
+  "message": {
+    "en": "CA requires healthy dogs and cats; self-reported health is only a draft diagnostic.",
+    "zh-CN": "加州要求犬猫健康；用户报告仅作草稿诊断。"
+  },
+  "pending_checks": [
+    {
+      "en": "Partial draft only. Full scope, dates, exceptions, local and emergency requirements need independent review.",
+      "zh-CN": "仅部分草稿；完整范围、日期、例外、地方及应急要求须独立复核。"
+    }
+  ],
+  "license": "CC-BY-4.0"
+}

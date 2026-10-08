@@ -57,7 +57,9 @@
                 "pet.appears_healthy_on_arrival",
                 "documents.cdc_receipt_present",
                 "documents.official_health_certificate_valid",
-                "documents.rabies_certificate_valid"
+                "documents.rabies_certificate_valid",
+                "pet.healthy",
+                "documents.health_certificate_present"
               ]
             },
             "operator": {
@@ -262,7 +264,8 @@
           "enum": [
             "carried_entry",
             "non_commercial_pet",
-            "all_imports"
+            "all_imports",
+            "domestic_pet"
           ]
         },
         "accompaniment": {
