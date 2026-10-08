@@ -100,6 +100,206 @@
           "zh-CN": "现行范围、附件及替代关系待合格人工复核。"
         }
       ]
+    },
+    {
+      "id": "cn.rail.pet-2026",
+      "authority": "CN-Railway",
+      "publisher": "China Academy of Railway Sciences",
+      "kind": "carrier",
+      "url": "https://www.rails.cn/html/news/2/2026/20260410_68532.html",
+      "title": {
+        "en": "Rail pet transport modes",
+        "zh-CN": "铁路宠物双模式"
+      },
+      "language": "zh-CN",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "read_pending_review",
+      "license_boundary": {
+        "en": "Link and original summary only; source text retains its own rights.",
+        "zh-CN": "仅链接及原创摘要；原文保留自身权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Independent review, currency, facility/product scope and dated acceptance remain pending.",
+          "zh-CN": "独立复核、现行有效性、设施产品范围及日期限定收运待确认。"
+        }
+      ]
+    },
+    {
+      "id": "cn.rail.stations-2025",
+      "authority": "Beijing-Government",
+      "publisher": "Beijing municipal government",
+      "kind": "government",
+      "url": "https://www.beijing.gov.cn/fuwu/bmfw/sy/jrts/202506/t20250623_4118838.html",
+      "title": {
+        "en": "Historical rail station expansion",
+        "zh-CN": "历史铁路站点扩围"
+      },
+      "language": "zh-CN",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "read_pending_review",
+      "license_boundary": {
+        "en": "Link and original summary only; source text retains its own rights.",
+        "zh-CN": "仅链接及原创摘要；原文保留自身权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Independent review, currency, facility/product scope and dated acceptance remain pending.",
+          "zh-CN": "独立复核、现行有效性、设施产品范围及日期限定收运待确认。"
+        }
+      ]
+    },
+    {
+      "id": "cn.rail.shanghai-2026",
+      "authority": "Shanghai-Government",
+      "publisher": "Shanghai municipal government",
+      "kind": "government",
+      "url": "https://www.shanghai.gov.cn/nw17239/20260410/a104c2fd73064ff9a9c370ed07015a43.html",
+      "title": {
+        "en": "Shanghai rail pet information",
+        "zh-CN": "上海铁路宠物信息"
+      },
+      "language": "zh-CN",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "read_pending_review",
+      "license_boundary": {
+        "en": "Link and original summary only; source text retains its own rights.",
+        "zh-CN": "仅链接及原创摘要；原文保留自身权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Independent review, currency, facility/product scope and dated acceptance remain pending.",
+          "zh-CN": "独立复核、现行有效性、设施产品范围及日期限定收运待确认。"
+        }
+      ]
+    },
+    {
+      "id": "cn.air.mu-pet",
+      "authority": "CN-MU",
+      "publisher": "China Eastern Airlines",
+      "kind": "carrier",
+      "url": "https://global.ceair.com/global/static/Announcement/TravelTips/SpecialPassengerServiceNotice/LittleAnimal/",
+      "title": {
+        "en": "Passenger checked pet policy",
+        "zh-CN": "旅客宠物行李政策"
+      },
+      "language": "zh-CN",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "read_pending_review",
+      "license_boundary": {
+        "en": "Link and original summary only; source text retains its own rights.",
+        "zh-CN": "仅链接及原创摘要；原文保留自身权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Independent review, currency, facility/product scope and dated acceptance remain pending.",
+          "zh-CN": "独立复核、现行有效性、设施产品范围及日期限定收运待确认。"
+        }
+      ]
+    },
+    {
+      "id": "cn.air.mu-airports",
+      "authority": "CN-MU",
+      "publisher": "China Eastern Airlines",
+      "kind": "carrier",
+      "url": "https://global.ceair.com/global/static/Announcement/TravelTips/AirportInformation/airportinfo/S_Ariport/",
+      "title": {
+        "en": "Airport service information",
+        "zh-CN": "机场业务信息"
+      },
+      "language": "zh-CN",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "read_pending_review",
+      "license_boundary": {
+        "en": "Link and original summary only; source text retains its own rights.",
+        "zh-CN": "仅链接及原创摘要；原文保留自身权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Independent review, currency, facility/product scope and dated acceptance remain pending.",
+          "zh-CN": "独立复核、现行有效性、设施产品范围及日期限定收运待确认。"
+        }
+      ]
+    },
+    {
+      "id": "cn.air.cz-pet",
+      "authority": "CN-CZ",
+      "publisher": "China Southern Airlines",
+      "kind": "carrier",
+      "url": "https://www.csair.com/tw/tc/tourguide/luggage_service/pet/",
+      "title": {
+        "en": "Passenger checked pet policy",
+        "zh-CN": "旅客宠物行李政策"
+      },
+      "language": "zh-CN",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "read_pending_review",
+      "license_boundary": {
+        "en": "Link and original summary only; source text retains its own rights.",
+        "zh-CN": "仅链接及原创摘要；原文保留自身权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Independent review, currency, facility/product scope and dated acceptance remain pending.",
+          "zh-CN": "独立复核、现行有效性、设施产品范围及日期限定收运待确认。"
+        }
+      ]
+    },
+    {
+      "id": "cn.road.east-network",
+      "authority": "CN-MCT",
+      "publisher": "Ministry of Culture and Tourism",
+      "kind": "government",
+      "url": "https://mct.gov.cn/wlbphone/wlbydd/ggfw/cxts/202604/t20260422_965538.html",
+      "title": {
+        "en": "Road network reading",
+        "zh-CN": "道路网络查阅"
+      },
+      "language": "zh-CN",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "read_pending_review",
+      "license_boundary": {
+        "en": "Link and original summary only; source text retains its own rights.",
+        "zh-CN": "仅链接及原创摘要；原文保留自身权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Independent review, currency, facility/product scope and dated acceptance remain pending.",
+          "zh-CN": "独立复核、现行有效性、设施产品范围及日期限定收运待确认。"
+        }
+      ]
+    },
+    {
+      "id": "cn.road.south-network",
+      "authority": "Qingyuan-Government",
+      "publisher": "Qingyuan municipal government",
+      "kind": "government",
+      "url": "https://www.gdqy.gov.cn/gdqy/zxzx/bmdt/content/post_1663002.html",
+      "title": {
+        "en": "Qingyuan road connections",
+        "zh-CN": "清远道路连接"
+      },
+      "language": "zh-CN",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "read_pending_review",
+      "license_boundary": {
+        "en": "Link and original summary only; source text retains its own rights.",
+        "zh-CN": "仅链接及原创摘要；原文保留自身权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Independent review, currency, facility/product scope and dated acceptance remain pending.",
+          "zh-CN": "独立复核、现行有效性、设施产品范围及日期限定收运待确认。"
+        }
+      ]
     }
   ]
 }

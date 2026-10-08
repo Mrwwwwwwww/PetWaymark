@@ -1,0 +1,269 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "0.1.0"
+    },
+    "dataset_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/id"
+          },
+          "name": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "kind": {
+            "enum": [
+              "city",
+              "airport",
+              "station"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "kind"
+        ]
+      },
+      "minItems": 2
+    },
+    "segments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "segment_id": {
+            "$ref": "common.schema.json#/$defs/id"
+          },
+          "from_node": {
+            "$ref": "common.schema.json#/$defs/id"
+          },
+          "to_node": {
+            "$ref": "common.schema.json#/$defs/id"
+          },
+          "mode": {
+            "enum": [
+              "road",
+              "rail",
+              "checked_baggage"
+            ]
+          },
+          "product": {
+            "enum": [
+              "owner_vehicle",
+              "unaccompanied_animal_carrier",
+              "ground_transfer",
+              "mu_passenger_pet_baggage",
+              "cz_passenger_pet_baggage",
+              "rail_owner_accompanied",
+              "rail_unaccompanied"
+            ]
+          },
+          "species": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "dog",
+                "cat"
+              ]
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "review_status": {
+            "const": "draft"
+          },
+          "coverage_gaps": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "source_ids": {
+            "type": "array",
+            "items": {
+              "$ref": "common.schema.json#/$defs/id"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "$ref": "common.schema.json#/$defs/evidence"
+            },
+            "minItems": 1
+          },
+          "limits": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "field": {
+                  "enum": [
+                    "pet.weight_kg",
+                    "pet.shoulder_height_cm",
+                    "pet.body_length_cm"
+                  ]
+                },
+                "maximum": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                "source_id": {
+                  "$ref": "common.schema.json#/$defs/id"
+                }
+              },
+              "required": [
+                "field",
+                "maximum",
+                "source_id"
+              ]
+            },
+            "minItems": 0
+          },
+          "estimate_minutes": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "distance_km": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "cost_cny": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "handover": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "location_node": {
+                "$ref": "common.schema.json#/$defs/id"
+              },
+              "window": {
+                "type": "null"
+              },
+              "roles": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "escort": {
+                    "type": "null"
+                  },
+                  "custodian": {
+                    "type": "null"
+                  },
+                  "handover_recipient": {
+                    "type": "null"
+                  },
+                  "document_custodian": {
+                    "type": "null"
+                  }
+                },
+                "required": [
+                  "escort",
+                  "custodian",
+                  "handover_recipient",
+                  "document_custodian"
+                ]
+              }
+            },
+            "required": [
+              "location_node",
+              "window",
+              "roles"
+            ]
+          },
+          "supersedes_segment_ids": {
+            "type": "array",
+            "items": {
+              "$ref": "common.schema.json#/$defs/id"
+            },
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "segment_id",
+          "from_node",
+          "to_node",
+          "mode",
+          "product",
+          "species",
+          "review_status",
+          "coverage_gaps",
+          "source_ids",
+          "evidence",
+          "limits",
+          "estimate_minutes",
+          "distance_km",
+          "cost_cny",
+          "handover",
+          "supersedes_segment_ids"
+        ]
+      },
+      "minItems": 1
+    },
+    "corridors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/id"
+          },
+          "research_candidate_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "origin_node": {
+            "$ref": "common.schema.json#/$defs/id"
+          },
+          "destination_node": {
+            "$ref": "common.schema.json#/$defs/id"
+          }
+        },
+        "required": [
+          "id",
+          "research_candidate_id",
+          "origin_node",
+          "destination_node"
+        ]
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "dataset_version",
+    "nodes",
+    "segments",
+    "corridors"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://petwaymark.org/schemas/0.1.0/corridor-graph.schema.json"
+}

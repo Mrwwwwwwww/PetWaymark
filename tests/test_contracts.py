@@ -15,7 +15,7 @@ class ContractTests(unittest.TestCase):
         cls.schemas = validators(ROOT)
 
     def test_all_schemas_are_valid_draft_2020_12(self):
-        self.assertEqual(len(self.schemas), 4)
+        self.assertEqual(len(self.schemas), 5)
 
     def test_calendar_month_requirement(self):
         check = self.schemas["common.schema.json"].evolve(

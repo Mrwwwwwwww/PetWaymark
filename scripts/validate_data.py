@@ -146,7 +146,56 @@ def validate_repository(root=ROOT):
                          inp.get("travel_history_branch") == "high_risk_in_6_months"))
             if not mismatch:
                 errors.append(f"{ident}: no scope mismatch for excluded rule {rid}")
+    graph_path = root / "data/corridors/cn-preview.json"
+    if graph_path.exists():
+        graph = load(graph_path, "corridor-graph.schema.json")
+        if graph:
+            errors.extend(validate_graph(graph, sources))
     return errors, counts
+
+
+def validate_graph(graph, sources):
+    """Preview topology/evidence integrity; never establishes transport permission."""
+    errors = []
+    for key, ident in (("nodes", "id"), ("segments", "segment_id"), ("corridors", "id")):
+        ids = [r[ident] for r in graph[key]]
+        if len(ids) != len(set(ids)):
+            errors.append(f"graph: duplicate {key} ID")
+    nodes = {n["id"] for n in graph["nodes"]}
+    segments = {s["segment_id"] for s in graph["segments"]}
+    for leg in graph["segments"]:
+        name = leg["segment_id"]
+        if not {leg["from_node"], leg["to_node"], leg["handover"]["location_node"]} <= nodes:
+            errors.append(f"{name}: unresolved graph node")
+        if leg["handover"]["location_node"] != leg["to_node"]:
+            errors.append(f"{name}: handover must use arrival node")
+        if leg["from_node"] == leg["to_node"]:
+            errors.append(f"{name}: self-loop is not a transport leg")
+        if not set(leg["supersedes_segment_ids"]) <= segments or name in leg["supersedes_segment_ids"]:
+            errors.append(f"{name}: unresolved or self supersession")
+        ids = set(leg["source_ids"])
+        if ids != {e["source_id"] for e in leg["evidence"]}:
+            errors.append(f"{name}: graph evidence must match source IDs")
+        if len(leg["evidence"]) != len(ids):
+            errors.append(f"{name}: duplicate graph evidence")
+        if not ids <= sources.keys():
+            errors.append(f"{name}: unresolved graph source")
+        for evidence in leg["evidence"]:
+            source = sources.get(evidence["source_id"])
+            if source and any(evidence[k] != source[k] for k in ("url", "accessed_at", "language")):
+                errors.append(f"{name}: graph evidence differs from source catalog")
+        if any(l["source_id"] not in ids for l in leg["limits"]):
+            errors.append(f"{name}: limit source must be declared")
+        product = leg["product"]
+        expected = "rail" if product.startswith("rail_") else "checked_baggage" if "baggage" in product else "road"
+        if leg["mode"] != expected:
+            errors.append(f"{name}: product/mode mismatch")
+    for corridor in graph["corridors"]:
+        if not {corridor["origin_node"], corridor["destination_node"]} <= nodes:
+            errors.append(f"{corridor['id']}: unresolved corridor node")
+        if corridor["origin_node"] == corridor["destination_node"]:
+            errors.append(f"{corridor['id']}: corridor endpoints must differ")
+    return errors
 
 
 def main():

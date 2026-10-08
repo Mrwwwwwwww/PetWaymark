@@ -1,0 +1,1139 @@
+{
+  "schema_version": "0.1.0",
+  "dataset_version": "2026-10-08.week4-preview",
+  "nodes": [
+    {
+      "id": "cn.huzhou",
+      "name": {
+        "en": "Huzhou",
+        "zh-CN": "湖州"
+      },
+      "kind": "city"
+    },
+    {
+      "id": "cn.qingyuan",
+      "name": {
+        "en": "Qingyuan",
+        "zh-CN": "清远"
+      },
+      "kind": "city"
+    },
+    {
+      "id": "cn.langfang",
+      "name": {
+        "en": "Langfang",
+        "zh-CN": "廊坊"
+      },
+      "kind": "city"
+    },
+    {
+      "id": "cn.pvg",
+      "name": {
+        "en": "Shanghai Pudong airport",
+        "zh-CN": "上海浦东机场"
+      },
+      "kind": "airport"
+    },
+    {
+      "id": "cn.can",
+      "name": {
+        "en": "Guangzhou Baiyun airport",
+        "zh-CN": "广州白云机场"
+      },
+      "kind": "airport"
+    },
+    {
+      "id": "cn.pek",
+      "name": {
+        "en": "Beijing Capital airport",
+        "zh-CN": "北京首都机场"
+      },
+      "kind": "airport"
+    },
+    {
+      "id": "cn.shanghai-hongqiao",
+      "name": {
+        "en": "Shanghai Hongqiao station",
+        "zh-CN": "上海虹桥站"
+      },
+      "kind": "station"
+    },
+    {
+      "id": "cn.guangzhou-south",
+      "name": {
+        "en": "Guangzhou South station",
+        "zh-CN": "广州南站"
+      },
+      "kind": "station"
+    },
+    {
+      "id": "cn.beijing-west",
+      "name": {
+        "en": "Beijing West station",
+        "zh-CN": "北京西站"
+      },
+      "kind": "station"
+    }
+  ],
+  "segments": [
+    {
+      "segment_id": "cn.east.drive",
+      "from_node": "cn.huzhou",
+      "to_node": "cn.qingyuan",
+      "mode": "road",
+      "product": "owner_vehicle",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "review_status": "draft",
+      "coverage_gaps": [
+        "domestic_rules_unreviewed",
+        "door_to_door_path_unverified"
+      ],
+      "source_ids": [
+        "cn.road.east-network",
+        "cn.road.south-network"
+      ],
+      "evidence": [
+        {
+          "source_id": "cn.road.east-network",
+          "url": "https://mct.gov.cn/wlbphone/wlbydd/ggfw/cxts/202604/t20260422_965538.html",
+          "locator": "2026-04-22 weather bulletin; G25/G50/G60 corridors",
+          "accessed_at": "2026-10-08",
+          "language": "zh-CN",
+          "summary": {
+            "en": "Named existing road corridors support geographic research only; the old weather forecast is not current travel or animal permission evidence.",
+            "zh-CN": "列明既有道路支持地理研究；历史天气预报不能作现行路况或运宠许可。"
+          },
+          "content_sha256": null
+        },
+        {
+          "source_id": "cn.road.south-network",
+          "url": "https://www.gdqy.gov.cn/gdqy/zxzx/bmdt/content/post_1663002.html",
+          "locator": "Transport director interview; existing road connections and planned expansion",
+          "accessed_at": "2026-10-08",
+          "language": "zh-CN",
+          "summary": {
+            "en": "Existing connections with Guangzhou are distinguished from planned expansion; full door-to-door roads, times and restrictions remain unchecked.",
+            "zh-CN": "区分既有广清连接与扩建规划；完整门到门路径、时间及限制待核。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "limits": [],
+      "estimate_minutes": null,
+      "distance_km": null,
+      "cost_cny": null,
+      "handover": {
+        "location_node": "cn.qingyuan",
+        "window": null,
+        "roles": {
+          "escort": null,
+          "custodian": null,
+          "handover_recipient": null,
+          "document_custodian": null
+        }
+      },
+      "supersedes_segment_ids": []
+    },
+    {
+      "segment_id": "cn.east.road-carrier",
+      "from_node": "cn.huzhou",
+      "to_node": "cn.qingyuan",
+      "mode": "road",
+      "product": "unaccompanied_animal_carrier",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "review_status": "draft",
+      "coverage_gaps": [
+        "domestic_rules_unreviewed",
+        "door_to_door_path_unverified"
+      ],
+      "source_ids": [
+        "cn.road.east-network",
+        "cn.road.south-network"
+      ],
+      "evidence": [
+        {
+          "source_id": "cn.road.east-network",
+          "url": "https://mct.gov.cn/wlbphone/wlbydd/ggfw/cxts/202604/t20260422_965538.html",
+          "locator": "2026-04-22 weather bulletin; G25/G50/G60 corridors",
+          "accessed_at": "2026-10-08",
+          "language": "zh-CN",
+          "summary": {
+            "en": "Named existing road corridors support geographic research only; the old weather forecast is not current travel or animal permission evidence.",
+            "zh-CN": "列明既有道路支持地理研究；历史天气预报不能作现行路况或运宠许可。"
+          },
+          "content_sha256": null
+        },
+        {
+          "source_id": "cn.road.south-network",
+          "url": "https://www.gdqy.gov.cn/gdqy/zxzx/bmdt/content/post_1663002.html",
+          "locator": "Transport director interview; existing road connections and planned expansion",
+          "accessed_at": "2026-10-08",
+          "language": "zh-CN",
+          "summary": {
+            "en": "Existing connections with Guangzhou are distinguished from planned expansion; full door-to-door roads, times and restrictions remain unchecked.",
+            "zh-CN": "区分既有广清连接与扩建规划；完整门到门路径、时间及限制待核。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "limits": [],
+      "estimate_minutes": null,
+      "distance_km": null,
+      "cost_cny": null,
+      "handover": {
+        "location_node": "cn.qingyuan",
+        "window": null,
+        "roles": {
+          "escort": null,
+          "custodian": null,
+          "handover_recipient": null,
+          "document_custodian": null
+        }
+      },
+      "supersedes_segment_ids": []
+    },
+    {
+      "segment_id": "cn.south.drive",
+      "from_node": "cn.qingyuan",
+      "to_node": "cn.langfang",
+      "mode": "road",
+      "product": "owner_vehicle",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "review_status": "draft",
+      "coverage_gaps": [
+        "domestic_rules_unreviewed",
+        "door_to_door_path_unverified"
+      ],
+      "source_ids": [
+        "cn.road.south-network"
+      ],
+      "evidence": [
+        {
+          "source_id": "cn.road.south-network",
+          "url": "https://www.gdqy.gov.cn/gdqy/zxzx/bmdt/content/post_1663002.html",
+          "locator": "Transport director interview; existing road connections and planned expansion",
+          "accessed_at": "2026-10-08",
+          "language": "zh-CN",
+          "summary": {
+            "en": "Existing connections with Guangzhou are distinguished from planned expansion; full door-to-door roads, times and restrictions remain unchecked.",
+            "zh-CN": "区分既有广清连接与扩建规划；完整门到门路径、时间及限制待核。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "limits": [],
+      "estimate_minutes": null,
+      "distance_km": null,
+      "cost_cny": null,
+      "handover": {
+        "location_node": "cn.langfang",
+        "window": null,
+        "roles": {
+          "escort": null,
+          "custodian": null,
+          "handover_recipient": null,
+          "document_custodian": null
+        }
+      },
+      "supersedes_segment_ids": []
+    },
+    {
+      "segment_id": "cn.south.road-carrier",
+      "from_node": "cn.qingyuan",
+      "to_node": "cn.langfang",
+      "mode": "road",
+      "product": "unaccompanied_animal_carrier",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "review_status": "draft",
+      "coverage_gaps": [
+        "domestic_rules_unreviewed",
+        "door_to_door_path_unverified"
+      ],
+      "source_ids": [
+        "cn.road.south-network"
+      ],
+      "evidence": [
+        {
+          "source_id": "cn.road.south-network",
+          "url": "https://www.gdqy.gov.cn/gdqy/zxzx/bmdt/content/post_1663002.html",
+          "locator": "Transport director interview; existing road connections and planned expansion",
+          "accessed_at": "2026-10-08",
+          "language": "zh-CN",
+          "summary": {
+            "en": "Existing connections with Guangzhou are distinguished from planned expansion; full door-to-door roads, times and restrictions remain unchecked.",
+            "zh-CN": "区分既有广清连接与扩建规划；完整门到门路径、时间及限制待核。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "limits": [],
+      "estimate_minutes": null,
+      "distance_km": null,
+      "cost_cny": null,
+      "handover": {
+        "location_node": "cn.langfang",
+        "window": null,
+        "roles": {
+          "escort": null,
+          "custodian": null,
+          "handover_recipient": null,
+          "document_custodian": null
+        }
+      },
+      "supersedes_segment_ids": []
+    },
+    {
+      "segment_id": "cn.east.pvg-access",
+      "from_node": "cn.huzhou",
+      "to_node": "cn.pvg",
+      "mode": "road",
+      "product": "ground_transfer",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "review_status": "draft",
+      "coverage_gaps": [
+        "domestic_rules_unreviewed",
+        "door_to_door_path_unverified"
+      ],
+      "source_ids": [
+        "cn.road.east-network"
+      ],
+      "evidence": [
+        {
+          "source_id": "cn.road.east-network",
+          "url": "https://mct.gov.cn/wlbphone/wlbydd/ggfw/cxts/202604/t20260422_965538.html",
+          "locator": "2026-04-22 weather bulletin; G25/G50/G60 corridors",
+          "accessed_at": "2026-10-08",
+          "language": "zh-CN",
+          "summary": {
+            "en": "Named existing road corridors support geographic research only; the old weather forecast is not current travel or animal permission evidence.",
+            "zh-CN": "列明既有道路支持地理研究；历史天气预报不能作现行路况或运宠许可。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "limits": [],
+      "estimate_minutes": null,
+      "distance_km": null,
+      "cost_cny": null,
+      "handover": {
+        "location_node": "cn.pvg",
+        "window": null,
+        "roles": {
+          "escort": null,
+          "custodian": null,
+          "handover_recipient": null,
+          "document_custodian": null
+        }
+      },
+      "supersedes_segment_ids": []
+    },
+    {
+      "segment_id": "cn.east.can-egress",
+      "from_node": "cn.can",
+      "to_node": "cn.qingyuan",
+      "mode": "road",
+      "product": "ground_transfer",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "review_status": "draft",
+      "coverage_gaps": [
+        "domestic_rules_unreviewed",
+        "door_to_door_path_unverified"
+      ],
+      "source_ids": [
+        "cn.road.south-network"
+      ],
+      "evidence": [
+        {
+          "source_id": "cn.road.south-network",
+          "url": "https://www.gdqy.gov.cn/gdqy/zxzx/bmdt/content/post_1663002.html",
+          "locator": "Transport director interview; existing road connections and planned expansion",
+          "accessed_at": "2026-10-08",
+          "language": "zh-CN",
+          "summary": {
+            "en": "Existing connections with Guangzhou are distinguished from planned expansion; full door-to-door roads, times and restrictions remain unchecked.",
+            "zh-CN": "区分既有广清连接与扩建规划；完整门到门路径、时间及限制待核。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "limits": [],
+      "estimate_minutes": null,
+      "distance_km": null,
+      "cost_cny": null,
+      "handover": {
+        "location_node": "cn.qingyuan",
+        "window": null,
+        "roles": {
+          "escort": null,
+          "custodian": null,
+          "handover_recipient": null,
+          "document_custodian": null
+        }
+      },
+      "supersedes_segment_ids": []
+    },
+    {
+      "segment_id": "cn.south.can-access",
+      "from_node": "cn.qingyuan",
+      "to_node": "cn.can",
+      "mode": "road",
+      "product": "ground_transfer",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "review_status": "draft",
+      "coverage_gaps": [
+        "domestic_rules_unreviewed",
+        "door_to_door_path_unverified"
+      ],
+      "source_ids": [
+        "cn.road.south-network"
+      ],
+      "evidence": [
+        {
+          "source_id": "cn.road.south-network",
+          "url": "https://www.gdqy.gov.cn/gdqy/zxzx/bmdt/content/post_1663002.html",
+          "locator": "Transport director interview; existing road connections and planned expansion",
+          "accessed_at": "2026-10-08",
+          "language": "zh-CN",
+          "summary": {
+            "en": "Existing connections with Guangzhou are distinguished from planned expansion; full door-to-door roads, times and restrictions remain unchecked.",
+            "zh-CN": "区分既有广清连接与扩建规划；完整门到门路径、时间及限制待核。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "limits": [],
+      "estimate_minutes": null,
+      "distance_km": null,
+      "cost_cny": null,
+      "handover": {
+        "location_node": "cn.can",
+        "window": null,
+        "roles": {
+          "escort": null,
+          "custodian": null,
+          "handover_recipient": null,
+          "document_custodian": null
+        }
+      },
+      "supersedes_segment_ids": []
+    },
+    {
+      "segment_id": "cn.south.pek-egress",
+      "from_node": "cn.pek",
+      "to_node": "cn.langfang",
+      "mode": "road",
+      "product": "ground_transfer",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "review_status": "draft",
+      "coverage_gaps": [
+        "domestic_rules_unreviewed",
+        "door_to_door_path_unverified"
+      ],
+      "source_ids": [
+        "cn.road.south-network"
+      ],
+      "evidence": [
+        {
+          "source_id": "cn.road.south-network",
+          "url": "https://www.gdqy.gov.cn/gdqy/zxzx/bmdt/content/post_1663002.html",
+          "locator": "Transport director interview; existing road connections and planned expansion",
+          "accessed_at": "2026-10-08",
+          "language": "zh-CN",
+          "summary": {
+            "en": "Existing connections with Guangzhou are distinguished from planned expansion; full door-to-door roads, times and restrictions remain unchecked.",
+            "zh-CN": "区分既有广清连接与扩建规划；完整门到门路径、时间及限制待核。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "limits": [],
+      "estimate_minutes": null,
+      "distance_km": null,
+      "cost_cny": null,
+      "handover": {
+        "location_node": "cn.langfang",
+        "window": null,
+        "roles": {
+          "escort": null,
+          "custodian": null,
+          "handover_recipient": null,
+          "document_custodian": null
+        }
+      },
+      "supersedes_segment_ids": []
+    },
+    {
+      "segment_id": "cn.east.rail-access",
+      "from_node": "cn.huzhou",
+      "to_node": "cn.shanghai-hongqiao",
+      "mode": "road",
+      "product": "ground_transfer",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "review_status": "draft",
+      "coverage_gaps": [
+        "domestic_rules_unreviewed",
+        "door_to_door_path_unverified"
+      ],
+      "source_ids": [
+        "cn.road.east-network"
+      ],
+      "evidence": [
+        {
+          "source_id": "cn.road.east-network",
+          "url": "https://mct.gov.cn/wlbphone/wlbydd/ggfw/cxts/202604/t20260422_965538.html",
+          "locator": "2026-04-22 weather bulletin; G25/G50/G60 corridors",
+          "accessed_at": "2026-10-08",
+          "language": "zh-CN",
+          "summary": {
+            "en": "Named existing road corridors support geographic research only; the old weather forecast is not current travel or animal permission evidence.",
+            "zh-CN": "列明既有道路支持地理研究；历史天气预报不能作现行路况或运宠许可。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "limits": [],
+      "estimate_minutes": null,
+      "distance_km": null,
+      "cost_cny": null,
+      "handover": {
+        "location_node": "cn.shanghai-hongqiao",
+        "window": null,
+        "roles": {
+          "escort": null,
+          "custodian": null,
+          "handover_recipient": null,
+          "document_custodian": null
+        }
+      },
+      "supersedes_segment_ids": []
+    },
+    {
+      "segment_id": "cn.east.rail-egress",
+      "from_node": "cn.guangzhou-south",
+      "to_node": "cn.qingyuan",
+      "mode": "road",
+      "product": "ground_transfer",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "review_status": "draft",
+      "coverage_gaps": [
+        "domestic_rules_unreviewed",
+        "door_to_door_path_unverified"
+      ],
+      "source_ids": [
+        "cn.road.south-network"
+      ],
+      "evidence": [
+        {
+          "source_id": "cn.road.south-network",
+          "url": "https://www.gdqy.gov.cn/gdqy/zxzx/bmdt/content/post_1663002.html",
+          "locator": "Transport director interview; existing road connections and planned expansion",
+          "accessed_at": "2026-10-08",
+          "language": "zh-CN",
+          "summary": {
+            "en": "Existing connections with Guangzhou are distinguished from planned expansion; full door-to-door roads, times and restrictions remain unchecked.",
+            "zh-CN": "区分既有广清连接与扩建规划；完整门到门路径、时间及限制待核。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "limits": [],
+      "estimate_minutes": null,
+      "distance_km": null,
+      "cost_cny": null,
+      "handover": {
+        "location_node": "cn.qingyuan",
+        "window": null,
+        "roles": {
+          "escort": null,
+          "custodian": null,
+          "handover_recipient": null,
+          "document_custodian": null
+        }
+      },
+      "supersedes_segment_ids": []
+    },
+    {
+      "segment_id": "cn.south.rail-access",
+      "from_node": "cn.qingyuan",
+      "to_node": "cn.guangzhou-south",
+      "mode": "road",
+      "product": "ground_transfer",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "review_status": "draft",
+      "coverage_gaps": [
+        "domestic_rules_unreviewed",
+        "door_to_door_path_unverified"
+      ],
+      "source_ids": [
+        "cn.road.south-network"
+      ],
+      "evidence": [
+        {
+          "source_id": "cn.road.south-network",
+          "url": "https://www.gdqy.gov.cn/gdqy/zxzx/bmdt/content/post_1663002.html",
+          "locator": "Transport director interview; existing road connections and planned expansion",
+          "accessed_at": "2026-10-08",
+          "language": "zh-CN",
+          "summary": {
+            "en": "Existing connections with Guangzhou are distinguished from planned expansion; full door-to-door roads, times and restrictions remain unchecked.",
+            "zh-CN": "区分既有广清连接与扩建规划；完整门到门路径、时间及限制待核。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "limits": [],
+      "estimate_minutes": null,
+      "distance_km": null,
+      "cost_cny": null,
+      "handover": {
+        "location_node": "cn.guangzhou-south",
+        "window": null,
+        "roles": {
+          "escort": null,
+          "custodian": null,
+          "handover_recipient": null,
+          "document_custodian": null
+        }
+      },
+      "supersedes_segment_ids": []
+    },
+    {
+      "segment_id": "cn.south.rail-egress",
+      "from_node": "cn.beijing-west",
+      "to_node": "cn.langfang",
+      "mode": "road",
+      "product": "ground_transfer",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "review_status": "draft",
+      "coverage_gaps": [
+        "domestic_rules_unreviewed",
+        "door_to_door_path_unverified"
+      ],
+      "source_ids": [
+        "cn.road.south-network"
+      ],
+      "evidence": [
+        {
+          "source_id": "cn.road.south-network",
+          "url": "https://www.gdqy.gov.cn/gdqy/zxzx/bmdt/content/post_1663002.html",
+          "locator": "Transport director interview; existing road connections and planned expansion",
+          "accessed_at": "2026-10-08",
+          "language": "zh-CN",
+          "summary": {
+            "en": "Existing connections with Guangzhou are distinguished from planned expansion; full door-to-door roads, times and restrictions remain unchecked.",
+            "zh-CN": "区分既有广清连接与扩建规划；完整门到门路径、时间及限制待核。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "limits": [],
+      "estimate_minutes": null,
+      "distance_km": null,
+      "cost_cny": null,
+      "handover": {
+        "location_node": "cn.langfang",
+        "window": null,
+        "roles": {
+          "escort": null,
+          "custodian": null,
+          "handover_recipient": null,
+          "document_custodian": null
+        }
+      },
+      "supersedes_segment_ids": []
+    },
+    {
+      "segment_id": "cn.east.air",
+      "from_node": "cn.pvg",
+      "to_node": "cn.can",
+      "mode": "checked_baggage",
+      "product": "mu_passenger_pet_baggage",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "review_status": "draft",
+      "coverage_gaps": [
+        "domestic_rules_unreviewed",
+        "dated_product_and_facility_unverified"
+      ],
+      "source_ids": [
+        "cn.air.mu-pet",
+        "cn.air.mu-airports"
+      ],
+      "evidence": [
+        {
+          "source_id": "cn.air.mu-pet",
+          "url": "https://global.ceair.com/global/static/Announcement/TravelTips/SpecialPassengerServiceNotice/LittleAnimal/",
+          "locator": "Applicable routes; airport availability; transport documents",
+          "accessed_at": "2026-10-08",
+          "language": "zh-CN",
+          "summary": {
+            "en": "Direct actual-operated flights and oxygenated holds need confirmation; this is passenger baggage, not independent manifest cargo.",
+            "zh-CN": "实际承运直达及有氧舱需确认；属旅客行李，不是独立货运。"
+          },
+          "content_sha256": null
+        },
+        {
+          "source_id": "cn.air.mu-airports",
+          "url": "https://global.ceair.com/global/static/Announcement/TravelTips/AirportInformation/airportinfo/S_Ariport/",
+          "locator": "PVG airport entry; special baggage services",
+          "accessed_at": "2026-10-08",
+          "language": "zh-CN",
+          "summary": {
+            "en": "PVG service information is a facility lead; no dated animal acceptance or cargo-terminal capability is established.",
+            "zh-CN": "PVG业务信息仅为设施线索；未确定特定日期收运或货站能力。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "limits": [],
+      "estimate_minutes": null,
+      "distance_km": null,
+      "cost_cny": null,
+      "handover": {
+        "location_node": "cn.can",
+        "window": null,
+        "roles": {
+          "escort": null,
+          "custodian": null,
+          "handover_recipient": null,
+          "document_custodian": null
+        }
+      },
+      "supersedes_segment_ids": []
+    },
+    {
+      "segment_id": "cn.south.air",
+      "from_node": "cn.can",
+      "to_node": "cn.pek",
+      "mode": "checked_baggage",
+      "product": "cz_passenger_pet_baggage",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "review_status": "draft",
+      "coverage_gaps": [
+        "domestic_rules_unreviewed",
+        "dated_product_and_facility_unverified"
+      ],
+      "source_ids": [
+        "cn.air.cz-pet"
+      ],
+      "evidence": [
+        {
+          "source_id": "cn.air.cz-pet",
+          "url": "https://www.csair.com/tw/tc/tourguide/luggage_service/pet/",
+          "locator": "Sections I–III and VII airport table; Traditional Chinese regional page",
+          "accessed_at": "2026-10-08",
+          "language": "zh-CN",
+          "summary": {
+            "en": "CAN and PEK appear in a tariff table, not proof of flight capacity. Regional application deadlines conflict with the English page; do not automate deadlines.",
+            "zh-CN": "CAN及PEK见于计费表，不证明航班容量。地区页面申请时限与英文页不同，不自动执行。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "limits": [],
+      "estimate_minutes": null,
+      "distance_km": null,
+      "cost_cny": null,
+      "handover": {
+        "location_node": "cn.pek",
+        "window": null,
+        "roles": {
+          "escort": null,
+          "custodian": null,
+          "handover_recipient": null,
+          "document_custodian": null
+        }
+      },
+      "supersedes_segment_ids": []
+    },
+    {
+      "segment_id": "cn.east.rail-owner-accompanied",
+      "from_node": "cn.shanghai-hongqiao",
+      "to_node": "cn.guangzhou-south",
+      "mode": "rail",
+      "product": "rail_owner_accompanied",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "review_status": "draft",
+      "coverage_gaps": [
+        "domestic_rules_unreviewed",
+        "dated_product_and_facility_unverified"
+      ],
+      "source_ids": [
+        "cn.rail.pet-2026",
+        "cn.rail.stations-2025",
+        "cn.rail.shanghai-2026"
+      ],
+      "evidence": [
+        {
+          "source_id": "cn.rail.pet-2026",
+          "url": "https://www.rails.cn/html/news/2/2026/20260410_68532.html",
+          "locator": "2026-04-10 paragraphs 3–5; product scope, booking and handover",
+          "accessed_at": "2026-10-08",
+          "language": "zh-CN",
+          "summary": {
+            "en": "Two modes, physical limits and appointment-based handover are described; no dated station-pair inventory is supplied.",
+            "zh-CN": "说明双模式、体型限制及预约交接；未提供日期限定的站对仓位。"
+          },
+          "content_sha256": null
+        },
+        {
+          "source_id": "cn.rail.stations-2025",
+          "url": "https://www.beijing.gov.cn/fuwu/bmfw/sy/jrts/202506/t20250623_4118838.html",
+          "locator": "2025-06-23 expansion paragraph",
+          "accessed_at": "2026-10-08",
+          "language": "zh-CN",
+          "summary": {
+            "en": "Guangzhou South and Beijing West are historical pet-service stations; current products and station pairs require reconfirmation.",
+            "zh-CN": "广州南、北京西为历史宠物业务站点；现行产品及站对需重新确认。"
+          },
+          "content_sha256": null
+        },
+        {
+          "source_id": "cn.rail.shanghai-2026",
+          "url": "https://www.shanghai.gov.cn/nw17239/20260410/a104c2fd73064ff9a9c370ed07015a43.html",
+          "locator": "2026-04-10 Shanghai booking examples",
+          "accessed_at": "2026-10-08",
+          "language": "zh-CN",
+          "summary": {
+            "en": "Shanghai Hongqiao appears in a pet-service example, not proof of a Shanghai–Guangzhou pet train.",
+            "zh-CN": "上海虹桥见于宠物业务示例，不证明沪广宠物车次。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "limits": [
+        {
+          "field": "pet.weight_kg",
+          "maximum": 15,
+          "source_id": "cn.rail.pet-2026"
+        },
+        {
+          "field": "pet.shoulder_height_cm",
+          "maximum": 40,
+          "source_id": "cn.rail.pet-2026"
+        },
+        {
+          "field": "pet.body_length_cm",
+          "maximum": 52,
+          "source_id": "cn.rail.pet-2026"
+        }
+      ],
+      "estimate_minutes": null,
+      "distance_km": null,
+      "cost_cny": null,
+      "handover": {
+        "location_node": "cn.guangzhou-south",
+        "window": null,
+        "roles": {
+          "escort": null,
+          "custodian": null,
+          "handover_recipient": null,
+          "document_custodian": null
+        }
+      },
+      "supersedes_segment_ids": []
+    },
+    {
+      "segment_id": "cn.east.rail-unaccompanied",
+      "from_node": "cn.shanghai-hongqiao",
+      "to_node": "cn.guangzhou-south",
+      "mode": "rail",
+      "product": "rail_unaccompanied",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "review_status": "draft",
+      "coverage_gaps": [
+        "domestic_rules_unreviewed",
+        "dated_product_and_facility_unverified"
+      ],
+      "source_ids": [
+        "cn.rail.pet-2026",
+        "cn.rail.stations-2025",
+        "cn.rail.shanghai-2026"
+      ],
+      "evidence": [
+        {
+          "source_id": "cn.rail.pet-2026",
+          "url": "https://www.rails.cn/html/news/2/2026/20260410_68532.html",
+          "locator": "2026-04-10 paragraphs 3–5; product scope, booking and handover",
+          "accessed_at": "2026-10-08",
+          "language": "zh-CN",
+          "summary": {
+            "en": "Two modes, physical limits and appointment-based handover are described; no dated station-pair inventory is supplied.",
+            "zh-CN": "说明双模式、体型限制及预约交接；未提供日期限定的站对仓位。"
+          },
+          "content_sha256": null
+        },
+        {
+          "source_id": "cn.rail.stations-2025",
+          "url": "https://www.beijing.gov.cn/fuwu/bmfw/sy/jrts/202506/t20250623_4118838.html",
+          "locator": "2025-06-23 expansion paragraph",
+          "accessed_at": "2026-10-08",
+          "language": "zh-CN",
+          "summary": {
+            "en": "Guangzhou South and Beijing West are historical pet-service stations; current products and station pairs require reconfirmation.",
+            "zh-CN": "广州南、北京西为历史宠物业务站点；现行产品及站对需重新确认。"
+          },
+          "content_sha256": null
+        },
+        {
+          "source_id": "cn.rail.shanghai-2026",
+          "url": "https://www.shanghai.gov.cn/nw17239/20260410/a104c2fd73064ff9a9c370ed07015a43.html",
+          "locator": "2026-04-10 Shanghai booking examples",
+          "accessed_at": "2026-10-08",
+          "language": "zh-CN",
+          "summary": {
+            "en": "Shanghai Hongqiao appears in a pet-service example, not proof of a Shanghai–Guangzhou pet train.",
+            "zh-CN": "上海虹桥见于宠物业务示例，不证明沪广宠物车次。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "limits": [
+        {
+          "field": "pet.weight_kg",
+          "maximum": 15,
+          "source_id": "cn.rail.pet-2026"
+        },
+        {
+          "field": "pet.shoulder_height_cm",
+          "maximum": 40,
+          "source_id": "cn.rail.pet-2026"
+        },
+        {
+          "field": "pet.body_length_cm",
+          "maximum": 52,
+          "source_id": "cn.rail.pet-2026"
+        }
+      ],
+      "estimate_minutes": null,
+      "distance_km": null,
+      "cost_cny": null,
+      "handover": {
+        "location_node": "cn.guangzhou-south",
+        "window": null,
+        "roles": {
+          "escort": null,
+          "custodian": null,
+          "handover_recipient": null,
+          "document_custodian": null
+        }
+      },
+      "supersedes_segment_ids": []
+    },
+    {
+      "segment_id": "cn.south.rail-owner-accompanied",
+      "from_node": "cn.guangzhou-south",
+      "to_node": "cn.beijing-west",
+      "mode": "rail",
+      "product": "rail_owner_accompanied",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "review_status": "draft",
+      "coverage_gaps": [
+        "domestic_rules_unreviewed",
+        "dated_product_and_facility_unverified"
+      ],
+      "source_ids": [
+        "cn.rail.pet-2026",
+        "cn.rail.stations-2025"
+      ],
+      "evidence": [
+        {
+          "source_id": "cn.rail.pet-2026",
+          "url": "https://www.rails.cn/html/news/2/2026/20260410_68532.html",
+          "locator": "2026-04-10 paragraphs 3–5; product scope, booking and handover",
+          "accessed_at": "2026-10-08",
+          "language": "zh-CN",
+          "summary": {
+            "en": "Two modes, physical limits and appointment-based handover are described; no dated station-pair inventory is supplied.",
+            "zh-CN": "说明双模式、体型限制及预约交接；未提供日期限定的站对仓位。"
+          },
+          "content_sha256": null
+        },
+        {
+          "source_id": "cn.rail.stations-2025",
+          "url": "https://www.beijing.gov.cn/fuwu/bmfw/sy/jrts/202506/t20250623_4118838.html",
+          "locator": "2025-06-23 expansion paragraph",
+          "accessed_at": "2026-10-08",
+          "language": "zh-CN",
+          "summary": {
+            "en": "Guangzhou South and Beijing West are historical pet-service stations; current products and station pairs require reconfirmation.",
+            "zh-CN": "广州南、北京西为历史宠物业务站点；现行产品及站对需重新确认。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "limits": [
+        {
+          "field": "pet.weight_kg",
+          "maximum": 15,
+          "source_id": "cn.rail.pet-2026"
+        },
+        {
+          "field": "pet.shoulder_height_cm",
+          "maximum": 40,
+          "source_id": "cn.rail.pet-2026"
+        },
+        {
+          "field": "pet.body_length_cm",
+          "maximum": 52,
+          "source_id": "cn.rail.pet-2026"
+        }
+      ],
+      "estimate_minutes": null,
+      "distance_km": null,
+      "cost_cny": null,
+      "handover": {
+        "location_node": "cn.beijing-west",
+        "window": null,
+        "roles": {
+          "escort": null,
+          "custodian": null,
+          "handover_recipient": null,
+          "document_custodian": null
+        }
+      },
+      "supersedes_segment_ids": []
+    },
+    {
+      "segment_id": "cn.south.rail-unaccompanied",
+      "from_node": "cn.guangzhou-south",
+      "to_node": "cn.beijing-west",
+      "mode": "rail",
+      "product": "rail_unaccompanied",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "review_status": "draft",
+      "coverage_gaps": [
+        "domestic_rules_unreviewed",
+        "dated_product_and_facility_unverified"
+      ],
+      "source_ids": [
+        "cn.rail.pet-2026",
+        "cn.rail.stations-2025"
+      ],
+      "evidence": [
+        {
+          "source_id": "cn.rail.pet-2026",
+          "url": "https://www.rails.cn/html/news/2/2026/20260410_68532.html",
+          "locator": "2026-04-10 paragraphs 3–5; product scope, booking and handover",
+          "accessed_at": "2026-10-08",
+          "language": "zh-CN",
+          "summary": {
+            "en": "Two modes, physical limits and appointment-based handover are described; no dated station-pair inventory is supplied.",
+            "zh-CN": "说明双模式、体型限制及预约交接；未提供日期限定的站对仓位。"
+          },
+          "content_sha256": null
+        },
+        {
+          "source_id": "cn.rail.stations-2025",
+          "url": "https://www.beijing.gov.cn/fuwu/bmfw/sy/jrts/202506/t20250623_4118838.html",
+          "locator": "2025-06-23 expansion paragraph",
+          "accessed_at": "2026-10-08",
+          "language": "zh-CN",
+          "summary": {
+            "en": "Guangzhou South and Beijing West are historical pet-service stations; current products and station pairs require reconfirmation.",
+            "zh-CN": "广州南、北京西为历史宠物业务站点；现行产品及站对需重新确认。"
+          },
+          "content_sha256": null
+        }
+      ],
+      "limits": [
+        {
+          "field": "pet.weight_kg",
+          "maximum": 15,
+          "source_id": "cn.rail.pet-2026"
+        },
+        {
+          "field": "pet.shoulder_height_cm",
+          "maximum": 40,
+          "source_id": "cn.rail.pet-2026"
+        },
+        {
+          "field": "pet.body_length_cm",
+          "maximum": 52,
+          "source_id": "cn.rail.pet-2026"
+        }
+      ],
+      "estimate_minutes": null,
+      "distance_km": null,
+      "cost_cny": null,
+      "handover": {
+        "location_node": "cn.beijing-west",
+        "window": null,
+        "roles": {
+          "escort": null,
+          "custodian": null,
+          "handover_recipient": null,
+          "document_custodian": null
+        }
+      },
+      "supersedes_segment_ids": []
+    }
+  ],
+  "corridors": [
+    {
+      "id": "dom.cn.east",
+      "research_candidate_id": "DOM-CN-EAST",
+      "origin_node": "cn.huzhou",
+      "destination_node": "cn.qingyuan"
+    },
+    {
+      "id": "dom.cn.south",
+      "research_candidate_id": "DOM-CN-SOUTH",
+      "origin_node": "cn.qingyuan",
+      "destination_node": "cn.langfang"
+    }
+  ]
+}
