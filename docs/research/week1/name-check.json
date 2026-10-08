@@ -1,0 +1,150 @@
+{
+  "queried_name": "petwaymark",
+  "method": "Direct registry HTTP; RDAP endpoints selected from IANA DNS bootstrap; no registration attempted",
+  "results": [
+    {
+      "id": "github",
+      "url": "https://api.github.com/search/repositories?q=petwaymark+in:name&per_page=100",
+      "accessed_at": "2026-10-08T01:35:32.728310+00:00",
+      "http_status": 200,
+      "final_url": "https://api.github.com/search/repositories?q=petwaymark+in:name&per_page=100",
+      "response_date": "Thu, 08 Oct 2026 01:35:33 GMT",
+      "content_sha256": "4af480b8ee5b87b369a76c49bd22c9a783908272ebffbe97898f8ab0f0772a5f",
+      "total_count": 0,
+      "incomplete_results": false,
+      "names": []
+    },
+    {
+      "id": "npm",
+      "url": "https://registry.npmjs.org/petwaymark",
+      "accessed_at": "2026-10-08T01:35:32.728993+00:00",
+      "http_status": 404,
+      "final_url": "https://registry.npmjs.org/petwaymark",
+      "response_date": "Thu, 08 Oct 2026 01:35:32 GMT",
+      "content_sha256": "c8d3eae160a892e32837db3dcae515e843e5383fef52b8141940c8bcf8b6d59f",
+      "response_summary": {
+        "error": "Not found"
+      }
+    },
+    {
+      "id": "pypi",
+      "url": "https://pypi.org/pypi/petwaymark/json",
+      "accessed_at": "2026-10-08T01:35:32.731134+00:00",
+      "http_status": 404,
+      "final_url": "https://pypi.org/pypi/petwaymark/json",
+      "response_date": "Thu, 08 Oct 2026 01:35:33 GMT",
+      "content_sha256": "b82014934f66beeb9e05a37f65357c4b50db0349d25d68d818ed0319dd4feb40",
+      "response_summary": {}
+    },
+    {
+      "id": "iana-bootstrap",
+      "url": "https://data.iana.org/rdap/dns.json",
+      "accessed_at": "2026-10-08T01:35:32.733245+00:00",
+      "http_status": 200,
+      "final_url": "https://data.iana.org/rdap/dns.json",
+      "response_date": "Thu, 08 Oct 2026 01:35:32 GMT",
+      "content_sha256": "e3419eb0b28dcc3a68dd3bb0e64429cb0d376c3883ca4c42317aea65fc0ab471",
+      "response_summary": {
+        "description": "RDAP bootstrap file for Domain Name System registrations"
+      }
+    },
+    {
+      "id": "petwaymark.io",
+      "status": "no_iana_rdap_endpoint",
+      "needs": "WHOIS fallback"
+    },
+    {
+      "id": "petwaymark.cn",
+      "status": "no_iana_rdap_endpoint",
+      "needs": "WHOIS fallback"
+    },
+    {
+      "id": "petwaymark.com.cn",
+      "status": "no_iana_rdap_endpoint",
+      "needs": "WHOIS fallback"
+    },
+    {
+      "id": "petwaymark.com",
+      "url": "https://rdap.verisign.com/com/v1/domain/petwaymark.com",
+      "accessed_at": "2026-10-08T01:35:32.958323+00:00",
+      "http_status": 404,
+      "final_url": "https://rdap.verisign.com/com/v1/domain/petwaymark.com",
+      "response_date": null,
+      "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "response_excerpt": ""
+    },
+    {
+      "id": "petwaymark.net",
+      "url": "https://rdap.verisign.com/net/v1/domain/petwaymark.net",
+      "accessed_at": "2026-10-08T01:35:32.959654+00:00",
+      "http_status": 404,
+      "final_url": "https://rdap.verisign.com/net/v1/domain/petwaymark.net",
+      "response_date": null,
+      "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "response_excerpt": ""
+    },
+    {
+      "id": "petwaymark.org",
+      "url": "https://rdap.publicinterestregistry.org/rdap/domain/petwaymark.org",
+      "accessed_at": "2026-10-08T01:35:32.961201+00:00",
+      "http_status": 404,
+      "final_url": "https://rdap.publicinterestregistry.org/rdap/domain/petwaymark.org",
+      "response_date": "Thu, 08 Oct 2026 01:35:33 GMT",
+      "content_sha256": "a255d81bd92a02c78630f91845035072cb936fc858e2260c76a8b2136d451386",
+      "response_summary": {
+        "errorCode": 404,
+        "title": "Object not found",
+        "description": [
+          "Object not found"
+        ],
+        "rdapConformance": [
+          "rdap_level_0",
+          "icann_rdap_response_profile_1",
+          "icann_rdap_technical_implementation_guide_1"
+        ]
+      }
+    },
+    {
+      "id": "petwaymark.dev",
+      "url": "https://pubapi.registry.google/rdap/domain/petwaymark.dev",
+      "accessed_at": "2026-10-08T01:35:32.962818+00:00",
+      "http_status": 404,
+      "final_url": "https://pubapi.registry.google/rdap/domain/petwaymark.dev",
+      "response_date": "Thu, 08 Oct 2026 01:35:33 GMT",
+      "content_sha256": "92e68bdae0afe7ae096812e06fcc76b9e74cade33af35cdbc7dc0349677710f8",
+      "response_summary": {
+        "errorCode": 404,
+        "title": "Not Found",
+        "description": [
+          "petwaymark.dev not found"
+        ],
+        "rdapConformance": [
+          "rdap_level_0",
+          "icann_rdap_response_profile_1",
+          "icann_rdap_technical_implementation_guide_1"
+        ]
+      }
+    },
+    {
+      "id": "petwaymark.app",
+      "url": "https://pubapi.registry.google/rdap/domain/petwaymark.app",
+      "accessed_at": "2026-10-08T01:35:32.964497+00:00",
+      "http_status": 404,
+      "final_url": "https://pubapi.registry.google/rdap/domain/petwaymark.app",
+      "response_date": "Thu, 08 Oct 2026 01:35:33 GMT",
+      "content_sha256": "5addbc6ff75f7bc217179ee0ce3d6656ff60ed5aaefded9db8f7dd40dd16e342",
+      "response_summary": {
+        "errorCode": 404,
+        "title": "Not Found",
+        "description": [
+          "petwaymark.app not found"
+        ],
+        "rdapConformance": [
+          "rdap_level_0",
+          "icann_rdap_response_profile_1",
+          "icann_rdap_technical_implementation_guide_1"
+        ]
+      }
+    }
+  ]
+}

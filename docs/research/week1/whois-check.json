@@ -1,0 +1,23 @@
+[
+  {
+    "domain": "petwaymark.io",
+    "server": "whois.nic.io",
+    "port": 43,
+    "accessed_at": "2026-10-08T01:35:52.745811+00:00",
+    "error": "timed out"
+  },
+  {
+    "domain": "petwaymark.cn",
+    "server": "whois.cnnic.cn",
+    "port": 43,
+    "accessed_at": "2026-10-08T01:35:52.746207+00:00",
+    "error": "timed out"
+  },
+  {
+    "domain": "petwaymark.com.cn",
+    "server": "whois.cnnic.cn",
+    "port": 43,
+    "accessed_at": "2026-10-08T01:35:52.746399+00:00",
+    "error": "timed out"
+  }
+]

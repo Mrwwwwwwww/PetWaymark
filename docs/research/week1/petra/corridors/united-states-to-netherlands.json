@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "corridor": "united-states-to-netherlands",
+  "origin": {
+    "code": "US",
+    "name": "United States"
+  },
+  "destination": {
+    "code": "NL",
+    "name": "Netherlands"
+  },
+  "ruleset": {
+    "name": "EU (Reg 576/2013)",
+    "stem": "eu_576_2013"
+  },
+  "tier": "verified",
+  "tier_label": "Source-checked · 2026-09-20",
+  "origin_scope": [
+    "US"
+  ],
+  "species_scope": null,
+  "last_reviewed": "2026-09-20",
+  "recommended_lead_time_days": 30,
+  "source_url": "https://eur-lex.europa.eu/eli/reg_del/2026/131/oj",
+  "verified_scope_note": null,
+  "related_destination_note": null,
+  "caveats": [],
+  "requirements": [
+    {
+      "key": "microchip",
+      "title": "Microchip recorded (ISO 11784/11785)",
+      "scope_notes": [],
+      "class": "interpretation"
+    },
+    {
+      "key": "rabies",
+      "title": "Rabies vaccination valid (on/after the microchip)",
+      "scope_notes": [],
+      "class": "interpretation"
+    },
+    {
+      "key": "rabies_wait",
+      "title": "21-day wait after a primary rabies vaccination",
+      "scope_notes": [],
+      "class": "interpretation"
+    },
+    {
+      "key": "rabies_min_age",
+      "title": "Rabies vaccination at 12 weeks or older",
+      "scope_notes": [],
+      "class": "interpretation"
+    },
+    {
+      "key": "eu_ahc",
+      "title": "EU Animal Health Certificate (APHIS-endorsed)",
+      "scope_notes": [],
+      "class": "interpretation"
+    },
+    {
+      "key": "noncommercial_pet_count",
+      "title": "Non-commercial movement (5 animals or fewer)",
+      "scope_notes": [],
+      "class": "interpretation"
+    },
+    {
+      "key": "owner_accompaniment",
+      "title": "Owner or authorised person travels within 5 days",
+      "scope_notes": [],
+      "class": "interpretation"
+    },
+    {
+      "key": "noncommercial_declaration",
+      "title": "Signed non-commercial declaration",
+      "scope_notes": [],
+      "class": "interpretation"
+    }
+  ],
+  "manual_checklist": [
+    {
+      "title": "Enter the EU within 10 days of endorsement",
+      "detail": "For a US departure the binding window is that you ENTER the EU within 10 days of APHIS endorsement. After entry, the certificate covers onward EU travel for six months from the entry checks, capped by the rabies vaccination's expiry.",
+      "required": false,
+      "scope_notes": [],
+      "class": "interpretation"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:02020R0688-20260422",
+      "authority": "European Union (EUR-Lex)",
+      "page_title": "Commission Delegated Regulation (EU) 2020/688, consolidated text (CELEX 02020R0688-20260422)",
+      "retrieved_at": "2026-09-19",
+      "applies_to": "the anti-rabies vaccination validity requirements (Annex VII Part 1) that Del. Reg. (EU) 2026/131 Art. 14(b) relies on for third-country entry — resolves the E5/E6 citation-hygiene follow-up below",
+      "supporting_requirements": [
+        "12-week minimum age at the time of primary vaccination (Annex VII Part 1, ¶2(b))",
+        "vaccination date must not precede the identification/microchip date (¶2(d))",
+        "21-day wait from completion of the primary vaccination protocol before protective immunity is established (¶2(e))"
+      ]
+    },
+    {
+      "url": "https://eur-lex.europa.eu/eli/reg_del/2026/131/oj",
+      "authority": "European Union (EUR-Lex)",
+      "page_title": "Commission Delegated Regulation (EU) 2026/131 (animal-health requirements for non-commercial pet movement)",
+      "retrieved_at": "2026-07-05",
+      "applies_to": "dog/cat/ferret entry to an EU member state, non-commercial (governing instrument; supersedes Reg 576/2013)",
+      "supporting_requirements": [
+        "microchip before rabies",
+        "rabies vaccination + 21-day primary wait (E5)",
+        "10-day entry window, issue-or-endorsement anchored (E3, Art 19(1)(b))",
+        "no titre for listed origins (E1, Art 17)",
+        "written non-commercial declaration (E8a, Art 18(3); gated since Unit 3)",
+        "five-animal maximum + owner accompaniment (E8; gated since Unit 3)"
+      ]
+    },
+    {
+      "url": "https://eur-lex.europa.eu/eli/reg_impl/2026/705/oj",
+      "authority": "European Union (EUR-Lex)",
+      "page_title": "Commission Implementing Regulation (EU) 2026/705 (model identification documents; AHC model)",
+      "retrieved_at": "2026-07-05",
+      "applies_to": "the EU AHC certificate model (supersedes 577/2013 Annex IV) + the model-document transition",
+      "supporting_requirements": [
+        "EU Animal Health Certificate model (E3)",
+        "onward validity six months from entry checks, capped by rabies expiry (E4)"
+      ]
+    },
+    {
+      "url": "https://eur-lex.europa.eu/eli/reg_impl/2026/636/oj",
+      "authority": "European Union (EUR-Lex)",
+      "page_title": "Commission Implementing Regulation (EU) 2026/636 (third-country listing)",
+      "retrieved_at": "2026-07-05",
+      "applies_to": "origin listing (US is listed → no rabies titre for qualifying US-origin routes)",
+      "supporting_requirements": [
+        "no rabies titre for listed origins (E1)",
+        "titre only for non-listed origins"
+      ]
+    },
+    {
+      "url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-germany",
+      "authority": "USDA APHIS",
+      "page_title": "Pet Travel From the US to the European Union",
+      "retrieved_at": "2026-06-23",
+      "applies_to": "US-origin dog/cat export to the EU (operational workflow)",
+      "supporting_requirements": [
+        "EU AHC completed by USDA-accredited vet + APHIS endorsement (E2)",
+        "enter within 10 days of endorsement (E3)",
+        "new APHIS certificate model from 2026-10-01 (transition item B1)"
+      ]
+    },
+    {
+      "url": "http://web.archive.org/web/20260607015858/https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-united-arab-emirates",
+      "authority": "USDA APHIS (via Wayback Machine mirror — live aphis.usda.gov resets automated GETs; the UAE page carries the same shared EU-transition banner as every other APHIS pet-travel country page, including Germany)",
+      "page_title": "Pet Travel From the United States to United Arab Emirates (EU transition banner)",
+      "retrieved_at": "2026-09-04",
+      "applies_to": "the EU non-commercial certificate MODEL transition — the fact this ruleset's certificate_transition block below encodes",
+      "supporting_requirements": [
+        "EU 2026/131 already in effect since 2026-04-22 (framework, not date-gated)",
+        "new non-commercial certificates mandatory from 2026-10-01",
+        "current-model certificates endorsable through 2026-09-30"
+      ]
+    }
+  ],
+  "url": "https://petraverify.id/corridors/united-states-to-netherlands",
+  "disclaimer": "Review dates describe Petra's review history; they are not a promise that no authority has changed its requirements since that review.",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "license_scope": "This licence (CC BY 4.0) covers Petra's own compilation, schema, and authored content in this file — the structure, the tier classification, and any Petra-authored summary text. It does NOT cover, and Petra does not license: the linked primary-source documents themselves (each \"sources\" entry links to its issuing authority's own material, which remains that authority's), third-party marks (destination authority names/marks are used descriptively, not as an endorsement), or quoted third-party source text reproduced for citation. Those remain their owners' property, under whatever terms the owner publishes them.",
+  "no_warranty": "Provided \"as is\", without warranty of any kind, express or implied, including without warranty of accuracy, completeness, or fitness for a particular purpose. This file is Petra's own compilation and interpretation of publicly available material; it is not legal advice and is not a substitute for confirming current requirements directly with the destination authority before travel.",
+  "version": "d7b4411b411758c43b97496e4cbc7d3c3b003483",
+  "history_url": "https://github.com/stefanfeissli/petra-open-rules/commits/main/corridors/united-states-to-netherlands.json",
+  "corrections": {
+    "address": "stefan@petraverify.id",
+    "subject_template": "Correction: {origin}→{destination}",
+    "guidance": "A useful report names the specific record and field, states what you believe is correct, and cites the primary source URL and the date you checked it."
+  }
+}

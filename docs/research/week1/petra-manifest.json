@@ -1,0 +1,545 @@
+{
+  "repository": "https://github.com/stefanfeissli/petra-open-rules",
+  "commit": "eb6496d32e2951c984644a743dfb6d080fd998ce",
+  "dataset_version": "d7b4411b411758c43b97496e4cbc7d3c3b003483",
+  "accessed_at": "2026-10-08T01:36:16.331463+00:00",
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "5542d6da2a162a94f2e957387be2499e06b08330379a1d1b5ca686787f0f3345",
+      "url": "https://github.com/stefanfeissli/petra-open-rules/blob/eb6496d32e2951c984644a743dfb6d080fd998ce/README.md"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "c58256eb3d503ad629e230e9f89907ee7ba219d3204eaac8af061a43ce2bb57f",
+      "url": "https://github.com/stefanfeissli/petra-open-rules/blob/eb6496d32e2951c984644a743dfb6d080fd998ce/LICENSE"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "sha256": "e47bbe6b5bbfd6cd71832fa05c3555223d98dc429d77e89f9aa1cae284ec869a",
+      "url": "https://github.com/stefanfeissli/petra-open-rules/blob/eb6496d32e2951c984644a743dfb6d080fd998ce/CONTRIBUTING.md"
+    },
+    {
+      "path": "index.json",
+      "sha256": "213072755bbd7ac346023fa8320e957685ca5adcce452233a7303509dc3bea60",
+      "url": "https://github.com/stefanfeissli/petra-open-rules/blob/eb6496d32e2951c984644a743dfb6d080fd998ce/index.json"
+    },
+    {
+      "path": "corridors/united-states-to-germany.json",
+      "sha256": "e5307b0d3d7ef8098d58a40ed117fed370ac329a5fbd2c56dcb230ab92c9d2f3",
+      "url": "https://github.com/stefanfeissli/petra-open-rules/blob/eb6496d32e2951c984644a743dfb6d080fd998ce/corridors/united-states-to-germany.json"
+    },
+    {
+      "path": "corridors/united-states-to-netherlands.json",
+      "sha256": "189105dc01e9cdc2af6f60ed72b7edc4ad0e6f817db5d8f9317bca4066a9d243",
+      "url": "https://github.com/stefanfeissli/petra-open-rules/blob/eb6496d32e2951c984644a743dfb6d080fd998ce/corridors/united-states-to-netherlands.json"
+    }
+  ],
+  "corridor_count": 56,
+  "inventory": [
+    {
+      "corridor": "australia-to-united-states",
+      "origin": "AU",
+      "destination": "US",
+      "tier": "qualified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "canada-to-mexico",
+      "origin": "CA",
+      "destination": "MX",
+      "tier": "verified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "great-britain-to-united-states",
+      "origin": "GB",
+      "destination": "US",
+      "tier": "qualified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "ireland-to-united-states",
+      "origin": "IE",
+      "destination": "US",
+      "tier": "qualified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "japan-to-united-states",
+      "origin": "JP",
+      "destination": "US",
+      "tier": "qualified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "mexico-to-united-states",
+      "origin": "MX",
+      "destination": "US",
+      "tier": "qualified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "new-zealand-to-united-states",
+      "origin": "NZ",
+      "destination": "US",
+      "tier": "qualified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-argentina",
+      "origin": "US",
+      "destination": "AR",
+      "tier": "qualified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-australia",
+      "origin": "US",
+      "destination": "AU",
+      "tier": "qualified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-austria",
+      "origin": "US",
+      "destination": "AT",
+      "tier": "verified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-belgium",
+      "origin": "US",
+      "destination": "BE",
+      "tier": "verified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-belize",
+      "origin": "US",
+      "destination": "BZ",
+      "tier": "qualified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-brazil",
+      "origin": "US",
+      "destination": "BR",
+      "tier": "qualified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-bulgaria",
+      "origin": "US",
+      "destination": "BG",
+      "tier": "verified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-canada",
+      "origin": "US",
+      "destination": "CA",
+      "tier": "verified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-chile",
+      "origin": "US",
+      "destination": "CL",
+      "tier": "qualified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-colombia",
+      "origin": "US",
+      "destination": "CO",
+      "tier": "qualified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-costa-rica",
+      "origin": "US",
+      "destination": "CR",
+      "tier": "qualified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-croatia",
+      "origin": "US",
+      "destination": "HR",
+      "tier": "verified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-cyprus",
+      "origin": "US",
+      "destination": "CY",
+      "tier": "verified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-czechia",
+      "origin": "US",
+      "destination": "CZ",
+      "tier": "verified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-denmark",
+      "origin": "US",
+      "destination": "DK",
+      "tier": "verified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-estonia",
+      "origin": "US",
+      "destination": "EE",
+      "tier": "verified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-finland",
+      "origin": "US",
+      "destination": "FI",
+      "tier": "verified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-france",
+      "origin": "US",
+      "destination": "FR",
+      "tier": "verified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-germany",
+      "origin": "US",
+      "destination": "DE",
+      "tier": "verified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-great-britain",
+      "origin": "US",
+      "destination": "GB",
+      "tier": "verified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-greece",
+      "origin": "US",
+      "destination": "GR",
+      "tier": "verified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-hawaii",
+      "origin": "US",
+      "destination": "HI",
+      "tier": "qualified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-hungary",
+      "origin": "US",
+      "destination": "HU",
+      "tier": "verified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-iceland",
+      "origin": "US",
+      "destination": "IS",
+      "tier": "qualified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-ireland",
+      "origin": "US",
+      "destination": "IE",
+      "tier": "verified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-italy",
+      "origin": "US",
+      "destination": "IT",
+      "tier": "verified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-japan",
+      "origin": "US",
+      "destination": "JP",
+      "tier": "qualified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-latvia",
+      "origin": "US",
+      "destination": "LV",
+      "tier": "verified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-liechtenstein",
+      "origin": "US",
+      "destination": "LI",
+      "tier": "verified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-lithuania",
+      "origin": "US",
+      "destination": "LT",
+      "tier": "verified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-luxembourg",
+      "origin": "US",
+      "destination": "LU",
+      "tier": "verified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-malta",
+      "origin": "US",
+      "destination": "MT",
+      "tier": "verified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-mexico",
+      "origin": "US",
+      "destination": "MX",
+      "tier": "verified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-netherlands",
+      "origin": "US",
+      "destination": "NL",
+      "tier": "verified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-new-zealand",
+      "origin": "US",
+      "destination": "NZ",
+      "tier": "qualified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-northern-ireland",
+      "origin": "US",
+      "destination": "XI",
+      "tier": "verified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-norway",
+      "origin": "US",
+      "destination": "NO",
+      "tier": "verified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-panama",
+      "origin": "US",
+      "destination": "PA",
+      "tier": "qualified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-poland",
+      "origin": "US",
+      "destination": "PL",
+      "tier": "verified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-portugal",
+      "origin": "US",
+      "destination": "PT",
+      "tier": "verified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-romania",
+      "origin": "US",
+      "destination": "RO",
+      "tier": "verified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-singapore",
+      "origin": "US",
+      "destination": "SG",
+      "tier": "guidance",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-slovakia",
+      "origin": "US",
+      "destination": "SK",
+      "tier": "verified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-slovenia",
+      "origin": "US",
+      "destination": "SI",
+      "tier": "verified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-south-korea",
+      "origin": "US",
+      "destination": "KR",
+      "tier": "qualified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-spain",
+      "origin": "US",
+      "destination": "ES",
+      "tier": "verified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-sweden",
+      "origin": "US",
+      "destination": "SE",
+      "tier": "verified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-switzerland",
+      "origin": "US",
+      "destination": "CH",
+      "tier": "verified",
+      "classes": [
+        "interpretation"
+      ]
+    },
+    {
+      "corridor": "united-states-to-united-arab-emirates",
+      "origin": "US",
+      "destination": "AE",
+      "tier": "qualified",
+      "classes": [
+        "interpretation"
+      ]
+    }
+  ]
+}

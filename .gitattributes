@@ -1,0 +1,2 @@
+# Preserve the downloaded license byte-for-byte, including its final blank line.
+licenses/CC-BY-4.0.txt whitespace=-blank-at-eof

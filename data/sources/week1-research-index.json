@@ -1,0 +1,133 @@
+{
+  "kind": "research_source_queue",
+  "license": "CC-BY-4.0",
+  "note": "Selected official entry points from the planning SOURCES.md; URLs are research leads, not verified rules. Source IDs with suffixes refine planning IDs. Third-party pages retain their own terms.",
+  "sources": [
+    {
+      "id": "CN-01",
+      "title": "中国个人携宠入境公告（政府转载）",
+      "url": "https://www.mofcom.gov.cn/zcfb/zgdwjjmywg/art/2019/art_71739ec848d14deca4ec330fad835774.html",
+      "status": "pending_rule_review",
+      "human_reviewed_at": null
+    },
+    {
+      "id": "CN-03",
+      "title": "中国海关输出检疫入口",
+      "url": "https://online.customs.gov.cn/static/pages/guides/000629007000/000629007000.html",
+      "status": "pending_rule_review",
+      "human_reviewed_at": null
+    },
+    {
+      "id": "CN-04",
+      "title": "农业农村部动物检疫规程",
+      "url": "https://yyj.moa.gov.cn/tzgg/202304/t20230404_6424723.htm",
+      "status": "pending_rule_review",
+      "human_reviewed_at": null
+    },
+    {
+      "id": "CN-05",
+      "title": "国铁爱宠行公告（铁科院转载）",
+      "url": "https://www.rails.cn/html/news/2/2026/20260410_68532.html",
+      "status": "pending_rule_review",
+      "human_reviewed_at": null
+    },
+    {
+      "id": "US-01",
+      "title": "CDC 犬入境分支入口",
+      "url": "https://www.cdc.gov/importation/dogs/",
+      "status": "pending_rule_review",
+      "human_reviewed_at": null
+    },
+    {
+      "id": "US-07",
+      "title": "CDC 动物入境入口（含猫）",
+      "url": "https://www.cdc.gov/importation/bringing-an-animal-into-the-us/",
+      "status": "pending_rule_review",
+      "human_reviewed_at": null
+    },
+    {
+      "id": "US-09-CN",
+      "title": "APHIS 美国至中国",
+      "url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-china",
+      "status": "pending_rule_review",
+      "human_reviewed_at": null
+    },
+    {
+      "id": "US-10",
+      "title": "APHIS 州际移动",
+      "url": "https://www.aphis.usda.gov/pet-travel/state-to-state",
+      "status": "pending_rule_review",
+      "human_reviewed_at": null
+    },
+    {
+      "id": "US-11",
+      "title": "加州 CDFA",
+      "url": "https://www.cdfa.ca.gov/AHFSS/Animal_Health/FAQS.html",
+      "status": "pending_rule_review",
+      "human_reviewed_at": null
+    },
+    {
+      "id": "US-12",
+      "title": "德州 DSHS",
+      "url": "https://www.dshs.texas.gov/disease-surveillance-epidemiology-section/zoonosis-control/pets/entry",
+      "status": "pending_rule_review",
+      "human_reviewed_at": null
+    },
+    {
+      "id": "US-13",
+      "title": "纽约州农业部门入口",
+      "url": "https://agriculture.ny.gov/node/5551",
+      "status": "pending_rule_review",
+      "human_reviewed_at": null
+    },
+    {
+      "id": "EU-01",
+      "title": "欧委会非欧盟来源入境",
+      "url": "https://food.ec.europa.eu/animals/live-animal-movements/dogs-cats-and-ferrets/bringing-pet-eu-non-eu-country_en",
+      "status": "pending_rule_review",
+      "human_reviewed_at": null
+    },
+    {
+      "id": "EU-04",
+      "title": "Your Europe 欧盟内部旅行",
+      "url": "https://europa.eu/youreurope/citizens/travel/carry/pets-and-other-animals/index_en.htm",
+      "status": "pending_rule_review",
+      "human_reviewed_at": null
+    },
+    {
+      "id": "EU-07",
+      "title": "德国主管部门入口",
+      "url": "https://www.bmel.de/EN/topics/animals/pets-and-zoo-animals/pets-entry-regulation.html",
+      "status": "pending_rule_review",
+      "human_reviewed_at": null
+    },
+    {
+      "id": "EU-08",
+      "title": "法国海关入口",
+      "url": "https://www.douane.gouv.fr/demarche/vous-voyagez-avec-un-chien-chat-ou-furet",
+      "status": "pending_rule_review",
+      "human_reviewed_at": null
+    },
+    {
+      "id": "EU-09",
+      "title": "荷兰 NVWA",
+      "url": "https://www.nvwa.nl/onderwerpen/dier/op-reis-met-mijn-huisdier",
+      "status": "pending_rule_review",
+      "human_reviewed_at": null
+    },
+    {
+      "id": "APHIS-DE",
+      "title": "APHIS 美国至德国",
+      "url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-germany",
+      "status": "pending_rule_review",
+      "human_reviewed_at": null
+    },
+    {
+      "id": "APHIS-NL",
+      "title": "APHIS 美国至荷兰",
+      "url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-netherlands",
+      "status": "pending_rule_review",
+      "human_reviewed_at": null
+    }
+  ]
+}

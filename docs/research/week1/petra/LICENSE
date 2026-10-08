@@ -1,0 +1,48 @@
+SPDX-License-Identifier: CC-BY-4.0
+
+Petra open rules dataset
+Copyright (c) Petra (petraverify.id)
+
+This work — the compilation, schema, and Petra-authored content of the files
+in this repository — is licensed under the Creative Commons Attribution 4.0
+International License (CC BY 4.0).
+
+The full, authoritative legal text of this license is published by Creative
+Commons and is incorporated here by reference:
+
+    https://creativecommons.org/licenses/by/4.0/legalcode
+
+A human-readable summary (not a substitute for the legal code above) is
+available at:
+
+    https://creativecommons.org/licenses/by/4.0/
+
+In short, under CC BY 4.0 you are free to share and adapt this material for
+any purpose, including commercially, as long as you give appropriate credit
+to Petra, provide a link to the license, and indicate if changes were made.
+You may do so in any reasonable manner, but not in any way that suggests
+Petra endorses you or your use.
+
+## Scope of this license — what it does and does not cover
+
+This licence (CC BY 4.0) covers Petra's own compilation, schema, and authored content in this file — the structure, the tier classification, and any Petra-authored summary text. It does NOT cover, and Petra does not license: the linked primary-source documents themselves (each "sources" entry links to its issuing authority's own material, which remains that authority's), third-party marks (destination authority names/marks are used descriptively, not as an endorsement), or quoted third-party source text reproduced for citation. Those remain their owners' property, under whatever terms the owner publishes them.
+
+This is the exact `license_scope` text embedded in every record's own
+`license_scope` field in this dataset (see `corridors/<slug>.json` and
+`index.json`) — restated here so it is visible to anyone reading only this
+file.
+
+## No warranty
+
+Provided "as is", without warranty of any kind, express or implied, including without warranty of accuracy, completeness, or fitness for a particular purpose. This file is Petra's own compilation and interpretation of publicly available material; it is not legal advice and is not a substitute for confirming current requirements directly with the destination authority before travel.
+
+## Release conditions Petra has recorded against this licence
+
+1. **Rights confirmation.** This licence covers Petra's compilation, schema,
+   and authored content to the extent Petra holds applicable rights; linked
+   primary-source documents, third-party marks, and quoted third-party
+   material are excluded and identified as such (see above).
+2. **Irrevocability understood.** A CC licence is irrevocable for versions
+   already released. Petra may change the licence terms of *future* versions
+   of this dataset; it will not, and cannot, revoke this licence for versions
+   already published under it.

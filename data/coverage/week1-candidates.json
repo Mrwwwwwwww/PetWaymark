@@ -1,0 +1,544 @@
+{
+  "inventory_version": "week1-2026-10-08",
+  "record_type": "research_candidates_not_bookable_routes",
+  "license": "CC-BY-4.0",
+  "verified_production_rules": 0,
+  "eu_deep_review_targets": [
+    "DE",
+    "FR",
+    "NL"
+  ],
+  "eu_other_member_states": "common framework research only; local requirements unsupported",
+  "candidates": [
+    {
+      "id": "INT-CN-US",
+      "kind": "international",
+      "origin_region": "CN",
+      "destination_region": "US",
+      "candidate_route": "湖州 → PVG → LAX → Ventura",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "accompaniment_cases": [
+        "owner_accompanied",
+        "pet_separate_from_owner"
+      ],
+      "candidate_modes": [
+        "road",
+        "rail",
+        "air"
+      ],
+      "coverage_status": "unsupported",
+      "carrier_acceptance": "unknown",
+      "verified_rule_ids": [],
+      "source_ids": [
+        "CN-03",
+        "US-01",
+        "US-07",
+        "US-11"
+      ],
+      "research_focus": "中国出境；美国犬旅行史与猫独立分支；CA 叠加；实际产品与口岸设施",
+      "missing": [
+        "official_rule_review",
+        "carrier_product_and_route",
+        "facility_and_handover",
+        "timing_and_cost_evidence"
+      ],
+      "human_reviewed_at": null
+    },
+    {
+      "id": "INT-US-CN",
+      "kind": "international",
+      "origin_region": "US",
+      "destination_region": "CN",
+      "candidate_route": "Ventura → LAX → PVG → 湖州",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "accompaniment_cases": [
+        "owner_accompanied",
+        "pet_separate_from_owner"
+      ],
+      "candidate_modes": [
+        "road",
+        "rail",
+        "air"
+      ],
+      "coverage_status": "unsupported",
+      "carrier_acceptance": "unknown",
+      "verified_rule_ids": [],
+      "source_ids": [
+        "US-09-CN",
+        "CN-01"
+      ],
+      "research_focus": "APHIS 对华出口；中国携带与独行进口分类；隔离／口岸附件；回国接驳",
+      "missing": [
+        "official_rule_review",
+        "carrier_product_and_route",
+        "facility_and_handover",
+        "timing_and_cost_evidence"
+      ],
+      "human_reviewed_at": null
+    },
+    {
+      "id": "INT-CN-EU",
+      "kind": "international",
+      "origin_region": "CN",
+      "destination_region": "EU",
+      "candidate_route": "清远 → CAN → FRA → Marburg",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "accompaniment_cases": [
+        "owner_accompanied",
+        "pet_separate_from_owner"
+      ],
+      "candidate_modes": [
+        "road",
+        "rail",
+        "air"
+      ],
+      "coverage_status": "unsupported",
+      "carrier_acceptance": "unknown",
+      "verified_rule_ids": [],
+      "source_ids": [
+        "CN-03",
+        "EU-01",
+        "EU-07"
+      ],
+      "research_focus": "中国出口；欧盟首入境与最终目的地；检测／证书版本；德国本地叠加",
+      "missing": [
+        "official_rule_review",
+        "carrier_product_and_route",
+        "facility_and_handover",
+        "timing_and_cost_evidence"
+      ],
+      "human_reviewed_at": null
+    },
+    {
+      "id": "INT-EU-CN",
+      "kind": "international",
+      "origin_region": "EU",
+      "destination_region": "CN",
+      "candidate_route": "Marburg → FRA → CAN → 清远",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "accompaniment_cases": [
+        "owner_accompanied",
+        "pet_separate_from_owner"
+      ],
+      "candidate_modes": [
+        "road",
+        "rail",
+        "air"
+      ],
+      "coverage_status": "unsupported",
+      "carrier_acceptance": "unknown",
+      "verified_rule_ids": [],
+      "source_ids": [
+        "EU-07",
+        "CN-01"
+      ],
+      "research_focus": "德国属地出口证书／背书；中国独立入境链；不能反转 CN→EU",
+      "missing": [
+        "official_rule_review",
+        "carrier_product_and_route",
+        "facility_and_handover",
+        "timing_and_cost_evidence"
+      ],
+      "human_reviewed_at": null
+    },
+    {
+      "id": "INT-US-EU",
+      "kind": "international",
+      "origin_region": "US",
+      "destination_region": "EU",
+      "candidate_route": "Kingston（纽约州）→ JFK → AMS → Delft",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "accompaniment_cases": [
+        "owner_accompanied",
+        "pet_separate_from_owner"
+      ],
+      "candidate_modes": [
+        "road",
+        "rail",
+        "air"
+      ],
+      "coverage_status": "unsupported",
+      "carrier_acceptance": "unknown",
+      "verified_rule_ids": [],
+      "source_ids": [
+        "US-13",
+        "APHIS-NL",
+        "APHIS-DE",
+        "EU-01",
+        "EU-09"
+      ],
+      "research_focus": "纽约州起运；APHIS 对荷出口；欧盟及荷兰；再另建美国→德国样例",
+      "missing": [
+        "official_rule_review",
+        "carrier_product_and_route",
+        "facility_and_handover",
+        "timing_and_cost_evidence"
+      ],
+      "human_reviewed_at": null
+    },
+    {
+      "id": "INT-EU-US",
+      "kind": "international",
+      "origin_region": "EU",
+      "destination_region": "US",
+      "candidate_route": "Delft → AMS → JFK → Kingston（纽约州）",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "accompaniment_cases": [
+        "owner_accompanied",
+        "pet_separate_from_owner"
+      ],
+      "candidate_modes": [
+        "road",
+        "rail",
+        "air"
+      ],
+      "coverage_status": "unsupported",
+      "carrier_acceptance": "unknown",
+      "verified_rule_ids": [],
+      "source_ids": [
+        "EU-09",
+        "US-01",
+        "US-07",
+        "US-13"
+      ],
+      "research_focus": "荷兰出口；美国犬旅行史／接种地分支；猫独立分支；纽约州；DE／FR 另核",
+      "missing": [
+        "official_rule_review",
+        "carrier_product_and_route",
+        "facility_and_handover",
+        "timing_and_cost_evidence"
+      ],
+      "human_reviewed_at": null
+    },
+    {
+      "id": "DOM-CN-EAST",
+      "kind": "domestic",
+      "origin_region": "CN",
+      "destination_region": "CN",
+      "candidate_route": "湖州 → PVG → CAN → 清远",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "accompaniment_cases": [
+        "owner_accompanied",
+        "pet_separate_from_owner"
+      ],
+      "candidate_modes": [
+        "road",
+        "rail",
+        "air"
+      ],
+      "coverage_status": "unsupported",
+      "carrier_acceptance": "unknown",
+      "verified_rule_ids": [],
+      "source_ids": [
+        "CN-04",
+        "CN-05"
+      ],
+      "research_focus": "华东起点：比较分日自驾、专车候选、陆空、铁路候选；两端检疫与交接",
+      "missing": [
+        "official_rule_review",
+        "carrier_product_and_route",
+        "facility_and_handover",
+        "timing_and_cost_evidence"
+      ],
+      "human_reviewed_at": null
+    },
+    {
+      "id": "DOM-CN-SOUTH",
+      "kind": "domestic",
+      "origin_region": "CN",
+      "destination_region": "CN",
+      "candidate_route": "清远 → CAN → PEK → 廊坊",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "accompaniment_cases": [
+        "owner_accompanied",
+        "pet_separate_from_owner"
+      ],
+      "candidate_modes": [
+        "road",
+        "rail",
+        "air"
+      ],
+      "coverage_status": "unsupported",
+      "carrier_acceptance": "unknown",
+      "verified_rule_ids": [],
+      "source_ids": [
+        "CN-04",
+        "CN-05"
+      ],
+      "research_focus": "华南起点：比较全陆路与陆空；铁路实际站点／车次另查",
+      "missing": [
+        "official_rule_review",
+        "carrier_product_and_route",
+        "facility_and_handover",
+        "timing_and_cost_evidence"
+      ],
+      "human_reviewed_at": null
+    },
+    {
+      "id": "DOM-US-CA",
+      "kind": "domestic",
+      "origin_region": "US",
+      "destination_region": "US",
+      "candidate_route": "Ventura（CA）→ LAX → DFW → Denton（TX）",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "accompaniment_cases": [
+        "owner_accompanied",
+        "pet_separate_from_owner"
+      ],
+      "candidate_modes": [
+        "road",
+        "rail",
+        "air"
+      ],
+      "coverage_status": "unsupported",
+      "carrier_acceptance": "unknown",
+      "verified_rule_ids": [],
+      "source_ids": [
+        "US-10",
+        "US-11",
+        "US-12"
+      ],
+      "research_focus": "加州小城接驳；目的德州要求；旅客产品／货运分离",
+      "missing": [
+        "official_rule_review",
+        "carrier_product_and_route",
+        "facility_and_handover",
+        "timing_and_cost_evidence"
+      ],
+      "human_reviewed_at": null
+    },
+    {
+      "id": "DOM-US-NY",
+      "kind": "domestic",
+      "origin_region": "US",
+      "destination_region": "US",
+      "candidate_route": "Kingston（NY）→ JFK → LAX → Ventura（CA）",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "accompaniment_cases": [
+        "owner_accompanied",
+        "pet_separate_from_owner"
+      ],
+      "candidate_modes": [
+        "road",
+        "rail",
+        "air"
+      ],
+      "coverage_status": "unsupported",
+      "carrier_acceptance": "unknown",
+      "verified_rule_ids": [],
+      "source_ids": [
+        "US-10",
+        "US-13",
+        "US-11"
+      ],
+      "research_focus": "纽约州小城接驳；加州目的州要求及临时措施",
+      "missing": [
+        "official_rule_review",
+        "carrier_product_and_route",
+        "facility_and_handover",
+        "timing_and_cost_evidence"
+      ],
+      "human_reviewed_at": null
+    },
+    {
+      "id": "DOM-US-TX",
+      "kind": "domestic",
+      "origin_region": "US",
+      "destination_region": "US",
+      "candidate_route": "Denton（TX）→ DFW → JFK → Kingston（NY）",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "accompaniment_cases": [
+        "owner_accompanied",
+        "pet_separate_from_owner"
+      ],
+      "candidate_modes": [
+        "road",
+        "rail",
+        "air"
+      ],
+      "coverage_status": "unsupported",
+      "carrier_acceptance": "unknown",
+      "verified_rule_ids": [],
+      "source_ids": [
+        "US-10",
+        "US-12",
+        "US-13"
+      ],
+      "research_focus": "德州小城接驳；纽约州目的要求；长途自驾与陆空比较",
+      "missing": [
+        "official_rule_review",
+        "carrier_product_and_route",
+        "facility_and_handover",
+        "timing_and_cost_evidence"
+      ],
+      "human_reviewed_at": null
+    },
+    {
+      "id": "DOM-EU-DE",
+      "kind": "domestic",
+      "origin_region": "DE",
+      "destination_region": "DE",
+      "candidate_route": "Marburg → Frankfurt am Main → Heidelberg",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "accompaniment_cases": [
+        "owner_accompanied",
+        "pet_separate_from_owner"
+      ],
+      "candidate_modes": [
+        "road",
+        "rail"
+      ],
+      "coverage_status": "unsupported",
+      "carrier_acceptance": "unknown",
+      "verified_rule_ids": [],
+      "source_ids": [
+        "EU-07"
+      ],
+      "research_focus": "德国国内陆路／铁路候选；使用 FRA 作为枢纽研究点，不虚构国内航段",
+      "missing": [
+        "official_rule_review",
+        "carrier_product_and_route",
+        "facility_and_handover",
+        "timing_and_cost_evidence"
+      ],
+      "human_reviewed_at": null
+    },
+    {
+      "id": "DOM-EU-FR",
+      "kind": "domestic",
+      "origin_region": "FR",
+      "destination_region": "FR",
+      "candidate_route": "Senlis → Paris → Chartres",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "accompaniment_cases": [
+        "owner_accompanied",
+        "pet_separate_from_owner"
+      ],
+      "candidate_modes": [
+        "road",
+        "rail"
+      ],
+      "coverage_status": "unsupported",
+      "carrier_acceptance": "unknown",
+      "verified_rule_ids": [],
+      "source_ids": [
+        "EU-08"
+      ],
+      "research_focus": "法国国内陆路／铁路候选；CDG 接驳研究；铁路运营商规则待补",
+      "missing": [
+        "official_rule_review",
+        "carrier_product_and_route",
+        "facility_and_handover",
+        "timing_and_cost_evidence"
+      ],
+      "human_reviewed_at": null
+    },
+    {
+      "id": "DOM-EU-NL",
+      "kind": "domestic",
+      "origin_region": "NL",
+      "destination_region": "NL",
+      "candidate_route": "Delft → Amsterdam → Alkmaar",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "accompaniment_cases": [
+        "owner_accompanied",
+        "pet_separate_from_owner"
+      ],
+      "candidate_modes": [
+        "road",
+        "rail"
+      ],
+      "coverage_status": "unsupported",
+      "carrier_acceptance": "unknown",
+      "verified_rule_ids": [],
+      "source_ids": [
+        "EU-09"
+      ],
+      "research_focus": "荷兰国内陆路／铁路候选；AMS 接驳研究；运营商规则待补",
+      "missing": [
+        "official_rule_review",
+        "carrier_product_and_route",
+        "facility_and_handover",
+        "timing_and_cost_evidence"
+      ],
+      "human_reviewed_at": null
+    },
+    {
+      "id": "INTRA-EU-DE-NL",
+      "kind": "intra_eu",
+      "origin_region": "DE",
+      "destination_region": "NL",
+      "candidate_route": "Marburg → Frankfurt am Main → Amsterdam → Delft",
+      "species": [
+        "dog",
+        "cat"
+      ],
+      "accompaniment_cases": [
+        "owner_accompanied",
+        "pet_separate_from_owner"
+      ],
+      "candidate_modes": [
+        "road",
+        "rail"
+      ],
+      "coverage_status": "unsupported",
+      "carrier_acceptance": "unknown",
+      "verified_rule_ids": [],
+      "source_ids": [
+        "EU-04",
+        "EU-07",
+        "EU-09"
+      ],
+      "research_focus": "跨成员国陆路／铁路，区分欧盟内部移动与外部首入境",
+      "missing": [
+        "official_rule_review",
+        "carrier_product_and_route",
+        "facility_and_handover",
+        "timing_and_cost_evidence"
+      ],
+      "human_reviewed_at": null
+    }
+  ]
+}

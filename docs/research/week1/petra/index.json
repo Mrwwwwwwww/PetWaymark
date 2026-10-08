@@ -1,0 +1,521 @@
+{
+  "schema_version": 1,
+  "generated_from": "Petra's rules engine (apps/api/assets/rules), generated at build time — never hand-maintained.",
+  "disclaimer": "Review dates describe Petra's review history; they are not a promise that no authority has changed its requirements since that review.",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "license_scope": "This licence (CC BY 4.0) covers Petra's own compilation, schema, and authored content in this file — the structure, the tier classification, and any Petra-authored summary text. It does NOT cover, and Petra does not license: the linked primary-source documents themselves (each \"sources\" entry links to its issuing authority's own material, which remains that authority's), third-party marks (destination authority names/marks are used descriptively, not as an endorsement), or quoted third-party source text reproduced for citation. Those remain their owners' property, under whatever terms the owner publishes them.",
+  "no_warranty": "Provided \"as is\", without warranty of any kind, express or implied, including without warranty of accuracy, completeness, or fitness for a particular purpose. This file is Petra's own compilation and interpretation of publicly available material; it is not legal advice and is not a substitute for confirming current requirements directly with the destination authority before travel.",
+  "version": "d7b4411b411758c43b97496e4cbc7d3c3b003483",
+  "history_url": "https://github.com/stefanfeissli/petra-open-rules/commits/main/index.json",
+  "corrections": {
+    "address": "stefan@petraverify.id",
+    "subject_template": "Correction: {origin}→{destination}",
+    "guidance": "A useful report names the specific record and field, states what you believe is correct, and cites the primary source URL and the date you checked it."
+  },
+  "corridors": [
+    {
+      "corridor": "australia-to-united-states",
+      "origin": "AU",
+      "destination": "US",
+      "tier": "qualified",
+      "last_reviewed": "2026-09-05",
+      "url": "https://petraverify.id/corridors/australia-to-united-states",
+      "dataset_url": "https://petraverify.id/corridors/australia-to-united-states/index.json"
+    },
+    {
+      "corridor": "canada-to-mexico",
+      "origin": "CA",
+      "destination": "MX",
+      "tier": "verified",
+      "last_reviewed": "2026-09-21",
+      "url": "https://petraverify.id/corridors/canada-to-mexico",
+      "dataset_url": "https://petraverify.id/corridors/canada-to-mexico/index.json"
+    },
+    {
+      "corridor": "great-britain-to-united-states",
+      "origin": "GB",
+      "destination": "US",
+      "tier": "qualified",
+      "last_reviewed": "2026-09-05",
+      "url": "https://petraverify.id/corridors/great-britain-to-united-states",
+      "dataset_url": "https://petraverify.id/corridors/great-britain-to-united-states/index.json"
+    },
+    {
+      "corridor": "ireland-to-united-states",
+      "origin": "IE",
+      "destination": "US",
+      "tier": "qualified",
+      "last_reviewed": "2026-09-05",
+      "url": "https://petraverify.id/corridors/ireland-to-united-states",
+      "dataset_url": "https://petraverify.id/corridors/ireland-to-united-states/index.json"
+    },
+    {
+      "corridor": "japan-to-united-states",
+      "origin": "JP",
+      "destination": "US",
+      "tier": "qualified",
+      "last_reviewed": "2026-09-05",
+      "url": "https://petraverify.id/corridors/japan-to-united-states",
+      "dataset_url": "https://petraverify.id/corridors/japan-to-united-states/index.json"
+    },
+    {
+      "corridor": "mexico-to-united-states",
+      "origin": "MX",
+      "destination": "US",
+      "tier": "qualified",
+      "last_reviewed": "2026-09-05",
+      "url": "https://petraverify.id/corridors/mexico-to-united-states",
+      "dataset_url": "https://petraverify.id/corridors/mexico-to-united-states/index.json"
+    },
+    {
+      "corridor": "new-zealand-to-united-states",
+      "origin": "NZ",
+      "destination": "US",
+      "tier": "qualified",
+      "last_reviewed": "2026-09-05",
+      "url": "https://petraverify.id/corridors/new-zealand-to-united-states",
+      "dataset_url": "https://petraverify.id/corridors/new-zealand-to-united-states/index.json"
+    },
+    {
+      "corridor": "united-states-to-argentina",
+      "origin": "US",
+      "destination": "AR",
+      "tier": "qualified",
+      "last_reviewed": "2026-09-18",
+      "url": "https://petraverify.id/corridors/united-states-to-argentina",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-argentina/index.json"
+    },
+    {
+      "corridor": "united-states-to-australia",
+      "origin": "US",
+      "destination": "AU",
+      "tier": "qualified",
+      "last_reviewed": "2026-09-19",
+      "url": "https://petraverify.id/corridors/united-states-to-australia",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-australia/index.json"
+    },
+    {
+      "corridor": "united-states-to-austria",
+      "origin": "US",
+      "destination": "AT",
+      "tier": "verified",
+      "last_reviewed": "2026-09-20",
+      "url": "https://petraverify.id/corridors/united-states-to-austria",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-austria/index.json"
+    },
+    {
+      "corridor": "united-states-to-belgium",
+      "origin": "US",
+      "destination": "BE",
+      "tier": "verified",
+      "last_reviewed": "2026-09-20",
+      "url": "https://petraverify.id/corridors/united-states-to-belgium",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-belgium/index.json"
+    },
+    {
+      "corridor": "united-states-to-belize",
+      "origin": "US",
+      "destination": "BZ",
+      "tier": "qualified",
+      "last_reviewed": "2026-09-18",
+      "url": "https://petraverify.id/corridors/united-states-to-belize",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-belize/index.json"
+    },
+    {
+      "corridor": "united-states-to-brazil",
+      "origin": "US",
+      "destination": "BR",
+      "tier": "qualified",
+      "last_reviewed": "2026-09-18",
+      "url": "https://petraverify.id/corridors/united-states-to-brazil",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-brazil/index.json"
+    },
+    {
+      "corridor": "united-states-to-bulgaria",
+      "origin": "US",
+      "destination": "BG",
+      "tier": "verified",
+      "last_reviewed": "2026-09-20",
+      "url": "https://petraverify.id/corridors/united-states-to-bulgaria",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-bulgaria/index.json"
+    },
+    {
+      "corridor": "united-states-to-canada",
+      "origin": "US",
+      "destination": "CA",
+      "tier": "verified",
+      "last_reviewed": "2026-09-04",
+      "url": "https://petraverify.id/corridors/united-states-to-canada",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-canada/index.json"
+    },
+    {
+      "corridor": "united-states-to-chile",
+      "origin": "US",
+      "destination": "CL",
+      "tier": "qualified",
+      "last_reviewed": "2026-09-19",
+      "url": "https://petraverify.id/corridors/united-states-to-chile",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-chile/index.json"
+    },
+    {
+      "corridor": "united-states-to-colombia",
+      "origin": "US",
+      "destination": "CO",
+      "tier": "qualified",
+      "last_reviewed": "2026-09-18",
+      "url": "https://petraverify.id/corridors/united-states-to-colombia",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-colombia/index.json"
+    },
+    {
+      "corridor": "united-states-to-costa-rica",
+      "origin": "US",
+      "destination": "CR",
+      "tier": "qualified",
+      "last_reviewed": "2026-07-06",
+      "url": "https://petraverify.id/corridors/united-states-to-costa-rica",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-costa-rica/index.json"
+    },
+    {
+      "corridor": "united-states-to-croatia",
+      "origin": "US",
+      "destination": "HR",
+      "tier": "verified",
+      "last_reviewed": "2026-09-20",
+      "url": "https://petraverify.id/corridors/united-states-to-croatia",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-croatia/index.json"
+    },
+    {
+      "corridor": "united-states-to-cyprus",
+      "origin": "US",
+      "destination": "CY",
+      "tier": "verified",
+      "last_reviewed": "2026-09-20",
+      "url": "https://petraverify.id/corridors/united-states-to-cyprus",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-cyprus/index.json"
+    },
+    {
+      "corridor": "united-states-to-czechia",
+      "origin": "US",
+      "destination": "CZ",
+      "tier": "verified",
+      "last_reviewed": "2026-09-20",
+      "url": "https://petraverify.id/corridors/united-states-to-czechia",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-czechia/index.json"
+    },
+    {
+      "corridor": "united-states-to-denmark",
+      "origin": "US",
+      "destination": "DK",
+      "tier": "verified",
+      "last_reviewed": "2026-09-20",
+      "url": "https://petraverify.id/corridors/united-states-to-denmark",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-denmark/index.json"
+    },
+    {
+      "corridor": "united-states-to-estonia",
+      "origin": "US",
+      "destination": "EE",
+      "tier": "verified",
+      "last_reviewed": "2026-09-20",
+      "url": "https://petraverify.id/corridors/united-states-to-estonia",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-estonia/index.json"
+    },
+    {
+      "corridor": "united-states-to-finland",
+      "origin": "US",
+      "destination": "FI",
+      "tier": "verified",
+      "last_reviewed": "2026-09-20",
+      "url": "https://petraverify.id/corridors/united-states-to-finland",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-finland/index.json"
+    },
+    {
+      "corridor": "united-states-to-france",
+      "origin": "US",
+      "destination": "FR",
+      "tier": "verified",
+      "last_reviewed": "2026-09-20",
+      "url": "https://petraverify.id/corridors/united-states-to-france",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-france/index.json"
+    },
+    {
+      "corridor": "united-states-to-germany",
+      "origin": "US",
+      "destination": "DE",
+      "tier": "verified",
+      "last_reviewed": "2026-09-20",
+      "url": "https://petraverify.id/corridors/united-states-to-germany",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-germany/index.json"
+    },
+    {
+      "corridor": "united-states-to-great-britain",
+      "origin": "US",
+      "destination": "GB",
+      "tier": "verified",
+      "last_reviewed": "2026-09-21",
+      "url": "https://petraverify.id/corridors/united-states-to-great-britain",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-great-britain/index.json"
+    },
+    {
+      "corridor": "united-states-to-greece",
+      "origin": "US",
+      "destination": "GR",
+      "tier": "verified",
+      "last_reviewed": "2026-09-20",
+      "url": "https://petraverify.id/corridors/united-states-to-greece",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-greece/index.json"
+    },
+    {
+      "corridor": "united-states-to-hawaii",
+      "origin": "US",
+      "destination": "HI",
+      "tier": "qualified",
+      "last_reviewed": "2026-09-18",
+      "url": "https://petraverify.id/corridors/united-states-to-hawaii",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-hawaii/index.json"
+    },
+    {
+      "corridor": "united-states-to-hungary",
+      "origin": "US",
+      "destination": "HU",
+      "tier": "verified",
+      "last_reviewed": "2026-09-20",
+      "url": "https://petraverify.id/corridors/united-states-to-hungary",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-hungary/index.json"
+    },
+    {
+      "corridor": "united-states-to-iceland",
+      "origin": "US",
+      "destination": "IS",
+      "tier": "qualified",
+      "last_reviewed": "2026-09-18",
+      "url": "https://petraverify.id/corridors/united-states-to-iceland",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-iceland/index.json"
+    },
+    {
+      "corridor": "united-states-to-ireland",
+      "origin": "US",
+      "destination": "IE",
+      "tier": "verified",
+      "last_reviewed": "2026-09-20",
+      "url": "https://petraverify.id/corridors/united-states-to-ireland",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-ireland/index.json"
+    },
+    {
+      "corridor": "united-states-to-italy",
+      "origin": "US",
+      "destination": "IT",
+      "tier": "verified",
+      "last_reviewed": "2026-09-20",
+      "url": "https://petraverify.id/corridors/united-states-to-italy",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-italy/index.json"
+    },
+    {
+      "corridor": "united-states-to-japan",
+      "origin": "US",
+      "destination": "JP",
+      "tier": "qualified",
+      "last_reviewed": "2026-09-04",
+      "url": "https://petraverify.id/corridors/united-states-to-japan",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-japan/index.json"
+    },
+    {
+      "corridor": "united-states-to-latvia",
+      "origin": "US",
+      "destination": "LV",
+      "tier": "verified",
+      "last_reviewed": "2026-09-20",
+      "url": "https://petraverify.id/corridors/united-states-to-latvia",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-latvia/index.json"
+    },
+    {
+      "corridor": "united-states-to-liechtenstein",
+      "origin": "US",
+      "destination": "LI",
+      "tier": "verified",
+      "last_reviewed": "2026-09-20",
+      "url": "https://petraverify.id/corridors/united-states-to-liechtenstein",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-liechtenstein/index.json"
+    },
+    {
+      "corridor": "united-states-to-lithuania",
+      "origin": "US",
+      "destination": "LT",
+      "tier": "verified",
+      "last_reviewed": "2026-09-20",
+      "url": "https://petraverify.id/corridors/united-states-to-lithuania",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-lithuania/index.json"
+    },
+    {
+      "corridor": "united-states-to-luxembourg",
+      "origin": "US",
+      "destination": "LU",
+      "tier": "verified",
+      "last_reviewed": "2026-09-20",
+      "url": "https://petraverify.id/corridors/united-states-to-luxembourg",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-luxembourg/index.json"
+    },
+    {
+      "corridor": "united-states-to-malta",
+      "origin": "US",
+      "destination": "MT",
+      "tier": "verified",
+      "last_reviewed": "2026-09-20",
+      "url": "https://petraverify.id/corridors/united-states-to-malta",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-malta/index.json"
+    },
+    {
+      "corridor": "united-states-to-mexico",
+      "origin": "US",
+      "destination": "MX",
+      "tier": "verified",
+      "last_reviewed": "2026-09-21",
+      "url": "https://petraverify.id/corridors/united-states-to-mexico",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-mexico/index.json"
+    },
+    {
+      "corridor": "united-states-to-netherlands",
+      "origin": "US",
+      "destination": "NL",
+      "tier": "verified",
+      "last_reviewed": "2026-09-20",
+      "url": "https://petraverify.id/corridors/united-states-to-netherlands",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-netherlands/index.json"
+    },
+    {
+      "corridor": "united-states-to-new-zealand",
+      "origin": "US",
+      "destination": "NZ",
+      "tier": "qualified",
+      "last_reviewed": "2026-09-19",
+      "url": "https://petraverify.id/corridors/united-states-to-new-zealand",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-new-zealand/index.json"
+    },
+    {
+      "corridor": "united-states-to-northern-ireland",
+      "origin": "US",
+      "destination": "XI",
+      "tier": "verified",
+      "last_reviewed": "2026-09-22",
+      "url": "https://petraverify.id/corridors/united-states-to-northern-ireland",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-northern-ireland/index.json"
+    },
+    {
+      "corridor": "united-states-to-norway",
+      "origin": "US",
+      "destination": "NO",
+      "tier": "verified",
+      "last_reviewed": "2026-09-20",
+      "url": "https://petraverify.id/corridors/united-states-to-norway",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-norway/index.json"
+    },
+    {
+      "corridor": "united-states-to-panama",
+      "origin": "US",
+      "destination": "PA",
+      "tier": "qualified",
+      "last_reviewed": "2026-07-07",
+      "url": "https://petraverify.id/corridors/united-states-to-panama",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-panama/index.json"
+    },
+    {
+      "corridor": "united-states-to-poland",
+      "origin": "US",
+      "destination": "PL",
+      "tier": "verified",
+      "last_reviewed": "2026-09-20",
+      "url": "https://petraverify.id/corridors/united-states-to-poland",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-poland/index.json"
+    },
+    {
+      "corridor": "united-states-to-portugal",
+      "origin": "US",
+      "destination": "PT",
+      "tier": "verified",
+      "last_reviewed": "2026-09-20",
+      "url": "https://petraverify.id/corridors/united-states-to-portugal",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-portugal/index.json"
+    },
+    {
+      "corridor": "united-states-to-romania",
+      "origin": "US",
+      "destination": "RO",
+      "tier": "verified",
+      "last_reviewed": "2026-09-20",
+      "url": "https://petraverify.id/corridors/united-states-to-romania",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-romania/index.json"
+    },
+    {
+      "corridor": "united-states-to-singapore",
+      "origin": "US",
+      "destination": "SG",
+      "tier": "guidance",
+      "last_reviewed": "2026-09-21",
+      "url": "https://petraverify.id/corridors/united-states-to-singapore",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-singapore/index.json"
+    },
+    {
+      "corridor": "united-states-to-slovakia",
+      "origin": "US",
+      "destination": "SK",
+      "tier": "verified",
+      "last_reviewed": "2026-09-20",
+      "url": "https://petraverify.id/corridors/united-states-to-slovakia",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-slovakia/index.json"
+    },
+    {
+      "corridor": "united-states-to-slovenia",
+      "origin": "US",
+      "destination": "SI",
+      "tier": "verified",
+      "last_reviewed": "2026-09-20",
+      "url": "https://petraverify.id/corridors/united-states-to-slovenia",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-slovenia/index.json"
+    },
+    {
+      "corridor": "united-states-to-south-korea",
+      "origin": "US",
+      "destination": "KR",
+      "tier": "qualified",
+      "last_reviewed": "2026-09-18",
+      "url": "https://petraverify.id/corridors/united-states-to-south-korea",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-south-korea/index.json"
+    },
+    {
+      "corridor": "united-states-to-spain",
+      "origin": "US",
+      "destination": "ES",
+      "tier": "verified",
+      "last_reviewed": "2026-09-20",
+      "url": "https://petraverify.id/corridors/united-states-to-spain",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-spain/index.json"
+    },
+    {
+      "corridor": "united-states-to-sweden",
+      "origin": "US",
+      "destination": "SE",
+      "tier": "verified",
+      "last_reviewed": "2026-09-20",
+      "url": "https://petraverify.id/corridors/united-states-to-sweden",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-sweden/index.json"
+    },
+    {
+      "corridor": "united-states-to-switzerland",
+      "origin": "US",
+      "destination": "CH",
+      "tier": "verified",
+      "last_reviewed": "2026-09-20",
+      "url": "https://petraverify.id/corridors/united-states-to-switzerland",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-switzerland/index.json"
+    },
+    {
+      "corridor": "united-states-to-united-arab-emirates",
+      "origin": "US",
+      "destination": "AE",
+      "tier": "qualified",
+      "last_reviewed": "2026-09-18",
+      "url": "https://petraverify.id/corridors/united-states-to-united-arab-emirates",
+      "dataset_url": "https://petraverify.id/corridors/united-states-to-united-arab-emirates/index.json"
+    }
+  ]
+}

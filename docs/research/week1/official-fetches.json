@@ -1,0 +1,52 @@
+[
+  {
+    "id": "apache-license",
+    "url": "https://www.apache.org/licenses/LICENSE-2.0.txt",
+    "accessed_at": "2026-10-08T01:36:16.332505+00:00",
+    "human_reviewed_at": null,
+    "review_status": "draft",
+    "http_status": 200,
+    "final_url": "https://www.apache.org/licenses/LICENSE-2.0.txt",
+    "content_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+  },
+  {
+    "id": "cc-license",
+    "url": "https://creativecommons.org/licenses/by/4.0/legalcode.txt",
+    "accessed_at": "2026-10-08T01:36:16.332978+00:00",
+    "human_reviewed_at": null,
+    "review_status": "draft",
+    "http_status": 200,
+    "final_url": "https://creativecommons.org/licenses/by/4.0/legalcode.txt",
+    "content_sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411"
+  },
+  {
+    "id": "EU-01",
+    "url": "https://food.ec.europa.eu/animals/live-animal-movements/dogs-cats-and-ferrets/bringing-pet-eu-non-eu-country_en",
+    "accessed_at": "2026-10-08T01:36:16.333469+00:00",
+    "human_reviewed_at": null,
+    "review_status": "draft",
+    "http_status": 200,
+    "final_url": "https://food.ec.europa.eu/animals/live-animal-movements/dogs-cats-and-ferrets/bringing-pet-eu-non-eu-country_en",
+    "content_sha256": "6126a5ded4151c953ded7051b3d374fb6e48f71409f519f1a93265c8307d400d"
+  },
+  {
+    "id": "APHIS-DE",
+    "url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-germany",
+    "accessed_at": "2026-10-08T01:36:16.335585+00:00",
+    "human_reviewed_at": null,
+    "review_status": "draft",
+    "http_status": 200,
+    "final_url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-germany",
+    "content_sha256": "0f74d90cb3d32ad413380a709e26ff8e43155b6d5a7104322eaca0c20304a4f4"
+  },
+  {
+    "id": "APHIS-NL",
+    "url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-netherlands",
+    "accessed_at": "2026-10-08T01:36:16.337456+00:00",
+    "human_reviewed_at": null,
+    "review_status": "draft",
+    "http_status": 200,
+    "final_url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-netherlands",
+    "content_sha256": "1eef03015732fd10cea7ac553b08b5683d0ef305efe2a41c3672beace6a88a20"
+  }
+]
