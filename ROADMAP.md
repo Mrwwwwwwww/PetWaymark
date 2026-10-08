@@ -46,6 +46,17 @@ Boundary assessments are executed tests, not evidence of supported feasible rout
 两条部分草稿与复用内核的本机双语网页。累计94项Python测试及真实浏览器语言／导出／打印／手机检查纳入CI；
 12规则仍草稿、已验证路线仍零。纯静态托管构建与独立复核顺延。
 
+Week 8 adds independent US/EU→CN carried dog/cat document research, 11 unknown
+cost items and three neutral public-policy directory samples with unknown external
+confirmation. Four fixtures, bilingual CLI/web and 162 Python tests plus browser
+checks preserve cargo/transit/member gaps, titer conflicts and pending originals.
+All rules remain draft; zero verified feasible routes. Full export procedures,
+current annex lists and independent human review remain incomplete.
+
+第8周新增美／欧→中独立犬猫携带文件链、11未知费用项和3公开政策名录样本。
+双语CLI／网页、四合成夹具和累计162测试保留货运／过境／成员国缺口、抗体冲突及原件待确认。
+全部规则草稿、已验证路线0；完整出口流程、现行附件和人工复核未完成。
+
 ## Stage A: v0.1 planning tool, weeks 1–12 / A：12 周规划工具
 
 Initial scope: one privately owned dog/cat, CN/US/EU domestic examples plus six

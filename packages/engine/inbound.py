@@ -135,6 +135,6 @@ def checklist(result, *, language='zh-CN'):
     lines.append('费用分项（未知金额不是零，无法合计）' if zh else 'Itemized costs (unknown is not zero; no total)')
     for row in result['costs']['items']:lines.append(row['label'][language]+' | '+row['status']+' | '+str({k:row[k] for k in ('currency','min','max','includes','excludes','quoted_at','expires_at','source')}))
     lines.append(result['provider_directory']['selection_policy'][language])
-    for row in result['provider_directory']['providers']:lines.append(row['name']+' | '+row['capability_scope']+' | external_confirmation=unknown | '+row['url']+' | '+row['checked_at']+' | '+row['affiliation'][language])
+    for row in result['provider_directory']['providers']:lines.append(row['name']+' | '+row['capability_scope'][language]+' | external_confirmation=unknown | '+row['url']+' | '+row['checked_at']+' | '+row['affiliation'][language])
     for row in result['evidence']:lines.append(row['source_id']+' | '+row['status']+' | '+row['url'])
     return '\n'.join(lines)+'\n'

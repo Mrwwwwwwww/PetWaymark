@@ -13,7 +13,8 @@ from urllib.parse import parse_qs, urlsplit
 
 from packages.engine.io import ROOT, load_repository
 from packages.engine.routes import preview, checklist
-from packages.engine import eu, outbound
+from packages.engine import eu, outbound, inbound
+from packages.engine.planning import load_directory
 from packages.engine.evaluate import day
 from scripts.validate_data import read_json
 
@@ -39,6 +40,23 @@ FIELDS.update(OUTBOUND_DATES)
 FIELDS.update(OUTBOUND_CHOICES)
 OUTBOUND_EXAMPLES = {'cn.outbound.us':{'destination':'US','name':{'en':'CN → US (documents)','zh-CN':'中国→美国（文件链）'}},
                      'cn.outbound.eu':{'destination':'EU','name':{'en':'CN → EU (documents)','zh-CN':'中国→欧盟（文件链）'}}}
+
+
+INBOUND_EXAMPLES = {'cn.inbound.us':{'origin':'US','name':{'en':'US → CN (documents)','zh-CN':'美国→中国（文件链）'}},
+                    'cn.inbound.eu':{'origin':'EU','name':{'en':'EU → CN (documents)','zh-CN':'欧盟→中国（文件链）'}}}
+INBOUND_DATES = {'rabies_first_at':'events','rabies_second_at':'events','rabies_valid_until':'events',
+                 'clinical_exam_at':'events','titre_sample_at':'events','certificate_issued_at':'documents',
+                 'certificate_endorsed_at':'documents','document_delivery_at':'events','departure_at':'journey'}
+INBOUND_CHOICES = {'origin_member':'journey','origin_subdivision':'journey','cn_entry_branch':'journey',
+                   'transit':'journey','entry_airport':'journey','transport_mode':'journey',
+                   'certificate_model':'documents','carrying_role':'responsibility',
+                   'delivery_role':'responsibility','receiving_role':'responsibility'}
+INBOUND_BOOLS = ('rabies_certificate_present','chip_readable','lab_acceptance','vehcs_endorsed',
+                 'traveler_identity_matches','one_pet_per_certificate')
+FIELDS.update(INBOUND_DATES)
+FIELDS.update(INBOUND_CHOICES)
+FIELDS.update(INBOUND_BOOLS)
+FIELDS.add('titre_iu_ml')
 
 EU_EXAMPLES = {'eu.' + a.lower() + '-' + b.lower():
                dict(origin_member=a, destination_member=b,
@@ -106,6 +124,22 @@ def profile_from_form(fields):
         for name,group in OUTBOUND_CHOICES.items():
             if fields.get(name) not in (None,'','unknown'):
                 profile.setdefault(group,{})[name]=fields[name]
+    if corridor in INBOUND_EXAMPLES:
+        journey.update(origin=INBOUND_EXAMPLES[corridor]['origin'],destination='CN')
+        profile['pet']['microchip_present']=boolean(fields.get('microchip_present','unknown'))
+        for name,group in INBOUND_DATES.items():
+            if fields.get(name):
+                day(fields[name]);profile.setdefault(group,{})[name]=fields[name]
+        for name,group in INBOUND_CHOICES.items():
+            if fields.get(name) not in (None,'','unknown'):
+                profile.setdefault(group,{})[name]=fields[name]
+        for name in INBOUND_BOOLS:
+            profile['documents'][name]=boolean(fields.get(name,'unknown'))
+        if fields.get('titre_iu_ml'):
+            import math
+            value=float(fields['titre_iu_ml'])
+            if not math.isfinite(value) or value<0:raise ValueError('invalid titer')
+            profile['documents']['titre_iu_ml']=value
     return profile
 
 
@@ -117,6 +151,9 @@ class App:
         self.corridors = {c['id']: (region, c) for region, g in self.graphs.items() for c in g['corridors']}
         self.eu_inventory = eu.load_inventory(root)
         self.outbound_inventory = outbound.load_inventory(root)
+        self.inbound_inventory = inbound.load_inventory(root)
+        self.directory = load_directory(root)
+        self.corridors.update({ident:('INBOUND',case) for ident,case in INBOUND_EXAMPLES.items()})
         self.corridors.update({ident:('OUTBOUND',case) for ident,case in OUTBOUND_EXAMPLES.items()})
         self.corridors.update({ident:('EU',case) for ident,case in EU_EXAMPLES.items()})
 
@@ -128,6 +165,10 @@ class App:
             raise ValueError('unsupported output')
         profile = profile_from_form(fields)
         region, _ = self.corridors[fields['corridor']]
+        if region == 'INBOUND':
+            result = inbound.assess(profile, assessment_at=fields['assessment_at'], inventory=self.inbound_inventory, directory=self.directory)
+            result['corridor_id'] = fields['corridor']
+            return result, inbound.checklist(result, language=language)
         if region == 'OUTBOUND':
             result = outbound.assess(profile, assessment_at=fields['assessment_at'], inventory=self.outbound_inventory, eu_inventory=self.eu_inventory)
             result['corridor_id'] = fields['corridor']
@@ -155,7 +196,7 @@ class App:
             return select(name,tr(en,zh),[('unknown',tr('Unknown','未知')),('true',tr(true_en,true_zh)),('false',tr(false_en,false_zh))])
         corridor_options = []
         for ident, (region, c) in self.corridors.items():
-            if region in ('EU','OUTBOUND'):
+            if region in ('EU','OUTBOUND','INBOUND'):
                 corridor_options.append((ident,c['name'][language])); continue
             names = {n['id']: n['name'][language] for n in self.graphs[region]['nodes']}
             corridor_options.append((ident, names[c['origin_node']]+' → '+names[c['destination_node']]))
@@ -204,11 +245,11 @@ class App:
         for name,en,zh in [('first_entry_member','First EU entry member','欧盟首入境成员国'),('destination_member','Final EU member','欧盟最终成员国')]:
             outbound_controls += select(name,tr(en,zh),[('unknown',tr('Unknown','未知'))]+[(m['member'],m['member']) for m in self.eu_inventory['members']])
         for name,en,zh in [('entry_airport','Arrival airport (listing is not capacity)','抵达机场（列名非运力）'),('receipt_airport','CDC receipt airport','CDC回执机场'),('acf_airport','Reserved ACF airport','预约设施机场')]:
-            outbound_controls += select(name,tr(en,zh),[('unknown',tr('Unknown','未知'))]+[(key,key) for key in self.outbound_inventory['us_acf_airports']+['EWR','FRA','CDG','AMS']])
+            outbound_controls += select(name,tr(en,zh),[('unknown',tr('Unknown','未知'))]+[(key,key) for key in self.outbound_inventory['us_acf_airports']+['EWR','FRA','CDG','AMS','PVG','PEK','CAN','SHA']])
         outbound_controls += choices('travel_history_branch','Dog six-month history (CN is high risk)','犬六个月旅行史（中国大陆为高风险）',[('high_risk_in_6_months','High risk in six months','六个月内高风险'),('only_low_risk_6_months','Only low risk (conflicts with CN origin)','仅低风险（与中国大陆起运冲突）')])
         outbound_controls += choices('rabies_vaccine_origin','Dog vaccine origin','犬疫苗来源',[('foreign','Outside US','美国境外'),('US','US-issued (separate branch uncompiled)','美国签发（独立分支未编译）')])
         outbound_controls += choices('titre_branch','Antibody branch','抗体分支',[('test_required','Test required','需要检测'),('quarantine','US quarantine alternative','美国隔离备选'),('return','EU return exception unreviewed','欧盟返程例外未核'),('listed_origin','EU listed-origin exception unreviewed','欧盟列名来源例外未核')])
-        outbound_controls += select('certificate_model',tr('EU certificate model','欧盟证书范本'),[('unknown',tr('Unknown','未知')),('eu.705.ahc','2026/705 Annex III'),('eu.577.ahc','577/2013 Annex IV')])
+        outbound_controls += select('certificate_model',tr('International certificate model','跨境证书范本'),[('unknown',tr('Unknown','未知')),('eu.705.ahc','2026/705 Annex III'),('eu.577.ahc','577/2013 Annex IV'),('us.cn.dog.2026',tr('US→CN dog January 2026 (draft)','美→中犬2026年1月（草稿）')),('us.cn.cat.2026',tr('US→CN cat January 2026 (unread)','美→中猫2026年1月（不可读）'))])
         outbound_controls += choices('issuer_route','EU issue/endorsement route','欧盟签发／背书路径',[('official_vet','Official veterinarian issue','官方兽医签发'),('authorized_then_endorsed','Authorised veterinarian then authority endorsement','授权兽医签发后主管机关背书')])
         role_options=[('owner','Owner','主人'),('authorized_person','Authorised person','授权人员'),('origin_customs','Origin customs','属地海关'),('government_vet','Government vet','政府兽医'),('veterinarian','Veterinarian','兽医'),('importer','Importer','进口人'),('carrier','Carrier','承运方'),('receiving_authority','Receiving authority','接收机关')]
         for name,en,zh in [('carrying_role','Document carrying role (pending arrangement)','文件携带角色（仍待安排）'),('delivery_role','Document delivery role','文件交付角色'),('receiving_role','Document receiving role','文件接收角色')]:
@@ -217,7 +258,18 @@ class App:
             outbound_controls += f'<label>{tr(en,zh)}<input type="text" name="{name}" value="{escape(values.get(name,""))}" placeholder="2026-11-10T10:00:00+00:00"></label>'
         for name,en,zh in [('entry_timezone','First-member IANA time zone','首入境IANA时区'),('onward_entry_timezone','Onward-member IANA time zone','后续成员国IANA时区'),('tapeworm_timezone','Treatment IANA time zone','处理IANA时区')]:
             outbound_controls += select(name,tr(en,zh),[('unknown',tr('Unknown','未知'))]+[(z,z) for z in ('Asia/Shanghai','Europe/Dublin','Europe/Helsinki','Europe/Malta','Europe/Amsterdam','Europe/Berlin','Europe/Paris')])
-        controls += '<details id="outbound-inputs"><summary>'+tr('CN outbound document and appointment inputs','中国出境文件与预约输入')+'</summary><p>'+tr('Anonymous planning dates only. No contact details or document upload. Open EU inputs above for vaccination and owner dates.','仅填匿名规划日期，不填联系人或上传文件。接种与主人日期请展开上方欧盟证据输入。')+'</p><div class="fields">'+outbound_controls+'</div></details>'
+        controls += '<details id="outbound-inputs"><summary>'+tr('International document and appointment inputs','跨境文件与预约输入')+'</summary><p>'+tr('Anonymous planning dates only. No contact details or document upload. Open EU inputs above for vaccination and owner dates.','仅填匿名规划日期，不填联系人或上传文件。接种与主人日期请展开上方欧盟证据输入。')+'</p><div class="fields">'+outbound_controls+'</div></details>'
+        inbound_controls = ''
+        for name,en,zh in [('rabies_first_at','First rabies vaccination record','第一次狂犬病接种记录'),('rabies_second_at','Second rabies vaccination record','第二次狂犬病接种记录'),('rabies_valid_until','Rabies validity end','狂犬病免疫有效截止'),('clinical_exam_at','Clinical examination','临床检查')]:
+            inbound_controls += f'<label>{tr(en,zh)}<input type="date" name="{name}" value="{escape(values.get(name,""))}"></label>'
+        inbound_controls += choices('origin_member','EU export member','欧盟出口成员国',[(m['member'],m['member'],m['member']) for m in self.eu_inventory['members']])
+        inbound_controls += choices('origin_subdivision','US origin region','美国起运地区',[(x,x,x) for x in ('US-CA','US-NY','US-TX','US-HI','GU')])
+        inbound_controls += choices('cn_entry_branch','CN entry research branch (lists unreviewed)','中国入境研究分支（名单未核）',[('non_designated_titre','Non-designated origin / titer','非指定来源／抗体'),('quarantine','Quarantine facility branch','隔离设施分支'),('designated_origin','Designated-origin exception unreviewed','指定来源例外未核')])
+        inbound_controls += choices('transit','Transit stops','过境停留',[('none','No transit','无过境'),('HK','Hong Kong (uncompiled)','香港（未编译）'),('other','Other (uncompiled)','其他（未编译）')])
+        for name,en,zh in [('rabies_certificate_present','Rabies certificate present?','是否有免疫证？'),('chip_readable','Chip readable / reader arranged?','芯片可读／读取器已安排？'),('lab_acceptance','Lab acceptance reported (current list unverified)?','自报实验室采信（现行名单未核）？'),('vehcs_endorsed','US VEHCS endorsement reported?','自报美国VEHCS背书？'),('traveler_identity_matches','Traveler and certificate identity match? Do not enter names','携带人与证书身份一致？勿填姓名'),('one_pet_per_certificate','One pet on certificate?','证书仅一只宠物？')]:
+            inbound_controls += tri(name,en,zh)
+        inbound_controls += f'<label>{tr("Titer IU/mL (0.5 conflict pending clarification)","抗体IU/mL（0.5冲突待澄清）")}<input type="number" min="0" step="any" name="titre_iu_ml" value="{escape(values.get("titre_iu_ml",""))}"></label>'
+        controls += '<details id="inbound-inputs"><summary>'+tr('US/EU → CN inputs','美国／欧盟→中国输入')+'</summary><p>'+tr('Use international controls for issue, endorsement, departure, sample and document roles. Microchip is in evidence inputs. Separate cargo is uncompiled.','签发、背书、出发、采血与原件角色使用跨境输入；芯片在证据输入。独立货运未编译。')+'</p><div class="fields">'+inbound_controls+'</div></details>'
         results = ''
         if error:
             results += '<p role="alert">'+escape(tr('Input error: ','输入错误：')+error)+'</p>'
@@ -254,7 +306,7 @@ class App:
                 for exception in inv['exceptions']:
                     results += '<p>'+escape(exception['summary'][language])+'</p>'
                 results += '</details>'
-            if result.get('assessment_scope')=='cn_outbound_evidence_preview':
+            if result.get('assessment_scope') in ('cn_outbound_evidence_preview','cn_inbound_evidence_preview'):
                 results += '<h3>'+tr('Document timeline — research dates only','文件时间轴 — 仅研究日期')+'</h3><p>'+tr('Issue, endorsement, arrival and checks have separate anchors. Civil-day estimates do not establish hour deadlines. Appointment conflicts appear above.','签发、背书、抵达及检查分开锚定。日级估算不证明小时期限；预约冲突列于上方。')+'</p><ol>'
                 for row in result['timeline']:
                     results += '<li>'+escape(row['label'][language])+' · '+escape(str(row['date']))+'<p>'+escape(str(row['earliest_date'])+' … '+str(row['latest_date']))+'</p></li>'
@@ -267,8 +319,16 @@ class App:
                 results += '</ul><h3>'+tr('Readings and access gaps','查阅及读取缺口')+'</h3>'
                 for row in result['evidence']:
                     results += '<details><summary>'+escape(row['source_id']+' · '+row['status'])+'</summary><p>'+escape(row['summary'][language])+' <a href="'+escape(row['url'],quote=True)+'">'+escape(row['source_id'])+'</a></p></details>'
+            if result.get('assessment_scope')=='cn_inbound_evidence_preview':
+                results += '<h3>'+tr('Itemized costs — unknown is not zero','费用分项 — 未知不是零')+'</h3><p>'+tr('No total or price ranking. Confirm amount, currency, includes, excludes, source, quotation date and expiry independently. No quotation is sent.','不计算总价或按价排名；独立确认金额、币种、包含／不含项、来源、报价日及失效。不发送询价。')+'</p><ul>'
+                for row in result['costs']['items']:
+                    results += '<li>'+escape(row['label'][language])+' · '+escape(row['status'])+'<p>'+escape(' | '.join(tr(en,zh)+': '+(str(row[key]) if row[key] is not None else tr('Unknown','未知')) for key,en,zh in [('currency','Currency','币种'),('min','Minimum','下限'),('max','Maximum','上限'),('includes','Includes','包含项'),('excludes','Excludes','不含项'),('quoted_at','Quoted on','报价日'),('expires_at','Expires on','失效日'),('source','Source','来源')]))+'</p></li>'
+                results += '</ul><h3>'+tr('Neutral public directory — no confirmed service','中立公开名录 — 未确认服务')+'</h3><p>'+escape(result['provider_directory']['selection_policy'][language])+'</p><ul>'
+                for row in result['provider_directory']['providers']:
+                    results += '<li><a href="'+escape(row['url'],quote=True)+'">'+escape(row['name'])+'</a><p>'+escape(row['capability_scope'][language])+'</p><p>'+escape(row['public_listing']+' | '+row['capability_status']+' | external_confirmation='+row['external_confirmation']+' | '+row['checked_at'])+'</p><p>'+escape(row['affiliation'][language])+'</p><p class="codes">'+escape(', '.join(row['pending_checks']))+'</p></li>'
+                results += '</ul>'
             region = self.corridors[result['corridor_id']][0]
-            names = {n['id']:n['name'][language] for n in self.graphs[region]['nodes']} if region not in ('EU','OUTBOUND') else {}
+            names = {n['id']:n['name'][language] for n in self.graphs[region]['nodes']} if region not in ('EU','OUTBOUND','INBOUND') else {}
             products = {
                 'owner_vehicle': tr('Owner vehicle', '主人车辆'),
                 'unaccompanied_animal_carrier': tr('Unaccompanied animal carrier', '独行活体承运'),
@@ -295,7 +355,7 @@ class App:
                         results += '</li>'
                     results += '</ol></details>'
             results += '<button type="button" id="print">'+tr('Print handover checklist','打印交接清单')+'</button><details class="printable"><summary>'+tr('Complete printable checklist','完整可打印清单')+'</summary><pre>'+escape(printed)+'</pre></details></section>'
-        return f'''<!doctype html><html lang="{language}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PetWaymark · {tr('Journey evidence preview','旅程证据预览')}</title><link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script></head><body><main><header><p>PetWaymark · 宠途路标</p><h1>{tr('Plan with visible unknowns','把未知留在计划里')}</h1><p>{tr('Free, neutral, public-benefit open source. No booking, orders or provider ranking.','公益、免费、中立开源。未订舱、不接单、不排名服务商。')}</p></header><aside>{tr('Research preview. Unknown is not permission. Airports and map distance do not establish animal transport capacity. This anonymous form is processed on this computer without storage; do not enter private identifiers.','研究预览。未知不等于允许，机场和地图距离不能证明活体运力。匿名表单仅在本机处理，不存储；勿输入个人标识。')}</aside><p class="examples">{tr('Synthetic examples:','合成示例：')} <a href="/?language={language}&example=owner">{tr('Owner','主人同行')}</a> · <a href="/?language={language}&example=unaccompanied">{tr('Unaccompanied','宠物独行')}</a> · <a href="/?language={language}&example=eu-owner">{tr('EU cross-member','欧盟跨成员国')}</a> · <a href="/?language={language}&example=eu-boarding">{tr('Owner stays home','主人不移动')}</a> · <a href="/?language={language}&example=outbound-us">{tr('CN → US','中国→美国')}</a> · <a href="/?language={language}&example=outbound-eu">{tr('CN → EU','中国→欧盟')}</a></p><form action="/assess" method="post"><input type="hidden" name="language" value="{language}"><div class="fields">{controls}</div><div class="actions"><button type="submit">{tr('Assess research candidates','评估研究候选')}</button><button type="submit" name="output" value="json">{tr('Export redacted JSON','导出脱敏JSON')}</button><button type="button" id="language" data-language="{'en' if language=='zh-CN' else 'zh-CN'}">{'English' if language=='zh-CN' else '中文'}</button></div></form>{results}<footer>{tr('Single privately owned dog/cat only. Unsupported states, emergency overlays, transit rules, actual operating carrier and custody remain pending. Commercial names identify source policy scope only.','仅单只自有犬猫。未覆盖州、应急叠加、途经规则、实际承运与保管待核。商业名称仅标识来源政策范围。')}</footer></main></body></html>'''
+        return f'''<!doctype html><html lang="{language}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PetWaymark · {tr('Journey evidence preview','旅程证据预览')}</title><link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script></head><body><main><header><p>PetWaymark · 宠途路标</p><h1>{tr('Plan with visible unknowns','把未知留在计划里')}</h1><p>{tr('Free, neutral, public-benefit open source. No booking, orders or provider ranking.','公益、免费、中立开源。未订舱、不接单、不排名服务商。')}</p></header><aside>{tr('Research preview. Unknown is not permission. Airports and map distance do not establish animal transport capacity. This anonymous form is processed on this computer without storage; do not enter private identifiers.','研究预览。未知不等于允许，机场和地图距离不能证明活体运力。匿名表单仅在本机处理，不存储；勿输入个人标识。')}</aside><p class="examples">{tr('Synthetic examples:','合成示例：')} <a href="/?language={language}&example=owner">{tr('Owner','主人同行')}</a> · <a href="/?language={language}&example=unaccompanied">{tr('Unaccompanied','宠物独行')}</a> · <a href="/?language={language}&example=eu-owner">{tr('EU cross-member','欧盟跨成员国')}</a> · <a href="/?language={language}&example=eu-boarding">{tr('Owner stays home','主人不移动')}</a> · <a href="/?language={language}&example=outbound-us">{tr('CN → US','中国→美国')}</a> · <a href="/?language={language}&example=outbound-eu">{tr('CN → EU','中国→欧盟')}</a> · <a href="/?language={language}&example=inbound-us">{tr('US → CN','美国→中国')}</a> · <a href="/?language={language}&example=inbound-eu">{tr('EU → CN','欧盟→中国')}</a></p><form action="/assess" method="post"><input type="hidden" name="language" value="{language}"><div class="fields">{controls}</div><div class="actions"><button type="submit">{tr('Assess research candidates','评估研究候选')}</button><button type="submit" name="output" value="json">{tr('Export redacted JSON','导出脱敏JSON')}</button><button type="button" id="language" data-language="{'en' if language=='zh-CN' else 'zh-CN'}">{'English' if language=='zh-CN' else '中文'}</button></div></form>{results}<footer>{tr('Single privately owned dog/cat only. Unsupported states, emergency overlays, transit rules, actual operating carrier and custody remain pending. Commercial names identify source policy scope only.','仅单只自有犬猫。未覆盖州、应急叠加、途经规则、实际承运与保管待核。商业名称仅标识来源政策范围。')}</footer></main></body></html>'''
 
 
 def make_handler(app):
@@ -360,6 +420,14 @@ def make_handler(app):
                     document_delivery_at='2026-11-06',certificate_at='2026-11-05',document_check_at='2026-11-10',receipt_entry_at='2026-11-10',
                     first_entry_member='NL',destination_member='DE',entry_airport='JFK' if dest=='us' else 'AMS',receipt_airport='JFK',acf_airport='JFK',
                     certificate_model='eu.705.ahc',issuer_route='authorized_then_endorsed')
+            if example in ('inbound-us','inbound-eu'):
+                origin=example.removeprefix('inbound-')
+                fixture=read_json(ROOT/f'tests/fixtures/inbound/{origin}-cn-dog.json')
+                fields.update(corridor='cn.inbound.'+origin,assessment_at='2026-10-08')
+                for group in ('pet','journey','documents','events','responsibility'):
+                    for name,value in fixture[group].items():
+                        if name in FIELDS and value is not None:
+                            fields[name]=str(value).lower() if isinstance(value,bool) else str(value)
             self.send(200, app.render(fields))
 
         def do_POST(self):

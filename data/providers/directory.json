@@ -14,7 +14,10 @@
       "source_id": "eu.af.pet-policy",
       "url": "https://wwws.airfrance.us/information/passagers/voyager-avec-son-animal-chien-chat",
       "checked_at": "2026-10-08",
-      "capability_scope": "Public passenger hold policy; China leg unverified.",
+      "capability_scope": {
+        "en": "Public passenger hold policy; China leg unverified.",
+        "zh-CN": "公开旅客行李舱政策；中国航段未核。"
+      },
       "external_confirmation": "unknown",
       "confirmation_reference": null,
       "affiliation": {
@@ -37,7 +40,10 @@
       "source_id": "us.as.cargo-petconnect",
       "url": "https://www.alaskacargo.com/petconnect",
       "checked_at": "2026-10-08",
-      "capability_scope": "Public separate cargo product; US domestic lead only, no China capacity.",
+      "capability_scope": {
+        "en": "Public separate cargo product; US domestic lead only, no China capacity.",
+        "zh-CN": "公开独立货运产品；仅美国国内线索，无中国运力证据。"
+      },
       "external_confirmation": "unknown",
       "confirmation_reference": null,
       "affiliation": {
@@ -60,7 +66,10 @@
       "source_id": "cn.air.mu-pet",
       "url": "https://global.ceair.com/global/static/Announcement/TravelTips/SpecialPassengerServiceNotice/LittleAnimal/",
       "checked_at": "2026-10-08",
-      "capability_scope": "Public passenger baggage policy; actual inbound flight unverified.",
+      "capability_scope": {
+        "en": "Public passenger baggage policy; actual inbound flight unverified.",
+        "zh-CN": "公开旅客行李政策；实际入境航班未核。"
+      },
       "external_confirmation": "unknown",
       "confirmation_reference": null,
       "affiliation": {

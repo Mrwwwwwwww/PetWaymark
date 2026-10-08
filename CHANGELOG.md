@@ -1,5 +1,22 @@
 # Changelog / 变更记录
 
+## Unreleased — Week 8 / 未发布：第8周
+
+- Add seven source records/attempts and reread GACC carried-entry scope; cat model
+  unavailable and exact 0.5 titer conflict preserved. No human review claimed.
+- Add independent US/EU→CN dog/cat carried-entry research, chronology, species
+  models, issue/arrival and sample anniversary diagnostics. Cargo, transit and
+  uncompiled origins stop ordinary diagnostics; current annexes remain unreviewed.
+- Add 11 itemized unknown costs and optional anonymous manual-note validation;
+  no total or quotation sending. Three equally scoped public-policy directory
+  samples preserve affiliation, public capability and unknown external confirmation.
+- Bilingual local web/CLI, export and print share one module. 162 Python tests
+  and native browser regressions cover scope, windows, conflicts and mobile display.
+  Zero verified routes, reviewers, real interviews, feedback or independent adoption.
+
+第8周交付反向中国入境研究、未知费用与中立名录；新增24测试，累计162。
+未完成附件／属地全流程和独立人工复核，issue #4仍开放；不打release标签。
+
 ## Unreleased — Week 7 / 未发布：第7周
 
 - Add nine new official source records/attempts; recover 2026/131 ELI framework

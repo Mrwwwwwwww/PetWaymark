@@ -31,6 +31,7 @@ Open `http://127.0.0.1:8766` for the anonymous local web form; Ctrl+C stops it.
 No hosted static site is claimed. CA/TX sources are read pending independent review;
 NY's current official page was unavailable. All fifteen constraints remain drafts. EU framework and DE/FR/NL readings are partial; the other 24 local overlays are unresearched.
 
+- [US/EU → CN documents, costs and directory](docs/en/cn-inbound-preview.md) · [中文](docs/zh/cn-inbound-preview.md)
 - [CN outbound timeline preview](docs/en/cn-outbound-preview.md) · [中文](docs/zh/cn-outbound-preview.md)
 - [Week 7 source readings and remaining gaps](docs/research/week7/README.md)
 - [EU evidence preview](docs/en/eu-preview.md) · [中文](docs/zh/eu-preview.md)

@@ -10,7 +10,7 @@ from urllib.request import Request, urlopen
 
 from apps.web.server import App, make_handler
 from packages.engine.routes import preview
-from packages.engine import eu, outbound
+from packages.engine import eu, outbound, inbound
 from packages.engine.io import ROOT
 from scripts.validate_data import read_json
 from apps.web.server import profile_from_form
@@ -188,3 +188,58 @@ class WebTests(unittest.TestCase):
             with urlopen(self.base+'/?example='+example) as response:
                 html=response.read().decode();self.assertIn('value="eu.de-fr" selected',html)
                 self.assertIn('name="owner_moving"',html)
+
+
+    def inbound_fields(self,origin='us',species='dog',**changes):
+        profile=read_json(ROOT/f'tests/fixtures/inbound/{origin}-cn-{species}.json')
+        f=self.fields(corridor='cn.inbound.'+origin,species=species)
+        from apps.web.server import FIELDS
+        for group in ('pet','journey','documents','events','responsibility'):
+            for key,value in profile[group].items():
+                if key in FIELDS and value is not None:
+                    f[key]=str(value).lower() if isinstance(value,bool) else str(value)
+        f.update(changes);return f
+
+    def test_inbound_http_bilingual_kernel_cost_directory_and_print(self):
+        for origin in ('us','eu'):
+            for species in ('dog','cat'):
+                f=self.inbound_fields(origin,species)
+                expected=inbound.assess(profile_from_form(f),assessment_at=f['assessment_at'])
+                expected['corridor_id']=f['corridor']
+                for language in ('en','zh-CN'):
+                    code,_,body=self.post({**f,'language':language})
+                    self.assertEqual(code,200);self.assertEqual(json.loads(body),expected)
+                    code,_,html=self.post({**f,'language':language,'output':'html'})
+                    self.assertEqual(code,200);self.assertIn('external_confirmation=unknown',html)
+                    self.assertIn('Air France',html);self.assertIn('Alaska Air Cargo',html)
+                    self.assertEqual(self.app.assess({**f,'language':language})[1],inbound.checklist(expected,language=language))
+                self.assertEqual(len(expected['costs']['unquoted_items']),11)
+                self.assertIsNone(expected['costs']['total']);self.assertFalse(expected['booking_confirmed'])
+
+    def test_inbound_http_scope_stop_and_threshold_conflict(self):
+        for changes in ({'accompaniment':'unaccompanied'},{'transport_mode':'manifest_cargo'},{'transit':'HK'},{'origin_subdivision':'US-HI'}):
+            code,_,body=self.post(self.inbound_fields(**changes));self.assertEqual(code,200)
+            result=json.loads(body);self.assertFalse(result['classification_resolved'])
+            self.assertEqual(result['draft_diagnostics'],[]);self.assertEqual(result['document_checklist'],[])
+        code,_,html=self.post(self.inbound_fields(titre_iu_ml='0.5',output='html'))
+        self.assertEqual(code,200);self.assertIn('threshold_conflict_pending_clarification',html)
+        code,_,html=self.post(self.inbound_fields(certificate_issued_at='2026-10-26',output='html'))
+        self.assertEqual(code,200);self.assertIn('us.cn.issue-window.date_window_conflict',html)
+
+    def test_inbound_http_rejects_private_promotion_quotes_and_invalid_inputs(self):
+        for changes in ({'verified_rule_count':'1'},{'external_confirmation':'confirmed'},{'cost_quotes':'{}'},{'chip_number':'secret'},{'rabies_valid_until':'bad'},{'titre_iu_ml':'nan'},{'lab_acceptance':'yes'}):
+            self.assertEqual(self.post(self.inbound_fields(**changes))[0],400)
+
+    def test_inbound_examples_and_all_direction_species_person_language_http_matrix(self):
+        for example in ('inbound-us','inbound-eu'):
+            with urlopen(self.base+'/?example='+example) as response:
+                html=response.read().decode();self.assertIn('id="inbound-inputs"',html)
+                self.assertIn('value="cn.inbound.'+example.removeprefix('inbound-')+'" selected',html)
+        for origin in ('us','eu'):
+            for species in ('dog','cat','ferret'):
+                for person in ('owner','authorized_person','unaccompanied'):
+                    for language in ('en','zh-CN'):
+                        code,_,body=self.post(self.inbound_fields(origin,accompaniment=person,species=species if species!='ferret' else 'dog',language=language) | ({'species':'ferret'} if species=='ferret' else {}))
+                        self.assertEqual(code,200)
+                        result=json.loads(body);self.assertEqual(result['classification_resolved'],species!='ferret' and person!='unaccompanied')
+                        self.assertEqual(result['status'],'unsupported')

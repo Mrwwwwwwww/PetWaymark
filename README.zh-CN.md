@@ -69,3 +69,5 @@ CA／TX来源已读待独立复核，NY现行官方正文本次不可读；15条
 自有代码与文档采用 [Apache-2.0](LICENSE)；`data/` 下自有整理数据采用 [CC BY 4.0](LICENSE-DATA)，详见[范围说明](data/README.md)。Petra 研究快照保留原 CC BY 4.0 许可与[第三方归属](THIRD_PARTY_NOTICES.md)。官方原文、商标及第三方数据库不因此获得本项目再许可。
 
 第 1 周未创建外部仓库、账号、软件包或域名。
+
+第8周：[美国／欧盟→中国文件、费用及名录](docs/zh/cn-inbound-preview.md) · [English](docs/en/cn-inbound-preview.md)。所有结果仍为研究草稿、未覆盖，已验证路线0。

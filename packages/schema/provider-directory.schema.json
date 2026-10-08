@@ -44,7 +44,7 @@
             "format": "date"
           },
           "capability_scope": {
-            "type": "string"
+            "$ref": "common.schema.json#/$defs/text"
           },
           "external_confirmation": {
             "const": "unknown"
