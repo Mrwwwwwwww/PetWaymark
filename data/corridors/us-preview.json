@@ -1549,19 +1549,52 @@
       "id": "dom.us.ca-ny",
       "research_candidate_id": "DOM.US.CA-NY",
       "origin_node": "us.ventura",
-      "destination_node": "us.kingston"
+      "destination_node": "us.kingston",
+      "segment_ids": [
+        "us.ventura.kingston.owner-vehicle",
+        "us.ventura.kingston.unaccompanied-animal-carrier",
+        "us.ventura.lax.owner-vehicle",
+        "us.ventura.lax.unaccompanied-animal-carrier",
+        "us.jfk.kingston.owner-vehicle",
+        "us.jfk.kingston.unaccompanied-animal-carrier",
+        "us.lax.jfk.as-passenger-pet-cabin",
+        "us.lax.jfk.as-passenger-pet-baggage",
+        "us.lax.jfk.as-manifest-pet-cargo"
+      ]
     },
     {
       "id": "dom.us.ny-tx",
       "research_candidate_id": "DOM.US.NY-TX",
       "origin_node": "us.kingston",
-      "destination_node": "us.denton"
+      "destination_node": "us.denton",
+      "segment_ids": [
+        "us.kingston.denton.owner-vehicle",
+        "us.kingston.denton.unaccompanied-animal-carrier",
+        "us.kingston.jfk.owner-vehicle",
+        "us.kingston.jfk.unaccompanied-animal-carrier",
+        "us.dfw.denton.owner-vehicle",
+        "us.dfw.denton.unaccompanied-animal-carrier",
+        "us.jfk.dfw.as-passenger-pet-cabin",
+        "us.jfk.dfw.as-passenger-pet-baggage",
+        "us.jfk.dfw.as-manifest-pet-cargo"
+      ]
     },
     {
       "id": "dom.us.tx-ca",
       "research_candidate_id": "DOM.US.TX-CA",
       "origin_node": "us.denton",
-      "destination_node": "us.ventura"
+      "destination_node": "us.ventura",
+      "segment_ids": [
+        "us.denton.ventura.owner-vehicle",
+        "us.denton.ventura.unaccompanied-animal-carrier",
+        "us.denton.dfw.owner-vehicle",
+        "us.denton.dfw.unaccompanied-animal-carrier",
+        "us.lax.ventura.owner-vehicle",
+        "us.lax.ventura.unaccompanied-animal-carrier",
+        "us.dfw.lax.as-passenger-pet-cabin",
+        "us.dfw.lax.as-passenger-pet-baggage",
+        "us.dfw.lax.as-manifest-pet-cargo"
+      ]
     }
   ]
 }

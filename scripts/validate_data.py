@@ -196,6 +196,8 @@ def validate_graph(graph, sources):
         if leg["mode"] != expected:
             errors.append(f"{name}: product/mode mismatch")
     for corridor in graph["corridors"]:
+        if not set(corridor.get('segment_ids', [])) <= segments:
+            errors.append(f"{corridor['id']}: unresolved corridor segment")
         if not {corridor["origin_node"], corridor["destination_node"]} <= nodes:
             errors.append(f"{corridor['id']}: unresolved corridor node")
         if corridor["origin_node"] == corridor["destination_node"]:

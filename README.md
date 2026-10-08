@@ -6,7 +6,7 @@ An open, bilingual planning project for dog and cat journeys that combine ground
 
 PetWaymark is a purely public-benefit open-source project whose primary purpose is to help pet owners. It is free and open, with no affiliation to any commercial brand. Any compliant service provider may connect on equal terms through open interfaces. The project does not operate transport or other commercial services, accept orders or favor any provider. Planned service connections link or redirect users to providers' own channels; compliance, privacy and animal welfare remain requirements.
 
-**Week 4 offline domestic research preview — two CN corridor graphs and printable handovers; zero verified feasible routes.** The planned scope is one privately owned dog or cat, with purpose, ownership changes, accompaniment and owner travel dates assessed separately. Service animals need a separate review path. Draft road/rail/air-ground paths are unranked and remain unsupported; actual slots, schedules and prices are unknown.
+**Week 5 local bilingual web and CN/US domestic research preview — CA/NY/TX inventory and three US small-city examples; zero verified feasible routes.** The planned scope is one privately owned dog or cat, with purpose, ownership changes, accompaniment and owner travel dates assessed separately. Service animals need a separate review path. Draft road/rail/air-ground paths are unranked and remain unsupported; actual slots, schedules and prices are unknown.
 
 The planned outputs are route alternatives, document timelines, itemized costs, handover checklists and explanations linked to official evidence. Unknown rules must never become permission. Kernel result states are `eligible`, `conditional`, `ineligible` and `unsupported`; none confirms a booking or carrier acceptance.
 
@@ -22,8 +22,15 @@ python3 -m venv .venv
 .venv/bin/python -m packages.cli tests/fixtures/boundaries/boundary.unknown-carrier.json --assessment-at 2026-10-08
 .venv/bin/python -m packages.cli tests/fixtures/domestic/owner.json --corridor dom.cn.east --assessment-at 2026-10-08 --format checklist --language en
 .venv/bin/python -m unittest discover -s tests -v
+.venv/bin/python -m apps.web.server --port 8766
 ```
 
+Open `http://127.0.0.1:8766` for the anonymous local web form; Ctrl+C stops it.
+No hosted static site is claimed. CA/TX sources are read pending independent review;
+NY's current official page was unavailable. All twelve constraints remain drafts.
+
+- [US candidates and local web](docs/en/us-web-preview.md) · [中文](docs/zh/us-web-preview.md)
+- [Week 5 sources and gaps](docs/research/week5/README.md) · [Local web decision](docs/decisions/0005-local-bilingual-web.md)
 - [Domestic preview and printable checklist](docs/en/domestic-preview.md) · [中文](docs/zh/domestic-preview.md)
 - [Week 4 sources and gaps](docs/research/week4/README.md) · [Graph decision](docs/decisions/0004-domestic-preview.md)
 - [Offline kernel and CLI](docs/en/offline-engine.md) · [中文](docs/zh/offline-engine.md)

@@ -1,0 +1,31 @@
+:root { color-scheme: light; font-family: system-ui, sans-serif; color: #183b3a; background: #f3f6f2; }
+body { margin: 0; }
+main { max-width: 960px; margin: auto; padding: 28px 20px; }
+header { border-bottom: 3px solid #347e73; margin-bottom: 24px; }
+h1 { font-size: clamp(1.8rem, 5vw, 2.8rem); margin: 14px 0; }
+p, li { line-height: 1.6; }
+aside { background: #fff1cc; border-left: 4px solid #98702a; padding: 16px; line-height: 1.6; }
+form, section { background: white; padding: 22px; margin: 24px 0; border-radius: 12px; }
+.fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(235px, 1fr)); gap: 18px; }
+label { display: flex; flex-direction: column; gap: 7px; }
+input, select, button { font: inherit; padding: 11px; border: 1px solid #759c94; border-radius: 6px; }
+button { cursor: pointer; background: #246a60; color: white; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
+a { color: #13594f; text-underline-offset: 3px; }
+:focus-visible { outline: 3px solid #be7026; outline-offset: 3px; }
+details { border: 1px solid #c3d8d1; padding: 14px; margin: 12px 0; }
+summary { cursor: pointer; line-height: 1.6; }
+code, .codes, pre { overflow-wrap: anywhere; }
+pre { white-space: pre-wrap; font-size: .85rem; line-height: 1.6; }
+footer { font-size: .9rem; padding: 12px 0; }
+[role=alert] { color: #9b2222; }
+@media print {
+ body { background: white; color: black; }
+ main { max-width: none; padding: 0; }
+ form, .examples, button, footer, section > details:not(.printable), section > h3 { display: none; }
+ section { padding: 0; }
+ .printable { display: block; border: 0; }
+ .printable > summary { display: none; }
+ .printable > pre { display: block !important; }
+ pre { font-size: 9pt; }
+}

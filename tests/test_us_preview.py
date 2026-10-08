@@ -33,9 +33,32 @@ class USPreviewTests(unittest.TestCase):
                 self.assertFalse(route['ranked'])
                 self.assertIsNone(route['door_to_door_minutes'])
 
+    def test_corridors_do_not_mix_other_research_directions(self):
+        for c in self.graph['corridors']:
+            result=self.run_preview(corridor=c['id'])
+            allowed=set(c['segment_ids'])
+            for route in result['candidates']+result['excluded']:
+                self.assertTrue(set(route['segment_ids']) <= allowed)
+            self.assertEqual(len(result['candidates']),3)
+
+    def test_parcel_cannot_fill_first_or_last_live_animal_leg(self):
+        for endpoint in ('from_node','to_node'):
+            graph=deepcopy(self.graph)
+            city='us.ventura' if endpoint=='from_node' else 'us.kingston'
+            changed=set()
+            for leg in graph['segments']:
+                if leg[endpoint]==city and leg['product']=='unaccompanied_animal_carrier':
+                    leg['product']='parcel_delivery';changed.add(leg['segment_id'])
+            result=self.run_preview(self.profile('unaccompanied'),graph=graph)
+            for route in result['candidates']:
+                self.assertFalse(set(route['segment_ids']) & changed)
+            self.assertEqual(result['status'],'ineligible')
+
     def test_graph_integrity_and_parcel_rejection(self):
         self.assertTrue(validators(ROOT)['corridor-graph.schema.json'].is_valid(self.graph))
         self.assertEqual(validate_graph(self.graph, self.sources), [])
+        corrupt=deepcopy(self.graph);corrupt['corridors'][0]['segment_ids'].append('segment.absent')
+        self.assertTrue(any('unresolved corridor segment' in e for e in validate_graph(corrupt,self.sources)))
         g = deepcopy(self.graph)
         g['segments'][0]['product'] = 'parcel_delivery'
         self.assertFalse(validators(ROOT)['corridor-graph.schema.json'].is_valid(g))

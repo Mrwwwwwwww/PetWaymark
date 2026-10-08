@@ -21,3 +21,32 @@ jobs:
       - run: python scripts/check_scaffold.py
       - run: python scripts/validate_data.py
       - run: python -m unittest discover -s tests -v
+      - uses: actions/setup-node@v4
+        if: matrix.python-version == '3.13'
+        with:
+          node-version: '22'
+      - name: Install browser test tooling
+        if: matrix.python-version == '3.13'
+        run: |
+          npm --prefix "$RUNNER_TEMP/petwaymark-browser" install --no-save --no-package-lock playwright@1.64.0
+          "$RUNNER_TEMP/petwaymark-browser/node_modules/.bin/playwright" install --with-deps chromium
+      - name: Verify native browser inputs, language, export and print
+        if: matrix.python-version == '3.13'
+        env:
+          NODE_PATH: ${{ runner.temp }}/petwaymark-browser/node_modules
+        run: |
+          python -m apps.web.server --port 8766 &
+          petwaymark_web_pid=$!
+          trap 'kill "$petwaymark_web_pid"' EXIT
+          python - <<'PY'
+          import time, urllib.request
+          for attempt in range(50):
+              try:
+                  urllib.request.urlopen('http://127.0.0.1:8766', timeout=1).close()
+                  break
+              except OSError:
+                  time.sleep(0.1)
+          else:
+              raise SystemExit('Local web failed to start')
+          PY
+          node tests/browser_smoke.cjs

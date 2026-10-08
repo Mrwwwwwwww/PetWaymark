@@ -29,6 +29,11 @@ CN/EN printable handovers. Eight new sources and 28 new tests (70 total) preserv
 dated station/flight/facility gaps, pending custody and zero verified feasible routes.
 Explicit operational contradictions exclude whole paths; public candidates remain
 unsupported and unranked. There is no live inventory, price feed or service connection.
+Week 5 adds the CA/NY/TX reading inventory (NY unavailable), three independently
+scoped US small-city examples, two partial drafts and a local CN/EN web using the
+same kernel. 94 Python tests plus native browser language/export/print/mobile checks
+execute in CI; twelve rules remain draft and zero routes are verified. A hosted
+static-only build and independent review remain deferred.
 Boundary assessments are executed tests, not evidence of supported feasible routes.
 
 第 1 周骨架、许可、Petra 比较、15 条候选与访谈准备已完成；实际访谈和已验证可行路线均为零。
@@ -37,7 +42,9 @@ Boundary assessments are executed tests, not evidence of supported feasible rout
 重新查阅4份官方来源，未提升任何规则为正式复核；规则满足仍保留未知承运状态。
 第4周交付两组国内草稿图与道路／铁路双模式／陆空研究预览、双语可打印交接清单，新增8来源与28测试（累计70）。
 日期限定站对、航段及设施能力保持缺口，责任待安排；操作冲突剔除全路径，正常候选仍未覆盖、不排名，已验证可行路线为零。
-无实时仓位、价格或服务对接。
+无实时仓位、价格或服务对接。第5周新增CA／NY／TX查阅清单（NY不可读）、三组独立限定分段的美国小城图例、
+两条部分草稿与复用内核的本机双语网页。累计94项Python测试及真实浏览器语言／导出／打印／手机检查纳入CI；
+12规则仍草稿、已验证路线仍零。纯静态托管构建与独立复核顺延。
 
 ## Stage A: v0.1 planning tool, weeks 1–12 / A：12 周规划工具
 
@@ -56,7 +63,7 @@ count as supported feasible routes.
 | 2 | Schema/source/license contract, 10 drafts, ≥5 boundary contracts; stable segment, role, capability evidence and external-reference conventions. / 规则来源许可、10草稿、至少5边界契约及四类扩展约定；本周已交付。 |
 | 3 | Offline condition/date/explanation kernel; scope and missing values first; execute boundary fixtures; `eligible` preserves unknown carrier acceptance. Delivered; public drafts remain unsupported. / 离线条件日期解释；先分类与缺失，再比较；执行边界案例，规则通过不改变未知运力。本周已交付，公开草稿保持未覆盖。 |
 | 4 | Delivered: two CN draft candidates and an executed infeasible example; road/rail/air-ground preview; printable handover location/window and pending roles. Dated products remain unverified. / 已交付两组国内草稿候选与执行反例、道路铁路陆空预览、可打印交接地点窗口及待安排角色；日期限定能力待核。 |
-| 5 | CA/NY/TX overlays, distinct actual carrier products, two small-city examples and bilingual web; owner-accompanied vehicles differ from unaccompanied carriers. / 美国目标州、实际承运产品、小城案例及双语网页；同行车与独行运输分开，配送产品不能补活体段。 |
+| 5 | Delivered as research: precise CA/NY/TX inventory, distinct cabin/baggage/cargo scopes, three small-city examples and local bilingual web; parcel first/last legs rejected. Full policies, NY source access and hosted static build remain pending. / 已交付研究清单、客舱行李货运区分、三组小城例子与双语本机网页；配送首末段被拒绝。完整复核、NY来源恢复和纯静态托管待完成。 |
 | 6 | EU common framework, DE/FR/NL overlays, 2026 certificate versions and domestic/cross-member cases; owner-not-moving classification counterexample. / 欧盟共同框架、德法荷、证书版本及跨成员国案例；主人不移动时另分类。 |
 | 7 | Independent CN→US/EU dog/cat timelines and entry points; owner timing, issuance/endorsement, carrying/delivery responsibility and appointment windows. / 中国出境两方向独立核查犬猫、主人时间、签发背书、原件携带交付与预约窗口。 |
 | 8 | Independent US/EU→CN chains; itemized unknown costs and neutral directory with listing/capability/external-confirmation distinction. / 反向中国文件链、未知费用及中立名录；分清收录、能力证据、实际外部确认。 |

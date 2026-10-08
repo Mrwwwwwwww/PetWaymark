@@ -6,7 +6,7 @@
 
 PetWaymark 是纯公益开源项目，主要目的是帮助宠物主人，与任何商业品牌无关。项目本身免费开放；任何合规服务商都可平等通过开放接口接入，项目不经营、不收单、不偏向任何商家。后续服务对接／跳转到服务商自有渠道，合规、隐私与动物福利要求始终保留。
 
-**当前为第 4 周离线国内研究预览：两组中国候选图及可打印交接清单，已验证可行线路为零。** 道路／铁路／陆空候选均未覆盖、不排名，实际仓位、班次和价格未知。首版拟面向单只自有犬猫、个人非商业移动；分别识别用途、所有权变化、陪同方式和主人旅行日期。服务犬采用独立复核分支。
+**当前为第5周双语本机网页与中美国内研究预览：CA／NY／TX清单、三组美国小城接驳，已验证可行线路为零。** 道路／铁路／陆空候选均未覆盖、不排名，实际仓位、班次和价格未知。首版拟面向单只自有犬猫、个人非商业移动；分别识别用途、所有权变化、陪同方式和主人旅行日期。服务犬采用独立复核分支。
 
 计划输出路线备选、证件时间轴、费用分项、交接清单以及可追溯官方依据的解释。未知规则不能变成允许。内核状态为 `eligible`（满足已核实条件）、`conditional`（需补件或确认）、`ineligible`（明确阻塞）、`unsupported`（必要规则未覆盖）；任何状态都不代表已订舱或实际承运确认。
 
@@ -22,8 +22,14 @@ python3 -m venv .venv
 .venv/bin/python -m packages.cli tests/fixtures/boundaries/boundary.unknown-carrier.json --assessment-at 2026-10-08
 .venv/bin/python -m packages.cli tests/fixtures/domestic/owner.json --corridor dom.cn.east --assessment-at 2026-10-08 --format checklist --language zh-CN
 .venv/bin/python -m unittest discover -s tests -v
+.venv/bin/python -m apps.web.server --port 8766
 ```
 
+打开`http://127.0.0.1:8766`使用匿名本机网页，Ctrl+C停止。未宣称已托管纯静态站点。
+CA／TX来源已读待独立复核，NY现行官方正文本次不可读；12条约束均为草稿。
+
+- [美国候选与本机网页](docs/zh/us-web-preview.md) · [English](docs/en/us-web-preview.md)
+- [第5周来源与缺口](docs/research/week5/README.md) · [本机网页取舍](docs/decisions/0005-local-bilingual-web.md)
 - [国内预览与打印清单](docs/zh/domestic-preview.md) · [English](docs/en/domestic-preview.md)
 - [第4周来源与缺口](docs/research/week4/README.md) · [候选图决定](docs/decisions/0004-domestic-preview.md)
 - [离线内核与 CLI](docs/zh/offline-engine.md) · [English](docs/en/offline-engine.md)

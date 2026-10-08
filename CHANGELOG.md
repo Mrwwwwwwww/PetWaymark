@@ -1,5 +1,26 @@
 # Changelog / 变更记录
 
+## Unreleased — Week 5 / 未发布：第5周
+
+- Add CA/NY/TX reading inventory, six source catalog entries (five readable, NY
+  unavailable) and two partial draft diagnostics. No human approval is claimed.
+- Add three independently scoped US small-city graph examples, distinct passenger
+  cabin/baggage and unaccompanied animal carrier/cargo products; reject parcel
+  first/last legs and whole paths with reported refusals or missed handovers.
+- Keep CDC import history outside US domestic classification; do not execute
+  international-import rules for a known same-region domestic journey.
+- Add a loopback-only bilingual web with shared Python kernel, preserved inputs,
+  redacted JSON export and printable pending handovers. Native browser regression
+  fixes form Origin/referrer and language-control name collisions; mobile, print,
+  no external requests and bilingual parity checks accompany 94 Python tests in CI.
+- All twelve rules remain drafts; verified routes, interviews, voluntary feedback
+  and independent adoption remain zero. A hosted static-only build is deferred;
+  no live inventory, service connection, invitation, order flow or release tag.
+
+第5周新增州查阅清单、6来源条目（5可读／NY不可读）、2部分草稿、3组美国图例与双语本机网页；
+同行车辆／客舱／行李／独行活体货运分开，配送不能补首末段。累计94项Python测试，另有真实浏览器回归。
+12规则均草稿，正式复核与已验证路线零；静态托管顺延，无外联、下单或release。
+
 ## Unreleased — Week 4 / 未发布：第 4 周
 
 - Add two sourced CN domestic research graphs, strict draft-only graph schema and

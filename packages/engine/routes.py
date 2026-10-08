@@ -107,7 +107,10 @@ def preview(profile, graph, *, corridor_id, assessment_at, rules=(), overlays=No
         result['reason_codes'].append('us_state_packages_unreviewed')
     if gaps:
         return result  # no route construction before classification is resolved
-    for route in paths(graph, corridor['origin_node'], corridor['destination_node']):
+    corridor_graph = ({**graph, 'segments': [s for s in graph['segments']
+                      if s['segment_id'] in corridor['segment_ids']]}
+                      if 'segment_ids' in corridor else graph)
+    for route in paths(corridor_graph, corridor['origin_node'], corridor['destination_node']):
         rows, blockers, route_gaps = [], [], set()
         for leg in route:
             product = leg['product']
