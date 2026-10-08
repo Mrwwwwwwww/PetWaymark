@@ -1,0 +1,178 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "enum": [
+        "0.1.0"
+      ]
+    },
+    "id": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "synthetic": {
+      "const": true
+    },
+    "description": {
+      "$ref": "common.schema.json#/$defs/text"
+    },
+    "rule_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/id"
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "input": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "species": {
+          "enum": [
+            "dog",
+            "cat"
+          ]
+        },
+        "origin": {
+          "enum": [
+            "CN",
+            "US",
+            "EU"
+          ]
+        },
+        "destination": {
+          "enum": [
+            "CN",
+            "US",
+            "EU"
+          ]
+        },
+        "birth_date": {
+          "$ref": "common.schema.json#/$defs/nullableDate"
+        },
+        "entry_at": {
+          "$ref": "common.schema.json#/$defs/nullableDate"
+        },
+        "owner_entry_at": {
+          "$ref": "common.schema.json#/$defs/nullableDate"
+        },
+        "travel_history_branch": {
+          "enum": [
+            "only_low_risk_6_months",
+            "high_risk_in_6_months",
+            "unknown"
+          ]
+        },
+        "accompaniment": {
+          "enum": [
+            "owner",
+            "authorized_person",
+            "unaccompanied",
+            "unknown"
+          ]
+        },
+        "purpose": {
+          "enum": [
+            "relocation",
+            "holiday",
+            "boarding_without_owner_travel",
+            "unknown"
+          ]
+        },
+        "certificate_model": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "certificate_issued_at": {
+          "$ref": "common.schema.json#/$defs/nullableDate"
+        },
+        "carrier_acceptance": {
+          "enum": [
+            "unknown",
+            "externally_confirmed",
+            "declined"
+          ]
+        },
+        "microchip_present": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "species",
+        "origin",
+        "destination"
+      ]
+    },
+    "expected": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "phase": {
+          "enum": [
+            "week3_engine_target"
+          ]
+        },
+        "status": {
+          "enum": [
+            "conditional",
+            "ineligible",
+            "unsupported"
+          ]
+        },
+        "reason_codes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "not_applicable_rule_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/id"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "notes": {
+          "$ref": "common.schema.json#/$defs/text"
+        }
+      },
+      "required": [
+        "phase",
+        "status",
+        "reason_codes",
+        "not_applicable_rule_ids",
+        "notes"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "synthetic",
+    "description",
+    "rule_ids",
+    "input",
+    "expected"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://petwaymark.org/schemas/0.1.0/boundary-case.schema.json"
+}

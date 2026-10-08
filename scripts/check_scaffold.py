@@ -112,7 +112,8 @@ def main():
               f'{ident}: accompaniment cases missing')
         check(bool(row.get('missing')) and bool(row.get('source_ids')), f'{ident}: missing research gaps or sources')
         check(set(row.get('source_ids', [])) <= source_ids, f'{ident}: unresolved source reference')
-    check(not list((ROOT / 'data/rules').rglob('*.json')), 'Week 1 must not contain executable rule records')
+    # Week 1 coverage is preserved as a research snapshot. Week 2 rule records
+    # are validated separately by validate_data.py, not by this integrity check.
 
     # Check inline Markdown file targets; skip original third-party snapshots.
     link_count = 0

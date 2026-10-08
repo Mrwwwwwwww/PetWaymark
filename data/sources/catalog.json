@@ -1,0 +1,105 @@
+{
+  "schema_version": "0.1.0",
+  "sources": [
+    {
+      "id": "cn.gacc.2019-5",
+      "authority": "CN-GACC",
+      "publisher": "Ministry of Commerce, republication of GACC announcement",
+      "kind": "government",
+      "url": "https://www.mofcom.gov.cn/zcfb/zgdwjjmywg/art/2019/art_71739ec848d14deca4ec330fad835774.html",
+      "title": {
+        "en": "GACC Announcement 2019 No. 5",
+        "zh-CN": "海关总署2019年第5号公告"
+      },
+      "language": "zh-CN",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "read_pending_review",
+      "license_boundary": {
+        "en": "Link and original project summary only; official text retains its own rights.",
+        "zh-CN": "仅提供链接和项目原创整理；官方原文保留自身权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Current scope, annexes and supersession need qualified human review.",
+          "zh-CN": "现行范围、附件及替代关系待合格人工复核。"
+        }
+      ]
+    },
+    {
+      "id": "us.cdc.low-risk",
+      "authority": "US-CDC",
+      "publisher": "Centers for Disease Control and Prevention",
+      "kind": "government",
+      "url": "https://www.cdc.gov/importation/dogs/rabies-free-low-risk-countries.html",
+      "title": {
+        "en": "Dogs from rabies-free or low-risk countries",
+        "zh-CN": "犬：无犬狂犬病／低风险国家入境条件"
+      },
+      "language": "en",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "read_pending_review",
+      "license_boundary": {
+        "en": "Link and original project summary only; official text retains its own rights.",
+        "zh-CN": "仅提供链接和项目原创整理；官方原文保留自身权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Current scope, annexes and supersession need qualified human review.",
+          "zh-CN": "现行范围、附件及替代关系待合格人工复核。"
+        }
+      ]
+    },
+    {
+      "id": "us.cdc.animals",
+      "authority": "US-CDC",
+      "publisher": "Centers for Disease Control and Prevention",
+      "kind": "government",
+      "url": "https://www.cdc.gov/importation/bringing-an-animal-into-the-us/index.html",
+      "title": {
+        "en": "Bringing an animal into the US",
+        "zh-CN": "动物入境美国说明"
+      },
+      "language": "en",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "read_pending_review",
+      "license_boundary": {
+        "en": "Link and original project summary only; official text retains its own rights.",
+        "zh-CN": "仅提供链接和项目原创整理；官方原文保留自身权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Current scope, annexes and supersession need qualified human review.",
+          "zh-CN": "现行范围、附件及替代关系待合格人工复核。"
+        }
+      ]
+    },
+    {
+      "id": "eu.ec.non-eu",
+      "authority": "EU-EC",
+      "publisher": "European Commission, DG SANTE",
+      "kind": "government",
+      "url": "https://food.ec.europa.eu/animals/live-animal-movements/dogs-cats-and-ferrets/bringing-pet-eu-non-eu-country_en",
+      "title": {
+        "en": "Non-commercial pet movement from non-EU countries",
+        "zh-CN": "第三国宠物非商业进入欧盟"
+      },
+      "language": "en",
+      "accessed_at": "2026-10-08",
+      "access_method": "browser_read",
+      "status": "read_pending_review",
+      "license_boundary": {
+        "en": "Link and original project summary only; official text retains its own rights.",
+        "zh-CN": "仅提供链接和项目原创整理；官方原文保留自身权利。"
+      },
+      "pending_checks": [
+        {
+          "en": "Current scope, annexes and supersession need qualified human review.",
+          "zh-CN": "现行范围、附件及替代关系待合格人工复核。"
+        }
+      ]
+    }
+  ]
+}

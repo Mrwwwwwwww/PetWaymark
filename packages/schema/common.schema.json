@@ -1,0 +1,447 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://petwaymark.org/schemas/0.1.0/common.schema.json",
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]*(?:[.-][a-z0-9]+)+$"
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "nullableDate": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "text": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "en": {
+          "type": "string",
+          "minLength": 1
+        },
+        "zh-CN": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "en",
+        "zh-CN"
+      ]
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https://"
+    },
+    "requirement": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "field": {
+              "enum": [
+                "pet.microchip_present",
+                "pet.universal_scanner_readable",
+                "pet.appears_healthy_on_arrival",
+                "documents.cdc_receipt_present",
+                "documents.official_health_certificate_valid",
+                "documents.rabies_certificate_valid"
+              ]
+            },
+            "operator": {
+              "enum": [
+                "equals"
+              ]
+            },
+            "value": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "field",
+            "operator",
+            "value"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "field": {
+              "enum": [
+                "journey.pets_per_person"
+              ]
+            },
+            "operator": {
+              "enum": [
+                "at_most"
+              ]
+            },
+            "value": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "field",
+            "operator",
+            "value"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "field": {
+              "enum": [
+                "pet.birth_date"
+              ]
+            },
+            "operator": {
+              "enum": [
+                "calendar_age_at_least"
+              ]
+            },
+            "value": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "unit": {
+              "enum": [
+                "month",
+                "week"
+              ]
+            },
+            "anchor": {
+              "enum": [
+                "journey.entry_at",
+                "events.rabies_vaccination_at"
+              ]
+            }
+          },
+          "required": [
+            "field",
+            "operator",
+            "value",
+            "unit",
+            "anchor"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "field": {
+              "enum": [
+                "events.identification_at"
+              ]
+            },
+            "operator": {
+              "enum": [
+                "on_or_before"
+              ]
+            },
+            "other_field": {
+              "enum": [
+                "events.rabies_vaccination_at"
+              ]
+            }
+          },
+          "required": [
+            "field",
+            "operator",
+            "other_field"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "field": {
+              "enum": [
+                "events.primary_protocol_completed_at"
+              ]
+            },
+            "operator": {
+              "enum": [
+                "elapsed_at_least"
+              ]
+            },
+            "value": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "unit": {
+              "enum": [
+                "day"
+              ]
+            },
+            "anchor": {
+              "enum": [
+                "journey.entry_at"
+              ]
+            }
+          },
+          "required": [
+            "field",
+            "operator",
+            "value",
+            "unit",
+            "anchor"
+          ]
+        }
+      ]
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "origin": {
+          "enum": [
+            "CN",
+            "US",
+            "EU",
+            "any_non_eu",
+            "any"
+          ]
+        },
+        "destination": {
+          "enum": [
+            "CN",
+            "US",
+            "EU"
+          ]
+        },
+        "subdivisions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "species": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "dog",
+              "cat"
+            ]
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "transport_modes": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "cabin",
+              "checked_baggage",
+              "manifest_cargo",
+              "road",
+              "rail"
+            ]
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "movement_category": {
+          "enum": [
+            "carried_entry",
+            "non_commercial_pet",
+            "all_imports"
+          ]
+        },
+        "accompaniment": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "owner",
+              "authorized_person",
+              "unaccompanied"
+            ]
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "travel_history_branch": {
+          "enum": [
+            "only_low_risk_6_months",
+            "any",
+            "pending_classification"
+          ]
+        },
+        "vaccination_branch": {
+          "enum": [
+            "primary",
+            "any"
+          ]
+        },
+        "exclusions": {
+          "$ref": "common.schema.json#/$defs/text"
+        }
+      },
+      "required": [
+        "origin",
+        "destination",
+        "subdivisions",
+        "species",
+        "transport_modes",
+        "movement_category",
+        "accompaniment",
+        "travel_history_branch",
+        "vaccination_branch",
+        "exclusions"
+      ]
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "source_id": {
+          "$ref": "common.schema.json#/$defs/id"
+        },
+        "url": {
+          "$ref": "common.schema.json#/$defs/url"
+        },
+        "locator": {
+          "type": "string",
+          "minLength": 1
+        },
+        "accessed_at": {
+          "type": "string",
+          "format": "date"
+        },
+        "language": {
+          "enum": [
+            "en",
+            "zh-CN"
+          ]
+        },
+        "summary": {
+          "$ref": "common.schema.json#/$defs/text"
+        },
+        "content_sha256": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "source_id",
+        "url",
+        "locator",
+        "accessed_at",
+        "language",
+        "summary",
+        "content_sha256"
+      ]
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "enum": [
+            "draft",
+            "verified",
+            "stale",
+            "disputed",
+            "retired"
+          ]
+        },
+        "last_verified_at": {
+          "$ref": "common.schema.json#/$defs/nullableDate"
+        },
+        "review_due_at": {
+          "$ref": "common.schema.json#/$defs/nullableDate"
+        },
+        "reviewed_by": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "role": {
+                "enum": [
+                  "human_domain_reviewer"
+                ]
+              },
+              "reviewed_at": {
+                "type": "string",
+                "format": "date"
+              }
+            },
+            "required": [
+              "id",
+              "role",
+              "reviewed_at"
+            ]
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "status",
+        "last_verified_at",
+        "review_due_at",
+        "reviewed_by"
+      ]
+    },
+    "exception": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "common.schema.json#/$defs/id"
+        },
+        "scope_note": {
+          "$ref": "common.schema.json#/$defs/text"
+        },
+        "source_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/id"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "disposition": {
+          "enum": [
+            "needs_confirmation"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "scope_note",
+        "source_ids",
+        "disposition"
+      ]
+    }
+  }
+}

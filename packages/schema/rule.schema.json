@@ -1,0 +1,188 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "enum": [
+        "0.1.0"
+      ]
+    },
+    "id": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "record_class": {
+      "enum": [
+        "law",
+        "official_guidance",
+        "carrier_policy",
+        "project_interpretation"
+      ]
+    },
+    "authority": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scope": {
+      "$ref": "common.schema.json#/$defs/scope"
+    },
+    "validity": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "effective_from": {
+          "$ref": "common.schema.json#/$defs/nullableDate"
+        },
+        "effective_to": {
+          "$ref": "common.schema.json#/$defs/nullableDate"
+        },
+        "applies_at": {
+          "enum": [
+            "entry_at",
+            "vaccination_at"
+          ]
+        }
+      },
+      "required": [
+        "effective_from",
+        "effective_to",
+        "applies_at"
+      ]
+    },
+    "requirement": {
+      "$ref": "common.schema.json#/$defs/requirement"
+    },
+    "on_fail": {
+      "enum": [
+        "block",
+        "needs_confirmation"
+      ]
+    },
+    "on_missing": {
+      "enum": [
+        "needs_confirmation"
+      ]
+    },
+    "exceptions": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/exception"
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "source_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/id"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/evidence"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "review": {
+      "$ref": "common.schema.json#/$defs/review"
+    },
+    "supersedes": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/id"
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "message": {
+      "$ref": "common.schema.json#/$defs/text"
+    },
+    "pending_checks": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/text"
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "license": {
+      "enum": [
+        "CC-BY-4.0"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "revision",
+    "record_class",
+    "authority",
+    "scope",
+    "validity",
+    "requirement",
+    "on_fail",
+    "on_missing",
+    "exceptions",
+    "source_ids",
+    "evidence",
+    "review",
+    "supersedes",
+    "message",
+    "pending_checks",
+    "license"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://petwaymark.org/schemas/0.1.0/rule.schema.json",
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "review": {
+            "properties": {
+              "status": {
+                "const": "verified"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "review": {
+            "properties": {
+              "last_verified_at": {
+                "type": "string",
+                "format": "date"
+              },
+              "review_due_at": {
+                "type": "string",
+                "format": "date"
+              },
+              "reviewed_by": {
+                "minItems": 2
+              }
+            }
+          },
+          "validity": {
+            "properties": {
+              "effective_from": {
+                "type": "string",
+                "format": "date"
+              }
+            }
+          },
+          "pending_checks": {
+            "maxItems": 0
+          }
+        }
+      }
+    }
+  ]
+}

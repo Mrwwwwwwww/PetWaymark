@@ -1,0 +1,99 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "enum": [
+        "0.1.0"
+      ]
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/id"
+          },
+          "authority": {
+            "type": "string",
+            "minLength": 1
+          },
+          "publisher": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "enum": [
+              "government",
+              "carrier",
+              "project"
+            ]
+          },
+          "url": {
+            "$ref": "common.schema.json#/$defs/url"
+          },
+          "title": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "language": {
+            "enum": [
+              "en",
+              "zh-CN"
+            ]
+          },
+          "accessed_at": {
+            "type": "string",
+            "format": "date"
+          },
+          "access_method": {
+            "enum": [
+              "browser_read"
+            ]
+          },
+          "status": {
+            "enum": [
+              "read_pending_review",
+              "unavailable",
+              "disputed"
+            ]
+          },
+          "license_boundary": {
+            "$ref": "common.schema.json#/$defs/text"
+          },
+          "pending_checks": {
+            "type": "array",
+            "items": {
+              "$ref": "common.schema.json#/$defs/text"
+            },
+            "minItems": 0,
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "id",
+          "authority",
+          "publisher",
+          "kind",
+          "url",
+          "title",
+          "language",
+          "accessed_at",
+          "access_method",
+          "status",
+          "license_boundary",
+          "pending_checks"
+        ]
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "schema_version",
+    "sources"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://petwaymark.org/schemas/0.1.0/source-catalog.schema.json"
+}
