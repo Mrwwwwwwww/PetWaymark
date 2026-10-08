@@ -101,6 +101,8 @@ class RouteTests(unittest.TestCase):
         for group, field, value in (('pet', 'species', 'rabbit'), ('pet', 'service_animal', True),
                                     ('journey', 'ownership_transfer', True), ('journey', 'purpose', 'sale'),
                                     ('journey', 'origin', 'US'), ('journey', 'pets_per_person', 2),
+                                    ('pet', 'service_animal', None),
+                                    ('pet', 'service_animal', 'false'),
                                     ('journey', 'accompaniment', None)):
             p = deepcopy(self.owner)
             p[group][field] = value
@@ -207,3 +209,8 @@ class RouteTests(unittest.TestCase):
         self.assertEqual(run.returncode, 0, run.stderr)
         self.assertIn('pending arrangement', run.stdout)
         self.assertIn('segment_declined', run.stdout)
+        command[-1] = '2026-02-30'
+        run = subprocess.run(command, cwd=ROOT, capture_output=True, text=True)
+        self.assertEqual(run.returncode, 2)
+        self.assertEqual(run.stdout, '')
+        self.assertIn('FAIL:', run.stderr)

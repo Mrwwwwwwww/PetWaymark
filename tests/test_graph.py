@@ -47,6 +47,8 @@ class GraphTests(unittest.TestCase):
     def test_product_is_separate_from_mode(self):
         self.graph['segments'][0]['mode'] = 'rail'
         self.assertTrue(any('product/mode' in e for e in validate_graph(self.graph, self.sources)))
+        self.graph['segments'][0]['product'] = 'parcel_delivery'
+        self.assertFalse(self.schema.is_valid(self.graph))
 
     def test_private_order_fields_rejected(self):
         self.graph['segments'][0]['order_id'] = 'synthetic'

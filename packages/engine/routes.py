@@ -85,6 +85,8 @@ def preview(profile, graph, *, corridor_id, assessment_at):
     reasons, gaps = classify(classification_profile)
     if journey.get('origin') != 'CN' or journey.get('destination') != 'CN':
         gaps.append('domestic_cn_scope_only')
+    if profile.get('pet', {}).get('service_animal') is not False:
+        gaps.append('ordinary_pet_classification_unconfirmed')
     if journey.get('pets_per_person') != 1 or type(journey.get('pets_per_person')) is not int:
         gaps.append('single_pet_scope_unconfirmed')
     if journey.get('accompaniment') not in ('owner', 'authorized_person', 'unaccompanied'):

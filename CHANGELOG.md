@@ -1,5 +1,22 @@
 # Changelog / 变更记录
 
+## Unreleased — Week 4 / 未发布：第 4 周
+
+- Add two sourced CN domestic research graphs, strict draft-only graph schema and
+  per-segment evidence checks; eight new source readings, with dated capacity gaps.
+- Add deterministic road/rail/air-ground path previews, distinct accompanied and
+  unaccompanied products, and explicit driving/refusal/missed-transfer exclusions.
+- Add CN/EN printable handovers with stable segment IDs, approximate locations,
+  unresolved windows and pending escort/animal/document/recipient responsibilities.
+- Execute two domestic candidates, an infeasible synthetic example and graph/input/
+  privacy/identity regressions: 70 tests total. Rail physical limits stay diagnostic;
+  CN import rules are not applied domestically. No verified route, ranking, live
+  inventory, service connection, external invitation or release tag is added.
+
+第4周交付两组国内草稿图、8来源查阅、分段证据校验、道路铁路陆空预览及双语打印；
+稳定ID和待安排责任公开，拒收／无法自驾／错过接驳反例执行，累计70测试通过。
+国内规则完整性与日期限定收运仍未覆盖，已验证可行路线为零；未对外邀请或发布release。
+
 ## Unreleased — Week 3 / 未发布：第 3 周
 
 - Add a deterministic offline Python kernel and CLI: five expression shapes,
