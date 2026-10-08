@@ -1,0 +1,76 @@
+{
+  "recorded_at": "2026-10-09T03:45:39+08:00",
+  "period": "2026-10-08 to 2026-10-09 Asia/Shanghai; planning weeks, not elapsed calendar weeks",
+  "baseline_commit": "c6722c20749b5d59825be03e470008132d369c32",
+  "maintenance": [
+    {
+      "commit": "9965c85d8ac1677c46fb8c0f1ed227111a0ea79c",
+      "ci_url": "https://github.com/Mrwwwwwwww/PetWaymark/actions/runs/37782458293",
+      "conclusion": "success",
+      "kind": "maintainer-led software/research"
+    },
+    {
+      "commit": "c6722c20749b5d59825be03e470008132d369c32",
+      "ci_url": "https://github.com/Mrwwwwwwww/PetWaymark/actions/runs/37783577245",
+      "conclusion": "success",
+      "kind": "maintainer-led software/research"
+    }
+  ],
+  "synthetic_testing": {
+    "python_tests_at_baseline": 200,
+    "coverage_cases": 48,
+    "fixed_demo_examples": 22,
+    "independent_adoption": false
+  },
+  "maintainer_self_use": {
+    "kind": "local developer validation; not a real transported animal or independent user",
+    "human_hours": null,
+    "independent_adoption": false
+  },
+  "independent_adoption": {
+    "documented_count": 0,
+    "sample_size": 0,
+    "evidence": []
+  },
+  "voluntary_human_trials": {
+    "documented_count": 0,
+    "sample_size": 0,
+    "evidence": []
+  },
+  "independent_qualified_reviewers": 0,
+  "verified_feasible_routes": 0,
+  "rule_freshness": {
+    "rules": 15,
+    "draft": 15,
+    "verified": 0,
+    "last_verified_at_recorded": 0,
+    "review_due_at_recorded": 0
+  },
+  "downloads": {
+    "count": null,
+    "reason": "not measured; bots and CI not filtered"
+  },
+  "maintenance_cost": {
+    "actual_human_hours": null,
+    "actual_spend": null,
+    "reason": "not measured; no invented cost or calendar-week history",
+    "planning_hours_per_week": [
+      15,
+      20
+    ],
+    "extension_budget_hours_per_week": [
+      1.5,
+      2
+    ]
+  },
+  "T29": "Existing data/rules/cn, us, eu retained; no migration",
+  "open_gates": [
+    "T11 actual qualified independent review and full document chains",
+    "T66 two real qualified reviewers",
+    "No genuine feedback-to-fix loop exists"
+  ],
+  "issues": [
+    "https://github.com/Mrwwwwwwww/PetWaymark/issues/6",
+    "https://github.com/Mrwwwwwwww/PetWaymark/issues/9"
+  ]
+}

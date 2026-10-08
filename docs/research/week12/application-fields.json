@@ -1,0 +1,17 @@
+{
+  "First name": "",
+  "Last name": "",
+  "Email associated with ChatGPT account": "",
+  "GitHub username": "Mrwwwwwwww",
+  "GitHub repository URL": "https://github.com/Mrwwwwwwww/PetWaymark",
+  "Role": "Primary maintainer",
+  "Why does this repository qualify?": "PetWaymark is a free, neutral open-source dog/cat travel research tool with a deterministic offline engine, bilingual checklists and official-source draft evidence for six international directions. Code is Apache-2.0; curated data is CC BY 4.0. All 15 rules are drafts; verified routes and documented independent adoption are zero. Future reuse could reduce duplicated rule-checking work; no external integration is claimed.",
+  "Interest: Codex Security": "",
+  "Interest: API credits for my project": "",
+  "OpenAI Organization ID": "",
+  "How will you use API credits for your project?": "Proposed use: draft official-source change summaries, suggest regression cases and assist issue triage and release notes. A maintainer would review every output; AI would never verify legal rules or confirm travel. No API runtime dependency exists today. Organization ID, usage estimates and budget caps remain to be filled before submission.",
+  "Anything else we should know?": "v0.1.0 is a research preview. Public commits 9965c85 and c6722c2 have successful hosted CI; the baseline has 200 Python tests, 48 overlapping synthetic audit cases and 22 fixed bilingual demo examples. Week 12 separates maintenance, developer self-use, synthetic tests and independent adoption (0). Actual qualified independent review and voluntary trials remain missing. Planning weeks are task stages, not elapsed weeks. No booking, orders or live capacity.",
+  "Monthly independent users (evidence worksheet, not a form field)": "",
+  "Monthly downloads (evidence worksheet, not a form field)": "",
+  "Independent adoption / feedback links (evidence worksheet, not a form field)": ""
+}

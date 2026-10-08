@@ -1,5 +1,14 @@
 # Changelog / 变更记录
 
+## Unreleased — Week 12 / 未发布：第12周
+
+- Publish dated maintenance/adoption evidence, honest zero independent trials/adoption,
+  unmeasured human cost/downloads and a deferred A→B decision. Refresh anonymous
+  application fields without submitting; preserve existing regional rule directories.
+- P1 proceeds under the October 9 task authorization; T11/T66 remain unmet.
+
+第12周：维护、自用、合成与独立采用分列，零采用／真人试用；申请只备稿。
+
 ## Unreleased — Week 11 / 未发布：第11周
 
 - Deepen two existing CN small-city research chains across 18 graph segments,
