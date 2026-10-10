@@ -22,3 +22,9 @@ The Apache and Creative Commons license texts are included as license instrument
 ## GeoNames place slice (2026-10-10)
 
 GeoNames, https://www.geonames.org/ ; downloads: https://download.geonames.org/export/dump/ . Licensed CC BY 4.0, https://creativecommons.org/licenses/by/4.0/ . Readme retained in `licenses/GEONAMES-README.txt`. The small country/city/area slice is in `apps/pages/locations.json`, with original source rows and archive checksums. PetWaymark contributors added Chinese display names, selected records and mapped source administrative codes into the picker. This is not a government-verified or complete administrative database. Source data is supplied without warranty of accuracy, timeliness or completeness. See `apps/pages/LOCATIONS.md` for scope and gaps.
+
+## China province/prefecture names (2023 snapshot)
+
+Source: modood/Administrative-divisions-of-China, commit `c49d495b40ac73eb1a66f6eeae5f8fd10696f035`, https://github.com/modood/Administrative-divisions-of-China/tree/c49d495b40ac73eb1a66f6eeae5f8fd10696f035 . License declared by upstream: WTFPL 2.0, retained in `licenses/CHINA-ADMIN-WTFPL.txt`. Only `dist/provinces.json` and `dist/cities.json` are retained under `apps/pages/china-*.json`. Names/codes are factual extracts used to cross-check GeoNames display labels; source scope is 2023-06-30 and upstream has stopped updating. This is not a grant to reproduce underlying government website text or an assurance of current boundaries. Source URLs and hashes are in locations.json supplementaryInputs. Those snapshots retain their upstream license instead of the project's Apache or CC defaults.
+
+The v2 GeoNames slice expands to countryInfo, admin1CodesASCII, cities15000 and CN dumps. Source rows, source codes, attribution and original names are retained. Consult `apps/pages/LOCATIONS.md` for the exact selection and coverage limits.

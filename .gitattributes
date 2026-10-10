@@ -1,2 +1,5 @@
 # Preserve the downloaded license byte-for-byte, including its final blank line.
 licenses/CC-BY-4.0.txt whitespace=-blank-at-eof
+
+# Empty final TSV fields are significant in retained source rows.
+apps/pages/geonames-country-subset.tsv whitespace=-blank-at-eol

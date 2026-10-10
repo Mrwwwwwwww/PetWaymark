@@ -6,7 +6,7 @@ A free, open Chinese checklist for preparing questions before travelling with a 
 
 Open [the home page](apps/pages/index.html) directly in a browser. No runtime installation or server is needed. Select a dog/cat, origin and destination; missing cities can be entered manually and missing districts can be left blank. Copy/edit the enquiry text, return to edit or print the checklist. Nothing is sent on your behalf.
 
-The limited China/US/France place slice comes from GeoNames under CC BY 4.0. It is neither complete nor government-verified; [provenance and missing coverage](apps/pages/LOCATIONS.md). Place names never upgrade rule confidence. Inputs stay in URL fragments, potentially in browser history. Do not enter identity details. Without JavaScript only the fixed example is available.
+The place slice covers 250 countries/territories, first-level subdivisions and selected major cities from GeoNames under CC BY 4.0. Mainland prefecture names are cross-checked against an attributed 2023 snapshot. It is neither complete nor government-verified; [provenance and missing coverage](apps/pages/LOCATIONS.md). Place names never upgrade rule confidence. Trip inputs stay in URL fragments, potentially in browser history. Pet profiles are stored only in this browser, never uploaded, and can be deleted. The result follows four steps: route, supplies, documents and timing. Do not enter identity details. Without JavaScript only the fixed example is available.
 
 [Development and archived research](docs/development.md) · [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md).
 

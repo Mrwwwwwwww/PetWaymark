@@ -4,17 +4,54 @@
 <a class="back" id="edit" href="index.html">← 修改行程</a><p class="kicker" id="trip">示例：中国 / 上海市 / 徐汇区 → 中国 / 北京市 / 朝阳区 · 猫</p>
 <noscript><aside class="notice">当前是固定示例。你的输入未被分析；复制和打印按钮需要 JavaScript，也可手动复制或使用浏览器打印。</aside></noscript>
 <section class="panel decision"><span class="state yellow">未核实 · 仅供参考</span><h1>现在还不能判断<br>能不能带</h1><p>这条我们还没核实，请以官方为准。</p><p class="muted">目前核实可行路线为 0。这是一张询问清单，下面列的材料不一定都需要办。</p><a href="#official">先找官方入口 ↓</a></section>
-<section class="panel"><h2>先问清，再安排办理</h2><ol class="tasks">
-<li><div class="item-head"><h3>先问：这趟接不接收？</h3><span class="state red">缺少答复</span></div><p>问你准备乘坐的航空公司或铁路。说明日期、地点、品种、体重，确认哪些站点能办。红色表示缺少具体答复，不代表禁止运输。</p></li>
-<li><div class="item-head"><h3>再问：要哪些证件？</h3><span class="state yellow">待确认</span></div><p id="authority-help">向当地主管部门确认。中国国内可先找当地农业农村部门；跨境还要分别问出入境两端。</p><ul class="compact"><li>接种记录：需要哪些？日期有要求吗？</li><li>检疫或健康证明：是否需要？谁出具？在哪里申请？</li><li>运输申请、宠物箱：要提前申请吗？尺寸和品种有什么限制？</li><li id="cross-border">跨境另问：芯片、检测、出入境文件是否需要？有没有前后顺序或等待期？</li></ul><ul id="rule-questions" class="compact"></ul><p class="hint muted" id="rule-gap"></p><p class="muted hint">先找出已有接种记录，不要凭这张清单就去办证。</p></li>
-<li><div class="item-head"><h3>最后排时间：大概要多久？</h3><span class="state yellow">不能估算</span></div><p>目前不知道。拿到要求后，问清“受理后多久拿到”“要等多久才能出发”“证件到出发那天还有效吗”。我们没有核实办理时限。</p></li>
-</ol><div class="input-status"><span id="ready-state" class="state green">已填好</span><p id="ready">示例行程已填写。绿色只表示信息填好了，不表示能出行。</p></div>
-<p id="area-gap" class="notice" hidden>有地点是手填，或还没选到区 / 乡镇。清单仍可用来询问，但当地办理点和规定更需要核实；不要把城市要求套到乡镇。</p></section>
+<nav class="step-nav" aria-label="准备步骤"><a href="#route">1 路线</a><a href="#supplies">2 用品</a><a href="#quarantine">3 证件</a><a href="#timeline">4 时间线</a></nav>
+<section class="panel" id="route"><p class="kicker">第一步</p><h2>路线安排</h2>
+<label for="transport">运输方式</label><select id="transport"><option value="air">航空</option><option value="rail">铁路</option><option value="road">自驾 / 公路</option></select>
+<p id="route-advice">先向航司确认航线、日期、品种和宠物加箱总重是否接收，再安排订位。尚未核实具体航班或可行路线。</p>
+<button id="open-pet" type="button" class="secondary">填写宠物信息</button><p class="hint">品种、体重、年龄、绝育和免疫情况只保存在本机浏览器，不上传。共用设备用完可删除。</p><p id="pet-summary" class="muted"></p><ul id="pet-advice" class="compact"></ul>
+<div class="input-status"><span id="ready-state" class="state green">已填好</span><p id="ready"></p></div><p id="area-gap" class="notice" hidden>区 / 乡镇未填或地点为手填。办理点和当地规定仍需核实。</p></section>
+<section class="panel" id="supplies"><p class="kicker">第二步</p><h2>需要准备什么</h2><p class="hint muted">以下是通用建议。箱型、尺寸、附件和装箱方式需向承运方确认。</p><ul class="compact">
+<li>航空箱：让宠物能自然站立、转身、躺下。核对通风、门锁和底部防漏要求；具体尺寸以承运方答复为准。</li>
+<li>尿垫、挂碗、备用尿垫和清洁袋。挂碗要固定牢靠，饮水安排先问承运方。</li>
+<li>网兜、固定带：先确认是否需要、怎么使用，不能遮住通风口。</li>
+<li>可带主人旧衣物或熟悉的玩具。先确认允许放入，避免松散小件被吞食。</li>
+<li>提前让宠物适应箱子和陌生环境，逐步增加安静待箱的时间，减轻紧张。</li>
+<li>出发前的饮食饮水安排向兽医和承运方确认，不自行禁水或使用镇静药。</li>
+<li>证件原件和复印件、应急联系人、备用牵引绳。标签上只留必要联系方式。</li>
+<li>到达后先安排安静休息、饮水和排泄，观察状态；有异常及时联系兽医。</li></ul></section>
+<section class="panel" id="quarantine"><p class="kicker">第三步</p><h2 id="document-title">空运前的检疫证明</h2>
+<div id="cn-quarantine" hidden><p>中国内地出发选择空运时，应向所在地动物卫生监督机构申报检疫，准备《动物检疫合格证明》（常称“A证”）。证件名称、用途和航司验收要求须核对。</p>
+<p class="notice">经验信息，办理前向当地农业农村主管部门核实。以下经验中的日期不能直接套用到你的行程。</p>
+<ul class="compact"><li>备好疫苗本和狂犬病免疫证明，核对是否在有效保护期内。“接种日起 21 天后生效、一般 1 年内有效”是用户经验信息待核实；以疫苗记录及当地要求为准。</li>
+<li id="dog-antibody">用户经验说狗在部分地方要提供狂犬病抗体血清检测报告。官方对照：2023 年犬产地检疫规程已列入免疫抗体报告；不能仅按“部分地方”理解，先问清采样、报告和受认可机构要求。</li>
+<li>用户经验是到本人居住地管辖的检疫部门办理。官方规程要求向所在地动物卫生监督机构申报；宠物实际所在地、受理辖区和办理点须事先确认。</li>
+<li>用户经验：检疫证有效期通常 5 天。未核实为全国统一期限。核对证上调运有效期，按出证日、出发日和到达安排倒推；航班改期后重新确认。</li></ul>
+<p>官方对照：2023 年犬、猫产地检疫规程要求提前 3 天申报。申报与出证是两件事，不能把出发前约两天办证当成申报期限。</p>
+<p><a href="https://yyj.moa.gov.cn/tzgg/202304/t20230404_6424723.htm" target="_blank" rel="noopener noreferrer">农业农村部：2023 年检疫规程通知</a> · <a href="https://hbnysy.hubei.gov.cn/bmdt/ywdt/202409/t20240906_5328319.shtml" target="_blank" rel="noopener noreferrer">湖北省农业事业发展中心：犬、猫规程全文</a></p><small>2026-10-10 查阅。以上对照不等于当地受理条件已核实，以当地主管部门为准。</small>
+<h3>出发城市检测点</h3><p id="testing-point"></p><p class="hint">先向出发地农业农村主管部门询问受认可检测机构、报告要求和预约方式。地址与联系方式补齐并核实前，不据此出行。</p></div>
+<p id="foreign-quarantine" hidden>这条路线的检疫或健康证明要求尚未收录。请向出发地动物卫生主管部门和承运方确认；跨境还需向目的地主管部门确认入境文件及检测要求。办理点、地址、电话：待补充。</p>
+<p id="authority-help"></p><ul id="rule-questions" class="compact"></ul><p id="rule-gap" class="hint muted"></p><p id="cross-border" hidden>跨境另问：芯片、检测、出入境文件、旅行史、中转地要求和等待期。材料顺序确认后再办理。</p></section>
+<section class="panel" id="timeline"><p class="kicker">第四步</p><h2>整体流程与时间安排</h2><ol class="tasks">
+<li>确定行程。联系承运方确认接收条件、订位时机、交接地点及退改规则，得到明确答复后再订。</li>
+<li>购入必备用品。按承运方答复选箱，提前练习入箱。</li>
+<li id="timeline-authority">提前联系出发地主管部门，确认当地政策、受理辖区、申报时机和办理点。</li>
+<li>准备材料。把接种、检测、申报和证件有效期放在同一份日历里，逐项确认。</li>
+<li id="timeline-certificate">按主管部门答复申报、办理证明，核对出证日和出发日。</li>
+<li>出发前再次确认天气、高温限运、航班变化和机场交接手续。准备应急联系人；不符合要求可能拒运，退改责任先问清。</li>
+<li>到达后检查宠物状态、核对交接手续并安顿。返程另查，去程证明和政策不一定适用。</li></ol><p class="hint muted">天气、机场交接、返程及退改风险是通用提醒。具体限制待承运方和主管部门答复，没有核实的价格或办理时长。</p></section>
 <section class="panel" id="official"><h2>去哪里问</h2><p id="source-context">以下是国内行程的官方查询入口，未确认适用于这趟行程。</p><ul class="source-list" id="source-list"><li><a href="https://xmsyj.moa.gov.cn/gzdt/202209/t20220909_6408945.htm" target="_blank" rel="noopener noreferrer">农业农村部：动物检疫管理办法 ↗</a><br><small>具体材料、办理点和现行适用性待确认。</small></li><li><a href="https://www.12306.cn/index/" target="_blank" rel="noopener noreferrer">中国铁路 12306 ↗</a><br><small>如乘铁路，在站内搜索“宠物托运”，询问站点、日期和接收条件。</small></li></ul>
 <p class="muted hint">坐飞机：在你准备乘坐的航空公司官网搜索“宠物运输”，找公开客服入口。这里不推荐承运方。</p><p class="muted hint">链接打不开：从机构官网搜页面标题，或找其公开咨询入口。记录答复日期、机构和链接；没拿到明确答复的项目仍记为“待确认”。</p></section>
 <section class="panel"><h2>把这段话拿去问</h2><label for="questions" class="muted hint">可以修改；页面不会代你发送</label><textarea id="questions" rows="6">我准备从上海市徐汇区到北京市朝阳区，带一只猫。品种____，体重____公斤，出发日期____，乘坐方式____。请问这趟能否接收？需要哪些证件、在哪里办理、先办哪项？受理后多久拿到，有没有等待期，证件到出发那天还有效吗？方便给我官方说明链接吗？</textarea><div id="print-questions" class="print-only"></div><button id="copy" type="button" class="secondary">复制询问清单</button><p id="copy-status" role="status" class="muted hint"></p></section>
 <details id="sources"><summary>数据来源与可信度</summary><p id="data-version"></p><p>现有规则仍是待核实草稿，独立人工复核未完成。查阅页面不等于核实这趟行程；国家资料不能代替城市和乡镇要求。</p>
 <div id="rule-provenance"></div>
-<p>地名基础：<a href="https://www.geonames.org/">GeoNames</a>，<a href="https://download.geonames.org/export/dump/">公开下载</a>，<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>。本地切片增加中文显示名并按源行政编码映射父级；未完成官方行政区划逐项复核，地名不保证完整、准确或及时。区乡镇缺失时不会猜测隶属。</p><p id="location-provenance"></p>
-<p>代码 / 文档：Apache-2.0。规则整理：PetWaymark contributors，CC BY 4.0；第三方原文保留原权利。没有账户、上传或分析脚本，行程只存在页面链接的片段中，不填姓名、详细地址和证件号码。</p></details>
-<button id="print" type="button" class="secondary">打印 / 存为 PDF</button><footer>免费公益开源 · 示例 · 未核实 · 仅供参考<br>打印时请保留这些标记。</footer></main></body></html>
+<p>地名基础：<a href="https://www.geonames.org/">GeoNames</a>，<a href="https://download.geonames.org/export/dump/">公开下载</a>，<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>。本地切片增加中文显示名并按源行政编码映射父级；未完成官方行政区划逐项复核，地名不保证完整、准确或及时。区乡镇缺失时不会猜测隶属。</p><p id="location-provenance"></p><p id="china-location-source">中国省市名称另参考 <a href="https://github.com/modood/Administrative-divisions-of-China/tree/c49d495b40ac73eb1a66f6eeae5f8fd10696f035">modood 的 2023 年省市快照</a>（WTFPL 2.0）。上游已停止更新；仅用于地名校对，不是现行政策或政府逐项复核。</p>
+<p>代码 / 文档：Apache-2.0。规则整理：PetWaymark contributors，CC BY 4.0；第三方原文保留原权利。没有账户、上传或分析脚本。宠物信息保存于本机浏览器；行程存在页面链接的片段中，不填姓名、详细地址和证件号码。</p></details>
+<button id="print" type="button" class="secondary">打印 / 存为 PDF</button><footer>免费公益开源 · 示例 · 未核实 · 仅供参考<br>打印时请保留这些标记。</footer></main>
+<dialog id="pet-dialog" aria-labelledby="pet-title"><div class="sheet"><div class="sheet-head"><h2 id="pet-title">填写宠物信息</h2><button type="button" id="close-pet" class="text-button">取消</button></div><p class="hint">只保存在本机浏览器，不上传。不要填写姓名、地址或证件号码。</p>
+<form id="pet-form"><label for="breed">品种</label><input id="breed" maxlength="60" placeholder="不清楚可留空">
+<label for="weight">体重（公斤）</label><input id="weight" type="number" min="0.1" max="200" step="0.1">
+<label for="age">年龄（月）</label><input id="age" type="number" min="0" max="600" step="1">
+<label for="neutered">是否绝育</label><select id="neutered"><option value="unknown">不清楚</option><option value="yes">是</option><option value="no">否</option></select>
+<label for="immunity">狂犬病免疫情况</label><select id="immunity"><option value="unknown">需核对记录</option><option value="current">记录显示在有效期内</option><option value="none">未接种 / 已过期</option></select>
+<label for="shortnose">是否短鼻犬 / 猫</label><select id="shortnose"><option value="unknown">不清楚</option><option value="yes">是</option><option value="no">否</option></select><p class="hint">不知道是否短鼻，向兽医和航司确认。页面不会按品种自动推断。</p>
+<button type="submit">保存并调整清单</button><button type="button" id="delete-pet" class="secondary">删除本机宠物信息</button><p id="pet-storage-status" role="status"></p></form></div></dialog></body></html>

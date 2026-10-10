@@ -40,6 +40,7 @@ def payload(root=ROOT):
             })
     return {'dataVersion': json.loads((root / 'data/VERSION.json').read_text())['dataset_version'],
             'builtAt': '2026-10-10', 'verifiedRoutes': 0,
+            'testingPoints': json.loads((root / 'apps/pages/testing-points.json').read_text()),
             'locations': json.loads((root / 'apps/pages/locations.json').read_text()), 'rules': records}
 
 

@@ -25,8 +25,11 @@ Browser checks use Playwright as development tooling only:
 npm --prefix /tmp/petwaymark-browser install --no-save --no-package-lock playwright@1.64.0
 /tmp/petwaymark-browser/node_modules/.bin/playwright install chromium
 NODE_PATH=/tmp/petwaymark-browser/node_modules node tests/pages_smoke.cjs
+NODE_PATH=/tmp/petwaymark-browser/node_modules node tests/pages_v2_smoke.cjs
 ```
 
 The legacy research form can still be started with `python -m apps.web.server --port 8766`; `tests/browser_smoke.cjs` tests it. It is not needed for the owner page. CLI examples and rule scope notes remain in the research archive.
 
 Regenerate the checked-in offline data with `python scripts/build_pages.py --write-source` after reviewing rule or place changes. Build output uses only an allowlist of page files and data; no research cases, provider data or issue submission code is copied. The builder removes only the retired generated `examples.js`, `demo.js` and `correction.js` files in its output. Other generated data packages in `dist/` remain available to offline-reuse tests.
+
+The v2 importer uses `--global-places` with local GeoNames dumps plus the committed, licensed 2023 China name snapshots. See `apps/pages/LOCATIONS.md`. Pet profiles use browser localStorage per species and can be deleted from the pet form. They are not part of the trip fragment or sent to a service. The v2 browser check covers province filtering, associated countries only, local profile persistence and refusal, and mobile screenshots.

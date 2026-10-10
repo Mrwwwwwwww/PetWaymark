@@ -63,7 +63,9 @@ jobs:
         if: matrix.python-version == '3.13'
         env:
           NODE_PATH: ${{ runner.temp }}/petwaymark-browser/node_modules
-        run: node tests/pages_smoke.cjs
+        run: |
+          node tests/pages_smoke.cjs
+          node tests/pages_v2_smoke.cjs
       - uses: actions/upload-pages-artifact@v3
         if: github.event_name == 'push' && github.ref == 'refs/heads/main' && matrix.python-version == '3.13'
         with:
