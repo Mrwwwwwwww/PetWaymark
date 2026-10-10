@@ -53,10 +53,13 @@ jobs:
           node tests/browser_smoke.cjs
       - name: Verify independent data version
         run: python scripts/package_data.py --check
-      - name: Build static bilingual demo
+      - name: Build static mobile checklist
         if: matrix.python-version == '3.13'
-        run: python scripts/build_demo.py
-      - name: Verify static demo in a browser
+        run: python scripts/build_pages.py --check
+      - name: Build offline pages
+        if: matrix.python-version == '3.13'
+        run: python scripts/build_pages.py
+      - name: Verify mobile checklist and unknown branches
         if: matrix.python-version == '3.13'
         env:
           NODE_PATH: ${{ runner.temp }}/petwaymark-browser/node_modules
@@ -76,6 +79,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy validated demo to GitHub Pages
+      - name: Deploy validated pages to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

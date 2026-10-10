@@ -1,81 +1,17 @@
 # PetWaymark · 宠途路标
 
-[在线双语演示 / Bilingual demo](https://mrwwwwwwww.github.io/PetWaymark/) · [v0.1.0](https://github.com/Mrwwwwwwww/PetWaymark/releases/tag/v0.1.0) · [发布范围 / Release scope](docs/releases/v0.1.0.md)
+选宠物、出发地和目的地，整理带它出门前要问的问题。
 
-[Maintenance / 维护证据](docs/research/week12/README.md) · [Offline reuse / 离线复用](examples/offline/README.md)
+**目前核实可行路线为 0。所有清单均为示例，未核实，请以官方为准。** 清单告诉你先问承运方是否接收，再问主管部门材料，拿到要求后问受理时间、等待期和有效期。不能据此判断能不能带，也不提供价格、车次、航班或品牌下单。
 
-[English](README.md)
+直接用浏览器打开 [首页](apps/pages/index.html)，无需安装依赖或启动服务。首页只有宠物、出发地和目的地三个框；狗猫可选。地点按国家、城市、区乡镇选择，没收录的地方可以手填，区乡镇不清楚可以只选城市。返回修改会保留已确认输入。结果可复制、打印，页面不会代发咨询。
 
-面向中国、美国和欧盟犬猫出行的中英双语开源规划项目，重点解决小城接驳、陆路／铁路／航空联运、证件时间轴与交接信息缺口。
+地名仅覆盖中国、美国、法国的少量地点，来自 GeoNames 公开下载，保留 CC BY 4.0 署名及源 ID。它不是官方完整行政区划库；父级按源编码映射，尚未完成政府逐项复核。详见 [来源、许可及缺失范围](apps/pages/LOCATIONS.md)。地名能选中不代表运输规则覆盖。
 
-PetWaymark 是纯公益开源项目，主要目的是帮助宠物主人，与任何商业品牌无关。项目本身免费开放；任何合规服务商都可平等通过开放接口接入，项目不经营、不收单、不偏向任何商家。后续服务对接／跳转到服务商自有渠道，合规、隐私与动物福利要求始终保留。
+不需要账户，不上传或存储输入。行程在页面 URL 片段中，可留在浏览历史；请勿填写姓名、详细地址和证件号码。关闭 JavaScript 时只能阅读固定示例。
 
-**v0.1.0 早期研究预览：规则均为待核草稿，核实可行路线为0；非订舱、非接单，无实时运力或报价。** 六个国际方向分别有犬猫合成案例，48例执行审计通过。线上仅展示固定合成样例；本地网页接受匿名自填输入。独立人工复核和真实用户试用仍未完成。
+[开发与研究说明](docs/development.md) · [贡献](CONTRIBUTING.md) · [安全](SECURITY.md) · [English](README.md)
 
-计划输出路线备选、证件时间轴、费用分项、交接清单以及可追溯官方依据的解释。未知规则不能变成允许。内核状态为 `eligible`（满足已核实条件）、`conditional`（需补件或确认）、`ineligible`（明确阻塞）、`unsupported`（必要规则未覆盖）；任何状态都不代表已订舱或实际承运确认。
+代码与文档：[Apache-2.0](LICENSE)。自有规则整理：[CC BY 4.0](LICENSE-DATA)。地名：GeoNames，CC BY 4.0；中文显示名及切片修改：PetWaymark contributors。官方原文和其他第三方资料保留原权利，见 [第三方归属](THIRD_PARTY_NOTICES.md)。
 
-## 本地阅读与检查
-
-阅读无需账号或模型密钥。用 Python 3.11+ 检查骨架和规则契约，首次安装开发依赖：
-
-```sh
-python3 -m venv .venv
-.venv/bin/python -m pip install -r requirements-dev.txt
-.venv/bin/python scripts/check_scaffold.py
-.venv/bin/python scripts/validate_data.py
-.venv/bin/python -m packages.cli tests/fixtures/boundaries/boundary.unknown-carrier.json --assessment-at 2026-10-08
-.venv/bin/python -m packages.cli tests/fixtures/domestic/owner.json --corridor dom.cn.east --assessment-at 2026-10-08 --format checklist --language zh-CN
-.venv/bin/python -m packages.cli tests/fixtures/eu/cross-member.json --eu-preview --assessment-at 2026-10-08 --format checklist --language zh-CN
-.venv/bin/python -m packages.cli tests/fixtures/outbound/cn-us-dog.json --outbound-preview --assessment-at 2026-10-08 --format checklist --language zh-CN
-.venv/bin/python -m unittest discover -s tests -v
-.venv/bin/python -m apps.web.server --port 8766
-```
-
-打开`http://127.0.0.1:8766`使用匿名本机网页，Ctrl+C停止。线上演示为内核预生成的固定合成样例，可切换中英、打印及导出；不在线计算自填行程。
-CA／TX来源已读待独立复核，NY现行官方正文本次不可读；15条约束均为草稿。欧盟框架与德法荷仅部分查阅，其余24国本地叠加未研究。
-
-- [中国出境时间轴预览](docs/zh/cn-outbound-preview.md) · [English](docs/en/cn-outbound-preview.md)
-- [第7周来源与未完成项](docs/research/week7/README.md)
-- [欧盟证据预览](docs/zh/eu-preview.md) · [English](docs/en/eu-preview.md)
-- [第6周来源与附件缺口](docs/research/week6/README.md) · [欧盟范围取舍](docs/decisions/0006-eu-evidence-preview.md)
-- [美国候选与本机网页](docs/zh/us-web-preview.md) · [English](docs/en/us-web-preview.md)
-- [第5周来源与缺口](docs/research/week5/README.md) · [本机网页取舍](docs/decisions/0005-local-bilingual-web.md)
-- [国内预览与打印清单](docs/zh/domestic-preview.md) · [English](docs/en/domestic-preview.md)
-- [第4周来源与缺口](docs/research/week4/README.md) · [候选图决定](docs/decisions/0004-domestic-preview.md)
-- [离线内核与 CLI](docs/zh/offline-engine.md) · [English](docs/en/offline-engine.md)
-- [第 3 周官方来源查阅](docs/research/week3/README.md) · [日期与信任策略](docs/decisions/0003-offline-evaluation.md)
-- [路线图 / Roadmap](ROADMAP.md) · [变更记录](CHANGELOG.md)
-- [规则与来源契约](docs/zh/rule-contract.md) · [English](docs/en/rule-contract.md)
-- [规则草稿清单](data/rules/README.md) · [第 2 周查阅记录](docs/research/week2/README.md)
-- [规划扩展约定](docs/decisions/0002-planning-extension-contract.md)
-- [走廊候选与未覆盖边界](docs/zh/corridors.md)、[机器可读覆盖清单](data/coverage/week1-candidates.json)
-- [Petra 复用决定与字段映射](docs/decisions/0001-petra-reuse.md)
-- [名称与域名重查](docs/zh/name-check.md)
-- 访谈准备：[中文](docs/zh/interviews.md) · [English](docs/en/interviews.md)
-- [研究证据与快照](docs/research/week1/README.md)
-- [贡献指南](CONTRIBUTING.md)、[治理](GOVERNANCE.md)、[行为准则](CODE_OF_CONDUCT.md)、[安全](SECURITY.md)
-
-## 目录
-
-| 目录 | 规划用途 |
-|---|---|
-| `apps/web` | 双语演示、打印 |
-| `packages/schema`、`engine`、`cli`、`mcp` | 数据契约、确定性内核、本地工具、后续只读接口 |
-| `data/rules/{cn,us,eu,carriers}` | 版本化规则维护源；正式发布须人工复核 |
-| `data/{sources,airports,corridors,providers,coverage}` | 来源、设施、走廊、中立名录、覆盖缺口 |
-| `tests/{fixtures,regression}` | 合成边界契约及后续内核回归 |
-| `docs/{zh,en,decisions}`、`scripts`、`.github` | 文档、决定、校验与贡献模板 |
-
-中国↔美国、中国↔欧盟、美国↔欧盟的六个方向独立验收。欧盟首批深核德国、法国、荷兰。所有候选当前均为 `unsupported`；研究清单中的机场代码不能证明航线或宠物产品可用。尚未接入实时价格、航班或宠物位。
-
-## 许可
-
-自有代码与文档采用 [Apache-2.0](LICENSE)；`data/` 下自有整理数据采用 [CC BY 4.0](LICENSE-DATA)，详见[范围说明](data/README.md)。Petra 研究快照保留原 CC BY 4.0 许可与[第三方归属](THIRD_PARTY_NOTICES.md)。官方原文、商标及第三方数据库不因此获得本项目再许可。
-
-第 1 周未创建外部仓库、账号、软件包或域名。
-
-第8周：[美国／欧盟→中国文件、费用及名录](docs/zh/cn-inbound-preview.md) · [English](docs/en/cn-inbound-preview.md)。所有结果仍为研究草稿、未覆盖，已验证路线0。
-
-第9周：[美欧双向文件与返程](docs/zh/us-eu-preview.md) · [English](docs/en/us-eu-preview.md)；[48执行案例及六方向矩阵](data/coverage/week9-matrix.md)。六方向犬猫基线均未覆盖，已验证可行路线0。
-
-第11周：[两条小城逐段研究、铁路产品冲突与地面资质缺口](docs/research/week11/README.md)。两条均未覆盖，核实可行路线仍为0。
+这是本地分支的改版实现，尚未发布，独立规则复核和三位真实养宠人的试用仍待完成。

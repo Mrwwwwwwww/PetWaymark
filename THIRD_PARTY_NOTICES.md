@@ -18,3 +18,7 @@
 IANA bootstrap data in `docs/research/week1/iana-rdap-bootstrap.json` is a research snapshot from https://data.iana.org/rdap/dns.json; its source terms remain applicable. It is excluded from PetWaymark's license grants. Registry responses and official-page metadata are evidence, not project-licensed copies of the underlying registry databases or official texts. No registrant personal information is retained.
 
 The Apache and Creative Commons license texts are included as license instruments, not relicensed project content. No OSM, OurAirports, commercial customer records or provider database has been imported. If introduced later, record their specific license and provenance before distribution.
+
+## GeoNames place slice (2026-10-10)
+
+GeoNames, https://www.geonames.org/ ; downloads: https://download.geonames.org/export/dump/ . Licensed CC BY 4.0, https://creativecommons.org/licenses/by/4.0/ . Readme retained in `licenses/GEONAMES-README.txt`. The small country/city/area slice is in `apps/pages/locations.json`, with original source rows and archive checksums. PetWaymark contributors added Chinese display names, selected records and mapped source administrative codes into the picker. This is not a government-verified or complete administrative database. Source data is supplied without warranty of accuracy, timeliness or completeness. See `apps/pages/LOCATIONS.md` for scope and gaps.

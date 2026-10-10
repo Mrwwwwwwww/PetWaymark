@@ -1,0 +1,551 @@
+{
+  "version": "2026-10-10-geonames-slice.1",
+  "retrievedAt": "2026-10-10",
+  "attribution": "GeoNames; Chinese labels and slice mapping by PetWaymark contributors",
+  "license": "CC-BY-4.0",
+  "licenseURL": "https://creativecommons.org/licenses/by/4.0/",
+  "documentationURL": "https://download.geonames.org/export/dump/readme.txt",
+  "archives": {
+    "CN": {
+      "url": "https://download.geonames.org/export/dump/CN.zip",
+      "sha256": "09dd67aaac8f6f9920a08eb8f2a61d8203aec96160053be9c658a4ed329a1916"
+    },
+    "US": {
+      "url": "https://download.geonames.org/export/dump/US.zip",
+      "sha256": "06775ef2f48a8e80ced51afb160aedc9aafc6d0fdc7e770506e8e4bae61140b2"
+    },
+    "FR": {
+      "url": "https://download.geonames.org/export/dump/FR.zip",
+      "sha256": "445925f91500f4996ebf15db51279094d966944ff43b7c01deb71ebce8b9d519"
+    }
+  },
+  "auxiliaryInputs": {
+    "countryInfo.txt": {
+      "url": "https://download.geonames.org/export/dump/countryInfo.txt",
+      "sha256": "c5997ea659df5bcf42509eb937064d172b2a998bb873608603e8421d714a9974"
+    },
+    "readme.txt": {
+      "url": "https://download.geonames.org/export/dump/readme.txt",
+      "sha256": "b1957379b6c1242c700c98ac9a8aa0a09f56c3c0a50ee72175527005f48ef2c5"
+    }
+  },
+  "countries": {
+    "CN": {
+      "name": "中国",
+      "id": "1814991",
+      "originalName": "China",
+      "cities": [
+        {
+          "id": "1796236",
+          "name": "上海市",
+          "originalName": "Shanghai",
+          "type": "PPLA",
+          "adminCodes": [
+            "23",
+            "12324204",
+            "",
+            ""
+          ],
+          "modifiedAt": "2026-08-26",
+          "sourceURL": "https://www.geonames.org/1796236/",
+          "license": "CC-BY-4.0",
+          "review": "source_codes_only_not_government_verified",
+          "parents": [
+            {
+              "id": "1796231",
+              "name": "Shanghai Shi",
+              "originalName": "Shanghai Shi",
+              "type": "ADM1",
+              "adminCodes": [
+                "23",
+                "",
+                "",
+                ""
+              ],
+              "modifiedAt": "2026-04-16",
+              "sourceURL": "https://www.geonames.org/1796231/",
+              "license": "CC-BY-4.0",
+              "review": "source_codes_only_not_government_verified"
+            },
+            {
+              "id": "12324204",
+              "name": "Shanghai Municipality",
+              "originalName": "Shanghai Municipality",
+              "type": "ADM2",
+              "adminCodes": [
+                "23",
+                "12324204",
+                "",
+                ""
+              ],
+              "modifiedAt": "2021-09-19",
+              "sourceURL": "https://www.geonames.org/12324204/",
+              "license": "CC-BY-4.0",
+              "review": "source_codes_only_not_government_verified"
+            }
+          ],
+          "areas": [
+            {
+              "id": "1787956",
+              "name": "徐汇区",
+              "originalName": "Xuhui Qu",
+              "type": "ADM3",
+              "adminCodes": [
+                "23",
+                "12324204",
+                "1787956",
+                ""
+              ],
+              "modifiedAt": "2024-02-16",
+              "sourceURL": "https://www.geonames.org/1787956/",
+              "license": "CC-BY-4.0",
+              "review": "source_codes_only_not_government_verified",
+              "parents": [
+                {
+                  "id": "1796231",
+                  "name": "Shanghai Shi",
+                  "originalName": "Shanghai Shi",
+                  "type": "ADM1",
+                  "adminCodes": [
+                    "23",
+                    "",
+                    "",
+                    ""
+                  ],
+                  "modifiedAt": "2026-04-16",
+                  "sourceURL": "https://www.geonames.org/1796231/",
+                  "license": "CC-BY-4.0",
+                  "review": "source_codes_only_not_government_verified"
+                },
+                {
+                  "id": "12324204",
+                  "name": "Shanghai Municipality",
+                  "originalName": "Shanghai Municipality",
+                  "type": "ADM2",
+                  "adminCodes": [
+                    "23",
+                    "12324204",
+                    "",
+                    ""
+                  ],
+                  "modifiedAt": "2021-09-19",
+                  "sourceURL": "https://www.geonames.org/12324204/",
+                  "license": "CC-BY-4.0",
+                  "review": "source_codes_only_not_government_verified"
+                },
+                {
+                  "id": "1796236",
+                  "name": "上海市"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1816670",
+          "name": "北京市",
+          "originalName": "Beijing",
+          "type": "PPLC",
+          "adminCodes": [
+            "22",
+            "11876380",
+            "",
+            ""
+          ],
+          "modifiedAt": "2025-12-15",
+          "sourceURL": "https://www.geonames.org/1816670/",
+          "license": "CC-BY-4.0",
+          "review": "source_codes_only_not_government_verified",
+          "parents": [
+            {
+              "id": "2038349",
+              "name": "Beijing Shi",
+              "originalName": "Beijing Shi",
+              "type": "ADM1",
+              "adminCodes": [
+                "22",
+                "",
+                "",
+                ""
+              ],
+              "modifiedAt": "2026-04-16",
+              "sourceURL": "https://www.geonames.org/2038349/",
+              "license": "CC-BY-4.0",
+              "review": "source_codes_only_not_government_verified"
+            },
+            {
+              "id": "11876380",
+              "name": "Beijing",
+              "originalName": "Beijing",
+              "type": "ADM2",
+              "adminCodes": [
+                "22",
+                "11876380",
+                "",
+                ""
+              ],
+              "modifiedAt": "2018-06-07",
+              "sourceURL": "https://www.geonames.org/11876380/",
+              "license": "CC-BY-4.0",
+              "review": "source_codes_only_not_government_verified"
+            }
+          ],
+          "areas": [
+            {
+              "id": "1815402",
+              "name": "朝阳区",
+              "originalName": "Chaoyang Qu",
+              "type": "ADM3",
+              "adminCodes": [
+                "22",
+                "11876380",
+                "1815402",
+                ""
+              ],
+              "modifiedAt": "2024-05-13",
+              "sourceURL": "https://www.geonames.org/1815402/",
+              "license": "CC-BY-4.0",
+              "review": "source_codes_only_not_government_verified",
+              "parents": [
+                {
+                  "id": "2038349",
+                  "name": "Beijing Shi",
+                  "originalName": "Beijing Shi",
+                  "type": "ADM1",
+                  "adminCodes": [
+                    "22",
+                    "",
+                    "",
+                    ""
+                  ],
+                  "modifiedAt": "2026-04-16",
+                  "sourceURL": "https://www.geonames.org/2038349/",
+                  "license": "CC-BY-4.0",
+                  "review": "source_codes_only_not_government_verified"
+                },
+                {
+                  "id": "11876380",
+                  "name": "Beijing",
+                  "originalName": "Beijing",
+                  "type": "ADM2",
+                  "adminCodes": [
+                    "22",
+                    "11876380",
+                    "",
+                    ""
+                  ],
+                  "modifiedAt": "2018-06-07",
+                  "sourceURL": "https://www.geonames.org/11876380/",
+                  "license": "CC-BY-4.0",
+                  "review": "source_codes_only_not_government_verified"
+                },
+                {
+                  "id": "1816670",
+                  "name": "北京市"
+                }
+              ]
+            },
+            {
+              "id": "1809103",
+              "name": "海淀区",
+              "originalName": "Haidian Qu",
+              "type": "ADM3",
+              "adminCodes": [
+                "22",
+                "11876380",
+                "1809103",
+                ""
+              ],
+              "modifiedAt": "2018-06-07",
+              "sourceURL": "https://www.geonames.org/1809103/",
+              "license": "CC-BY-4.0",
+              "review": "source_codes_only_not_government_verified",
+              "parents": [
+                {
+                  "id": "2038349",
+                  "name": "Beijing Shi",
+                  "originalName": "Beijing Shi",
+                  "type": "ADM1",
+                  "adminCodes": [
+                    "22",
+                    "",
+                    "",
+                    ""
+                  ],
+                  "modifiedAt": "2026-04-16",
+                  "sourceURL": "https://www.geonames.org/2038349/",
+                  "license": "CC-BY-4.0",
+                  "review": "source_codes_only_not_government_verified"
+                },
+                {
+                  "id": "11876380",
+                  "name": "Beijing",
+                  "originalName": "Beijing",
+                  "type": "ADM2",
+                  "adminCodes": [
+                    "22",
+                    "11876380",
+                    "",
+                    ""
+                  ],
+                  "modifiedAt": "2018-06-07",
+                  "sourceURL": "https://www.geonames.org/11876380/",
+                  "license": "CC-BY-4.0",
+                  "review": "source_codes_only_not_government_verified"
+                },
+                {
+                  "id": "1816670",
+                  "name": "北京市"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1806775",
+          "name": "黄山市（安徽省）",
+          "originalName": "Huangshan Shi",
+          "type": "ADM2",
+          "adminCodes": [
+            "01",
+            "3410",
+            "",
+            ""
+          ],
+          "modifiedAt": "2018-12-06",
+          "sourceURL": "https://www.geonames.org/1806775/",
+          "license": "CC-BY-4.0",
+          "review": "source_codes_only_not_government_verified",
+          "parents": [
+            {
+              "id": "1818058",
+              "name": "Anhui",
+              "originalName": "Anhui",
+              "type": "ADM1",
+              "adminCodes": [
+                "01",
+                "",
+                "",
+                ""
+              ],
+              "modifiedAt": "2026-04-16",
+              "sourceURL": "https://www.geonames.org/1818058/",
+              "license": "CC-BY-4.0",
+              "review": "source_codes_only_not_government_verified"
+            }
+          ],
+          "areas": [
+            {
+              "id": "1792358",
+              "name": "屯溪区",
+              "originalName": "Tunxi Qu",
+              "type": "ADM3",
+              "adminCodes": [
+                "01",
+                "3410",
+                "1792358",
+                ""
+              ],
+              "modifiedAt": "2024-02-18",
+              "sourceURL": "https://www.geonames.org/1792358/",
+              "license": "CC-BY-4.0",
+              "review": "source_codes_only_not_government_verified",
+              "parents": [
+                {
+                  "id": "1818058",
+                  "name": "Anhui",
+                  "originalName": "Anhui",
+                  "type": "ADM1",
+                  "adminCodes": [
+                    "01",
+                    "",
+                    "",
+                    ""
+                  ],
+                  "modifiedAt": "2026-04-16",
+                  "sourceURL": "https://www.geonames.org/1818058/",
+                  "license": "CC-BY-4.0",
+                  "review": "source_codes_only_not_government_verified"
+                },
+                {
+                  "id": "1806775",
+                  "name": "黄山市（安徽省）"
+                }
+              ]
+            },
+            {
+              "id": "1786429",
+              "name": "黟县（县）",
+              "originalName": "Yi Xian",
+              "type": "ADM3",
+              "adminCodes": [
+                "01",
+                "3410",
+                "1786429",
+                ""
+              ],
+              "modifiedAt": "2024-02-18",
+              "sourceURL": "https://www.geonames.org/1786429/",
+              "license": "CC-BY-4.0",
+              "review": "source_codes_only_not_government_verified",
+              "parents": [
+                {
+                  "id": "1818058",
+                  "name": "Anhui",
+                  "originalName": "Anhui",
+                  "type": "ADM1",
+                  "adminCodes": [
+                    "01",
+                    "",
+                    "",
+                    ""
+                  ],
+                  "modifiedAt": "2026-04-16",
+                  "sourceURL": "https://www.geonames.org/1818058/",
+                  "license": "CC-BY-4.0",
+                  "review": "source_codes_only_not_government_verified"
+                },
+                {
+                  "id": "1806775",
+                  "name": "黄山市（安徽省）"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "US": {
+      "name": "美国",
+      "id": "6252001",
+      "originalName": "United States",
+      "cities": [
+        {
+          "id": "5128581",
+          "name": "纽约市（纽约州）",
+          "originalName": "New York City",
+          "type": "PPL",
+          "adminCodes": [
+            "NY",
+            "",
+            "",
+            ""
+          ],
+          "modifiedAt": "2026-03-07",
+          "sourceURL": "https://www.geonames.org/5128581/",
+          "license": "CC-BY-4.0",
+          "review": "source_codes_only_not_government_verified",
+          "parents": [
+            {
+              "id": "5128638",
+              "name": "New York",
+              "originalName": "New York",
+              "type": "ADM1",
+              "adminCodes": [
+                "NY",
+                "",
+                "",
+                ""
+              ],
+              "modifiedAt": "2026-04-16",
+              "sourceURL": "https://www.geonames.org/5128638/",
+              "license": "CC-BY-4.0",
+              "review": "source_codes_only_not_government_verified"
+            }
+          ],
+          "areas": []
+        }
+      ]
+    },
+    "FR": {
+      "name": "法国",
+      "id": "3017382",
+      "originalName": "France",
+      "cities": [
+        {
+          "id": "2988507",
+          "name": "巴黎（法兰西岛）",
+          "originalName": "Paris",
+          "type": "PPLC",
+          "adminCodes": [
+            "11",
+            "75",
+            "751",
+            "75056"
+          ],
+          "modifiedAt": "2026-02-23",
+          "sourceURL": "https://www.geonames.org/2988507/",
+          "license": "CC-BY-4.0",
+          "review": "source_codes_only_not_government_verified",
+          "parents": [
+            {
+              "id": "3012874",
+              "name": "Île-de-France",
+              "originalName": "Île-de-France",
+              "type": "ADM1",
+              "adminCodes": [
+                "11",
+                "",
+                "",
+                ""
+              ],
+              "modifiedAt": "2026-04-16",
+              "sourceURL": "https://www.geonames.org/3012874/",
+              "license": "CC-BY-4.0",
+              "review": "source_codes_only_not_government_verified"
+            },
+            {
+              "id": "2968815",
+              "name": "Paris",
+              "originalName": "Paris",
+              "type": "ADM2",
+              "adminCodes": [
+                "11",
+                "75",
+                "",
+                ""
+              ],
+              "modifiedAt": "2026-08-12",
+              "sourceURL": "https://www.geonames.org/2968815/",
+              "license": "CC-BY-4.0",
+              "review": "source_codes_only_not_government_verified"
+            },
+            {
+              "id": "2988506",
+              "name": "Paris",
+              "originalName": "Paris",
+              "type": "ADM3",
+              "adminCodes": [
+                "11",
+                "75",
+                "751",
+                ""
+              ],
+              "modifiedAt": "2022-03-27",
+              "sourceURL": "https://www.geonames.org/2988506/",
+              "license": "CC-BY-4.0",
+              "review": "source_codes_only_not_government_verified"
+            },
+            {
+              "id": "6455259",
+              "name": "Paris",
+              "originalName": "Paris",
+              "type": "ADM4",
+              "adminCodes": [
+                "11",
+                "75",
+                "751",
+                "75056"
+              ],
+              "modifiedAt": "2019-03-23",
+              "sourceURL": "https://www.geonames.org/6455259/",
+              "license": "CC-BY-4.0",
+              "review": "source_codes_only_not_government_verified"
+            }
+          ],
+          "areas": []
+        }
+      ]
+    }
+  }
+}

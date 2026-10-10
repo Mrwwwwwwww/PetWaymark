@@ -1,10 +1,24 @@
 <!doctype html>
-<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PetWaymark · 宠途路标</title><link rel="stylesheet" href="style.css"><script defer src="examples.js"></script><script defer src="correction.js"></script><script defer src="demo.js"></script></head>
-<body><main><header><span class="eyebrow">PETWAYMARK / v0.1.0</span><button id="language" type="button">English</button></header>
-<h1 id="title">宠途路标</h1><p id="intro"></p><aside id="limits"></aside>
-<section class="controls"><label for="example" id="label"></label><select id="example"></select><button id="print" type="button"></button><button id="export" type="button"></button></section>
-<p id="version"></p><article aria-live="polite"><h2 id="heading"></h2><pre id="checklist"></pre></article>
-<div id="correction"></div>
-<details><summary id="json-label"></summary><pre id="json"></pre></details>
-<footer><a href="https://github.com/Mrwwwwwwww/PetWaymark" id="repo"></a> · <a href="https://github.com/Mrwwwwwwww/PetWaymark/blob/main/data/coverage/week9-matrix.md" id="coverage"></a><p id="privacy"></p><p>Code / 文档 Apache-2.0 · Curated data / 整理数据 CC BY 4.0</p></footer>
-<noscript>请启用 JavaScript 查看固定合成样例；源代码链接始终可用。 Enable JavaScript to view fixed synthetic examples.</noscript></main></body></html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>宠途路标 · 带它出门前</title><link rel="stylesheet" href="style.css"><script defer src="page-data.js"></script><script defer src="app.js"></script></head>
+<body><main><header><span class="brand">宠途路标</span><span class="tag">准备清单 · 示例</span></header>
+<div class="intro"><p class="kicker">带它出门前</p><h1>这趟出门，<br>它能一起去吗？</h1><p class="muted">选好地点，整理要问的问题和要准备的材料。</p></div>
+<aside class="notice">目前核实可行路线为 0。资料还没核实，不能据此判断能不能带。</aside>
+<form id="journey" class="panel"><h2>你们打算去哪儿？</h2>
+<div class="selection-area" aria-label="行程选择，共三个选择框">
+<button class="choice" id="pet" type="button" aria-haspopup="dialog"><span>01　宠物</span><strong id="pet-value">选狗或猫</strong><span aria-hidden="true">›</span></button>
+<button class="choice" id="origin" type="button" aria-haspopup="dialog"><span>02　出发地</span><strong id="origin-value">国家 → 城市 → 区 / 乡镇</strong><span aria-hidden="true">›</span></button>
+<button class="choice" id="destination" type="button" aria-haspopup="dialog"><span>03　目的地</span><strong id="destination-value">国家 → 城市 → 区 / 乡镇</strong><span aria-hidden="true">›</span></button>
+</div><p class="muted hint">地点仅收录少量城市，不代表这些地方能运输宠物。找不到小城或乡镇时，可以手动填写或只选到城市。</p>
+<p id="form-error" class="error" role="alert" hidden></p><button type="submit">看看要准备什么</button><small>无需账号。输入只用于本地整理清单；行程保留在本页链接中，请勿填写身份信息。</small></form>
+<noscript><aside class="notice">地点联动需要 JavaScript。<a href="result.html">阅读固定结果示例</a>；它不会分析你的行程。</aside></noscript>
+<footer>免费 · 公益 · 开源<br>行程未核实，请以官方为准。<br><small>地名：<a href="https://www.geonames.org/">GeoNames</a> · <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>；中文名及切片已修改，范围不完整。</small></footer></main>
+<dialog id="picker" aria-labelledby="picker-title"><div class="sheet"><div class="sheet-head"><h2 id="picker-title">选择地点</h2><button id="close-picker" type="button" class="text-button">取消</button></div>
+<p class="muted hint">地点仅有少量收录，不含完整行政区划</p>
+<div id="pet-options" hidden><button type="button" data-pet="dog" class="secondary">狗</button><button type="button" data-pet="cat" class="secondary">猫</button></div>
+<div id="place-options"><label for="country">国家</label><select id="country"><option value="">请选择国家</option><option value="CN">中国</option><option value="US">美国</option><option value="FR">法国</option></select>
+<div id="city-step" hidden><label for="city">城市</label><select id="city"></select></div>
+<div id="area-step" hidden><label for="area">区 / 乡镇</label><select id="area"></select></div>
+<div id="search-step" hidden><label for="place-search">搜索当前一级</label><input id="place-search" type="search" maxlength="60" autocomplete="off" placeholder="输入地名，筛选上面的选项"><p class="hint muted" id="search-status" role="status"></p></div>
+<div id="missing-step" hidden><details><summary>找不到小城或乡镇？</summary><p class="hint">可手动填地名，我们不会猜它属于哪里。只用于询问清单，不判断当地规定。</p><label for="manual-city">城市（不用填详细地址）</label><input id="manual-city" maxlength="60" autocomplete="off"><label for="manual-area">区 / 乡镇（可留空）</label><input id="manual-area" maxlength="60" autocomplete="off"><button id="use-manual" type="button" class="secondary">使用手填地点</button></details><button id="city-only" type="button" class="text-button" hidden>区 / 乡镇暂不清楚，只选到城市</button></div>
+<p id="picker-error" class="error" role="alert" hidden></p><button id="confirm-place" type="button" disabled>选好区 / 乡镇后确认</button></div></div></dialog>
+</body></html>
